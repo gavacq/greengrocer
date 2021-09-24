@@ -45,20 +45,20 @@ div.logo {
     align-items: center;
     justify-content: space-between;
     margin-right: 30px;
-  }
 
-  .desktop-menu-item {
-    margin-left: 27px;
-  }
+    #{&}-item {
+      margin-left: 27px;
 
-  .desktop-menu-item a {
-    font-family: "Fredoka One";
-    text-decoration: none;
-    color: $primary-green;
-    font-size: 1.3em;
-  }
+      a {
+        font-family: "Fredoka One";
+        text-decoration: none;
+        color: $primary-green;
+        font-size: 1.3em;
 
-  .desktop-menu-item a:hover {
-    color: $pink-hover;
+        &:hover {
+          color: $pink-hover;
+        }
+      }
+    }
   }
 }

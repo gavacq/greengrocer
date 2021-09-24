@@ -1,12 +1,18 @@
 // styles for home page / search page
 
+// -------------------------- variables ------------------------------- //
+$primary-green: #50AB74;
+$primary-white: white;
+$pink-hover: #E08E93;
+
+// -------------------------- styles ------------------------------- //
+
 h1 {
   font-size: 1.5em;
   margin-top: 3.4em;
   margin-bottom: 2em;
   letter-spacing: 1px;
 }
-
 
 p {
   font-size: 1.5em;
@@ -17,10 +23,6 @@ p {
   z-index: 1;
   max-width: 120px;
 }
-
-// .strawberry img:hover {
-//   /* rotate? */
-// }
 
 .search {
   z-index: 1;

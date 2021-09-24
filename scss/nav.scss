@@ -1,5 +1,14 @@
+// styles for navigation bar
+
+// -------------------------- variables ------------------------------- //
+$primary-green: #50AB74;
+$primary-white: white;
+$pink-hover: #E08E93;
+
+// -------------------------- styles ------------------------------- //
+
 .nav-container {
-  background: #FFFFFF;
+  background: $primary-white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   height: 100px;
   width: 100vw;
@@ -52,12 +61,12 @@ div.logo {
   .desktop-menu-item a {
     font-family: 'Fredoka One';
     text-decoration: none;
-    color: #50AB74;
+    color: $primary-green;
     font-size: 1.3em;
   }
 
   .desktop-menu-item a:hover {
-    color: #E08E93;
+    color: $pink-hover;
   }
   
 

@@ -1,3 +1,10 @@
+// -------------------------- variables ------------------------------- //
+$primary-green: #50AB74;
+$primary-white: white;
+$pink-hover: #E08E93;
+
+// -------------------------- styles ------------------------------- //
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,3 +23,12 @@ li {
   list-style-type: none;
 }
 
+.green {
+  background: $primary-green;
+  color: $primary-white;
+}
+
+.white {
+  background: $primary-white;
+  color: $primary-green;
+}

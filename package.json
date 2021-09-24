@@ -2,7 +2,7 @@
   "name": "greengrocer",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080",
+  "proxy": "http://localhost:8081",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -15,7 +15,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start-client": "react-scripts start",
+    "start": "npm run build && (cd server && npm start)",    
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -1,10 +1,12 @@
 const Express = require('express');
+const path = require("path");
 const App = Express();
-const PORT = 8080;
+const PORT = 8081;
 
 // Express Configuration
 App.use(Express.urlencoded({ extended: false }));
-// App.use(Express.json());
+App.use(Express.json());
+App.use(Express.static(path.join(__dirname, "..", "build")));
 App.use(Express.static('public'));
 
 // Sample GET route

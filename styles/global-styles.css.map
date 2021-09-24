@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,CAAC,CAAC;EACA,UAAU,EAAE,UAAU;EACtB,MAAM,EAAE,CAAC;EACT,UAAU,EAAE,MAAM;CACnB;;AAED,AAAA,IAAI,CAAC;EACH,WAAW,EAAE,mBAAmB;CACjC;;AAED,AAAA,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,CAAC;EACrB,WAAW,EAAE,sBAAsB;CACpC;;AAED,AAAA,EAAE,CAAC;EACD,eAAe,EAAE,IAAI;CACtB",
+    "sources": [
+        "../scss/global-styles.scss"
+    ],
+    "names": [],
+    "file": "global-styles.css"
+}

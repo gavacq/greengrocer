@@ -1,10 +1,5 @@
 // styles for navigation bar
 
-// -------------------------- variables ------------------------------- //
-$primary-green: #50AB74;
-$primary-white: white;
-$pink-hover: #E08E93;
-
 // -------------------------- styles ------------------------------- //
 
 .nav-container {
@@ -23,7 +18,7 @@ nav {
 }
 
 div.logo {
-  font-family: 'Fredoka One';
+  font-family: "Fredoka One";
   font-size: 3em;
 }
 
@@ -37,16 +32,14 @@ div.logo {
   display: none;
 }
 
-
 /* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
 
 @media screen and (min-width: 650px) {
-
   /* hamburger menu icon */
   .nav-btn-container img {
     display: none;
   }
-  
+
   .desktop-menu {
     display: flex;
     align-items: center;
@@ -59,7 +52,7 @@ div.logo {
   }
 
   .desktop-menu-item a {
-    font-family: 'Fredoka One';
+    font-family: "Fredoka One";
     text-decoration: none;
     color: $primary-green;
     font-size: 1.3em;
@@ -68,6 +61,4 @@ div.logo {
   .desktop-menu-item a:hover {
     color: $pink-hover;
   }
-  
-
 }

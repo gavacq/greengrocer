@@ -1,8 +1,3 @@
-// -------------------------- variables ------------------------------- //
-$primary-green: #50AB74;
-$primary-white: white;
-$pink-hover: #E08E93;
-
 // -------------------------- styles ------------------------------- //
 
 * {
@@ -12,11 +7,16 @@ $pink-hover: #E08E93;
 }
 
 body {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Fredoka One', cursive;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Fredoka One", cursive;
 }
 
 li {

@@ -18,7 +18,7 @@ CREATE TABLE lists (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   date_created TIMESTAMP NOT NULL, 
-  cO2_data FLOAT NOT NULL
+  co2_data FLOAT NOT NULL
 );
 
 
@@ -34,7 +34,7 @@ CREATE TABLE products (
   id SERIAL PRIMARY KEY NOT NULL,
   lat FLOAT NOT NULL,
   long FLOAT NOT NULL, 
-  cO2_data FLOAT NOT NULL
+  co2_data FLOAT NOT NULL
 );
 
 

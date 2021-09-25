@@ -10,7 +10,7 @@ CREATE TABLE users (
   username VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(60) NOT NULL,
-  date_joined TIMESTAMP NOT NULL
+  datetime TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 

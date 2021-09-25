@@ -47,3 +47,17 @@ INSERT INTO products (lat, long, co2_data)
 VALUES (15, 30, 609);
 
 
+-- Seeds for products_lists table
+
+INSERT INTO products_lists (product_id, list_id)
+VALUES (1, 1);
+
+INSERT INTO products_lists (product_id, list_id)
+VALUES (2, 1);
+
+INSERT INTO products_lists (product_id, list_id)
+VALUES (3, 3);
+
+INSERT INTO products_lists (product_id, list_id)
+VALUES (3, 1);
+

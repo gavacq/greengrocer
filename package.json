@@ -22,7 +22,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "./eslintrc.json",
+      "./.eslintrc.json",
       "react-app",
       "react-app/jest"
     ]

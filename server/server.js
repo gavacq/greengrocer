@@ -2,34 +2,24 @@ const Express = require("express");
 const path = require("path");
 const App = Express();
 const PORT = 8081;
+require("dotenv").config();
+const dbParams = require("./helpers/db-params");
 
 // PG database client/connection setup
-require("dotenv").config();
-const { Pool } = require("pg");
-let dbParams = {};
-if (process.env.DATABASE_URL) {
-  dbParams.connectionString = process.env.DATABASE_URL;
-} else {
-  dbParams = {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
-  };
-}
 
-console.log("dbParams", dbParams);
+const {Pool} = require("pg");
 
 // create new connection pool and connect to it
 const db = new Pool(dbParams);
 db.connect();
 
 // Express Configuration
-App.use(Express.urlencoded({ extended: false }));
+App.use(Express.urlencoded({extended: false}));
 App.use(Express.json());
 App.use(Express.static(path.join(__dirname, "..", "build")));
 App.use(Express.static("public"));
+
+console.log("params", dbParams);
 
 // Sample GET route
 App.get("/api/data", (req, res) => {

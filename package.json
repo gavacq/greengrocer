@@ -4,9 +4,6 @@
   "private": true,
   "proxy": "http://localhost:8081",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.4",
     "chalk": "^4.1.2",
     "dotenv": "^10.0.0",
@@ -23,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "db:reset": "node bin/resetdb.js"
+    "db:reset": "node bin/resetdb.js",
+    "lint": "node_modules/.bin/eslint ."
   },
   "eslintConfig": {
     "extends": [
@@ -43,5 +41,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.26.0",
+    "eslint-plugin-react-hooks": "^1.7.0"
   }
 }

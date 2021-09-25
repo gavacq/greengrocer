@@ -4,8 +4,8 @@ const App = Express();
 const PORT = 8081;
 
 // PG database client/connection setup
-require('dotenv').config();
-const { Pool } = require('pg');
+require("dotenv").config();
+const { Pool } = require("pg");
 let dbParams = {};
 if (process.env.DATABASE_URL) {
   dbParams.connectionString = process.env.DATABASE_URL;
@@ -19,10 +19,11 @@ if (process.env.DATABASE_URL) {
   };
 }
 
-console.log('dbParams', dbParams);
+console.log("dbParams", dbParams);
 
+// create new connection pool and connect to it
 const db = new Pool(dbParams);
-db.connect()
+db.connect();
 
 // Express Configuration
 App.use(Express.urlencoded({ extended: false }));
@@ -32,17 +33,17 @@ App.use(Express.static("public"));
 
 // Sample GET route
 App.get("/api/data", (req, res) => {
-  const queryString = "SELECT * FROM users"
-  db.query(queryString)
-  .then((data) => {
+  const queryString = "SELECT * FROM users";
+  db.query(queryString).then(data => {
     return res.json({
-    message: "Seems to work!",
-    data: data.rows
-  })})
+      message: "Seems to work!",
+      data: data.rows
+    });
+  });
 });
 
+// listen on the specified port
 App.listen(PORT, () => {
-  // eslint-disable-next-line no-console
   console.log(
     `Express seems to be listening on port ${PORT} so that's pretty good 👍`
   );

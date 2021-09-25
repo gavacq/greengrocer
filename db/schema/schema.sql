@@ -17,7 +17,7 @@ CREATE TABLE users (
 CREATE TABLE lists (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  date_created TIMESTAMP NOT NULL, 
+  date_created TIMESTAMP NOT NULL DEFAULT NOW(), 
   co2_data FLOAT NOT NULL
 );
 

@@ -2,10 +2,19 @@
 
 import { React } from 'react';
 import PropTypes from 'prop-types';
+import Product from '../Product';
 
 export default function SearchResults(props) {
   const { results } = props;
-  const jsxResults = results.map((result) => <p>{result.title}</p>);
+  console.log('results', results);
+  const jsxResults = results.map((result) => (
+    <Product
+      id={result.id}
+      image={result.image}
+      title={result.title}
+    />
+  ));
+
   return (
     <div>
       {jsxResults}
@@ -16,7 +25,8 @@ export default function SearchResults(props) {
 // results: PropTypes.arrayOf(PropTypes.shape({
 
 // }))
-// declare the prop type for the SearchBar component
+
+// declare the prop type for the SearchResults component
 SearchResults.propTypes = {
   results: PropTypes.array.isRequired, // eslint-disable-line
 };

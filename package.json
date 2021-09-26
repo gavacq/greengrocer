@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "npm run clean && concurrently \"cd server && npm start\" \"cd .. && npm start\"",
+    "dev": "npm run clean && concurrently \"cd server && npm start\" \"npm start\"",
     "prod": "npm run clean && npm run build && (cd server && npm start)",
     "build": "react-scripts build",
     "test": "react-scripts test",

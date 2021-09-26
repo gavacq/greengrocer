@@ -25,9 +25,16 @@ DB_PORT=portnumber
 ```
 
 ## running the app in development mode
-1. from the root directory: `npm run start-client`
-2. from the server directory: `npm run start`
+1. from the root directory: `npm run dev`
+
+logs coming from express are prefixed with [0] and logs from react are prefixed with [1]
+
 
 ## running the app in production mode
-1. from the root directory: `npm run start`
+1. from the root directory: `npm run prod`
+2. navigate to localhost:8081
+
+## to lint the entire repository
+1. run `npm run lint`
+
 

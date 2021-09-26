@@ -1,10 +1,11 @@
 const express = require('express');
+require('dotenv').config();
 
 const router = express.Router();
 const axios = require('axios');
 
 // helper: makes the request to spoonacular API
-const searchHelper = (productName) => axios.get(`https://api.spoonacular.com/food/products/search?query=${productName}&apiKey=f8dd3554d0444ddba0bdd8e8237f980d&includeNutrition=true`)
+const searchHelper = (productName) => axios.get(`https://api.spoonacular.com/food/products/search?query=${productName}&apiKey=${process.env.SPOONACULAR_API_KEY}&includeNutrition=true`)
   .then((res) => res.data)
   .catch((error) => error.message);
 

@@ -1,12 +1,10 @@
 const express = require('express');
 const path = require('path');
 
-
 // PG database client/connection setup
-require('dotenv').config();
 const { Pool } = require('pg');
 const dbParams = require('./helpers/db-params');
-const {searchRoute} = require('./routes/index');
+const { searchRoute } = require('./routes/index');
 
 // create new connection pool and connect to it
 const db = new Pool(dbParams);

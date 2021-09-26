@@ -7,7 +7,7 @@ export default function SearchBar() {
   const clickHandler = () => {
     console.log('inside clickHandler');
     // https://api.spoonacular.com/food/products/22347?apiKey=f8dd3554d0444ddba0bdd8e8237f980d&includeNutrition=true
-    axios.get('https://api.spoonacular.com/food/products/22347?apiKey=f8dd3554d0444ddba0bdd8e8237f980d&includeNutrition=true')
+    axios.get(`/api/search/?productName=${productName}`)
       .then((res) => console.log(res.data));
   };
 

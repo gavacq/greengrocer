@@ -10,7 +10,13 @@ export default function SearchBar(props) {
     console.log('inside clickHandler');
     axios.get(`/api/search/?productName=${productName}`)
       .then((res) => {
-        props.setResults(res.data.products);
+        // just setResults with id, title, and image
+        const results = res.data.products.map((product) => ({
+          id: product.id,
+          title: product.title,
+          image: product.image,
+        }));
+        props.setResults(results);
       });
 
     // .then((res) => console.log(res.data));

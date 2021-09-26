@@ -22,11 +22,11 @@ export default function SearchResults(props) {
   );
 }
 
-// results: PropTypes.arrayOf(PropTypes.shape({
-
-// }))
-
 // declare the prop type for the SearchResults component
 SearchResults.propTypes = {
-  results: PropTypes.array.isRequired, // eslint-disable-line
+  results: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    image: PropTypes.string,
+  })).isRequired,
 };

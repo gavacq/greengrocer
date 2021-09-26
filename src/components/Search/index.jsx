@@ -1,8 +1,12 @@
 import { React } from 'react';
 import SearchBar from './SearchBar';
+import SearchResults from './SearchResults';
 
 export default function Search() {
   return (
-    <SearchBar />
+    <section>
+      <SearchBar />
+      <SearchResults />
+    </section>
   );
 }

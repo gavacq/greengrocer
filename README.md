@@ -2,7 +2,8 @@
 Track your groceries' carbon footprint.
 
 ## 🔧 project setup 
-1. run `npm install` in the root directory AND in the server directory
+1. run `npm install` in the root directory
+2. run `npm install` in the server directory
 
 ## 🪄 linting setup
 Following Airbnb's react style guide:
@@ -10,10 +11,10 @@ Following Airbnb's react style guide:
 - https://medium.com/@Tunmise/set-up-eslint-with-airbnb-style-guide-in-5-minutes-d7b4cc5707f8
 - https://github.com/airbnb/javascript
 
-To lint the entire repository, run `npm run lint`.
+To lint the entire repository, run `npm run lint`
 
 
-## 🗄️ database setup
+## 💾 database setup
 1. with postgreSQL set up, create a database called greengrocer
 2. open postgreSQL interactive terminal (psql) inside the project's root directory
 3. run `\i db/schema/schema.sql` to create the tables 

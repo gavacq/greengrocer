@@ -1,26 +1,25 @@
-const Express = require('express');
+const express = require('express');
 const path = require('path');
 
-const App = Express();
-const PORT = 8081;
+// PG database client/connection setup
 require('dotenv').config();
 const { Pool } = require('pg');
 const dbParams = require('./helpers/db-params');
-
-// PG database client/connection setup
 
 // create new connection pool and connect to it
 const db = new Pool(dbParams);
 db.connect();
 
 // Express Configuration
-App.use(Express.urlencoded({ extended: false }));
-App.use(Express.json());
-App.use(Express.static(path.join(__dirname, '..', 'build')));
-App.use(Express.static('public'));
+const app = express();
+const PORT = 8081;
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, '..', 'build')));
+app.use(express.static('public'));
 
 // Sample GET route
-App.get('/api/data', (req, res) => {
+app.get('/api/data', (req, res) => {
   const queryString = 'SELECT * FROM users';
   db.query(queryString).then((data) => res.json({
     message: 'Seems to work!',
@@ -29,7 +28,7 @@ App.get('/api/data', (req, res) => {
 });
 
 // listen on the specified port
-App.listen(PORT, () => {
+app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(
     `Express seems to be listening on port ${PORT} so that's pretty good 👍`,

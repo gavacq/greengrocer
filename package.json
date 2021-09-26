@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "reset-db": "node server/scripts/reset-db.js",
+    "reset-db": "cd server && npm run reset-db",
     "lint": "node_modules/.bin/eslint ."
   },
   "eslintConfig": {

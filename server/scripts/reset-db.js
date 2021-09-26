@@ -22,9 +22,9 @@ const client = new Client();
 const runSchemaFiles = () => {
   // eslint-disable-next-line no-console
   console.log(chalk.cyan('-> Loading Schema Files ...'));
-  const schemaFilenames = fs.readdirSync('./server/db/schema');
+  const schemaFilenames = fs.readdirSync('./db/schema');
   schemaFilenames.forEach((fn) => {
-    const sql = fs.readFileSync(`./server/db/schema/${fn}`, 'utf8');
+    const sql = fs.readFileSync(`./db/schema/${fn}`, 'utf8');
     // eslint-disable-next-line no-console
     console.log(`\t-> Running ${chalk.green(fn)}`);
     client.querySync(sql);
@@ -34,10 +34,10 @@ const runSchemaFiles = () => {
 const runSeedFiles = () => {
   // eslint-disable-next-line no-console
   console.log(chalk.cyan('-> Loading Seeds ...'));
-  const schemaFilenames = fs.readdirSync('./server/db/seeds');
+  const schemaFilenames = fs.readdirSync('./db/seeds');
 
   schemaFilenames.forEach((fn) => {
-    const sql = fs.readFileSync(`./server/db/seeds/${fn}`, 'utf8');
+    const sql = fs.readFileSync(`./db/seeds/${fn}`, 'utf8');
     // eslint-disable-next-line no-console
     console.log(`\t-> Running ${chalk.green(fn)}`);
     client.querySync(sql);

@@ -2,6 +2,8 @@ import { React, useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
+import Search from './components/Search';
+
 // main react component, rendered by index.js
 function App() {
   const [helloWorld, sethelloWorld] = useState('');
@@ -19,6 +21,7 @@ function App() {
       <p>{helloWorld}</p>
       <p>groceryboiz !</p>
       <p>{users[0] && users[0].username}</p>
+      <Search />
     </div>
   );
 }

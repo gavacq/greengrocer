@@ -1,5 +1,5 @@
-const searchRoute = require('./search')
+const searchRoute = require('./search');
 
 module.exports = {
-  searchRoute
-}
+  searchRoute,
+};

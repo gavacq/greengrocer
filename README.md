@@ -1,4 +1,4 @@
-#🌍 GreenGrocer 🌍
+#GreenGrocer 🌍
 Track your groceries' carbon footprint.
 
 ## 🔧 project setup 

@@ -9,6 +9,7 @@ export default function SearchResults(props) {
   console.log('results', results);
   const jsxResults = results.map((result) => (
     <Product
+      key={result.id}
       id={result.id}
       image={result.image}
       title={result.title}

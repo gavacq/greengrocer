@@ -7,8 +7,8 @@ export default function Home() {
       <h1>
         Welcome to GreenGrocer.
       </h1>
-      <div className="icon strawberry">
-        <img src="images/strawberry.png" alt="strawberry icon" />
+      <div className="icon planet">
+        <img src="images/planet-earth.png" alt="planet icon" />
       </div>
       <div className="btn-wrapper">
         <form action="/lists">

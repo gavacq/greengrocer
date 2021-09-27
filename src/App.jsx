@@ -3,21 +3,23 @@ import { React } from 'react';
 // import axios from 'axios';
 import './App.css';
 
-import List from './components/List';
+import {
+  BrowserRouter as Router, Route,
+} from 'react-router-dom';
+import Lists from './components/Lists';
+import Stats from './components/Stats';
+import Nav from './components/Nav';
 
 // main react component, rendered by index.js
 function App() {
-  // useEffect(() => {
-  //   axios.get('api/data').then((res) => {
-  //     sethelloWorld(res.data.message);
-  //     setUsers(res.data.data);
-  //   });
-  // }, []);
-
   return (
-    <div className="App">
-      <List />
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <Route path="/lists" component={Lists} />
+        <Route path="/stats" component={Stats} />
+      </div>
+    </Router>
   );
 }
 

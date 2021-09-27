@@ -11,19 +11,19 @@ require('dotenv').config({ path: dotenvPath });
 // other dependencies
 const fs = require('fs');
 const chalk = require('chalk');
-const {Pool} = require('pg');
+const { Pool } = require('pg');
 const dbParams = require('../helpers/db-params');
 
 // PG connection setup
 const db = new Pool(dbParams);
 db.connect();
 
-const sql = fs.readFileSync('./db/schema/schema.sql', 'utf8');
+let sql = fs.readFileSync('./db/schema/schema.sql', 'utf8');
 db.query(sql)
   .then(() => {
-    const sql = fs.readFileSync('./db/seeds/seeds.sql', 'utf8');
-    return db.query(sql)
+    sql = fs.readFileSync('./db/seeds/seeds.sql', 'utf8');
+    return db.query(sql);
   })
-  .then(() => console.log(chalk.green("success!")))
+  .then(() => console.log(chalk.green('success!')))
   // eslint-disable-next-line no-console
-  .catch(() => console.error(chalk.red(`Failed due to error: ${err}`)));
+  .catch((err) => console.error(chalk.red(`Failed due to error: ${err}`)));

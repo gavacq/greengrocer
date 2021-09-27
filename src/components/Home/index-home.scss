@@ -12,3 +12,18 @@
   font-family: "Fredoka One";
   font-size: 30px;
 }
+
+form {
+  height: 60px;
+}
+
+.home-btn:hover {
+  background-color: #f1a7ac;
+  border: solid 4px #ca7e83;
+  color: #ffeced;
+}
+
+// click the button
+.home-btn:active {
+  transform: translateY(4px);
+}

@@ -4,11 +4,12 @@ import { React } from 'react';
 import './App.css';
 
 import {
-  BrowserRouter as Router, Route,
+  BrowserRouter as Router, Route, Switch,
 } from 'react-router-dom';
 import Lists from './components/Lists';
 import Stats from './components/Stats';
 import Nav from './components/Nav';
+import Home from './components/Home';
 
 // main react component, rendered by index.js
 function App() {
@@ -16,8 +17,11 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <Route path="/lists" component={Lists} />
-        <Route path="/stats" component={Stats} />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/lists" component={Lists} />
+          <Route path="/stats" component={Stats} />
+        </Switch>
       </div>
     </Router>
   );

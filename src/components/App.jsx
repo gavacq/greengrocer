@@ -15,15 +15,13 @@ import Home from './Home';
 function App() {
   return (
     <Router>
-      <div className="bg-test">
-        <div className="App">
-          <Nav />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/lists" component={Lists} />
-            <Route path="/stats" component={Stats} />
-          </Switch>
-        </div>
+      <div className="App">
+        <Nav />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/lists" component={Lists} />
+          <Route path="/stats" component={Stats} />
+        </Switch>
       </div>
     </Router>
   );

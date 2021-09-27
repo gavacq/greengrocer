@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "reset-db": "cd server && npm run reset-db",
-    "lint": "npm run clean && node_modules/.bin/eslint .",
+    "lint": "echo \"To fix, run 'npm run lint -- --fix'\" && npm run clean && node_modules/.bin/eslint . --ext .js,.jsx",
     "clean": "rm -rf build/"
   },
   "eslintConfig": {

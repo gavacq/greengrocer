@@ -1,3 +1,38 @@
-body {
-  background-color: pink;
+// import variables partial
+@import "../styles/variables";
+
+// -------------------------- main App component styles ------------------------------- //
+
+.green {
+  background: $primary-green;
+  color: $primary-white;
 }
+
+.white {
+  background: $primary-white;
+  color: $primary-green;
+}
+
+
+  /* edit wave position here */
+  .wave {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(157% + 1.3px);
+    height: 161px;
+}
+
+.wave .shape-fill {
+    fill: #FFFFFF;
+    position: absolute;
+}  

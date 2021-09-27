@@ -11,48 +11,24 @@ require('dotenv').config({ path: dotenvPath });
 // other dependencies
 const fs = require('fs');
 const chalk = require('chalk');
-const Client = require('pg-native');
+const { Pool } = require('pg');
+const dbParams = require('../helpers/db-params');
 
 // PG connection setup
-const connectionString = process.env.DATABASE_URL
-  || `postgresql://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?sslmode=disable`;
-const client = new Client();
+const db = new Pool(dbParams);
+db.connect();
 
-// Loads the schema files from db/schema
-const runSchemaFiles = () => {
-  // eslint-disable-next-line no-console
-  console.log(chalk.cyan('-> Loading Schema Files ...'));
-  const schemaFilenames = fs.readdirSync('./db/schema');
-  schemaFilenames.forEach((fn) => {
-    const sql = fs.readFileSync(`./db/schema/${fn}`, 'utf8');
-    // eslint-disable-next-line no-console
-    console.log(`\t-> Running ${chalk.green(fn)}`);
-    client.querySync(sql);
+let sql = fs.readFileSync('./db/schema/schema.sql', 'utf8');
+db.query(sql)
+  .then(() => {
+    sql = fs.readFileSync('./db/seeds/seeds.sql', 'utf8');
+    return db.query(sql);
+  })
+  .then(() => {
+    console.log(chalk.green('success!'));
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(chalk.red(`Failed due to error: ${err}`));
+    process.exit(1);
   });
-};
-
-const runSeedFiles = () => {
-  // eslint-disable-next-line no-console
-  console.log(chalk.cyan('-> Loading Seeds ...'));
-  const schemaFilenames = fs.readdirSync('./db/seeds');
-
-  schemaFilenames.forEach((fn) => {
-    const sql = fs.readFileSync(`./db/seeds/${fn}`, 'utf8');
-    // eslint-disable-next-line no-console
-    console.log(`\t-> Running ${chalk.green(fn)}`);
-    client.querySync(sql);
-  });
-};
-
-try {
-  // eslint-disable-next-line no-console
-  console.log(`-> Connecting to PG using ${connectionString} ...`);
-  client.connectSync(connectionString);
-  runSchemaFiles();
-  runSeedFiles();
-  client.end();
-} catch (err) {
-  // eslint-disable-next-line no-console
-  console.error(chalk.red(`Failed due to error: ${err}`));
-  client.end();
-}

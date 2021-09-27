@@ -5,14 +5,10 @@
       "node": {
         "extensions": [
           ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
+          ".jsx"
         ],
-        "moduleDirectory": [
-          "node_modules",
-          "/",
-          "server"
+        "paths": [
+          "."
         ]
       }
     }

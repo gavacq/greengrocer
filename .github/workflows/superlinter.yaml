@@ -15,8 +15,3 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status

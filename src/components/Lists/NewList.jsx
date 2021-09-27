@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 export default function ListProducts(props) {
-  const { newProduct } = props;
-  const { title } = newProduct;
+  const { list } = props;
+  const { title } = list;
 
   const submitList = (item) => {
     axios.put('/api/lists/new', { item }).then(() => console.log('success'));
@@ -21,7 +21,7 @@ export default function ListProducts(props) {
 
 // declare the prop type for the ListProducts component
 ListProducts.propTypes = {
-  newProduct: PropTypes.shape({
+  list: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
     image: PropTypes.string,

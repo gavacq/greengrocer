@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-// import Product from '../Product';
 
 export default function ListProducts(props) {
   const { newProduct } = props;
   const { title } = newProduct;
 
   const submitList = (item) => {
-    axios.put('/api/new-list', { item }).then(() => console.log('success'));
+    axios.put('/api/lists/new', { item }).then(() => console.log('success'));
   };
 
   return (

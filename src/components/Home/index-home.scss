@@ -1,3 +1,8 @@
+// import variables partial
+@import "../../styles/variables";
+
+// -------------------------- Home page styles ------------------------------- //
+
 .btn-wrapper {
   margin-top: 35px;
 }
@@ -5,12 +10,14 @@
 .home-btn {
   width: 270px;
   height: 55px;
-  border: solid 4px #B16E72;
+  border: solid 4px $btn-border;
   border-radius: 15px;
-  background-color: #E08E93;
-  color: #FFE2E4;
+  background-color: $btn-background;
+  color: $btn-text;
   font-family: "Fredoka One";
   font-size: 30px;
+  letter-spacing: 0.7px;
+  // z-index: 100;
 }
 
 form {
@@ -18,9 +25,9 @@ form {
 }
 
 .home-btn:hover {
-  background-color: #f1a7ac;
-  border: solid 4px #ca7e83;
-  color: #ffeced;
+  background-color: $btn-background-hover;
+  border: solid 4px $btn-border-hover;
+  color: $btn-text-hover;
 }
 
 // click the button

@@ -8,7 +8,7 @@ export default function ListProducts(props) {
   console.log('newProduct', newProduct);
   return (
     <section>
-      <h1>List</h1>
+      <h1>New List</h1>
       {title}
     </section>
   );

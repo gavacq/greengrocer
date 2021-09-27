@@ -26,3 +26,35 @@ li {
   list-style-type: none;
 }
 
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+}
+// styles below need to be moved into another stylesheet
+
+h1 {
+  font-size: 1.5em;
+  margin-top: 3.4em;
+  margin-bottom: 2em;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 1.5em;
+}
+
+.strawberry img {
+  opacity: 0.9;
+  z-index: 1;
+  max-width: 120px;
+}
+
+.search {
+  z-index: 1;
+  position: relative;
+  top: 100px;
+}
+

@@ -1,6 +1,7 @@
 // import { React, useState, useEffect } from 'react';
 import { React } from 'react';
 // import axios from 'axios';
+import '../index.scss';
 import './App.scss';
 
 import {
@@ -24,14 +25,15 @@ function App() {
             <Route path="/stats" component={Stats} />
           </Switch>
 
-          <h1>Welcome to GreenGrocer.</h1>
           <div className="icon strawberry">
             <img src="images/strawberry.png" alt="strawberry icon" />
           </div>
         </section>
 
         <section className="green">
-          <div className="temp">TEST</div>
+          <div className="temp">
+            <button type="button" className="home-btn">create new list</button>
+          </div>
         </section>
       </div>
     </Router>

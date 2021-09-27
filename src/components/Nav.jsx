@@ -7,15 +7,15 @@ export default function Nav() {
     <div className="nav-container">
       <div className="wrapper">
         <nav>
-          <Link to="/">
-            <div className="logo">Logo</div>
+          <Link to="/" className="logo-link">
+            <div className="logo">GreenGrocer</div>
           </Link>
-          <ul className="nav-links">
-            <Link to="/lists">
-              <li className="desktop-menu-item">Lists</li>
+          <ul className="desktop-menu">
+            <Link to="/lists" className="desktop-menu-item">
+              <li>Lists</li>
             </Link>
-            <Link to="/stats">
-              <li className="desktop-menu-item">Stats</li>
+            <Link to="/stats" className="desktop-menu-item">
+              <li>Stats</li>
             </Link>
           </ul>
         </nav>

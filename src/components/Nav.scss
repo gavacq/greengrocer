@@ -18,10 +18,16 @@ nav {
   justify-content: space-between;
 }
 
-div.logo {
+.logo {
   font-family: "Fredoka One";
   font-size: 3em;
+  color: $primary-green;
 }
+
+.logo-link {
+  text-decoration: none;
+}
+
 
 /* hamburger menu icon */
 .nav-btn-container img {
@@ -48,13 +54,11 @@ div.logo {
     margin-right: 30px;
 
     #{&}-item {
-      margin-left: 27px;
-
-      a {
-        font-family: "Fredoka One";
-        text-decoration: none;
-        color: $primary-green;
-        font-size: 1.3em;
+      margin-left: 30px;
+      font-family: "Fredoka One";
+      text-decoration: none;
+      color: $primary-green;
+      font-size: 1.5em;
 
         &:hover {
           color: $pink-hover;
@@ -62,4 +66,4 @@ div.logo {
       }
     }
   }
-}
+

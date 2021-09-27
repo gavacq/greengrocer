@@ -1,24 +1,25 @@
 import React from 'react';
-import '../App.css';
+import './Nav.scss';
 import { Link } from 'react-router-dom';
 
 export default function Nav() {
-  const navStyle = {
-    color: 'white',
-  };
   return (
-    <nav>
-      <Link to="/" style={navStyle}>
-        <h3>Logo</h3>
-      </Link>
-      <ul className="nav-links">
-        <Link to="/lists" style={navStyle}>
-          <li>Lists</li>
-        </Link>
-        <Link to="/stats" style={navStyle}>
-          <li>Stats</li>
-        </Link>
-      </ul>
-    </nav>
+    <div className="nav-container">
+      <div className="wrapper">
+        <nav>
+          <Link to="/">
+            <div className="logo">Logo</div>
+          </Link>
+          <ul className="nav-links">
+            <Link to="/lists">
+              <li className="desktop-menu-item">Lists</li>
+            </Link>
+            <Link to="/stats">
+              <li className="desktop-menu-item">Stats</li>
+            </Link>
+          </ul>
+        </nav>
+      </div>
+    </div>
   );
 }

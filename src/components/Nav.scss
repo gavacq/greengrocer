@@ -1,0 +1,65 @@
+// import variables partial
+@import "../styles/variables";
+
+// -------------------------- Navigation bar styles ------------------------------- //
+
+.nav-container {
+  background: $primary-white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 100px;
+  width: 100vw;
+  margin: 0 auto;
+  padding: 20px 20px 10px 20px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.logo {
+  font-family: "Fredoka One";
+  font-size: 3em;
+}
+
+/* hamburger menu icon */
+.nav-btn-container img {
+  width: 50px;
+}
+
+/* desktop menu */
+.desktop-menu {
+  display: none;
+}
+
+/* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
+
+@media screen and (min-width: 650px) {
+  /* hamburger menu icon */
+  .nav-btn-container img {
+    display: none;
+  }
+
+  .desktop-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 30px;
+
+    #{&}-item {
+      margin-left: 27px;
+
+      a {
+        font-family: "Fredoka One";
+        text-decoration: none;
+        color: $primary-green;
+        font-size: 1.3em;
+
+        &:hover {
+          color: $pink-hover;
+        }
+      }
+    }
+  }
+}

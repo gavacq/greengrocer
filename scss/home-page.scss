@@ -1,0 +1,29 @@
+// styles for home page / search page
+
+// import variables partial
+@import "./variables";
+
+// -------------------------- home page / search styles ------------------------------- //
+
+h1 {
+  font-size: 1.5em;
+  margin-top: 3.4em;
+  margin-bottom: 2em;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 1.5em;
+}
+
+.strawberry img {
+  opacity: 0.9;
+  z-index: 1;
+  max-width: 120px;
+}
+
+.search {
+  z-index: 1;
+  position: relative;
+  top: 100px;
+}

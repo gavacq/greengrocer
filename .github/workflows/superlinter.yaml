@@ -1,4 +1,4 @@
-name: Super-Linter
+name: Javascript Linting
 
 on: push
 

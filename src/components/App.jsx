@@ -16,12 +16,23 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/lists" component={Lists} />
-          <Route path="/stats" component={Stats} />
-        </Switch>
+        <section className="white">
+          <Nav />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/lists" component={Lists} />
+            <Route path="/stats" component={Stats} />
+          </Switch>
+
+          <h1>Welcome to GreenGrocer.</h1>
+          <div className="icon strawberry">
+            <img src="images/strawberry.png" alt="strawberry icon" />
+          </div>
+        </section>
+
+        <section className="green">
+          <div className="temp">TEST</div>
+        </section>
       </div>
     </Router>
   );

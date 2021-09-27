@@ -23,6 +23,7 @@
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
+    height: 300px;
 }
 
 .wave svg {
@@ -36,3 +37,7 @@
     fill: #FFFFFF;
     position: absolute;
 }  
+
+.temp {
+  height: 100vh;
+}

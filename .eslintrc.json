@@ -1,5 +1,18 @@
 {
   "extends": "airbnb",
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ],
+        "paths": [
+          "."
+        ]
+      }
+    }
+  },
   "rules": {
     "no-console": "off"
   }

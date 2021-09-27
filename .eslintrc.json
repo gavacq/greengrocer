@@ -12,12 +12,12 @@
           "server"
         ]
       }
+    },
+    "react": {
+      "version": "latest"
+    },
+    "rules": {
+      "no-console": "off"
     }
-  },
-  "rules": {
-    "no-console": "off"
-  },
-  "react": {
-    "version": "latest"
   }
 }

@@ -24,6 +24,12 @@ db.query(sql)
     sql = fs.readFileSync('./db/seeds/seeds.sql', 'utf8');
     return db.query(sql);
   })
-  .then(() => console.log(chalk.green('success!')))
+  .then(() => {
+    console.log(chalk.green('success!'));
+    process.exit(0);
+  })
   // eslint-disable-next-line no-console
-  .catch((err) => console.error(chalk.red(`Failed due to error: ${err}`)));
+  .catch((err) => {
+    console.error(chalk.red(`Failed due to error: ${err}`));
+    process.exit(1);
+  });

@@ -8,12 +8,16 @@
           ".jsx"
         ],
         "paths": [
-          "."
+          "src",
+          "server"
         ]
       }
     }
   },
   "rules": {
     "no-console": "off"
+  },
+  "react": {
+    "version": "latest"
   }
 }

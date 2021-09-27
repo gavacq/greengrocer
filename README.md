@@ -1,4 +1,4 @@
-![Status](https://github.com/geecrypt/greengrocer/actions/workflows/superlinter.yaml/badge.svg)
+![Actions Status](https://github.com/geecrypt/greengrocer/actions/workflows/superlinter.yaml/badge.svg)
 
 # 🌏 GreenGrocer 🌍
 Track your groceries' carbon footprint.

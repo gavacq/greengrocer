@@ -6,6 +6,7 @@
 .green {
   background: $primary-green;
   color: $primary-white;
+  height: 100vh;
 }
 
 .white {
@@ -17,7 +18,7 @@
   /* edit wave position here */
   .wave {
     position: absolute;
-    top: -70px;
+    top: -150px;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -38,6 +39,5 @@
     position: absolute;
 }  
 
-.temp {
-  height: 100vh;
-}
+
+

@@ -1,0 +1,34 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Fredoka One", cursive;
+}
+
+li {
+  list-style-type: none;
+}
+
+.green {
+  background: #50ab74;
+  color: white;
+}
+
+.white {
+  background: white;
+  color: #50ab74;
+}
+/*# sourceMappingURL=index.css.map */

@@ -6,10 +6,10 @@ import './App.css';
 import {
   BrowserRouter as Router, Route, Switch,
 } from 'react-router-dom';
-import Lists from './components/Lists';
-import Stats from './components/Stats';
-import Nav from './components/Nav';
-import Home from './components/Home';
+import Lists from './Lists';
+import Stats from './Stats';
+import Nav from './Nav';
+import Home from './Home';
 
 // main react component, rendered by index.js
 function App() {

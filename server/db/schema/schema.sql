@@ -32,6 +32,8 @@ CREATE TABLE posts (
 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  image VARCHAR(255),
   lat FLOAT NOT NULL,
   long FLOAT NOT NULL, 
   co2_data FLOAT NOT NULL

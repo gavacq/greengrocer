@@ -28,7 +28,6 @@ db.query(sql)
     console.log(chalk.green('success!'));
     process.exit(0);
   })
-  // eslint-disable-next-line no-console
   .catch((err) => {
     console.error(chalk.red(`Failed due to error: ${err}`));
     process.exit(1);

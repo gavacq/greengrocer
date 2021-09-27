@@ -5,7 +5,7 @@ const morgan = require('morgan');
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./helpers/db-params');
-const { searchRoute } = require('./routes/index');
+const { searchRoute, loginRoute } = require('./routes/index');
 
 // create new connection pool and connect to it
 const db = new Pool(dbParams);
@@ -30,6 +30,7 @@ app.get('/api/data', (req, res) => {
 });
 
 app.use('/api/search', searchRoute());
+app.use('/login', loginRoute());
 
 // listen on the specified port
 app.listen(PORT, () => {

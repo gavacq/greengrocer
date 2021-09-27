@@ -1,4 +1,5 @@
 import React from 'react';
+import './index-home.scss';
 
 export default function Home() {
   return (
@@ -10,7 +11,9 @@ export default function Home() {
         <img src="images/strawberry.png" alt="strawberry icon" />
       </div>
       <div className="btn-wrapper">
-        <button type="button" className="home-btn">create new list</button>
+        <form action="/lists">
+          <button type="submit" className="home-btn">create new list</button>
+        </form>
       </div>
     </section>
   );

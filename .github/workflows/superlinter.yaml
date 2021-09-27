@@ -3,6 +3,18 @@ name: Super-Linter
 on: push
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: actions/checkout
+        uses: actions/checkout@v2.0.0
+      - name: actions/setup-node
+        uses: actions/setup-node@v1.4.1
+        with:
+          node-version: "14.17.6"
+      - name: npm install
+        uses: jaid/action-npm-install@v1.2.1
+
   super-lint:
     name: Lint code base
     runs-on: ubuntu-latest
@@ -12,7 +24,6 @@ jobs:
 
       - name: Run Super-Linter
         uses: github/super-linter@v3
-      - run: npm install
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

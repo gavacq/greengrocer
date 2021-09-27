@@ -18,6 +18,9 @@ export default function Nav() {
         <Link to="/stats" style={navStyle}>
           <li>Stats</li>
         </Link>
+        <Link to="/login" style={navStyle}>
+          <li>Login</li>
+        </Link>
       </ul>
     </nav>
   );

@@ -10,6 +10,7 @@ import Lists from './components/Lists';
 import Stats from './components/Stats';
 import Nav from './components/Nav';
 import Home from './components/Home';
+import Login from './components/Login';
 
 // main react component, rendered by index.js
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/lists" component={Lists} />
           <Route path="/stats" component={Stats} />
+          <Route path="/login" component={Login} />
         </Switch>
       </div>
     </Router>

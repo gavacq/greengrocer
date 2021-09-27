@@ -1,5 +1,6 @@
-// import variables partial
+// imports
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
 // -------------------------- Home page styles ------------------------------- //
 
@@ -8,29 +9,12 @@
 }
 
 .home-btn {
+  @include button-styles;
   width: 270px;
   height: 55px;
-  border: solid 4px $btn-border;
-  border-radius: 15px;
-  background-color: $btn-background;
-  color: $btn-text;
-  font-family: "Fredoka One";
   font-size: 30px;
-  letter-spacing: 0.7px;
-  // z-index: 100;
 }
 
 form {
   height: 60px;
-}
-
-.home-btn:hover {
-  background-color: $btn-background-hover;
-  border: solid 4px $btn-border-hover;
-  color: $btn-text-hover;
-}
-
-// click the button
-.home-btn:active {
-  transform: translateY(4px);
 }

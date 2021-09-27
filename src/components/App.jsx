@@ -1,7 +1,7 @@
 // import { React, useState, useEffect } from 'react';
 import { React } from 'react';
 // import axios from 'axios';
-import './App.css';
+// import './App.css';
 
 import {
   BrowserRouter as Router, Route, Switch,

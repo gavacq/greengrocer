@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+  <!-- global styles (TO BE CLEANED UP LATER) -->
+  <style>
+
+    section {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 400px;
+    }
+
+  
+  
+    /* edit wave position here */
+    .wave {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(157% + 1.3px);
+    height: 161px;
+}
+
+.wave .shape-fill {
+    fill: #FFFFFF;
+    position: absolute;
+   
+}
+  </style>
+
+<!-- external stylesheets -->
+<link rel="stylesheet" href="../styles/home-page.css ">
+<link rel="stylesheet" href="../styles/global-styles.css">
+<link rel="stylesheet" href="../styles/nav.css">
+
+</head>
+<body>
+  <div class="main-wapper">
+
+    <section class="white">
+
+      <div class="nav-container">
+        <div class="wrapper">
+          <nav>
+            <div class="logo">GG</div>
+              <ul class="nav-items">
+                
+                <!-- mobile/tablet only: hamburger menu -->
+                <li>
+                    <a class="nav-btn-container" href="#">
+                      <img src="images/hamburger.svg" alt="hamburger menu icon">
+                    </a>
+                </li>
+
+                <!-- desktop only: menu items -->
+                <div class="desktop-menu">
+
+                  <li class="desktop-menu-item">
+                    <a class="nav-btn-container" href="#">
+                      profile
+                    </a>
+                  </li>
+                  <li class="desktop-menu-item">
+                    <a class="nav-btn-container" href="#">
+                      lists
+                    </a>
+                  </li>
+                  <li class="desktop-menu-item">
+                    <a class="nav-btn-container" href="#">
+                      stats
+                    </a>
+                  </li>
+                  <li class="desktop-menu-item">
+                    <a class="nav-btn-container" href="#">
+                      logout
+                    </a>
+                  </li>
+  
+                </div>
+
+              </ul>
+          </nav>
+        </div>
+      </div>
+      
+
+      <h1>Welcome to GreenGrocer.</h1>
+
+      <div class="icon strawberry">
+        <img src="images/strawberry.png" alt="strawberry icon">
+      </div>
+
+
+    </div>
+    </section>
+    <section class="green">
+      
+      <!-- white wave -->
+      <div class="wave">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+      </div>
+
+           <!-- search bar -->
+           <section class="search">
+            <div class="search-bar">
+              <input type="text" placeholder="Search for an">
+            </div>
+          </section>
+          
+    </section>
+
+  </div>
+  
+  
+
+</body>
+</html>

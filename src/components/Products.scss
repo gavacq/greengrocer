@@ -25,7 +25,7 @@ p {
   text-align: left;
 }
 
-img {
+img.product {
   width: 150px;
 }
 
@@ -68,9 +68,10 @@ img {
     font-size: 20px;
   }
   
-  img {
+  img.product{
     width: 180px;
     padding-right: 40px;
+
   }
 
   .product-flexbox {

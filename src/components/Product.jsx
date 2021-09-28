@@ -19,7 +19,7 @@ export default function Product(props) {
       <div className="img-btn-container">
 
         <div className="product-img">
-          <img src={image} alt="product" />
+          <img src={image} alt="product" className="product" />
         </div>
 
         <button

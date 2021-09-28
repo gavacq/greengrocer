@@ -3,11 +3,11 @@ import Search from './Search';
 import NewList from './NewList';
 
 export default function List() {
-  const [newProduct, setNewProduct] = useState({});
+  const [list, setList] = useState({});
   return (
     <main>
-      <Search setNewProduct={setNewProduct} />
-      <NewList newProduct={newProduct} />
+      <Search setList={setList} />
+      <NewList list={list} />
     </main>
   );
 }

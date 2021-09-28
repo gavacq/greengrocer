@@ -11,7 +11,8 @@ export default function SearchBar(props) {
     axios.get(`/api/search/?productName=${productName}`)
       .then((res) => {
         // just setResults with id, title, and image
-        const results = res.data.products.map((product) => ({
+        console.log('MY RESPONSE : ', res);
+        const results = res.data.map((product) => ({
           id: product.id,
           title: product.title,
           image: product.image,

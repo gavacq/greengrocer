@@ -36,7 +36,7 @@ const { searchRoute, listRoute, loginRoute } = require('./routes/index');
 // External Routes
 app.use('/api/search', searchRoute());
 app.use('/api/lists', listRoute());
-app.use('/login', loginRoute());
+app.use('/login', loginRoute(db));
 
 // listen on the specified port
 app.listen(PORT, () => {

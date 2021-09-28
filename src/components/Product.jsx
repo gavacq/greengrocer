@@ -1,6 +1,7 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
 import '../index.scss';
+import './Products.scss';
 import './App.scss';
 
 export default function Product(props) {
@@ -10,8 +11,10 @@ export default function Product(props) {
   console.log('image', image);
   return (
     <div id={id}>
+      <div className="product-img">
+        <img src={image} alt="product" />
+      </div>
       <p>{title}</p>
-      <img src={image} alt="product" />
       <button
         type="button"
         aria-label="setNewProduct"

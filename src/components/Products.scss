@@ -1,3 +1,28 @@
 @import "../styles/variables";
 @import "../styles/mixins";
 
+
+// ----------------- styles for products ------------ //
+
+p {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 35px;
+  font-weight: 450;
+}
+
+.product-img {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+img {
+  width: 180px;
+
+  &:hover {
+    opacity: 0.65;
+    transition: opacity 0.5s;
+  }
+}
+
+

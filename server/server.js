@@ -20,11 +20,11 @@ app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
 
 // Bring in External Routes
-const { searchRoute, newList } = require('./routes/index');
+const { searchRoute, listRoute } = require('./routes/index');
 
 // External Routes
 app.use('/api/search', searchRoute());
-app.use('/api/lists/new', newList());
+app.use('/api/lists', listRoute());
 
 // listen on the specified port
 app.listen(PORT, () => {

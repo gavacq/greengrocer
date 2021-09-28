@@ -12,13 +12,11 @@ const searchHelper = (productName) => axios.get(`https://api.spoonacular.com/foo
 module.exports = () => {
   // Initialize router for get /api/search
   router.get('/', (req, res) => {
-    // console.log('params', req.query.productName);
     const { productName } = req.query;
 
     // Make api calls to search for products
     searchHelper(productName)
       .then((data) => {
-        // console.log('THIS IS THE DATA FOR 2ND AXIOS REQUEST : ', data.products);
         const mappedPromises = data.products.map((product) => axios.get(`https://api.spoonacular.com/food/products/${product.id}?apiKey=${process.env.SPOONACULAR_API_KEY}`));
 
         return Promise.all(mappedPromises);

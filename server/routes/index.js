@@ -1,7 +1,7 @@
 const searchRoute = require('./search');
-const newList = require('./new-list');
+const listRoute = require('./list');
 
 module.exports = {
   searchRoute,
-  newList,
+  listRoute,
 };

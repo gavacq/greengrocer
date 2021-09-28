@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = () => {
-  router.put('/', (req, res) => {
+  router.put('/new', (req, res) => {
     console.log(req.body);
     res.send();
   });

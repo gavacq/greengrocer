@@ -12,8 +12,17 @@ p {
 }
 
 .product-img {
-  text-align: left;
+  // text-align: left;
+  align-self: left;
   margin-bottom: 10px;
+}
+
+.img-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
 }
 
 img {
@@ -22,13 +31,13 @@ img {
 
 .product-flexbox {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 8px;
   margin-bottom: 30px;
   align-items: center;
 
   &:hover {
-    .product-container {
+    img, p {
       opacity: 0.7;
       transition: opacity 0.5s;
     }
@@ -38,10 +47,16 @@ img {
 .add-btn {
   @include button-styles;
   position: relative;
-  top: -40px;
-  font-size: 30px;
-  padding: 0 15px 3px 15px;
+  top: -15px;
+  height: 60px;
+
+  span {
+    font-size: 40px;
+    padding: 0 15px 10px 15px;
+  }
 }
+
+
 /* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
 
 @media screen and (min-width: 650px) {
@@ -65,18 +80,15 @@ img {
 
   .product-flexbox {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 0 10px 20px 10px;
     margin-bottom: 30px;
-    align-items: center;
-    justify-content: space-between;
   
     &:hover {
-      .product-container {
+      .img-btn-container {
         opacity: 0.7;
         transition: opacity 0.5s;
       }
     }
   }
-
 }

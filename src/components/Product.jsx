@@ -12,25 +12,28 @@ export default function Product(props) {
   return (
     <div id={id} className="product-flexbox">
 
-      <div className="product-container">
+      <div className="img-btn-container">
+
         <div className="product-img">
           <img src={image} alt="product" />
         </div>
-        <p>{title}</p>
+
+        <button
+          className="add-btn"
+          type="button"
+          aria-label="setNewProduct"
+          onClick={() => {
+            setNewProduct({
+              title, id, image,
+            });
+          }}
+        >
+          <span>+</span>
+        </button>
+
       </div>
 
-      <button
-        className="add-btn"
-        type="button"
-        aria-label="setNewProduct"
-        onClick={() => {
-          setNewProduct({
-            title, id, image,
-          });
-        }}
-      >
-        <span>+</span>
-      </button>
+      <div><p>{title}</p></div>
 
     </div>
   );

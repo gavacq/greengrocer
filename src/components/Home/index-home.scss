@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+// -------------------------- Home page styles ------------------------------- //
+
+.btn-wrapper {
+  margin-top: 35px;
+}
+
+.home-btn {
+  @include button-styles;
+  width: 270px;
+  height: 55px;
+  font-size: 30px;
+}
+
+form {
+  height: 60px;
+}
+
+h1 {
+  opacity: 0.95;
+}

@@ -6,7 +6,6 @@ const cookieSession = require('cookie-session');
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./helpers/db-params');
-const { searchRoute, loginRoute } = require('./routes/index');
 
 // create new connection pool and connect to it
 const db = new Pool(dbParams);
@@ -31,17 +30,13 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
 
-// Sample GET route
-app.get('/api/data', (req, res) => {
-  const queryString = 'SELECT * FROM users';
-  db.query(queryString).then((data) => res.json({
-    message: 'Seems to work!',
-    data: data.rows,
-  }));
-});
+// Bring in External Routes
+const { searchRoute, listRoute, loginRoute } = require('./routes/index');
 
+// External Routes
 app.use('/api/search', searchRoute());
 app.use('/login', loginRoute(db));
+app.use('/api/lists', listRoute());
 
 // listen on the specified port
 app.listen(PORT, () => {

@@ -19,22 +19,22 @@ module.exports = () => {
     searchHelper(productName)
       .then((data) => {
         // console.log('THIS IS THE DATA FOR 2ND AXIOS REQUEST : ', data.products);
-        const newData = [];
-        data.products.forEach((product) => {
-          // console.log("INDIVIDUAL PRODUC :", product);
-          axios.get(`https://api.spoonacular.com/food/products/${product.id}?apiKey=${process.env.SPOONACULAR_API_KEY}`)
-            .then((response) => {
-              // console.log('THIS IS THE RESPONSE FROM THE 2ND AXIOS REQUEST: ', response.data);
-              const newProduct = {
-                id: response.data.id,
-                title: response.data.title,
-                image: response.data.image,
-                upc: response.data.upc,
-              };
-              console.log('FANCY NEW PRODUCT : ', newProduct);
-              newData.push(newProduct);
-            });
+        const mappedPromises = data.products.map((product) => axios.get(`https://api.spoonacular.com/food/products/${product.id}?apiKey=${process.env.SPOONACULAR_API_KEY}`));
+
+        return Promise.all(mappedPromises);
+      })
+      .then((response) => {
+        const parsedData = response.map((r) => {
+          console.log('id', r.data.id);
+          return {
+            id: r.data.id,
+            title: r.data.title,
+            image: r.data.image,
+            upc: r.data.upc,
+          };
         });
+        console.log('This is out data: ', parsedData);
+        res.send(parsedData);
       })
       .catch((error) => error.message);
   });

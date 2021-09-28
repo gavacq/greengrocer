@@ -33,14 +33,15 @@ app.use(express.static('public'));
 
 // Bring in External Routes
 const {
-  searchRoute, listRoute, loginRoute, logoutRoute,
+  searchRoute, listsRoute, loginRoute, logoutRoute, postsRoute,
 } = require('./routes/index');
 
 // External Routes
-app.use('/api/search', searchRoute());
-app.use('/logout', logoutRoute());
-app.use('/api/lists', listRoute());
 app.use('/login', loginRoute(db));
+app.use('/logout', logoutRoute());
+app.use('/api/search', searchRoute());
+app.use('/api/lists', listsRoute());
+app.use('/api/posts', postsRoute(db));
 
 // listen on the specified port
 app.listen(PORT, () => {

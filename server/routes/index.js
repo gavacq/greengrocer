@@ -1,11 +1,13 @@
-const searchRoute = require('./search');
 const loginRoute = require('./login');
 const logoutRoute = require('./logout');
-const listRoute = require('./lists');
+const searchRoute = require('./search');
+const listsRoute = require('./lists');
+const postsRoute = require('./posts');
 
 module.exports = {
-  searchRoute,
   loginRoute,
-  listRoute,
   logoutRoute,
+  searchRoute,
+  listsRoute,
+  postsRoute,
 };

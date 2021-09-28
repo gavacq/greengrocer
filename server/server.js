@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+const cookieSession = require('cookie-session');
+require('dotenv').config();
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -14,17 +16,31 @@ db.connect();
 const app = express();
 const PORT = 8081;
 app.use(morgan('dev'));
+// Keys are 256 bits of random data from crypto.randomBytes
+const key1 = process.env.COOKIE_KEY1;
+const key2 = process.env.COOKIE_KEY2;
+const key3 = process.env.COOKIE_KEY3;
+app.use(cookieSession({
+  name: 'session',
+  keys: [key1, key2, key3],
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000, // 24 hours
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
 
 // Bring in External Routes
-const { searchRoute, listRoute } = require('./routes/index');
+const {
+  searchRoute, listRoute, loginRoute, logoutRoute,
+} = require('./routes/index');
 
 // External Routes
 app.use('/api/search', searchRoute());
+app.use('/logout', logoutRoute());
 app.use('/api/lists', listRoute());
+app.use('/login', loginRoute(db));
 
 // listen on the specified port
 app.listen(PORT, () => {

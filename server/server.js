@@ -31,10 +31,13 @@ app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
 
 // Bring in External Routes
-const { searchRoute, listRoute, loginRoute } = require('./routes/index');
+const {
+  searchRoute, listRoute, loginRoute, logoutRoute,
+} = require('./routes/index');
 
 // External Routes
 app.use('/api/search', searchRoute());
+app.use('/logout', logoutRoute());
 app.use('/api/lists', listRoute());
 app.use('/login', loginRoute(db));
 

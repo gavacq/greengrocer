@@ -16,7 +16,6 @@ module.exports = (db) => {
             req.session.user = data.rows[0].id;
           } else {
             console.log(`invalid password ${password}`);
-            req.session = null;
           }
         } else {
           console.log(`No user with email ${email} was found!`);

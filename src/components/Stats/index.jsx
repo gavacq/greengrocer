@@ -1,9 +1,13 @@
 import React from 'react';
+import Earth from '../Earth';
 
 export default function Stats() {
   return (
-    <h1>
-      Stats
-    </h1>
+    <section>
+      <h1>
+        Stats
+      </h1>
+      <Earth />
+    </section>
   );
 }

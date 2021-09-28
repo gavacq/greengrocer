@@ -1,12 +1,12 @@
 /* eslint-disable */
 
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import './Nav.scss';
 import '../index.scss';
 import { Link } from 'react-router-dom';
 
 export default function Nav() {
-  const [navColor, setNavColor] = useState(false);
+  const [navColor, setNavColor] = useState(false); // navbar color
 
   // change navbar color on scroll
   const changeNavColor = () => {
@@ -18,13 +18,14 @@ export default function Nav() {
   };
 
   window.addEventListener('scroll', changeNavColor);
+ 
 
   return (
     <div className={navColor ? 'nav-container sticky active' : 'nav-container sticky'}>
       <div className="wrapper">
         <nav>
           <Link to="/" className="logo-link">
-            <div className="logo">GreenGrocer</div>
+            <div className="logo">GG</div>
           </Link>
           <ul className="desktop-menu">
             <Link to="/lists" className="desktop-menu-item">

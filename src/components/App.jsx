@@ -1,8 +1,9 @@
-// import { React, useState, useEffect } from 'react';
-import { React } from 'react';
-// import axios from 'axios';
+/* eslint-disable */
+
+import { React, useEffect, useState } from 'react';
 import '../index.scss';
 import './App.scss';
+// import axios from 'axios';
 
 import {
   BrowserRouter as Router, Route, Switch,
@@ -12,8 +13,26 @@ import Stats from './Stats';
 import Nav from './Nav';
 import Home from './Home';
 
-// main react component, rendered by index.js
+// custom hook for window size
+const useWindowSize = () => {
+  const [size, setSize] = useState([window.innerHeight, window.innerWidth]);
+  useEffect(() => {
+    const handleResize = () => {
+      setSize([window.innerHeight, window.innerWidth]);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+  return size;
+};
+
+// App component
 function App() {
+  const [height, width] = useWindowSize();
+
+  // console.log('height: ', height, 'width: ', width);
   return (
     <Router>
       <div className="App">

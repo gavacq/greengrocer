@@ -13,9 +13,7 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
 
-  const handleClick = () => {
     axios.post('/login', { email, password })
       .then((res) => {
         console.log('response', res);
@@ -49,7 +47,7 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <br />
-          <button type="button" onClick={handleClick}>Login</button>
+          <button type="submit">Login</button>
         </form>
       </section>
     </main>

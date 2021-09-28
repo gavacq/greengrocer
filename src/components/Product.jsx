@@ -29,7 +29,7 @@ export default function Product(props) {
           });
         }}
       >
-        add to list
+        <span>+</span>
       </button>
 
     </div>

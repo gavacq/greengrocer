@@ -5,20 +5,19 @@
 // ----------------- styles for products ------------ //
 
 p {
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   margin-bottom: 35px;
   font-weight: 450;
-  max-width: 30vw;
 }
 
 .product-img {
-  text-align: center;
+  text-align: left;
   margin-bottom: 10px;
 }
 
 img {
-  width: 180px;
+  width: 150px;
 }
 
 .product-flexbox {
@@ -27,20 +26,57 @@ img {
   padding: 8px;
   margin-bottom: 30px;
   align-items: center;
-  justify-content: space-between;
 
   &:hover {
-    border: solid $green-hover 4px;
-    transition: border 0.5s;
-    border-radius: 10px;
+    .product-container {
+      opacity: 0.7;
+      transition: opacity 0.5s;
+    }
   }
 }
 
 .add-btn {
+  @include button-styles;
   position: relative;
   top: -40px;
-  height: 50px;
+  font-size: 30px;
+  padding: 0 15px 3px 15px;
+}
+/* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
 
-  @include button-styles;
+@media screen and (min-width: 650px) {
+
+  p {
+    font-size: 20px;
+  }
+  
+  img {
+    width: 180px;
+  }
+
+  .add-btn {
+    position: relative;
+    top: -40px;
+    height: 50px;
+    margin-left: 20px;
+    @include button-styles;
+    font-size: 20px;
+  }
+
+  .product-flexbox {
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px 20px 10px;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
+  
+    &:hover {
+      .product-container {
+        opacity: 0.7;
+        transition: opacity 0.5s;
+      }
+    }
+  }
 
 }

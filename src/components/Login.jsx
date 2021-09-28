@@ -5,6 +5,10 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const height = {
+    height: '50vh',
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -20,7 +24,7 @@ export default function Login() {
         Login
       </h1>
       <section>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={height}>
           <p>email</p>
           <input
             type="email"

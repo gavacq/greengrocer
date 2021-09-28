@@ -17,7 +17,15 @@ export default function SocialFeed() {
 
   return (
     <section>
-      {posts.map((post) => <Post data={post} />)}
+      {posts.map((post) => (
+        <Post
+          key={post.id}
+          id={post.id}
+          username={post.username}
+          likes={post.likes}
+          message={post.message}
+        />
+      ))}
     </section>
   );
 }

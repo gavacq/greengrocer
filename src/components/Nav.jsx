@@ -1,10 +1,25 @@
-import React from 'react';
+/* eslint-disable */
+
+import React, { useState } from 'react';
 import './Nav.scss';
+import '../index.scss';
 import { Link } from 'react-router-dom';
 
 export default function Nav() {
+  const [navColor, setNavColor] = useState(false);
+
+  const changeNavColor = () => {
+    if (window.scrollY >= 100) {
+      setNavColor(true);
+    } else {
+      setNavColor(false);
+    }
+  };
+
+  window.addEventListener('scroll', changeNavColor);
+
   return (
-    <div className="nav-container">
+    <div className={navColor ? 'nav-container sticky active' : 'nav-container sticky'}>
       <div className="wrapper">
         <nav>
           <Link to="/" className="logo-link">

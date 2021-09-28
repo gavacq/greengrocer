@@ -12,6 +12,7 @@
 .white {
   background: $primary-white;
   color: $primary-green;
+  padding: 50px;
 }
 
 
@@ -39,5 +40,8 @@
     position: absolute;
 }  
 
-
+.nav-scroll {
+  color: $primary-white;
+  background-color: $primary-green;
+}
 

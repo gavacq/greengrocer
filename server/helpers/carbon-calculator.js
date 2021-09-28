@@ -9,7 +9,7 @@ const coordinates = {
   '001': {
     lat: 43.7844,
     long: (360 - 88.7879),
-  },
+  },thes
   '002': {
     lat: 43.7844,
     long: (360 - 88.7879),
@@ -827,7 +827,7 @@ const coordinates = {
 
 const carbonCalculator = (upc) => {
   const key = upc.toString().substring(0, 3);
-  console.log('THESE ARE THE COORDINATES: ', coordinates[key])
+  console.log('THESE ARE THE COORDINATES: ', coordinates[key]);
   const origin = {
     lat: 49.2827 * (Math.PI / 180),
     long: (360 - 123.1207) * (Math.PI / 180),

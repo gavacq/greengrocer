@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-export default function ListProducts(props) {
+export default function NewList(props) {
   const { list } = props;
   const { title } = list;
 
@@ -20,7 +20,7 @@ export default function ListProducts(props) {
 }
 
 // declare the prop type for the ListProducts component
-ListProducts.propTypes = {
+NewList.propTypes = {
   list: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,

@@ -1,0 +1,25 @@
+@import "./variables";
+
+// -------------------------- mixins ------------------------------- //
+
+// mixin for buttons 
+@mixin button-styles {
+  border: solid 4px $btn-border;
+  border-radius: 15px;
+  background-color: $btn-background;
+  color: $btn-text;
+  font-family: "Fredoka One";
+  letter-spacing: 0.7px;
+  // z-index: 100;
+
+  &:hover {
+    background-color: $btn-background-hover;
+    border: solid 4px $btn-border-hover;
+    color: $btn-text-hover;
+  }
+
+  &:active {
+    transform: translateY(4px);
+  }
+}
+

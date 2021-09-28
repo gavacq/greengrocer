@@ -3,6 +3,7 @@
 import { React, useEffect, useState } from 'react';
 import '../index.scss';
 import './App.scss';
+import useWindowSize from '../hooks/useWindowSize';
 // import axios from 'axios';
 
 import {
@@ -13,26 +14,12 @@ import Stats from './Stats';
 import Nav from './Nav';
 import Home from './Home';
 
-// custom hook for window size
-const useWindowSize = () => {
-  const [size, setSize] = useState([window.innerHeight, window.innerWidth]);
-  useEffect(() => {
-    const handleResize = () => {
-      setSize([window.innerHeight, window.innerWidth]);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    }
-  }, []);
-  return size;
-};
 
 // App component
 function App() {
   const [height, width] = useWindowSize();
 
-  // console.log('height: ', height, 'width: ', width);
+  console.log('height: ', height, 'width: ', width);
   return (
     <Router>
       <div className="App">

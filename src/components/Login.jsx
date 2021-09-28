@@ -38,12 +38,14 @@ export default function Login() {
           <input
             type="email"
             value={email}
+            required
             onChange={(e) => setEmail(e.target.value)}
           />
           <p>password</p>
           <input
             type="password"
             value={password}
+            required
             onChange={(e) => setPassword(e.target.value)}
           />
           <br />

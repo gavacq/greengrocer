@@ -4,7 +4,7 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get('/', (req, res) => {
-    const text = 'SELECT * FROM posts';
+    const text = 'SELECT (posts.*), (users.username) FROM posts JOIN users ON users.id = user_id';
     db.query(text)
       .then((data) => {
         console.log(data.rows);

@@ -3,10 +3,10 @@
 -- Seeds for users table
 
 INSERT INTO users (username, email, password)
-VALUES ('Geecrypt', 'geecrypt@mail.com', '6253efdgy');
+VALUES ('Andy', 'andy@mail.com', '$2b$12$aqIMGKRQkelEVgcDzR1cIOWbY/k5k/f0ju21xX2BOe8svHh8zeBSG');
 
 INSERT INTO users (username, email, password)
-VALUES ('Mario', 'mario@mail.com', '87ywjh');
+VALUES ('Gary', 'gary@mail.com', '$2b$12$kxBaHkppBKYYAp6Aqrs14eZPyw.JA2zYk6R4s9ygk4sbDKuHUUaMq');
 
 INSERT INTO users (username, email, password)
 VALUES ('Nally', 'nally@mail.com', 'qeufhew');

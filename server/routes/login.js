@@ -16,13 +16,16 @@ module.exports = (db) => {
             req.session.user = data.rows[0].id;
           } else {
             console.log(`invalid password ${password}`);
-            req.session = null;
+            // req.session = null;
+            // res.clearCookie('session');
           }
         } else {
           console.log(`No user with email ${email} was found!`);
         }
       })
       .then(() => {
+        console.log('then');
+
         if (req.session) {
           res.redirect('/');
         } else {

@@ -16,6 +16,7 @@ export default function SearchBar(props) {
           id: product.id,
           title: product.title,
           image: product.image,
+          upc: product.upc,
         }));
         props.setResults(results);
       });

@@ -3,13 +3,17 @@ import PropTypes from 'prop-types';
 
 export default function Product(props) {
   const {
-    title, id, image, setNewProduct,
+    title, id, image, upc, setNewProduct,
   } = props;
   console.log('image', image);
   return (
     <div id={id}>
       <p>{title}</p>
       <img src={image} alt="product" />
+      <p>
+        UPC:
+        {upc}
+      </p>
       <button
         type="button"
         aria-label="setNewProduct"
@@ -30,6 +34,7 @@ Product.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
+  upc: PropTypes.number.isRequired,
   setNewProduct: PropTypes.func,
 };
 

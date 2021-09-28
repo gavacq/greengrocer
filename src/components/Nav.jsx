@@ -33,7 +33,7 @@ export default function Nav() {
             <Link to="/stats" className="desktop-menu-item">
               <li>Stats</li>
             </Link>
-            <Link to="/login" style={navStyle}>
+            <Link to="/login" className="desktop-menu-item">
               <li>Login</li>
             </Link>
           </ul>

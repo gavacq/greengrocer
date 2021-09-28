@@ -22,7 +22,7 @@ p {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  text-align: center;
+  text-align: left;
 }
 
 img {
@@ -62,7 +62,7 @@ img {
 
 /* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: $desktop-breakpoint) {
 
   p {
     font-size: 20px;
@@ -70,11 +70,16 @@ img {
   
   img {
     width: 180px;
+    padding-right: 40px;
+  }
+
+  .product-flexbox {
+    width: 70vw;
   }
 
   .add-btn {
     padding-top: 20px;
-    margin-left: 40px;
+    margin-left: 15px;
 
     span {
       font-size: 30px;

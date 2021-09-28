@@ -32,7 +32,7 @@ export default function Product(props) {
             });
           }}
         >
-          <span>{width <= 650 ? '+' : 'Add to list' }</span>
+          <span>{width <= 720 ? '+' : 'Add to list' }</span>
         </button>
 
       </div>

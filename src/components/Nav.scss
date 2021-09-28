@@ -23,6 +23,10 @@
     color: $primary-white;
     transition: color 0.4s;
   }
+
+  li:hover {
+    color: $green-hover;
+  }
 }
 
 .sticky {

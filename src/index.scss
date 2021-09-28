@@ -11,6 +11,7 @@
 
 body {
   font-family: "Rubik", sans-serif;
+  margin-top: 100px;
 }
 
 h1,
@@ -37,7 +38,6 @@ section {
 
 h1 {
   font-size: 1.7em;
-  margin-top: 3em;
   margin-bottom: 1.2em;
   letter-spacing: 1px;
 }
@@ -58,9 +58,4 @@ p {
   z-index: 1;
   position: relative;
   top: 100px;
-}
-
-.nav-scroll {
-  color: $primary-white;
-  background-color: $primary-green;
 }

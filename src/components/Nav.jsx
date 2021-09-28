@@ -9,7 +9,7 @@ export default function Nav() {
   const [navColor, setNavColor] = useState(false);
 
   const changeNavColor = () => {
-    if (window.scrollY >= 100) {
+    if (window.scrollY >= 90) {
       setNavColor(true);
     } else {
       setNavColor(false);

@@ -23,6 +23,9 @@ export default function Login() {
           ...prev,
           auth: res.data.auth,
         }));
+
+        setEmail('');
+        setPassword('');
       });
   };
 

@@ -14,24 +14,22 @@ module.exports = (db) => {
         if (data.rows.length > 0) {
           if (bcrypt.compareSync(password, data.rows[0].password)) {
             req.session.user = data.rows[0].id;
+            res.json({ auth: true });
           } else {
-            console.log(`invalid password ${password}`);
-            req.session = null;
+            // console.log(`invalid password ${password}`);
+            throw new Error('invalid password');
           }
         } else {
-          console.log(`No user with email ${email} was found!`);
-        }
-      })
-      .then(() => {
-        if (req.session) {
-          console.log('user', req.session.user);
+          // console.log(`No user with email ${email} was found!`);
 
-          res.json({ auth: true });
-        } else {
-          res.json({ auth: false });
+          throw new Error(`no user with email ${email} was found`);
         }
       })
-      .catch((err) => console.log(err.stack));
+      .catch((err) => {
+        req.session = null;
+        res.json({ auth: false });
+        console.log(err);
+      });
   });
   return router;
 };

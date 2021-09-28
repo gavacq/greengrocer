@@ -1,10 +1,14 @@
+/* eslint-disable */
+
 import { React } from 'react';
 import PropTypes from 'prop-types';
 import '../index.scss';
 import './Products.scss';
 import './App.scss';
+import useWindowSize from '../hooks/useWindowSize';
 
 export default function Product(props) {
+  const [height, width] = useWindowSize(); // window size
   const {
     title, id, image, setNewProduct,
   } = props;
@@ -28,7 +32,7 @@ export default function Product(props) {
             });
           }}
         >
-          <span>+</span>
+          <span>{width <= 650 ? '+' : 'Add to list' }</span>
         </button>
 
       </div>

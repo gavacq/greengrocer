@@ -9,11 +9,11 @@ p {
   text-align: center;
   margin-bottom: 35px;
   font-weight: 450;
+  padding-left: 10px;
 }
 
 .product-img {
-  // text-align: left;
-  align-self: left;
+  text-align: center;
   margin-bottom: 10px;
 }
 
@@ -22,7 +22,7 @@ p {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  text-align: left;
+  text-align: center;
 }
 
 img {
@@ -32,8 +32,8 @@ img {
 .product-flexbox {
   display: flex;
   flex-direction: column;
-  padding: 0 20px 0 20px;
-  margin-bottom: 30px;
+  padding: 0 10% 0 10%;
+  margin-bottom: 45px;
   align-items: center;
 
   &:hover {
@@ -72,4 +72,14 @@ img {
     width: 180px;
   }
 
+  .add-btn {
+    padding-top: 20px;
+    margin-left: 40px;
+
+    span {
+      font-size: 30px;
+      position: relative;
+      text-align: left;
+    }
+  }
 }

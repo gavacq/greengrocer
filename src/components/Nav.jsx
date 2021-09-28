@@ -33,6 +33,12 @@ export default function Nav() {
             <Link to="/stats" className="desktop-menu-item">
               <li>Stats</li>
             </Link>
+<<<<<<< HEAD
+=======
+            <Link to="/login" className="desktop-menu-item">
+              <li>Login</li>
+            </Link>
+>>>>>>> remove old navStyle
           </ul>
         </nav>
       </div>

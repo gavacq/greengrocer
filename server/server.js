@@ -41,7 +41,7 @@ app.get('/api/data', (req, res) => {
 });
 
 app.use('/api/search', searchRoute());
-app.use('/login', loginRoute());
+app.use('/login', loginRoute(db));
 
 // listen on the specified port
 app.listen(PORT, () => {

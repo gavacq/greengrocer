@@ -1,11 +1,23 @@
 /* eslint-disable no-restricted-properties */
 /* eslint-disable max-len */
 /* eslint-disable quote-props */
-const coordinates = require('./coordinates');
+const chalk = require('chalk');
+const { coordinates } = require('./coordinates');
 
 const carbonCalculator = (upc) => {
   const key = upc.toString().substring(0, 3);
+  console.log('key', key);
+
   console.log('THESE ARE THE COORDINATES: ', coordinates[key]);
+
+  if (!coordinates[key]) {
+    console.log(chalk.red('@@@@@@@@@@@@@@ UPC data missing!', key));
+    return ({
+      lat: 0,
+      long: 0,
+      co2: 0,
+    });
+  }
   const origin = {
     lat: 49.2827 * (Math.PI / 180),
     long: (360 - 123.1207) * (Math.PI / 180),

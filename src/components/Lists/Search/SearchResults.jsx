@@ -13,6 +13,7 @@ export default function SearchResults(props) {
       id={result.id}
       image={result.image}
       title={result.title}
+      upc={result.upc}
       setNewProduct={setList}
     />
   ));

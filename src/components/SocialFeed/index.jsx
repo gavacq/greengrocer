@@ -24,6 +24,8 @@ export default function SocialFeed() {
           username={post.username}
           likes={post.likes}
           message={post.message}
+          setPosts={setPosts}
+          posts={posts}
         />
       ))}
     </section>

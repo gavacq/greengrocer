@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
+import './SearchBar.scss';
 
 export default function SearchBar(props) {
   const [productName, setProductName] = useState('');

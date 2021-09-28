@@ -1,0 +1,25 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+
+// ----------------- styles for search bar ------------ //
+
+form {
+  margin-top: 100px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+/* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
+
+
+// @media screen and (min-width: $desktop-breakpoint) {
+
+// }

@@ -5,7 +5,7 @@ import { useAppContext } from '../lib/context';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { user, setUser } = useAppContext();
+  const { setUser } = useAppContext();
 
   const height = {
     height: '50vh',
@@ -30,7 +30,6 @@ export default function Login() {
     <main>
       <h1>
         Login
-        {user.auth && 'ok now Logout'}
       </h1>
       <section>
         <form onSubmit={handleSubmit} style={height}>

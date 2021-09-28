@@ -823,4 +823,4 @@ const coordinates = {
   },
 };
 
-module.exports = { coordinates };
+module.exports.coordinates = coordinates;

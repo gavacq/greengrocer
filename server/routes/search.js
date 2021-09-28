@@ -26,15 +26,17 @@ module.exports = () => {
         const parsedData = response.map((r) => {
           // console.log('id', r.data.id);
           const carbonData = carbonCalculator(r.data.upc);
-          console.log("THIS IS THE CARBON DATA : ", carbonData)
+          console.log('THIS IS THE CARBON DATA : ', carbonData);
           return {
             id: r.data.id,
             title: r.data.title,
             image: r.data.image,
             upc: r.data.upc,
+            lat: carbonData.lat,
+            long: carbonData.long,
+            co2: carbonData.co2,
           };
         });
-        console.log('This is out data: ', parsedData);
         res.send(parsedData);
       })
       .catch((error) => error.message);

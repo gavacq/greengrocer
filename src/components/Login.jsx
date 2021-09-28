@@ -10,7 +10,8 @@ export default function Login() {
   };
 
   const handleClick = () => {
-    axios.post('/login', { email, password });
+    axios.post('/login', { email, password })
+      .then((res) => console.log('response', res));
   };
 
   return (

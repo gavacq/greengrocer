@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 export default function Nav() {
   const [navColor, setNavColor] = useState(false);
 
+  // change navbar color on scroll
   const changeNavColor = () => {
     if (window.scrollY >= 90) {
       setNavColor(true);

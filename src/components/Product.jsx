@@ -10,12 +10,17 @@ export default function Product(props) {
   } = props;
   console.log('image', image);
   return (
-    <div id={id}>
-      <div className="product-img">
-        <img src={image} alt="product" />
+    <div id={id} className="product-flexbox">
+
+      <div className="product-container">
+        <div className="product-img">
+          <img src={image} alt="product" />
+        </div>
+        <p>{title}</p>
       </div>
-      <p>{title}</p>
+
       <button
+        className="add-btn"
         type="button"
         aria-label="setNewProduct"
         onClick={() => {
@@ -24,8 +29,9 @@ export default function Product(props) {
           });
         }}
       >
-        +
+        add to list
       </button>
+
     </div>
   );
 }

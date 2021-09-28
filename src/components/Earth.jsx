@@ -24,21 +24,21 @@ export default function Earth() {
 
   useEffect(() => {
     // SCENE
-    const scene = new THREE.Scene();
+    let scene = new THREE.Scene();
 
     // TEXTURES
-    const textureLoader = new THREE.TextureLoader();
+    let textureLoader = new THREE.TextureLoader();
 
-    const earthTexture = textureLoader.load('./images/textures/earthmap.jpg');
-    const earthDisplacement = textureLoader.load('./images/textures/occulantearth.jpg');
-    const earthAmbient = textureLoader.load('./images/textures/occulantearth.jpg');
+    let earthTexture = textureLoader.load('./images/textures/earthmap.jpg');
+    let earthDisplacement = textureLoader.load('./images/textures/occulantearth.jpg');
+    let earthAmbient = textureLoader.load('./images/textures/occulantearth.jpg');
 
-    const cloudsTreansparency = textureLoader.load('./images/textures/fairweather.jpeg');
+    let cloudsTreansparency = textureLoader.load('./images/textures/fairweather.jpeg');
 
     /**
  * EARTH
  */
-    const earth = new THREE.Mesh(
+    let earth = new THREE.Mesh(
       new THREE.SphereGeometry(3, 700, 700),
       new THREE.MeshStandardMaterial({
         normalMap: earthAmbient,
@@ -67,9 +67,9 @@ export default function Earth() {
     // const globalZ = Math.cos(vancouver.lat) * Math.cos(vancouver.long) * 3;
     // const globalX = Math.cos(vancouver.lat) * Math.sin(vancouver.long) * 3;
     // const globalY = Math.sin(vancouver.lat) * 3;
-    const points = [];
+    let points = [];
 
-    const newPoint = (lat, long) => {
+    let newPoint = (lat, long) => {
       const z = Math.cos(lat) * Math.cos(long) * 3;
       const x = Math.cos(lat) * Math.sin(long) * 3;
       const y = Math.sin(lat) * 3;
@@ -102,13 +102,13 @@ export default function Earth() {
     /**
  * Lights
  */
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    let ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambientLight);
 
-    const moonLight1 = new THREE.DirectionalLight('#ffffff', 0.3);
+    let moonLight1 = new THREE.DirectionalLight('#ffffff', 0.3);
     moonLight1.position.set(4, 5, 5);
 
-    const moonLight2 = new THREE.DirectionalLight('#ffffff', 0.3);
+    let moonLight2 = new THREE.DirectionalLight('#ffffff', 0.3);
     moonLight2.position.set(-4, -5, -5);
 
     const moonLight3 = new THREE.DirectionalLight('#ffffff', 0.3);
@@ -143,21 +143,21 @@ export default function Earth() {
     /**
  * Renderer
  */
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    let renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(sizes.width, sizes.height);
     renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     mountRef.current.appendChild(renderer.domElement);
 
     // Controls
-    const controls = new OrbitControls(camera, renderer.domElement);
+    let controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
 
     /**
  * Animate
  */
 
-    window.addEventListener('resize', () => {
+    const windowResize = window.addEventListener('resize', () => {
       // Update sizes
       sizes.width = window.innerWidth;
       sizes.height = window.innerHeight;
@@ -173,7 +173,12 @@ export default function Earth() {
 
     const clock = new THREE.Clock();
 
+    const myAnimation = (callback) => {
+      window.requestAnimationFrame(callback);
+    };
+
     const tick = () => {
+      myAnimation(tick);
       const elapsedTime = clock.getElapsedTime();
 
       //   // Update controls
@@ -192,15 +197,29 @@ export default function Earth() {
 
       // Render
       renderer.render(scene, camera);
-
-      // Call tick again on the next frame
-      window.requestAnimationFrame(tick);
     };
 
     tick();
 
     return () => {
-      mountRef.current.removeChild(renderer.domElement);
+      window.removeEventListener('resize', windowResize);
+      window.cancelAnimationFrame(myAnimation);
+      renderer = null;
+      controls = null;
+      newPoint = null;
+      points = null;
+      earth = null;
+      ambientLight = null;
+      moonLight1 = null;
+      moonLight2 = null;
+      scene = null;
+      earthTexture = null;
+      earthDisplacement = null;
+      earthAmbient = null;
+      textureLoader = null;
+      cloudsTreansparency = null;
+
+      console.log(mountRef);
     };
   }, []);
 

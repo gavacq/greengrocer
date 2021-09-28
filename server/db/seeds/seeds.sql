@@ -37,14 +37,14 @@ VALUES (3, 23, 'very interesting message');
 
 -- Seeds for products table
 
-INSERT INTO products (lat, long, co2_data)
-VALUES (49.1, 23.5, 103);
+INSERT INTO products (title, lat, long, co2_data)
+VALUES ('beans', 49.1, 23.5, 103);
 
-INSERT INTO products (lat, long, co2_data)
-VALUES (0, 0, 300);
+INSERT INTO products (title, lat, long, co2_data)
+VALUES ('queso', 0, 0, 300);
 
-INSERT INTO products (lat, long, co2_data)
-VALUES (15, 30, 609);
+INSERT INTO products (title, lat, long, co2_data)
+VALUES ('tomago', 15, 30, 609);
 
 
 -- Seeds for products_lists table

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Product from '../../Product';
 
 export default function SearchResults(props) {
-  const { results, setNewProduct } = props;
+  const { results, setList } = props;
   console.log('results', results);
   const jsxResults = results.map((result) => (
     <Product
@@ -13,7 +13,7 @@ export default function SearchResults(props) {
       id={result.id}
       image={result.image}
       title={result.title}
-      setNewProduct={setNewProduct}
+      setNewProduct={setList}
     />
   ));
 
@@ -31,5 +31,5 @@ SearchResults.propTypes = {
     title: PropTypes.string,
     image: PropTypes.string,
   })).isRequired,
-  setNewProduct: PropTypes.func.isRequired,
+  setList: PropTypes.func.isRequired,
 };

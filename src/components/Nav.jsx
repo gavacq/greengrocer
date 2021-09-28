@@ -29,7 +29,6 @@ export default function Nav() {
   }
 
   const handleLogout = () => {
-    console.log('clicked');
     axios.post('/logout')
       .then((res) => {
         setUser((prev) => {

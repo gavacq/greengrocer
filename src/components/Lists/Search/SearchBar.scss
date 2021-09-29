@@ -15,6 +15,7 @@
 .search-container h2 {
   font-size: 30px;
   max-width: 70vw;
+  text-align: center;
 }
 
 form.search-form {
@@ -29,7 +30,7 @@ form.search-form {
 
   ::placeholder {
     color: $blue-btn-text;
-    opacity: 0.7;
+    opacity: 0.8;
     font-size: 20px;
     padding-left: 17px;
   }
@@ -75,8 +76,6 @@ form.search-form {
     }
   }
   
-
-
   .search-form input {
     margin: 30px 0 20px 20px;
     height: 70px;
@@ -89,7 +88,25 @@ form.search-form {
     height: 65px;
     width: 130px;
     font-size: 30px;
-  }
-  
+  } 
 
+}
+
+
+@media screen and (max-width: 360px) {
+
+  .search-form input {
+    width: 60vw;
+    font-size: 15px;
+    padding-left: 5px;
+
+  }
+
+  form.search-form {
+  
+    ::placeholder {
+      font-size: 15px;
+      padding-left: 5px;
+    }
+  }
 }

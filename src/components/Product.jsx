@@ -6,7 +6,7 @@ import './App.scss';
 import useWindowSize from '../hooks/useWindowSize';
 
 export default function Product(props) {
-  const [width] = useWindowSize(); // window size
+  const [height, width] = useWindowSize(); // eslint-disable-line
   const {
     title, id, image, setNewProduct,
   } = props;

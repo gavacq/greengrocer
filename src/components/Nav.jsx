@@ -1,14 +1,16 @@
 /* eslint-disable */
 
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import './Nav.scss';
 import '../index.scss';
 import { Link } from 'react-router-dom';
+import useWindowSize from '../hooks/useWindowSize';
 import { useAppContext } from '../lib/context';
 import axios from 'axios';
 
 export default function Nav() {
-  const [navColor, setNavColor] = useState(false);
+  const [navColor, setNavColor] = useState(false); // navbar color
+  const [height, width] = useWindowSize(); // window size
   const {user, setUser} = useAppContext();
 
   // change navbar color on scroll
@@ -20,6 +22,8 @@ export default function Nav() {
     }
   };
 
+  window.addEventListener('scroll', changeNavColor); 
+  
   const loginButton = () => {
     return(
       <Link to="/login" className="desktop-menu-item">
@@ -57,7 +61,7 @@ export default function Nav() {
       <div className="wrapper">
         <nav>
           <Link to="/" className="logo-link">
-            <div className="logo">GreenGrocer</div>
+            <div className="logo" >{width < 720 ? 'GG' : 'GreenGrocer' }</div>
           </Link>
           <ul className="desktop-menu">
             <Link to="/lists" className="desktop-menu-item">

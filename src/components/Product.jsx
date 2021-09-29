@@ -1,30 +1,44 @@
+/* eslint-disable */
+
 import { React } from 'react';
 import PropTypes from 'prop-types';
+import '../index.scss';
+import './Products.scss';
+import './App.scss';
+import useWindowSize from '../hooks/useWindowSize';
 
 export default function Product(props) {
+  const [height, width] = useWindowSize(); // window size
   const {
     title, id, image, upc, setNewProduct,
   } = props;
   console.log('image', image);
   return (
-    <div id={id}>
-      <p>{title}</p>
-      <img src={image} alt="product" />
-      <p>
-        UPC:
-        {upc}
-      </p>
-      <button
-        type="button"
-        aria-label="setNewProduct"
-        onClick={() => {
-          setNewProduct({
-            title, id, image,
-          });
-        }}
-      >
-        +
-      </button>
+    <div id={id} className="product-flexbox">
+
+      <div className="img-btn-container">
+
+        <div className="product-img">
+          <img src={image} alt="product" className="product" />
+        </div>
+
+        <button
+          className="add-btn"
+          type="button"
+          aria-label="setNewProduct"
+          onClick={() => {
+            setNewProduct({
+              title, id, image,
+            });
+          }}
+        >
+          <span>{width <= 720 ? '+' : 'Add to list' }</span>
+        </button>
+
+      </div>
+
+      <div><p>{title}</p></div>
+
     </div>
   );
 }

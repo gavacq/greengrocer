@@ -64,7 +64,7 @@ nav {
 
 /* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: $desktop-breakpoint) {
   /* hamburger menu icon */
   .nav-btn-container img {
     display: none;

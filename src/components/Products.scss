@@ -1,0 +1,91 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+
+// ----------------- styles for products ------------ //
+
+p {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 35px;
+  font-weight: 450;
+  padding-left: 10px;
+}
+
+.product-img {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.img-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+img.product {
+  width: 150px;
+}
+
+.product-flexbox {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10% 0 10%;
+  margin-bottom: 45px;
+  align-items: center;
+
+  &:hover {
+    img, p {
+      opacity: 0.7;
+      transition: opacity 0.5s;
+    }
+  }
+}
+
+.add-btn {
+  @include button-styles;
+  position: relative;
+  top: -15px;
+  height: 60px;
+  margin-left: 30px;
+
+  span {
+    font-size: 55px;
+    padding: 10px;
+    position: relative;
+    top: -12px;
+  }
+}
+
+
+/* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
+
+@media screen and (min-width: $desktop-breakpoint) {
+
+  p {
+    font-size: 20px;
+  }
+  
+  img.product{
+    width: 180px;
+    padding-right: 40px;
+
+  }
+
+  .product-flexbox {
+    width: 70vw;
+  }
+
+  .add-btn {
+    padding-top: 20px;
+    margin-left: 15px;
+
+    span {
+      font-size: 30px;
+      position: relative;
+      text-align: left;
+    }
+  }
+}

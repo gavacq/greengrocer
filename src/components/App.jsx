@@ -1,6 +1,9 @@
-import { React, useState } from 'react';
+/* eslint-disable */
+
+import { React, useEffect, useState } from 'react';
 import '../index.scss';
 import './App.scss';
+// import axios from 'axios';
 
 import {
   BrowserRouter as Router, Route, Switch,
@@ -12,7 +15,8 @@ import Home from './Home';
 import Login from './Login';
 import { AppContext } from '../lib/context';
 
-// main react component, rendered by index.js
+
+// App component
 function App() {
   const [user, setUser] = useState({});
 

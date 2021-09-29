@@ -34,6 +34,17 @@ VALUES (2, 2, 'lorem ipsum and some other stuff');
 INSERT INTO posts (user_id, likes, message)
 VALUES (3, 23, 'very interesting message');
 
+-- Seeds for liked posts table
+
+INSERT INTO liked_posts (user_id, post_id)
+VALUES (2, 1);
+
+INSERT INTO liked_posts (user_id, post_id)
+VALUES (2, 2);
+
+INSERT INTO liked_posts (user_id, post_id)
+VALUES (1, 3);
+
 
 -- Seeds for products table
 

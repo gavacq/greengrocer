@@ -4,18 +4,23 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get('/', (req, res) => {
-    const text = 'SELECT (posts.*), (users.username) FROM posts JOIN users ON users.id = user_id';
-    db.query(text)
+    const postsQuery = 'SELECT (posts.*), (users.username) FROM posts JOIN users ON users.id = user_id';
+    const postsPromise = db.query(postsQuery);
+
+    const likedPostsQuery = `SELECT posts.id FROM posts JOIN liked_posts ON liked_posts.post_id = posts.id WHERE liked_posts.user_id = ${req.session.user}`;
+    const likedPostsPromise = db.query(likedPostsQuery);
+
+    Promise.all([postsPromise, likedPostsPromise])
       .then((data) => {
-        console.log(data.rows);
-        res.json(data.rows);
+        console.log(data[0].rows, data[1].rows);
+        res.json(data);
       })
       .catch((err) => {
         console.log(err);
-        res.json({});
+        res.send('error');
       });
   });
 
-  router.patch('/', (req, res));
+  // router.patch('/', (req, res));
   return router;
 };

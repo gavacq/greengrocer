@@ -7,7 +7,7 @@ export default function NewList(props) {
   console.log('list', list);
 
   const submitList = (newList) => {
-    axios.put('/api/lists/new', { newList }).then(() => console.log('success'));
+    axios.put('/api/lists', { newList }).then(() => console.log('success'));
   };
 
   const mappedList = list.map((item) => <p key={item.id}>{item.title}</p>);

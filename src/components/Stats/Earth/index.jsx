@@ -4,6 +4,7 @@ import { OrbitControls } from '@react-three/drei';
 
 import Planet from './Planet';
 import Clouds from './Clouds';
+import Location from './Location';
 
 export default function Earth() {
   return (
@@ -12,6 +13,7 @@ export default function Earth() {
       <Suspense fallback={null}>
         <Planet />
         <Clouds />
+        <Location lat={49.2827} long={(360 - 123.1207)} />
       </Suspense>
       <OrbitControls />
     </Canvas>

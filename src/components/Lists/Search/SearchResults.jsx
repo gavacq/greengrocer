@@ -17,11 +17,8 @@ export default function SearchResults(props) {
 
   const jsxResults = results.map((result) => (
     <Product
-      key={result.id}
-      id={result.id}
-      image={result.image}
-      title={result.title}
-      upc={result.upc}
+      key={result.api_id}
+      data={result}
       addProductToList={addProductToList}
     />
   ));
@@ -36,9 +33,19 @@ export default function SearchResults(props) {
 // declare the prop type for the SearchResults component
 SearchResults.propTypes = {
   results: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
+    api_id: PropTypes.number,
     title: PropTypes.string,
     image: PropTypes.string,
+    cO2: PropTypes.number,
+    lat: PropTypes.number,
+    long: PropTypes.number,
   })).isRequired,
   setList: PropTypes.func.isRequired,
 };
+
+// id: product.id,
+// title: product.title,
+// image: product.image,
+// lat: product.lat,
+// long: product.long,
+// co2: product.co2,

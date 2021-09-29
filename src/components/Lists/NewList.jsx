@@ -7,10 +7,11 @@ export default function NewList(props) {
   console.log('list', list);
 
   const submitList = (newList) => {
-    axios.put('/api/lists', { newList }).then(() => console.log('success'));
+    const cO2Saved = 0;
+    axios.put('/api/lists', { newList, cO2Saved }).then(() => console.log('success'));
   };
 
-  const mappedList = list.map((item) => <p key={item.id}>{item.title}</p>);
+  const mappedList = list.map((product) => <p key={product.api_id}>{product.title}</p>);
   console.log('mapped', mappedList);
 
   return (

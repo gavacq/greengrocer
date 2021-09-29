@@ -5,6 +5,7 @@ import './SearchBar.scss';
 import '../../../index.scss';
 
 export default function SearchBar(props) {
+  const { setResults } = props;
   const [productName, setProductName] = useState('');
 
   // helper: handles click on the search button
@@ -13,14 +14,16 @@ export default function SearchBar(props) {
     axios.get(`/api/search/?productName=${productName}`)
       .then((res) => {
         // just setResults with id, title, and image
-        console.log('MY RESPONSE : ', res);
+        console.log('MY RESPONSE : ', res.data);
         const results = res.data.map((product) => ({
-          id: product.id,
+          api_id: product.id,
           title: product.title,
           image: product.image,
-          upc: product.upc,
+          lat: product.lat,
+          long: product.long,
+          co2: product.co2,
         }));
-        props.setResults(results);
+        setResults(results);
       });
 
     // .then((res) => console.log(res.data));

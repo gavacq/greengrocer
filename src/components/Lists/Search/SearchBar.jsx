@@ -2,6 +2,7 @@ import axios from 'axios';
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import './SearchBar.scss';
+import '../../../index.scss';
 
 export default function SearchBar(props) {
   const [productName, setProductName] = useState('');
@@ -26,7 +27,7 @@ export default function SearchBar(props) {
   };
 
   return (
-    <form onSubmit={(event) => event.preventDefault()}>
+    <form className="search-form" onSubmit={(event) => event.preventDefault()}>
       <input
         placeholder="search for a product"
         product="product"

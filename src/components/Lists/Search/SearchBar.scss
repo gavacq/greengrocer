@@ -4,12 +4,41 @@
 
 // ----------------- styles for search bar ------------ //
 
-form {
-  margin-top: 100px;
-  padding-top: 20px;
+form.search-form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  margin: 50px 0 30px 0;
+  padding: 10px;
+  height: 150px;
+  width: 75vw; 
+
+  ::placeholder {
+    color: $blue-btn-text;
+    opacity: 0.6;
+    font-size: 20px;
+    padding-left: 17px;
+  }
+}
+
+.search-form input {
+  border: solid $blue-btn-border 4px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background: $blue-btn-background;
+  font-family: "Rubik", sans-serif;
+  height: 150px;
+  color: $blue-btn-text;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.search-form button {
+  @include button-styles;
+  height: 100px;
+  width: 80px;
+
 }
 
 
@@ -20,6 +49,10 @@ form {
 /* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
 
 
-// @media screen and (min-width: $desktop-breakpoint) {
+@media screen and (min-width: $desktop-breakpoint) {
 
-// }
+  form.search-form {
+    width: 40vw; 
+  }
+  
+}

@@ -4,26 +4,29 @@ import axios from 'axios';
 
 export default function NewList(props) {
   const { list } = props;
-  const { title } = list;
+  console.log('list', list);
 
-  const submitList = (item) => {
-    axios.put('/api/lists/new', { item }).then(() => console.log('success'));
+  const submitList = (newList) => {
+    axios.put('/api/lists/new', { newList }).then(() => console.log('success'));
   };
+
+  const mappedList = list.map((item) => <p key={item.id}>{item.title}</p>);
+  console.log('mapped', mappedList);
 
   return (
     <section>
       <h1>New List</h1>
-      <p>{title}</p>
-      <button type="button" onClick={() => submitList(title)}>Save</button>
+      {mappedList}
+      <button type="button" onClick={() => submitList(list)}>Save</button>
     </section>
   );
 }
 
 // declare the prop type for the ListProducts component
 NewList.propTypes = {
-  list: PropTypes.shape({
+  list: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
     image: PropTypes.string,
-  }).isRequired,
+  })).isRequired,
 };

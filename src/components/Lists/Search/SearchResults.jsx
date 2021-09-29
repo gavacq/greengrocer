@@ -7,6 +7,14 @@ import Product from '../../Product';
 export default function SearchResults(props) {
   const { results, setList } = props;
   console.log('results', results);
+
+  const addProductToList = (product) => {
+    setList((prev) => ([
+      ...prev,
+      product,
+    ]));
+  };
+
   const jsxResults = results.map((result) => (
     <Product
       key={result.id}
@@ -14,7 +22,7 @@ export default function SearchResults(props) {
       image={result.image}
       title={result.title}
       upc={result.upc}
-      setNewProduct={setList}
+      addProductToList={addProductToList}
     />
   ));
 

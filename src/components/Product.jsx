@@ -8,7 +8,7 @@ import useWindowSize from '../hooks/useWindowSize';
 export default function Product(props) {
   const [height, width] = useWindowSize(); // eslint-disable-line
   const {
-    title, id, image, setNewProduct,
+    title, id, image, addProductToList,
   } = props;
   console.log('image', image);
   return (
@@ -24,7 +24,7 @@ export default function Product(props) {
           type="button"
           aria-label="setNewProduct"
           onClick={() => {
-            setNewProduct({
+            addProductToList({
               title, id, image,
             });
           }}
@@ -45,10 +45,10 @@ Product.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
-  setNewProduct: PropTypes.func,
+  addProductToList: PropTypes.func,
 };
 
 // Specifies the default values for props:
 Product.defaultProps = {
-  setNewProduct: () => {},
+  addProductToList: () => {},
 };

@@ -14,13 +14,13 @@ VALUES ('Nally', 'nally@mail.com', 'qeufhew');
 
 -- Seeds for lists table
 
-INSERT INTO lists (user_id, co2_data)
+INSERT INTO lists (user_id, co2_saved)
 VALUES (1, 30);
 
-INSERT INTO lists (user_id, co2_data)
+INSERT INTO lists (user_id, co2_saved)
 VALUES (2, 100);
 
-INSERT INTO lists (user_id, co2_data)
+INSERT INTO lists (user_id, co2_saved)
 VALUES (3, 68);
 
 -- Seeds for posts table
@@ -48,14 +48,14 @@ VALUES (1, 3);
 
 -- Seeds for products table
 
-INSERT INTO products (title, lat, long, co2_data)
-VALUES ('beans', 49.1, 23.5, 103);
+INSERT INTO products (api_product_id, title, lat, long, co2_data)
+VALUES (12, 'beans', 49.1, 23.5, 103);
 
-INSERT INTO products (title, lat, long, co2_data)
-VALUES ('queso', 0, 0, 300);
+INSERT INTO products (api_product_id, title, lat, long, co2_data)
+VALUES (123, 'queso', 0, 0, 300);
 
-INSERT INTO products (title, lat, long, co2_data)
-VALUES ('tomago', 15, 30, 609);
+INSERT INTO products (api_product_id, title, lat, long, co2_data)
+VALUES (13, 'tomago', 15, 30, 609);
 
 
 -- Seeds for products_lists table

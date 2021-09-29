@@ -8,7 +8,7 @@ import { useAppContext } from '../lib/context';
 
 export default function Nav() {
   const [navColor, setNavColor] = useState(false); // navbar color
-  const [width] = useWindowSize(); // window size
+  const [height, width] = useWindowSize(); // eslint-disable-line
   const { user, setUser } = useAppContext();
 
   // change navbar color on scroll

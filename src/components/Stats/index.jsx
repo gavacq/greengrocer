@@ -1,5 +1,5 @@
 import React from 'react';
-import Earth from '../Earth';
+import Earth from './Earth';
 
 export default function Stats() {
   return (

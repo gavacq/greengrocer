@@ -1,0 +1,123 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+
+// ----------------- styles for search bar ------------ //
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: solid 3px rgb(141, 212, 162, 0.7);
+}
+
+
+.search-container h2 {
+  margin-top: 30px;
+  font-size: 30px;
+  max-width: 70vw;
+  text-align: center;
+  opacity: 0.9;
+}
+
+form.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 50px 20px 30px 10px;
+  padding: 10px;
+  height: 150px;
+  width: 70vw; 
+
+  ::placeholder {
+    color: $blue-btn-text;
+    opacity: 0.8;
+    font-size: 20px;
+    padding-left: 17px;
+  }
+}
+
+.search-form input {
+  border: solid $blue-btn-border 4px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background: $blue-btn-background;
+  font-family: "Rubik", sans-serif;
+  height: 150px;
+  color: $blue-btn-text;
+  font-size: 20px;
+  padding-left: 10px;
+
+  &:active, &:hover {
+    background: $blue-btn-background-active;
+  }
+}
+
+.search-button {
+  @include button-styles;
+  height: 120px;
+  width: 130px;
+  font-size: 25px;
+}
+
+
+
+
+
+
+/* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
+
+
+@media screen and (min-width: $desktop-breakpoint) {
+
+  form.search-form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 70vw; 
+
+    ::placeholder {
+      font-size: 25px;
+      padding-left: 10px;
+    }
+  }
+  
+  .search-form input {
+    margin: 30px 50px 20px 20px;
+    height: 70px;
+    width: 300px;
+    font-size: 30px;
+    padding-left: 20px;
+  }
+
+  .search-button {
+    position: relative;
+    top: 4px;
+    height: 55px;
+    width: 130px;
+    font-size: 30px;
+  } 
+
+}
+
+
+@media screen and (max-width: 360px) {
+
+  .search-form input {
+    width: 60vw;
+    font-size: 15px;
+    padding-left: 5px;
+
+  }
+
+  form.search-form {
+  
+    ::placeholder {
+      font-size: 15px;
+      padding-left: 5px;
+    }
+  }
+}

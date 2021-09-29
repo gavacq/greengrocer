@@ -45,7 +45,7 @@ img.product {
 }
 
 .add-btn {
-  @include button-styles;
+  @include green-button-styles;
   position: relative;
   top: -15px;
   height: 60px;

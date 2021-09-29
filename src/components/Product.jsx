@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { React } from 'react';
 import PropTypes from 'prop-types';
 import '../index.scss';
@@ -8,9 +6,9 @@ import './App.scss';
 import useWindowSize from '../hooks/useWindowSize';
 
 export default function Product(props) {
-  const [height, width] = useWindowSize(); // window size
+  const [width] = useWindowSize(); // window size
   const {
-    title, id, image, upc, setNewProduct,
+    title, id, image, setNewProduct,
   } = props;
   console.log('image', image);
   return (
@@ -48,7 +46,6 @@ Product.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
-  upc: PropTypes.number.isRequired,
   setNewProduct: PropTypes.func,
 };
 

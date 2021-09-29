@@ -22,20 +22,21 @@ const carbonCalculator = (upc) => {
     lat: 49.2827 * (Math.PI / 180),
     long: (360 - 123.1207) * (Math.PI / 180),
   };
-  const originZ = Math.cos(origin.lat) * Math.cos(origin.long) * 3;
-  const originX = Math.cos(origin.lat) * Math.sin(origin.long) * 3;
-  const originY = Math.sin(origin.lat) * 3;
+  const originZ = Math.cos(origin.lat) * Math.cos(origin.long) * 6378;
+  const originX = Math.cos(origin.lat) * Math.sin(origin.long) * 6378;
+  const originY = Math.sin(origin.lat) * 6378;
 
-  const pointZ = Math.cos(coordinates[key].lat * (Math.PI / 180)) * Math.cos(coordinates[key].long * (Math.PI / 180)) * 3;
-  const pointX = Math.cos(coordinates[key].lat * (Math.PI / 180)) * Math.sin(coordinates[key].long * (Math.PI / 180)) * 3;
-  const pointY = Math.sin(coordinates[key].lat * (Math.PI / 180)) * 3;
+  const pointZ = Math.cos(coordinates[key].lat * (Math.PI / 180)) * Math.cos(coordinates[key].long * (Math.PI / 180)) * 6378;
+  const pointX = Math.cos(coordinates[key].lat * (Math.PI / 180)) * Math.sin(coordinates[key].long * (Math.PI / 180)) * 6378;
+  const pointY = Math.sin(coordinates[key].lat * (Math.PI / 180)) * 6378;
 
   const disX = Math.pow((originX - pointX), 2);
   const disY = Math.pow((originY - pointY), 2);
   const disZ = Math.pow((originZ - pointZ), 2);
 
-  const distance = Math.sqrt((disX + disY + disZ)) * 6378;
+  const distance = Math.sqrt((disX + disY + disZ));
 
+  // TODO: specify weight of item for more accurate carbon value
   const carbonEmissions = (distance * 115) / 68;
   console.log('TOTAL CARBON EMISSIONS : ', carbonEmissions);
 

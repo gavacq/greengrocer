@@ -1,6 +1,4 @@
-/* eslint-disable */
-
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import '../index.scss';
 import './App.scss';
 // import axios from 'axios';
@@ -14,7 +12,6 @@ import Nav from './Nav';
 import Home from './Home';
 import Login from './Login';
 import { AppContext } from '../lib/context';
-
 
 // App component
 function App() {

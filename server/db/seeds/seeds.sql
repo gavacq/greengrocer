@@ -71,4 +71,3 @@ VALUES (3, 3);
 
 INSERT INTO products_lists (product_id, list_id)
 VALUES (3, 1);
-

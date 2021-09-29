@@ -5,13 +5,21 @@ const chalk = require('chalk');
 const { coordinates } = require('./coordinates');
 
 const carbonCalculator = (upc) => {
+  if (upc === null) {
+    console.log(chalk.red('@@@@@@@@@@@@@@ UPC code doesnt exist'));
+    return ({
+      lat: 0,
+      long: 0,
+      co2: 0,
+    });
+  }
   const key = upc.toString().substring(0, 3);
   console.log('key', key);
 
   console.log('THESE ARE THE COORDINATES: ', coordinates[key]);
 
   if (!coordinates[key]) {
-    console.log(chalk.red('@@@@@@@@@@@@@@ UPC data missing!', key));
+    console.log(chalk.red('@@@@@@@@@@@@@@ UPC data missing', key));
     return ({
       lat: 0,
       long: 0,

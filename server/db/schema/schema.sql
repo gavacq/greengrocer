@@ -38,7 +38,7 @@ CREATE TABLE liked_posts (
 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY NOT NULL,
-  api_product_id INTEGER NOT NULL,
+  api_product_id INTEGER UNIQUE NOT NULL,
   title VARCHAR(255) NOT NULL,
   image VARCHAR(255),
   lat FLOAT NOT NULL,

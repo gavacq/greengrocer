@@ -63,5 +63,5 @@ Post.propTypes = {
     username: PropTypes.string.isRequired,
     likes: PropTypes.number.isRequired,
     message: PropTypes.string.isRequired,
-  })),
+  })).isRequired,
 };

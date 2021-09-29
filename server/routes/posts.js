@@ -15,5 +15,7 @@ module.exports = (db) => {
         res.json({});
       });
   });
+
+  router.patch('/', (req, res));
   return router;
 };

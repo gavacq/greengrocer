@@ -27,16 +27,20 @@ export default function SearchBar(props) {
   };
 
   return (
-    <form className="search-form" onSubmit={(event) => event.preventDefault()}>
-      <input
-        placeholder="search for a product"
-        product="product"
-        type="text"
-        value={productName}
-        onChange={(event) => setProductName(event.target.value)}
-      />
-      <button type="button" onClick={clickHandler}>search</button>
-    </form>
+    <div className="search-container">
+
+      <h2>What are you looking for?</h2>
+      <form className="search-form" onSubmit={(event) => event.preventDefault()}>
+        <input
+          placeholder="search for a product"
+          product="product"
+          type="text"
+          value={productName}
+          onChange={(event) => setProductName(event.target.value)}
+        />
+        <button className="search-button" type="button" onClick={clickHandler}>search</button>
+      </form>
+    </div>
   );
 }
 

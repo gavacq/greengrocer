@@ -11,6 +11,7 @@ import Stats from './Stats';
 import Nav from './Nav';
 import Home from './Home';
 import Login from './Login';
+import ScrollToTop from './ScrollToTop';
 import { AppContext } from '../lib/context';
 
 // App component
@@ -20,6 +21,7 @@ function App() {
   return (
     <AppContext.Provider value={{ user, setUser }}>
       <Router>
+        <ScrollToTop />
         <div className="App">
           <section className="white">
             <Nav />

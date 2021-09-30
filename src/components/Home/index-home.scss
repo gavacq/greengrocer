@@ -7,6 +7,14 @@
   margin-top: 35px;
 }
 
+main.home {
+  background-color: $primary-green;
+}
+
+.welcome {
+  background-color: $primary-white;
+}
+
 .home-btn {
   @include button-styles;
   width: 270px;

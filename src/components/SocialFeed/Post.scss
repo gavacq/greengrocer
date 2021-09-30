@@ -37,14 +37,17 @@
      color: $social-message;
    }
 
-   .username, .likes {
-     opacity: 0.55;
-     color: $likes-heart;
-   }
 
    .likes {
+     color: $likes-heart;
+     opacity: 0.8;
      position: relative;
      top: -3px;
+   }
+
+   .username {
+     opacity: 0.7;
+     color: $primary-green;
    }
 
    .likes-flexbox {
@@ -59,6 +62,7 @@
    .heart-btn i {
      font-size: 25px;
      padding-right: 10px;
+     padding-left: 5px;
      color: $likes-heart;
    }
 

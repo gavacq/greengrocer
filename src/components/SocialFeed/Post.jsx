@@ -47,19 +47,19 @@ export default function Post(props) {
 
   return (
     <article className="post-container" data-post-id={post.id}>
-      <h2>
+      <h2 className="username">
         @
         {post.username}
       </h2>
       <button className="heart-btn" type="button" style={heartButtonStyle} onClick={handleHeartClick}>
         <img src="images/heart.png" style={post.likedByUser ? likedHeartStyle : unlikedHeartStyle} alt="like" />
       </button>
-      <span>
+      <span className="likes">
         <strong>
           {/* eslint-disable-next-line */}
           {post.likes} </strong> likes
       </span>
-      <p>{post.message}</p>
+      <p className="post-message">{post.message}</p>
     </article>
   );
 }

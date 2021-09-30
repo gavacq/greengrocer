@@ -4,20 +4,23 @@ import Search from './Search';
 import NewList from './NewList';
 
 export default function List() {
-  const [list, setList] = useState([]);
-  const [allProducts, setAllProducts] = useState([]);
+  const [newList, setNewList] = useState([]);
+  const [allLists, setAllLists] = useState([]);
+  const [editable, setEditable] = useState(false);
 
   useEffect(() => {
     axios.get('/api/lists')
       .then((res) => {
-        setAllProducts(res.data.results);
+        setAllLists(res.data.results);
+        console.log('This is our product data: ', res.data.results);
       })
       .catch(() => {
         console.log('NOT GOOD');
       });
   }, []);
 
-  const mappedList = allProducts.map((product) => (
+  // TODO: create list component
+  const mappedList = allLists.map((product) => (
     <p>
       list id:
       {product.list_id}
@@ -29,9 +32,12 @@ export default function List() {
   // on page load get all lists from db
   return (
     <main>
-      <Search setList={setList} />
-      <NewList list={list} />
+      <Search setNewList={setNewList} />
+      <NewList newList={newList} editable={editable} />
+
+      <AllLists setEditable={setEditable} setNewList={setNewList} />
       {mappedList}
+
     </main>
   );
 }

@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import Product from '../../Product';
 
 export default function SearchResults(props) {
-  const { results, setList } = props;
+  const { results, setNewList } = props;
   console.log('results', results);
 
   const addProductToList = (product) => {
-    setList((prev) => ([
+    setNewList((prev) => ([
       ...prev,
       product,
     ]));
@@ -40,12 +40,5 @@ SearchResults.propTypes = {
     lat: PropTypes.number,
     long: PropTypes.number,
   })).isRequired,
-  setList: PropTypes.func.isRequired,
+  setNewList: PropTypes.func.isRequired,
 };
-
-// id: product.id,
-// title: product.title,
-// image: product.image,
-// lat: product.lat,
-// long: product.long,
-// co2: product.co2,

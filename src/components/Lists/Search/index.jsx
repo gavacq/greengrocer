@@ -4,18 +4,18 @@ import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 
 export default function Search(props) {
-  const { setList } = props;
+  const { setNewList } = props;
   const [results, setResults] = useState([]);
   console.log('results in Search: ', results);
   return (
     <section>
       <SearchBar setResults={setResults} />
-      {results.length > 0 && <SearchResults results={results} setList={setList} />}
+      {results.length > 0 && <SearchResults results={results} setNewList={setNewList} />}
       {/* {results.length === 0 && <p>No results found.</p>} */}
     </section>
   );
 }
 
 Search.propTypes = {
-  setList: PropTypes.func.isRequired,
+  setNewList: PropTypes.func.isRequired,
 };

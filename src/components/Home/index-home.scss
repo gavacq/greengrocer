@@ -21,3 +21,38 @@ form {
 h1 {
   opacity: 0.95;
 }
+
+
+.green {
+  background: $primary-green;
+  color: $primary-white;
+  height: 100vh;
+  width: 100vw;
+}
+
+  /* edit wave position here */
+  .wave {
+    position: absolute;
+    top: -205px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    height: 300px;  
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(157% + 1.3px);
+    height: 160px;
+    z-index: 10;
+}
+
+.wave .shape-fill {
+    fill: #FFFFFF;
+    position: absolute;
+}  
+
+

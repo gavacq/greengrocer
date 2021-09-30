@@ -13,7 +13,6 @@ export default function List() {
     axios.get('/api/lists')
       .then((res) => {
         setAllLists(res.data.results);
-        console.log('This is our product data: ', res.data.results);
       })
       .catch(() => {
         console.log('NOT GOOD');

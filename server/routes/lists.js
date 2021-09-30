@@ -117,5 +117,22 @@ module.exports = (db) => {
         console.log(error);
       });
   });
+
+  router.delete('/:listId', (req, res) => {
+    console.log('This is the response list data: ', req.params.listId);
+    db.query(`
+    DELETE
+    FROM lists
+    WHERE id = $1
+    RETURNING id
+    `, [req.params.listId])
+      .then((data) => {
+        res.json({ deleted: data.rows });
+      })
+      .catch((err) => {
+        console.log('delete error', err);
+        res.json({ deleted: false });
+      });
+  });
   return router;
 };

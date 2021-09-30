@@ -12,8 +12,7 @@ export default function Product(props) {
   } = props;
   console.log('image', image);
   return (
-    <div id={id} className="product-flexbox">
-
+    <div data-product-id={id} className="product-flexbox">
       <div className="img-btn-container">
 
         <div className="product-img">

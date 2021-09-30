@@ -4,3 +4,21 @@
 
 // ----------------- styles for social feed ------------ //
 
+.social-section {
+  color: $green-hover;
+  background-color: $primary-green;
+  position: relative;
+  top: -500px;
+
+  .wave .shape-fill {
+    fill: $primary-green;
+    position: absolute;
+  } 
+
+  h1.social-title {
+    color: $primary-white;
+    position: relative;
+    font-size: 37px;
+  }
+}
+

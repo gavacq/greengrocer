@@ -48,14 +48,14 @@ VALUES (1, 3);
 
 -- Seeds for products table
 
-INSERT INTO products (api_product_id, title, lat, long, co2_data)
-VALUES (12, 'beans', 49.1, 23.5, 103);
+INSERT INTO products (api_product_id, title, image, lat, long, co2_data)
+VALUES (12, 'beans', 'https://spoonacular.com/productImages/52089-312x231.jpeg', 49.1, 23.5, 103);
 
-INSERT INTO products (api_product_id, title, lat, long, co2_data)
-VALUES (123, 'queso', 0, 0, 300);
+INSERT INTO products (api_product_id, title, image, lat, long, co2_data)
+VALUES (123, 'queso', 'https://spoonacular.com/productImages/52089-312x231.jpeg', 0, 0, 300);
 
-INSERT INTO products (api_product_id, title, lat, long, co2_data)
-VALUES (13, 'tomago', 15, 30, 609);
+INSERT INTO products (api_product_id, title, image, lat, long, co2_data)
+VALUES (13, 'tomago', 'https://spoonacular.com/productImages/52089-312x231.jpeg', 15, 30, 609);
 
 
 -- Seeds for products_lists table

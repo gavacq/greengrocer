@@ -6,7 +6,7 @@ const router = express.Router();
 module.exports = (db) => {
   // PUT
   router.put('/', (req, res) => {
-    const products = req.body.newList;
+    const products = req.body.list;
     if (!products.length) {
       res.send('empty products list');
       return;
@@ -74,30 +74,36 @@ module.exports = (db) => {
       WHERE users.id = $1;
       `;
 
-    const formatLists = (unformatted) => unformatted.reduce((acc, l) => {
-      console.log(l.list_id);
-      const product = {
-        api_id: l.api_id,
-        title: l.title,
-        image: l.image,
-        cO2: l.co2_data,
-        lat: l.lat,
-        long: l.long,
-      };
-
-      if (!acc[l.list_id]) {
-        acc[l.list_id] = {
-          id: l.list_id,
-          dateCreated: l.date_created,
-          cO2Saved: l.co2_saved,
-          products: [product],
+    const formatLists = (unformatted) => {
+      const formatted = unformatted.reduce((acc, l) => {
+        console.log(l.list_id);
+        const product = {
+          api_id: l.api_product_id,
+          title: l.title,
+          image: l.image,
+          cO2: l.co2_data,
+          lat: l.lat,
+          long: l.long,
         };
-      } else {
-        acc[l.list_id].products.push(product);
-      }
 
-      return acc;
-    }, {});
+        if (!acc[l.list_id]) {
+          acc[l.list_id] = {
+            id: l.list_id,
+            dateCreated: l.date_created,
+            cO2Saved: l.co2_saved,
+            products: [product],
+          };
+        } else {
+          acc[l.list_id].products.push(product);
+        }
+
+        return acc;
+      }, {});
+
+      console.log('obj', formatted);
+
+      return Object.keys(formatted).map((k) => formatted[k]);
+    };
 
     db.query(loadListsQuery, [req.session.user])
       .then((results) => {

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 const express = require('express');
 
 const router = express.Router();
@@ -65,7 +66,7 @@ module.exports = (db) => {
     console.log('session', req.session.user);
 
     const loadListsQuery = `
-      SELECT lists.id AS list_id, products.id AS product_id, products.title, products.image, products.lat, products.long, products.co2_data
+      SELECT lists.*, lists.id as list_id, products.*, products.id as product_id
       FROM lists
       JOIN products_lists ON products_lists.list_id = lists.id
       JOIN users ON users.id = lists.user_id
@@ -73,11 +74,37 @@ module.exports = (db) => {
       WHERE users.id = $1;
       `;
 
+    const formatLists = (unformatted) => unformatted.reduce((acc, l) => {
+      console.log(l.list_id);
+      const product = {
+        api_id: l.api_id,
+        title: l.title,
+        image: l.image,
+        cO2: l.co2_data,
+        lat: l.lat,
+        long: l.long,
+      };
+
+      if (!acc[l.list_id]) {
+        acc[l.list_id] = {
+          id: l.list_id,
+          dateCreated: l.date_created,
+          cO2Saved: l.co2_saved,
+          products: [product],
+        };
+      } else {
+        acc[l.list_id].products.push(product);
+      }
+
+      return acc;
+    }, {});
+
     db.query(loadListsQuery, [req.session.user])
       .then((results) => {
         console.log('INITIAL LIST RESULTS : ', results.rows);
+        const formattedLists = formatLists(results.rows);
         return res.status(200).send({
-          results: results.rows,
+          results: formattedLists,
         });
       })
       .catch((error) => {

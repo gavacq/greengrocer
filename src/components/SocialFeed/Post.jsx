@@ -7,15 +7,19 @@ export default function Post(props) {
     post, setPosts, posts,
   } = props;
 
-  // post, setPosts, posts,
   const heartButtonStyle = {
     cursor: 'pointer',
     backgroundColor: 'rgba(1,1,1,0)',
     border: 'none',
   };
 
-  const heartStyle = {
+  const unlikedHeartStyle = {
     width: '20px',
+  };
+
+  const likedHeartStyle = {
+    width: '20px',
+    backgroundColor: 'pink',
   };
 
   const updatePosts = (newLikes) => posts.map((p) => {
@@ -33,8 +37,9 @@ export default function Post(props) {
       .then((res) => {
         console.log('likePost res', res);
         const newPosts = updatePosts(res.data.likes);
-        setPosts(() => ({
-          ...newPosts,
+        console.log('newPosts', newPosts);
+        setPosts((prev) => ({
+          prev,
         }));
       });
   };
@@ -43,8 +48,8 @@ export default function Post(props) {
     <article data-post-id={post.id}>
       <h1>Post</h1>
       <p>{post.username}</p>
-      <button type="button" style={post.heartButtonStyle} onClick={likePost}>
-        <img src="images/heart.png" style={heartStyle} alt="like" />
+      <button type="button" style={heartButtonStyle} onClick={likePost}>
+        <img src="images/heart.png" style={post.likedByUser ? likedHeartStyle : unlikedHeartStyle} alt="like" />
       </button>
       {post.likes}
       <p>{post.message}</p>

@@ -5,13 +5,11 @@ import Post from './Post';
 export default function SocialFeed() {
   const [posts, setPosts] = useState([]);
 
-  console.log('posts', posts);
-
   useEffect(() => {
     axios.get('/api/posts')
       .then((res) => {
         console.log('posts', res.data);
-        setPosts(res.data.posts);
+        setPosts(res.data);
       });
   }, []);
 

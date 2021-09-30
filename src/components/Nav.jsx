@@ -50,6 +50,8 @@ export default function Nav() {
 
   window.addEventListener('scroll', changeNavColor);
 
+  // <img src="../../public/images/GG_small_logo.png" alt="logo" />
+
   return (
     <div className={navColor ? 'nav-container sticky active' : 'nav-container sticky'}>
       <div className="wrapper">

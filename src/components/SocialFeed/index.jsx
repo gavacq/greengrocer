@@ -15,6 +15,7 @@ export default function SocialFeed() {
 
   return (
     <section>
+      <h1>Social feed</h1>
       {posts.map((post) => (
         <Post
           key={post.id}

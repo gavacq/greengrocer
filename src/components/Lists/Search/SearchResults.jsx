@@ -3,6 +3,7 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
 import Product from '../../Product';
+import { productType } from '../../../types';
 
 export default function SearchResults(props) {
   const { results, setNewList } = props;
@@ -32,13 +33,6 @@ export default function SearchResults(props) {
 
 // declare the prop type for the SearchResults component
 SearchResults.propTypes = {
-  results: PropTypes.arrayOf(PropTypes.shape({
-    api_id: PropTypes.number,
-    title: PropTypes.string,
-    image: PropTypes.string,
-    cO2: PropTypes.number,
-    lat: PropTypes.number,
-    long: PropTypes.number,
-  })).isRequired,
+  results: PropTypes.arrayOf(productType).isRequired,
   setNewList: PropTypes.func.isRequired,
 };

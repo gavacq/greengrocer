@@ -4,6 +4,7 @@ import '../index.scss';
 import './Products.scss';
 import './App.scss';
 import useWindowSize from '../hooks/useWindowSize';
+import { productType } from '../types';
 
 export default function Product(props) {
   const [height, width] = useWindowSize(); // eslint-disable-line
@@ -39,14 +40,7 @@ export default function Product(props) {
 
 // declare the prop type for the Product component
 Product.propTypes = {
-  data: PropTypes.shape({
-    api_id: PropTypes.number,
-    title: PropTypes.string,
-    image: PropTypes.string,
-    cO2: PropTypes.number,
-    lat: PropTypes.number,
-    long: PropTypes.number,
-  }).isRequired,
+  data: productType.isRequired,
   addProductToList: PropTypes.func,
 };
 

@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react';
 import axios from 'axios';
 import Search from './Search';
 import NewList from './NewList';
+import AllLists from './AllLists';
 
 export default function List() {
   const [newList, setNewList] = useState([]);

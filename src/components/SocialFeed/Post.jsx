@@ -4,9 +4,10 @@ import axios from 'axios';
 
 export default function Post(props) {
   const {
-    id, username, likes, message, setPosts, posts,
+    post, setPosts, posts,
   } = props;
 
+  // post, setPosts, posts,
   const heartButtonStyle = {
     cursor: 'pointer',
     backgroundColor: 'rgba(1,1,1,0)',
@@ -17,10 +18,10 @@ export default function Post(props) {
     width: '20px',
   };
 
-  const updatePosts = (newLikes) => posts.map((post) => {
-    if (post.id === id) {
+  const updatePosts = (newLikes) => posts.map((p) => {
+    if (p.id === post.id) {
       return ({
-        ...post,
+        ...p,
         likes: newLikes,
       });
     }
@@ -28,7 +29,7 @@ export default function Post(props) {
   });
 
   const likePost = () => {
-    axios.patch(`/api/posts/${id}`, { likes: 'increment' })
+    axios.patch(`/api/posts/${post.id}`, { likes: 'increment' })
       .then((res) => {
         console.log('likePost res', res);
         const newPosts = updatePosts(res.data.likes);
@@ -39,23 +40,27 @@ export default function Post(props) {
   };
 
   return (
-    <article data-post-id={id}>
+    <article data-post-id={post.id}>
       <h1>Post</h1>
-      <p>{username}</p>
-      <button type="button" style={heartButtonStyle} onClick={likePost}>
+      <p>{post.username}</p>
+      <button type="button" style={post.heartButtonStyle} onClick={likePost}>
         <img src="images/heart.png" style={heartStyle} alt="like" />
       </button>
-      {likes}
-      <p>{message}</p>
+      {post.likes}
+      <p>{post.message}</p>
     </article>
   );
 }
 
 Post.propTypes = {
-  id: PropTypes.number.isRequired,
-  username: PropTypes.string.isRequired,
-  likes: PropTypes.number.isRequired,
-  message: PropTypes.string.isRequired,
+  post: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    user_id: PropTypes.number.isRequired,
+    username: PropTypes.string.isRequired,
+    likes: PropTypes.number.isRequired,
+    message: PropTypes.string.isRequired,
+    likedByUser: PropTypes.bool.isRequired,
+  }).isRequired,
   setPosts: PropTypes.func.isRequired,
   posts: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -63,5 +68,6 @@ Post.propTypes = {
     username: PropTypes.string.isRequired,
     likes: PropTypes.number.isRequired,
     message: PropTypes.string.isRequired,
+    likedByUser: PropTypes.bool.isRequired,
   })).isRequired,
 };

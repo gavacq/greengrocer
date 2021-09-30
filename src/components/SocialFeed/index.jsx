@@ -11,7 +11,7 @@ export default function SocialFeed() {
     axios.get('/api/posts')
       .then((res) => {
         console.log('posts', res.data);
-        setPosts(res.data);
+        setPosts(res.data.posts);
       });
   }, []);
 
@@ -19,11 +19,7 @@ export default function SocialFeed() {
     <section>
       {posts.map((post) => (
         <Post
-          key={post.id}
-          id={post.id}
-          username={post.username}
-          likes={post.likes}
-          message={post.message}
+          post={post}
           setPosts={setPosts}
           posts={posts}
         />

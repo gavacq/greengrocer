@@ -13,7 +13,13 @@ module.exports = (db) => {
     Promise.all([postsPromise, likedPostsPromise])
       .then((data) => {
         console.log(data[0].rows, data[1].rows);
-        res.json(data);
+        const posts = data[0].rows.map((p) => ({
+          ...p,
+          likedByUser: Boolean(data[1].rows.filter((r) => r.id === p.id).length),
+        }));
+        console.log('updated posts', posts);
+
+        res.json(posts);
       })
       .catch((err) => {
         console.log(err);

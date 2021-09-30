@@ -14,15 +14,6 @@ export default function Post(props) {
     border: 'none',
   };
 
-  // const unlikedHeartStyle = {
-  //   width: '20px',
-  // };
-
-  // const likedHeartStyle = {
-  //   width: '20px',
-  //   backgroundColor: 'pink',
-  // };
-
   const updatePosts = (newLikes, newLikedByUser) => posts.map((p) => {
     if (p.id === post.id) {
       return ({

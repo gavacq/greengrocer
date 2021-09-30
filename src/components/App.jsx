@@ -32,6 +32,10 @@ function App() {
               <Route path="/login" component={Login} />
             </Switch>
           </section>
+
+          <footer>
+            <p>Contact us</p>
+          </footer>
         </div>
       </Router>
     </AppContext.Provider>

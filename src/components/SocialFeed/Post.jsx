@@ -51,15 +51,17 @@ export default function Post(props) {
         @
         {post.username}
       </h2>
-      <button className="heart-btn" type="button" style={heartButtonStyle} onClick={handleHeartClick}>
-        <img src="images/heart.png" style={post.likedByUser ? likedHeartStyle : unlikedHeartStyle} alt="like" />
-      </button>
-      <span className="likes">
-        <strong>
-          {/* eslint-disable-next-line */}
-          {post.likes} </strong> likes
-      </span>
       <p className="post-message">{post.message}</p>
+      <div className="likes-flexbox">
+        <button className="heart-btn" type="button" style={heartButtonStyle} onClick={handleHeartClick}>
+          <img src="images/heart.png" style={post.likedByUser ? likedHeartStyle : unlikedHeartStyle} alt="like" />
+        </button>
+        <span className="likes">
+          <strong>
+            {/* eslint-disable-next-line */}
+            {post.likes} </strong> likes
+        </span>
+      </div>
     </article>
   );
 }

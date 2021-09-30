@@ -62,6 +62,8 @@ module.exports = (db) => {
 
   // GET
   router.get('/', (req, res) => {
+    console.log('session', req.session.user);
+
     const loadListsQuery = `
       SELECT lists.id AS list_id, products.id AS product_id, products.title, products.image, products.lat, products.long, products.co2_data
       FROM lists

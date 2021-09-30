@@ -71,12 +71,3 @@ VALUES (3, 3);
 
 INSERT INTO products_lists (product_id, list_id)
 VALUES (3, 1);
-
-
-SELECT products.title, products.image, products.lat, products.co2_data, lists.id
-FROM lists
-JOIN products_lists ON products_lists.list_id = lists.id
-JOIN users ON users.id = lists.user_id
-JOIN products ON products.id = products_lists.product_id
-WHERE users.id = 1;
-

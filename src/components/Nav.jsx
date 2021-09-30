@@ -50,14 +50,14 @@ export default function Nav() {
 
   window.addEventListener('scroll', changeNavColor);
 
-  // <img src="../../public/images/GG_small_logo.png" alt="logo" />
-
   return (
     <div className={navColor ? 'nav-container sticky active' : 'nav-container sticky'}>
       <div className="wrapper">
         <nav>
           <Link to="/" className="logo-link">
-            <div className="logo">{width < 720 ? 'GG' : 'GreenGrocer' }</div>
+            <div className="logo">
+              <img className="GG-logo" src="./images/GG_small_logo_green.png" alt="logo" />
+            </div>
           </Link>
           <ul className="desktop-menu">
             <Link to="/lists" className="desktop-menu-item">

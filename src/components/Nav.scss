@@ -9,9 +9,13 @@
   height: 90px;
   width: 100vw;
   margin: 0 auto;
-  padding: 20px 20px 10px 20px;
+  padding: 5px 20px 10px 20px;
   overflow: hidden;
   z-index: 999;
+
+  li {
+    margin-top: 20px;
+  }
 }
 
 .nav-container.active {
@@ -26,6 +30,7 @@
   li:hover {
     color: $green-hover;
   }
+
 }
 
 .sticky {
@@ -40,11 +45,12 @@ nav {
   justify-content: space-between;
 }
 
-.logo {
-  font-family: "Fredoka One";
-  font-size: 3em;
-  color: $primary-green;
-  transition: color 0.4s;
+.GG-logo {
+  width: 100px;
+  height: auto;
+  position: relative;
+  top: 4px;
+  margin-left: 10px;
 }
 
 .logo-link {
@@ -53,9 +59,9 @@ nav {
 
 
 /* hamburger menu icon */
-.nav-btn-container img {
-  width: 50px;
-}
+// .nav-btn-container img {
+//   width: 50px;
+// }
 
 /* desktop menu */
 .desktop-menu {
@@ -66,9 +72,9 @@ nav {
 
 @media screen and (min-width: $desktop-breakpoint) {
   /* hamburger menu icon */
-  .nav-btn-container img {
-    display: none;
-  }
+  // .nav-btn-container img {
+  //   display: none;
+  // }
 
   .desktop-menu {
     display: flex;

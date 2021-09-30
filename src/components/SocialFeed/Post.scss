@@ -31,6 +31,7 @@
      margin-top: 0;
      padding-left: 0;
      font-weight: 400;
+     text-align: left;
      position: relative;
      top: 20px;
    }
@@ -38,6 +39,12 @@
    .username, .likes {
      opacity: 0.7;
      color: $btn-border-hover;
+   }
+
+   .likes-flexbox {
+     display: flex;
+     justify-content: center;
+     width: 450px;
    }
 }
 

@@ -56,11 +56,11 @@ export default function Post(props) {
         <button className="heart-btn" type="button" style={heartButtonStyle} onClick={handleHeartClick}>
           <img src="images/heart.png" style={post.likedByUser ? likedHeartStyle : unlikedHeartStyle} alt="like" />
         </button>
-        <span className="likes">
+        <div className="likes">
           <strong>
             {/* eslint-disable-next-line */}
-            {post.likes} </strong> likes
-        </span>
+            {post.likes}  </strong> likes
+        </div>
       </div>
     </article>
   );

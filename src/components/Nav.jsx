@@ -55,7 +55,9 @@ export default function Nav() {
       <div className="wrapper">
         <nav>
           <Link to="/" className="logo-link">
-            <div className="logo">{width < 720 ? 'GG' : 'GreenGrocer' }</div>
+            <div className="logo">
+              <img className="GG-logo" src="./images/GG_small_logo_green.png" alt="logo" />
+            </div>
           </Link>
           <ul className="desktop-menu">
             <Link to="/lists" className="desktop-menu-item">

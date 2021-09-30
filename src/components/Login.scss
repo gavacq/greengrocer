@@ -29,10 +29,14 @@ input {
   border: solid 3px $primary-green;
   border-radius: 10px;
   height: 40px;
+  color: $btn-border;
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
 
   &:active, &:focus {
     background-color: $btn-text;
   }
+
 }
 
 input#email {

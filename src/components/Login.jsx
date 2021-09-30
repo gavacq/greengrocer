@@ -27,7 +27,7 @@ export default function Login() {
   return (
     <main>
       <h1 className="login">
-        Login
+        GreenGrocer login
       </h1>
       <section>
         <form onSubmit={handleSubmit} className="login-form">

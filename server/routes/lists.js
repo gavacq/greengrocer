@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (db) => {
+  // PUT
   router.put('/', (req, res) => {
     const products = req.body.newList;
     if (!products.length) {
@@ -57,6 +58,29 @@ module.exports = (db) => {
         res.send('saved');
       })
       .catch((error) => console.log('products_lists insert failed', error));
+  });
+
+  // GET
+  router.get('/', (req, res) => {
+    const loadListsQuery = `
+      SELECT lists.id AS list_id, products.id AS product_id, products.title, products.image, products.lat, products.long, products.co2_data
+      FROM lists
+      JOIN products_lists ON products_lists.list_id = lists.id
+      JOIN users ON users.id = lists.user_id
+      JOIN products ON products.id = products_lists.product_id
+      WHERE users.id = $1;
+      `;
+
+    db.query(loadListsQuery, [req.session.user])
+      .then((results) => {
+        console.log('INITIAL LIST RESULTS : ', results.rows);
+        return res.status(200).send({
+          results: results.rows,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   });
   return router;
 };

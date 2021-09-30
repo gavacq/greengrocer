@@ -5,7 +5,7 @@
 // ----------------- styles for social feed ------------ //
 
 .social-section {
-  color: $green-hover;
+  color: $primary-green;
   background-color: $primary-green;
   position: relative;
   top: -500px;
@@ -22,3 +22,8 @@
   }
 }
 
+
+.posts-wrapper {
+  display: flex;
+  flex-direction: column;
+}

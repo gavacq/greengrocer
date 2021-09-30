@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+
+// ----------------- styles for social posts ------------ //
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: solid 4px $green-hover;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: $green-hover;
+
+
+  h2 {
+    font-family: "Rubik", sans-serif;
+   }
+}
+

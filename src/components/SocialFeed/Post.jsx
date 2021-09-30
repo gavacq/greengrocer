@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import './Post.scss';
 
 export default function Post(props) {
   const {
@@ -45,9 +46,11 @@ export default function Post(props) {
   };
 
   return (
-    <article data-post-id={post.id}>
-      <h1>Post</h1>
-      <p>{post.username}</p>
+    <article className="post-container" data-post-id={post.id}>
+      <h2>
+        @
+        {post.username}
+      </h2>
       <button type="button" style={heartButtonStyle} onClick={handleHeartClick}>
         <img src="images/heart.png" style={post.likedByUser ? likedHeartStyle : unlikedHeartStyle} alt="like" />
       </button>

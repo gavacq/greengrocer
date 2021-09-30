@@ -17,6 +17,7 @@ export default function SocialFeed() {
     <section>
       {posts.map((post) => (
         <Post
+          key={post.id}
           post={post}
           setPosts={setPosts}
           posts={posts}

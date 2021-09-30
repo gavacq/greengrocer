@@ -22,25 +22,25 @@ export default function Post(props) {
     backgroundColor: 'pink',
   };
 
-  const updatePosts = (newLikes) => posts.map((p) => {
+  const updatePosts = (newLikes, newLikedByUser) => posts.map((p) => {
     if (p.id === post.id) {
       return ({
         ...p,
         likes: newLikes,
+        likedByUser: newLikedByUser,
       });
     }
-    return post;
+    return p;
   });
 
-  const likePost = () => {
-    axios.patch(`/api/posts/${post.id}`, { likes: 'increment' })
+  const handleHeartClick = () => {
+    const req = { likedByUser: !post.likedByUser, likes: post.likes, postId: post.id };
+    axios.patch(`/api/posts/${post.id}`, req)
       .then((res) => {
         console.log('likePost res', res);
-        const newPosts = updatePosts(res.data.likes);
+        const newPosts = updatePosts(res.data.likes, res.data.likedByUser);
         console.log('newPosts', newPosts);
-        setPosts((prev) => ({
-          prev,
-        }));
+        setPosts(newPosts);
       });
   };
 
@@ -48,7 +48,7 @@ export default function Post(props) {
     <article data-post-id={post.id}>
       <h1>Post</h1>
       <p>{post.username}</p>
-      <button type="button" style={heartButtonStyle} onClick={likePost}>
+      <button type="button" style={heartButtonStyle} onClick={handleHeartClick}>
         <img src="images/heart.png" style={post.likedByUser ? likedHeartStyle : unlikedHeartStyle} alt="like" />
       </button>
       {post.likes}

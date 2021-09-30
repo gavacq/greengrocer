@@ -15,12 +15,10 @@ module.exports = (db) => {
 
   const addLikedFlagToPosts = (ogPosts, likedPosts) => ogPosts.map((p) => ({
     ...p,
-    // eslint-disable-next-line max-len
     likedByUser: Boolean(likedPosts.filter((r) => r.id === p.id).length),
   }));
 
-  // eslint-disable-next-line max-len
-  // likedByUser: (!likedPosts.rows.length ? Boolean(likedPosts.filter((r) => r.id === p.id).length) : false),
+  // Read all posts
   router.get('/', (req, res) => {
     if (!req.session.user) {
       console.log('USER NOT LOGGED IN');
@@ -51,6 +49,39 @@ module.exports = (db) => {
     }
   });
 
-  // router.patch('/', (req, res));
+  // update likes for a post
+  router.patch('/:postId', (req, res) => {
+    const updateLikes = (likedByUser, postId) => {
+      let likedPostsQuery = '';
+      let postsQuery = '';
+      if (likedByUser) {
+        likedPostsQuery = `INSERT INTO liked_posts (user_id, post_id) VALUES (${req.session.user}, ${postId})`;
+        postsQuery = `UPDATE posts SET likes = likes + 1 WHERE posts.id = ${postId} RETURNING likes`;
+      } else {
+        likedPostsQuery = `DELETE FROM liked_posts WHERE user_id = ${req.session.user} AND post_id = ${postId}`;
+        postsQuery = `UPDATE posts SET likes = likes - 1 WHERE posts.id = ${postId} RETURNING likes`;
+      }
+      const likedPostsPromise = db.query(likedPostsQuery);
+      const postsPromise = db.query(postsQuery);
+
+      // eslint-disable-next-line max-len
+      return Promise.all([likedPostsPromise, postsPromise]).then((data) => ({ likedByUser, likes: data[1].rows[0].likes }));
+    };
+    // likedByUser in req is the opposite of the current state, i.e. an action
+    const { likedByUser, likes, postId } = req.body;
+    if (!req.session.user) {
+      res.json({ likes, likedByUser: !likedByUser });
+    } else {
+      updateLikes(likedByUser, postId)
+        .then((data) => {
+          console.log('data', data);
+          res.json({ likes: data.likes, likedByUser: data.likedByUser });
+        })
+        .catch((error) => {
+          console.log(error);
+          res.json({ likes, likedByUser: !likedByUser });
+        });
+    }
+  });
   return router;
 };

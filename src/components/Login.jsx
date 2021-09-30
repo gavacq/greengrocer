@@ -37,6 +37,7 @@ export default function Login() {
             >
               email
               <input
+                className="login-inputs"
                 type="email"
                 id="email"
                 value={email}
@@ -50,6 +51,7 @@ export default function Login() {
             >
               password
               <input
+                className="login-inputs"
                 type="password"
                 id="password"
                 value={password}

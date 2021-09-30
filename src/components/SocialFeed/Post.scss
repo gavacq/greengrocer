@@ -12,7 +12,11 @@
   border-radius: 10px;
   padding: 10px 20px 10px 20px;
   margin-bottom: 20px;
+  margin-left: 20px;
+  width: 400px;
+  max-width: 330px;
   background-color: $green-hover;
+  z-index: 20;
 
 
   h2 {

@@ -4,8 +4,8 @@ import { listType } from '../../../types';
 import SavedList from './SavedList';
 
 export default function AllLists(props) {
-  const { allLists, setEditable, setNewList } = props;
-  console.log(allLists, setEditable, setNewList);
+  const { allLists, setNewList } = props;
+  console.log(allLists, setNewList);
 
   return (
     <section>
@@ -14,6 +14,7 @@ export default function AllLists(props) {
         <SavedList
           list={l}
           key={l.id}
+          setNewList={setNewList}
         />
       ))}
     </section>
@@ -22,6 +23,5 @@ export default function AllLists(props) {
 
 AllLists.propTypes = {
   allLists: PropTypes.arrayOf(listType).isRequired,
-  setEditable: PropTypes.func.isRequired,
   setNewList: PropTypes.func.isRequired,
 };

@@ -7,7 +7,6 @@ import AllLists from './AllLists';
 export default function List() {
   const [newList, setNewList] = useState([]);
   const [allLists, setAllLists] = useState([]);
-  const [editable, setEditable] = useState(false);
 
   useEffect(() => {
     axios.get('/api/lists')
@@ -33,8 +32,8 @@ export default function List() {
   return (
     <main>
       <Search setNewList={setNewList} />
-      <NewList newList={newList} editable={editable} />
-      <AllLists allLists={allLists} setEditable={setEditable} setNewList={setNewList} />
+      <NewList newList={newList} />
+      <AllLists allLists={allLists} setNewList={setNewList} />
     </main>
   );
 }

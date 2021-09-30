@@ -4,7 +4,7 @@ const productType = PropTypes.shape({
   api_id: PropTypes.number,
   title: PropTypes.string,
   image: PropTypes.string,
-  cO2: PropTypes.number,
+  co2: PropTypes.number,
   lat: PropTypes.number,
   long: PropTypes.number,
 });

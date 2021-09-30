@@ -31,7 +31,7 @@ module.exports = (db) => {
 
     // insert list
 
-    const listsSql = `INSERT INTO lists(user_id, co2_saved) VALUES (${req.session.user}, ${req.body.cO2Saved}) RETURNING id`;
+    const listsSql = `INSERT INTO lists(user_id, co2_saved) VALUES (${req.session.user}, ${req.body.co2Saved}) RETURNING id`;
     const listsPromise = db.query(listsSql)
       .then((data) => {
         console.log('second success');
@@ -81,7 +81,7 @@ module.exports = (db) => {
           api_id: l.api_product_id,
           title: l.title,
           image: l.image,
-          cO2: l.co2_data,
+          co2: l.co2_data,
           lat: l.lat,
           long: l.long,
         };
@@ -90,7 +90,7 @@ module.exports = (db) => {
           acc[l.list_id] = {
             id: l.list_id,
             dateCreated: l.date_created,
-            cO2Saved: l.co2_saved,
+            co2Saved: l.co2_saved,
             products: [product],
           };
         } else {
@@ -134,5 +134,6 @@ module.exports = (db) => {
         res.json({ deleted: false });
       });
   });
+
   return router;
 };

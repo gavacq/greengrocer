@@ -12,7 +12,9 @@
   border-radius: 10px;
   padding: 10px 20px 10px 20px;
   margin-bottom: 20px;
-  margin-left: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  justify-content: space-between;
   width: 400px;
   max-width: 330px;
   background-color: $green-hover;
@@ -27,7 +29,7 @@
 
    .heart-btn {
      position: relative;
-     top: 75px;
+     top: 80px;
      left: 265px;
    }
 

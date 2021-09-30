@@ -31,33 +31,35 @@ export default function Login() {
       </h1>
       <section>
         <form onSubmit={handleSubmit} className="login-form">
-          <label
-            htmlFor="email"
-          >
-            email
-            <input
-              type="email"
-              id="email"
-              value={email}
-              required
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
+          <div className="inputs">
+            <label
+              htmlFor="email"
+            >
+              email
+              <input
+                type="email"
+                id="email"
+                value={email}
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
 
-          <label
-            htmlFor="email"
-          >
-            password
-            <input
-              type="password"
-              id="password"
-              value={password}
-              required
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
+            <label
+              htmlFor="email"
+            >
+              password
+              <input
+                type="password"
+                id="password"
+                value={password}
+                required
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </label>
+          </div>
           <br />
-          <button type="submit">Login</button>
+          <button type="submit" className="login-btn">Login</button>
         </form>
       </section>
     </main>

@@ -11,10 +11,14 @@ h1.login {
 }
 
 .login-form {
-  height: 50vh;
+  height: 250px;
+  padding: 25px 15px 0 15px;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
+  border: solid 6px $green-hover;
+  background-color: rgba(221,248,186,0.7);
+  border-radius: 10px;
 }
 
 label {
@@ -25,6 +29,10 @@ input {
   border: solid 3px $primary-green;
   border-radius: 10px;
   height: 40px;
+
+  &:active, &:focus {
+    background-color: $btn-text;
+  }
 }
 
 input#email {
@@ -35,4 +43,20 @@ input#email {
 
 input#password {
   margin-left: 20px;
+  margin-bottom: 20px;
 }
+
+.login-btn {
+  @include button-styles;
+  width: 100px;
+  height: 60px;
+  font-size: 25px;
+  margin-bottom: 0;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+

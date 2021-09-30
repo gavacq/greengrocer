@@ -1,29 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { productType } from '../../types';
 
 export default function NewList(props) {
-  const { list } = props;
-  const { title } = list;
+  const { newList } = props;
+  console.log('list', newList);
 
-  const submitList = (item) => {
-    axios.put('/api/lists/new', { item }).then(() => console.log('success'));
+  const submitList = () => {
+    const co2Saved = 0;
+    // TODO: db insert should return all columns from new list creation
+    // then we can update allLists state variable
+    axios.put('/api/lists', { list: newList, co2Saved }).then(() => console.log('saved new list success'));
   };
+
+  const mappedList = newList.map((product) => <p key={product.api_id}>{product.title}</p>);
+  console.log('mapped', mappedList);
 
   return (
     <section>
       <h1>New List</h1>
-      <p>{title}</p>
-      <button type="button" onClick={() => submitList(title)}>Save</button>
+      {mappedList}
+      <button type="button" onClick={() => submitList()}>Save</button>
     </section>
   );
 }
 
 // declare the prop type for the ListProducts component
 NewList.propTypes = {
-  list: PropTypes.shape({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    image: PropTypes.string,
-  }).isRequired,
+  newList: PropTypes.arrayOf(productType).isRequired,
 };

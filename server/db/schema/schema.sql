@@ -19,7 +19,7 @@ CREATE TABLE lists (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   date_created TIMESTAMP NOT NULL DEFAULT NOW(), 
-  co2_data FLOAT NOT NULL
+  co2_saved FLOAT NOT NULL
 );
 
 
@@ -38,6 +38,7 @@ CREATE TABLE liked_posts (
 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY NOT NULL,
+  api_product_id INTEGER UNIQUE NOT NULL,
   title VARCHAR(255) NOT NULL,
   image VARCHAR(255),
   lat FLOAT NOT NULL,

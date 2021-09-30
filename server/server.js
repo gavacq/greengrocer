@@ -40,7 +40,7 @@ const {
 app.use('/login', loginRoute(db));
 app.use('/logout', logoutRoute());
 app.use('/api/search', searchRoute());
-app.use('/api/lists', listsRoute());
+app.use('/api/lists', listsRoute(db));
 app.use('/api/posts', postsRoute(db));
 
 // listen on the specified port

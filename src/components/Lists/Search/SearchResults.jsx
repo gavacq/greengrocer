@@ -3,18 +3,24 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
 import Product from '../../Product';
+import { productType } from '../../../types';
 
 export default function SearchResults(props) {
-  const { results, setList } = props;
+  const { results, setNewList } = props;
   console.log('results', results);
+
+  const addProductToList = (product) => {
+    setNewList((prev) => ([
+      ...prev,
+      product,
+    ]));
+  };
+
   const jsxResults = results.map((result) => (
     <Product
-      key={result.id}
-      id={result.id}
-      image={result.image}
-      title={result.title}
-      upc={result.upc}
-      setNewProduct={setList}
+      key={result.api_id}
+      data={result}
+      addProductToList={addProductToList}
     />
   ));
 
@@ -27,10 +33,6 @@ export default function SearchResults(props) {
 
 // declare the prop type for the SearchResults component
 SearchResults.propTypes = {
-  results: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    image: PropTypes.string,
-  })).isRequired,
-  setList: PropTypes.func.isRequired,
+  results: PropTypes.arrayOf(productType).isRequired,
+  setNewList: PropTypes.func.isRequired,
 };

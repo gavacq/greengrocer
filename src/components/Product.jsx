@@ -4,19 +4,19 @@ import '../index.scss';
 import './Products.scss';
 import './App.scss';
 import useWindowSize from '../hooks/useWindowSize';
+import { productType } from '../types';
 
 export default function Product(props) {
   const [height, width] = useWindowSize(); // eslint-disable-line
   const {
-    title, id, image, setNewProduct,
+    data, addProductToList,
   } = props;
-  console.log('image', image);
   return (
-    <div data-product-id={id} className="product-flexbox">
+    <div data-product-id={data.api_id} className="product-flexbox">
       <div className="img-btn-container">
 
         <div className="product-img">
-          <img src={image} alt="product" className="product" />
+          <img src={data.image} alt="product" className="product" />
         </div>
 
         <button
@@ -24,9 +24,7 @@ export default function Product(props) {
           type="button"
           aria-label="setNewProduct"
           onClick={() => {
-            setNewProduct({
-              title, id, image,
-            });
+            addProductToList(data);
           }}
         >
           <span>{width <= 720 ? '+' : 'Add to list' }</span>
@@ -34,7 +32,7 @@ export default function Product(props) {
 
       </div>
 
-      <div><p>{title}</p></div>
+      <div><p>{data.title}</p></div>
 
     </div>
   );
@@ -42,13 +40,11 @@ export default function Product(props) {
 
 // declare the prop type for the Product component
 Product.propTypes = {
-  title: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  image: PropTypes.string.isRequired,
-  setNewProduct: PropTypes.func,
+  data: productType.isRequired,
+  addProductToList: PropTypes.func,
 };
 
 // Specifies the default values for props:
 Product.defaultProps = {
-  setNewProduct: () => {},
+  addProductToList: () => {},
 };

@@ -20,24 +20,21 @@ export default function List() {
   }, []);
 
   // TODO: create list component
-  const mappedList = allLists.map((product) => (
-    <p>
-      list id:
-      {product.list_id}
-      title:
-      {product.title}
-    </p>
-  ));
+  // const mappedList = allLists.map((product) => (
+  //   <p>
+  //     list id:
+  //     {product.list_id}
+  //     title:
+  //     {product.title}
+  //   </p>
+  // ));
 
   // on page load get all lists from db
   return (
     <main>
       <Search setNewList={setNewList} />
       <NewList newList={newList} editable={editable} />
-
-      <AllLists setEditable={setEditable} setNewList={setNewList} />
-      {mappedList}
-
+      <AllLists allLists={allLists} setEditable={setEditable} setNewList={setNewList} />
     </main>
   );
 }

@@ -14,14 +14,14 @@ export default function Post(props) {
     border: 'none',
   };
 
-  const unlikedHeartStyle = {
-    width: '20px',
-  };
+  // const unlikedHeartStyle = {
+  //   width: '20px',
+  // };
 
-  const likedHeartStyle = {
-    width: '20px',
-    backgroundColor: 'pink',
-  };
+  // const likedHeartStyle = {
+  //   width: '20px',
+  //   backgroundColor: 'pink',
+  // };
 
   const updatePosts = (newLikes, newLikedByUser) => posts.map((p) => {
     if (p.id === post.id) {
@@ -45,6 +45,14 @@ export default function Post(props) {
       });
   };
 
+  // change heart icon: filled in when liked
+  const changeHeartIcon = () => {
+    if (post.likedByUser) {
+      return 'fas fa-heart';
+    }
+    return 'far fa-heart';
+  };
+
   return (
     <article className="post-container" data-post-id={post.id}>
       <h2 className="username">
@@ -54,7 +62,7 @@ export default function Post(props) {
       <p className="post-message">{post.message}</p>
       <div className="likes-flexbox">
         <button className="heart-btn" type="button" style={heartButtonStyle} onClick={handleHeartClick}>
-          <img src="images/heart.png" style={post.likedByUser ? likedHeartStyle : unlikedHeartStyle} alt="like" />
+          <i className={changeHeartIcon()} />
         </button>
         <div className="likes">
           <strong>

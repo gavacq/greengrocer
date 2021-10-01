@@ -1,15 +1,9 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import { listType } from '../../../types';
 
-export default function SavedList({ list, setNewList }) {
-  const deleteHandler = () => {
-    axios.delete(`/api/lists/${list.id}`)
-      .then(() => {
-        console.log('success');
-      });
-  };
+export default function SavedList(props) {
+  const { list, setNewList, deleteList } = props;
 
   const copyHandler = () => {
     setNewList(({
@@ -31,7 +25,7 @@ export default function SavedList({ list, setNewList }) {
     <ul>
       <h1>{list.id}</h1>
       {mappedListItems}
-      <button type="button" onClick={deleteHandler}>Delete</button>
+      <button type="button" onClick={() => deleteList(list.id)}>Delete</button>
       <button type="button" onClick={copyHandler}>Copy</button>
       <button type="button" onClick={shareHandler}>Share</button>
     </ul>
@@ -41,4 +35,5 @@ export default function SavedList({ list, setNewList }) {
 SavedList.propTypes = {
   list: listType.isRequired,
   setNewList: PropTypes.func.isRequired,
+  deleteList: PropTypes.func.isRequired,
 };

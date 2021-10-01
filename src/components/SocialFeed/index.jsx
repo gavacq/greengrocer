@@ -9,7 +9,6 @@ export default function SocialFeed() {
   useEffect(() => {
     axios.get('/api/posts')
       .then((res) => {
-        console.log('posts', res.data);
         setPosts(res.data);
       });
   }, []);

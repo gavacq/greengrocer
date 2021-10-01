@@ -5,13 +5,18 @@ import NewList from './NewList';
 import AllLists from './AllLists';
 
 export default function List() {
-  const [newList, setNewList] = useState([]);
+  const [newList, setNewList] = useState({
+    list_id: undefined,
+    date_created: undefined,
+    co2_saved: 0,
+    products: [],
+  });
   const [allLists, setAllLists] = useState([]);
   const [results, setResults] = useState([]);
   const [idToReplace, setIdToReplace] = useState(null);
 
   const replaceProduct = (newProduct) => {
-    const newListReplaced = newList.map((p) => {
+    const productsReplaced = newList.products.map((p) => {
       if (p.api_id === idToReplace) {
         return newProduct;
       }
@@ -19,7 +24,16 @@ export default function List() {
       return { ...p };
     });
 
-    setNewList(newListReplaced);
+    const co2Diff = newList.products.find((p) => p.api_id === idToReplace).co2 - newProduct.co2;
+    console.log('co2Diff', co2Diff, newList.co2_saved);
+
+    setNewList((prev) => ({
+      list_id: prev.list_id,
+      date_created: prev.date_created,
+      co2_saved: (prev.co2_saved || 0) + co2Diff,
+      products: productsReplaced,
+    }));
+    setIdToReplace(newProduct.api_id);
   };
 
   useEffect(() => {
@@ -51,6 +65,7 @@ export default function List() {
         setResults={setResults}
         replaceProduct={replaceProduct}
         idToReplace={idToReplace}
+        setIdToReplace={setIdToReplace}
       />
       <NewList newList={newList} setResults={setResults} setIdToReplace={setIdToReplace} />
       <AllLists allLists={allLists} setNewList={setNewList} />

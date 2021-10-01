@@ -12,7 +12,10 @@ export default function SavedList({ list, setNewList }) {
   };
 
   const copyHandler = () => {
-    setNewList(list.products);
+    setNewList(({
+      ...list,
+      co2_saved: 0,
+    }));
   };
 
   const shareHandler = () => {

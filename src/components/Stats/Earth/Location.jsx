@@ -17,11 +17,20 @@ export default function Location({ lat, long, origin }) {
     new THREE.Vector3(origin.x, origin.y, origin.z),
   );
   const linePoints = line.getPoints(3);
+  const lineLength = line.getLength() * 0.9;
 
   const bezier = new THREE.CubicBezierCurve3(
     linePoints[0],
-    new THREE.Vector3(linePoints[1].x * 2.5, linePoints[1].y * 2.5, linePoints[1].z * 2.5),
-    new THREE.Vector3(linePoints[2].x * 2.5, linePoints[2].y * 2.5, linePoints[2].z * 2.5),
+    new THREE.Vector3(
+      linePoints[1].x * lineLength,
+      linePoints[1].y * lineLength,
+      linePoints[1].z * lineLength,
+    ),
+    new THREE.Vector3(
+      linePoints[2].x * lineLength,
+      linePoints[2].y * lineLength,
+      linePoints[2].z * lineLength,
+    ),
     origin,
   );
   const bezierPoints = bezier.getPoints(50);
@@ -34,7 +43,7 @@ export default function Location({ lat, long, origin }) {
         <meshBasicMaterial attach="material" color={0xff0000} />
       </mesh>
       <line geometry={lineGeometry}>
-        <lineBasicMaterial attach="material" color="#9c88ff" linewidth={30} />
+        <lineBasicMaterial attach="material" color="#9c88ff" linewidth={100} />
       </line>
     </>
   );

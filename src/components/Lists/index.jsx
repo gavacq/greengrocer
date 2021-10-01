@@ -6,7 +6,7 @@ import AllLists from './AllLists';
 
 export default function List() {
   const [newList, setNewList] = useState({
-    list_id: undefined,
+    id: undefined,
     date_created: undefined,
     co2_saved: 0,
     products: [],
@@ -14,6 +14,8 @@ export default function List() {
   const [allLists, setAllLists] = useState([]);
   const [results, setResults] = useState([]);
   const [idToReplace, setIdToReplace] = useState(null);
+
+  console.log('newList', newList);
 
   const replaceProduct = (newProduct) => {
     const productsReplaced = newList.products.map((p) => {
@@ -28,12 +30,51 @@ export default function List() {
     console.log('co2Diff', co2Diff, newList.co2_saved);
 
     setNewList((prev) => ({
-      list_id: prev.list_id,
+      id: prev.id,
       date_created: prev.date_created,
       co2_saved: (prev.co2_saved || 0) + co2Diff,
       products: productsReplaced,
     }));
     setIdToReplace(newProduct.api_id);
+  };
+
+  const deleteList = (id) => {
+    axios.delete(`/api/lists/${id}`)
+      .then(() => {
+        console.log(`successfully deleted list id ${id}`);
+        const newAllLists = allLists.reduce((acc, l) => {
+          if (l.id === id) {
+            return acc;
+          }
+          acc.push(l);
+          return acc;
+        }, []);
+        console.log('newAllLists', newAllLists);
+        setAllLists(newAllLists);
+      })
+      .catch((e) => console.log('Error deleting list', e));
+  };
+
+  const saveList = () => {
+    console.log('THIS IS NEW LIST :', newList);
+    axios.put('/api/lists', { list: newList })
+      .then((res) => {
+        console.log('successfully saved list', res.data);
+        setAllLists((prev) => ([
+          ...prev,
+          {
+            ...res.data,
+            products: [...res.data.products],
+          },
+        ]));
+        setNewList({
+          id: undefined,
+          date_created: undefined,
+          co2_saved: 0,
+          products: [],
+        });
+      })
+      .catch((e) => console.log('Error deleting list', e));
   };
 
   useEffect(() => {
@@ -46,17 +87,6 @@ export default function List() {
       });
   }, []);
 
-  // TODO: create list component
-  // const mappedList = allLists.map((product) => (
-  //   <p>
-  //     list id:
-  //     {product.list_id}
-  //     title:
-  //     {product.title}
-  //   </p>
-  // ));
-
-  // on page load get all lists from db
   return (
     <main>
       <Search
@@ -67,8 +97,13 @@ export default function List() {
         idToReplace={idToReplace}
         setIdToReplace={setIdToReplace}
       />
-      <NewList newList={newList} setResults={setResults} setIdToReplace={setIdToReplace} />
-      <AllLists allLists={allLists} setNewList={setNewList} />
+      <NewList
+        newList={newList}
+        setResults={setResults}
+        setIdToReplace={setIdToReplace}
+        saveList={saveList}
+      />
+      <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
     </main>
   );
 }

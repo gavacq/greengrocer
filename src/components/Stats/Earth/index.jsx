@@ -1,11 +1,11 @@
 /* eslint-disable react/require-default-props */
-import { React, Suspense } from 'react';
+import {
+  React, Suspense,
+} from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
-import Planet from './Planet';
-import Clouds from './Clouds';
-import Location from './Location';
+import Main from './Main';
 
 import { listType } from '../../../types';
 
@@ -17,20 +17,14 @@ export default function Earth({ products }) {
     y: Math.sin(49.2827 * (Math.PI / 180)) * 3,
   };
 
-  const mappedLocations = products.map((product) => (
-    <Location lat={product.lat} long={product.long} origin={origin} />
-  ));
-
   return (
-    <div style={{ width: '100vw', height: '90vh' }}>
-      <Canvas>
+    <div style={{ width: '50vw', height: '90vh' }}>
+      <Canvas camera={{ position: [0, 0, 10] }}>
         <ambientLight intensity={0.8} />
         <Suspense fallback={null}>
-          <Planet />
-          <Clouds />
-          {mappedLocations}
+          <Main origin={origin} products={products} />
         </Suspense>
-        <OrbitControls />
+        <OrbitControls enableZoom={false} />
       </Canvas>
     </div>
   );

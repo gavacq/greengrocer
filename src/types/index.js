@@ -11,7 +11,7 @@ const productType = PropTypes.shape({
 });
 
 const listType = PropTypes.shape({
-  list_id: PropTypes.number,
+  id: PropTypes.number,
   date_created: PropTypes.string,
   co2_saved: PropTypes.number,
   products: PropTypes.arrayOf(productType),

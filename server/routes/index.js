@@ -3,6 +3,7 @@ const logoutRoute = require('./logout');
 const searchRoute = require('./search');
 const listsRoute = require('./lists');
 const postsRoute = require('./posts');
+const productsRoute = require('./products');
 
 module.exports = {
   loginRoute,
@@ -10,4 +11,5 @@ module.exports = {
   searchRoute,
   listsRoute,
   postsRoute,
+  productsRoute,
 };

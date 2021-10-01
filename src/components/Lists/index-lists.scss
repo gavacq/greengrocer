@@ -9,24 +9,44 @@
   .search-and-new-list {
     display: flex;
     justify-content: space-between;
-    border: solid rgb(96, 138, 218,0.5) 3px;
+    // border: solid rgb(96, 138, 218,0.5) 3px;
     padding: 5px;
   }
 
   .search-section {
-    border: solid rgb(255, 203, 212, 0.3) 3px;
-    margin-right: 10px;
+    // border: solid rgb(255, 203, 212, 0.3) 3px;
+    // margin-right: 10px;
     padding: 10px;
-    flex-basis: 600px;
+    flex-basis: 70vw;
     // flex-grow: 3;
   }
 
   .new-list-wrapper {
-    border: solid rgb(135, 185, 106, 0.3) 3px;
+    border: solid $green-hover 3px;
+    border-radius: 10px;
     background-color: $green-hover;
-    flex-basis: 300px;
+    flex-basis: 30vw;
     padding: 10px;
     // flex-grow: 2;
   }
+
+  .save-btn {
+    @include button-styles;
+    width: 65px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 15px;
+
+    .main-desc {
+      text-align: left;
+      font-weight: 400;
+    }
+  }
+
+
+  
 
 }

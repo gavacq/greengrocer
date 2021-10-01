@@ -33,7 +33,7 @@ app.use(express.static('public'));
 
 // Bring in External Routes
 const {
-  searchRoute, listsRoute, loginRoute, logoutRoute, postsRoute, productsRoute
+  searchRoute, listsRoute, loginRoute, logoutRoute, postsRoute, productsRoute,
 } = require('./routes/index');
 
 // External Routes

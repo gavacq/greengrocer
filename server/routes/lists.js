@@ -137,7 +137,7 @@ module.exports = (db) => {
       .then((data) => {
         res.json({ deleted: data.rows });
       })
-      .catch((err) => {
+      .catch(() => {
         res.json({ deleted: false });
       });
   });

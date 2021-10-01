@@ -33,9 +33,13 @@ module.exports = (db) => {
 
     const listsSql = `INSERT INTO lists(user_id, co2_saved) VALUES (${req.session.user}, ${req.body.list.co2_saved}) RETURNING *`;
     const listsPromise = db.query(listsSql)
+<<<<<<< HEAD
       .then((data) => {
         return data.rows;
       })
+=======
+      .then((data) => data.rows)
+>>>>>>> ed2a2e9965a0864a0af034865970465830530b47
       .catch((error) => {
         console.log(error);
       });
@@ -46,7 +50,10 @@ module.exports = (db) => {
         if (!data[0].length) {
           return Promise.resolve();
         }
+<<<<<<< HEAD
         // eslint-disable-next-line max-len
+=======
+>>>>>>> ed2a2e9965a0864a0af034865970465830530b47
         const getQueryFromApiProductId = (apiProductId) => {
           const str = list.products.find((p) => p.api_id === apiProductId);
           return str.query;
@@ -140,7 +147,11 @@ module.exports = (db) => {
       .then((data) => {
         res.json({ deleted: data.rows });
       })
+<<<<<<< HEAD
       .catch((err) => {
+=======
+      .catch(() => {
+>>>>>>> ed2a2e9965a0864a0af034865970465830530b47
         res.json({ deleted: false });
       });
   });
@@ -152,7 +163,11 @@ module.exports = (db) => {
       `;
     db.query(allProductsQuery)
       .then((results) => {
+<<<<<<< HEAD
         res.send({results})
+=======
+        res.send({ results });
+>>>>>>> ed2a2e9965a0864a0af034865970465830530b47
       });
   });
 

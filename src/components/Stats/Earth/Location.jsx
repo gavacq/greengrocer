@@ -1,7 +1,10 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
+<<<<<<< HEAD
 import { useFrame } from '@react-three/fiber';
+=======
+>>>>>>> ed2a2e9965a0864a0af034865970465830530b47
 
 export default function Location({ lat, long, origin }) {
   // POINT LOCATION MATHS
@@ -18,6 +21,7 @@ export default function Location({ lat, long, origin }) {
     new THREE.Vector3(origin.x, origin.y, origin.z),
   );
   const linePoints = line.getPoints(3);
+<<<<<<< HEAD
   const lineLength = line.getLength() * 0.9;
 
   const bezier = new THREE.CubicBezierCurve3(
@@ -54,6 +58,26 @@ export default function Location({ lat, long, origin }) {
       </mesh>
       <line geometry={lineGeometry}>
         <lineBasicMaterial attach="material" color="#9c88ff" linewidth={100} />
+=======
+
+  const bezier = new THREE.CubicBezierCurve3(
+    linePoints[0],
+    new THREE.Vector3(linePoints[1].x * 2.5, linePoints[1].y * 2.5, linePoints[1].z * 2.5),
+    new THREE.Vector3(linePoints[2].x * 2.5, linePoints[2].y * 2.5, linePoints[2].z * 2.5),
+    origin,
+  );
+  const bezierPoints = bezier.getPoints(50);
+
+  const lineGeometry = new THREE.BufferGeometry().setFromPoints(bezierPoints);
+  return (
+    <>
+      <mesh position={[x, y, z]}>
+        <sphereBufferGeometry attach="geometry" args={[0.1, 32, 32]} />
+        <meshBasicMaterial attach="material" color={0xff0000} />
+      </mesh>
+      <line geometry={lineGeometry}>
+        <lineBasicMaterial attach="material" color="#9c88ff" linewidth={30} />
+>>>>>>> ed2a2e9965a0864a0af034865970465830530b47
       </line>
     </>
   );

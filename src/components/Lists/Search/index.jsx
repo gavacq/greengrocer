@@ -9,7 +9,7 @@ export default function Search(props) {
     setNewList, results, setResults, replaceProduct, idToReplace, setIdToReplace,
   } = props;
   return (
-    <section>
+    <section className="search-wrapper">
       <SearchBar setResults={setResults} setIdToReplace={setIdToReplace} />
       {results.length > 0
         && (

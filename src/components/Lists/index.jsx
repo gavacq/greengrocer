@@ -106,7 +106,12 @@ export default function List() {
         saveList={saveList}
         setNewList={setNewList}
       />
-      <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
+      <section className="new-list-wrapper">
+        <NewList newList={newList} setResults={setResults} setIdToReplace={setIdToReplace} />
+      </section>
+      <section className="all-lists-wrapper">
+        <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
+      </section>
     </main>
   );
 }

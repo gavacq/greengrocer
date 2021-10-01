@@ -33,6 +33,7 @@ export default function List() {
       co2_saved: (prev.co2_saved || 0) + co2Diff,
       products: productsReplaced,
     }));
+    setIdToReplace(newProduct.api_id);
   };
 
   useEffect(() => {

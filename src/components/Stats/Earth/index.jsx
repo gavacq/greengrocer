@@ -32,5 +32,4 @@ export default function Earth({ products }) {
 
 Earth.propTypes = {
   products: listType,
-
 };

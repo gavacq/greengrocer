@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
+import { useFrame } from '@react-three/fiber';
 
 export default function Location({ lat, long, origin }) {
   // POINT LOCATION MATHS
@@ -33,14 +34,23 @@ export default function Location({ lat, long, origin }) {
     ),
     origin,
   );
-  const bezierPoints = bezier.getPoints(50);
-
+  const bezierPoints = bezier.getPoints(500);
   const lineGeometry = new THREE.BufferGeometry().setFromPoints(bezierPoints);
+
+  const mesh = useRef();
+  const clock = new THREE.Clock();
+
+  useFrame(() => {
+    const elapsedTime = Math.floor(clock.getElapsedTime() * 100);
+    mesh.current.position.x = bezierPoints[elapsedTime].x;
+    mesh.current.position.y = bezierPoints[elapsedTime].y;
+    mesh.current.position.z = bezierPoints[elapsedTime].z;
+  });
   return (
     <>
-      <mesh position={[x, y, z]}>
+      <mesh ref={mesh}>
         <sphereBufferGeometry attach="geometry" args={[0.1, 32, 32]} />
-        <meshBasicMaterial attach="material" color={0xff0000} />
+        <meshBasicMaterial attach="material" color="deeppink" />
       </mesh>
       <line geometry={lineGeometry}>
         <lineBasicMaterial attach="material" color="#9c88ff" linewidth={100} />

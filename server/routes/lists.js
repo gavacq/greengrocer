@@ -15,7 +15,7 @@ module.exports = (db) => {
 
     const productsValuesSql = products.map((p) => `(${p.api_id}, '${p.title}', '${p.image}', ${p.lat}, ${p.long}, ${p.co2})`);
     // TODO: fix SQL injection vulnerabilities
-    const productsSql = `INSERT INTO products(api_product_id, title, image, lat, long, co2_data) VALUES ${productsValuesSql} ON CONFLICT (api_product_id) DO UPDATE SET api_product_id=EXCLUDED.api_product_id RETURNING id`;
+    const productsSql = `INSERT INTO products(api_product_id, title, image, lat, long, co2_data) VALUES ${productsValuesSql} ON CONFLICT (api_product_id) DO UPDATE SET api_product_id=EXCLUDED.api_product_id RETURNING id, api_product_id`;
     // insert multiple products
     // check api_id column for conflicts, if so do nothing
     const productsPromise = db.query(productsSql)
@@ -48,7 +48,14 @@ module.exports = (db) => {
           return Promise.resolve();
         }
         console.log('promise.all', req.body.list);
-        const productsListsValuesSql = data[0].map((p) => `(${p.id}, ${data[1][0].id})`);
+        // eslint-disable-next-line max-len
+        const getQueryFromApiProductId = (apiProductId) => {
+          const str = req.body.list.find((p) => p.api_id === apiProductId);
+          console.log('querystr', str.query);
+          return str.query;
+        };
+
+        const productsListsValuesSql = data[0].map((p) => `(${p.id}, ${data[1][0].id}, '${getQueryFromApiProductId(p.api_product_id)}')`);
         console.log('sql', productsListsValuesSql);
         return db.query(`INSERT INTO products_lists(product_id, list_id, query) VALUES ${productsListsValuesSql}`);
       })
@@ -79,6 +86,7 @@ module.exports = (db) => {
           co2: l.co2_data,
           lat: l.lat,
           long: l.long,
+          query: l.query,
         };
 
         if (!acc[l.list_id]) {
@@ -100,6 +108,7 @@ module.exports = (db) => {
 
     db.query(loadListsQuery, [req.session.user])
       .then((results) => {
+        console.log('initial results: ', results.rows);
         const formattedLists = formatLists(results.rows);
         return res.status(200).send({
           results: formattedLists,

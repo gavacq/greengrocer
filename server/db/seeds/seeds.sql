@@ -60,14 +60,14 @@ VALUES (13, 'tomago', 'https://spoonacular.com/productImages/52089-312x231.jpeg'
 
 -- Seeds for products_lists table
 
-INSERT INTO products_lists (product_id, list_id)
-VALUES (1, 1);
+INSERT INTO products_lists (product_id, list_id, query)
+VALUES (1, 1, 'be');
 
-INSERT INTO products_lists (product_id, list_id)
-VALUES (2, 1);
+INSERT INTO products_lists (product_id, list_id, query)
+VALUES (2, 1, 'ques');
 
-INSERT INTO products_lists (product_id, list_id)
-VALUES (3, 3);
+INSERT INTO products_lists (product_id, list_id, query)
+VALUES (3, 3, 'tomag');
 
-INSERT INTO products_lists (product_id, list_id)
-VALUES (3, 1);
+INSERT INTO products_lists (product_id, list_id, query)
+VALUES (3, 1, 'tom');

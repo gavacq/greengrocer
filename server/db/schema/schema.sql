@@ -51,6 +51,6 @@ CREATE TABLE products_lists (
   id SERIAL PRIMARY KEY NOT NULL,
   product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
   list_id INTEGER REFERENCES lists(id) ON DELETE CASCADE,
-  query VARCHAR(255)
+  query VARCHAR(255) NOT NULL
 );
 

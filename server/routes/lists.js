@@ -12,10 +12,11 @@ module.exports = (db) => {
       return;
     }
     console.log('PUT /api/lists', req.body);
+    console.log('products', list.products[0]);
 
     const productsValuesSql = list.products.map((p) => `(${p.api_id}, '${p.title}', '${p.image}', ${p.lat}, ${p.long}, ${p.co2})`);
     // TODO: fix SQL injection vulnerabilities
-    const productsSql = `INSERT INTO products(api_product_id, title, image, lat, long, co2_data) VALUES ${productsValuesSql} ON CONFLICT (api_product_id) DO UPDATE SET api_product_id=EXCLUDED.api_product_id RETURNING *`;
+    const productsSql = `INSERT INTO products(api_id, title, image, lat, long, co2) VALUES ${productsValuesSql} ON CONFLICT (api_id) DO UPDATE SET api_id=EXCLUDED.api_id RETURNING *`;
     // insert multiple products
     // check api_id column for conflicts, if so do nothing
     const productsPromise = db.query(productsSql)
@@ -54,14 +55,26 @@ module.exports = (db) => {
           return str.query;
         };
 
-        const productsListsValuesSql = data[0].map((p) => `(${p.id}, ${data[1][0].id}, '${getQueryFromApiProductId(p.api_product_id)}')`);
+        const productsListsValuesSql = data[0].map((p) => `(${p.id}, ${data[1][0].id}, '${getQueryFromApiProductId(p.api_id)}')`);
         console.log('sql', productsListsValuesSql);
         return Promise.all([data, db.query(`INSERT INTO products_lists(product_id, list_id, query) VALUES ${productsListsValuesSql}`)]);
       })
       .then((data) => {
         console.log('data', data);
+        const productData = data[0][0];
+        const listData = data[0][1][0];
+        productData.forEach((p) => {
+          if (!listData.products) {
+            listData.products = [p];
+          } else {
+            listData.products.push(p);
+          }
+        });
+        delete listData.user_id;
+        console.log('formatted', listData);
+
         // return formatted list
-        res.json(data[0]);
+        res.json(listData);
       })
       .catch((error) => console.log('products_lists insert failed', error));
   });
@@ -81,10 +94,10 @@ module.exports = (db) => {
       const formatted = unformatted.reduce((acc, l) => {
         console.log(l.list_id);
         const product = {
-          api_id: l.api_product_id,
+          api_id: l.api_id,
           title: l.title,
           image: l.image,
-          co2: l.co2_data,
+          co2: l.co2,
           lat: l.lat,
           long: l.long,
           query: l.query,

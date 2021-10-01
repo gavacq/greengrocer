@@ -5,6 +5,7 @@ import SavedList from './SavedList';
 
 export default function AllLists(props) {
   const { allLists, setNewList, deleteList } = props;
+  console.log('AllLists', allLists);
 
   const showAllLists = () => {
     if (!allLists.length) {

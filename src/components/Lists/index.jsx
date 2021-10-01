@@ -60,8 +60,17 @@ export default function List() {
         console.log('successfully saved list', res.data);
         setAllLists((prev) => ([
           ...prev,
-          newList,
+          {
+            ...res.data,
+            products: [...res.data.products],
+          },
         ]));
+        setNewList({
+          id: undefined,
+          date_created: undefined,
+          co2_saved: 0,
+          products: [],
+        });
       })
       .catch((e) => console.log('Error deleting list', e));
   };

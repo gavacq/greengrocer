@@ -7,6 +7,7 @@ import AllLists from './AllLists';
 export default function List() {
   const [newList, setNewList] = useState([]);
   const [allLists, setAllLists] = useState([]);
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
     axios.get('/api/lists')
@@ -31,8 +32,8 @@ export default function List() {
   // on page load get all lists from db
   return (
     <main>
-      <Search setNewList={setNewList} />
-      <NewList newList={newList} />
+      <Search setNewList={setNewList} results={results} setResults={setResults} />
+      <NewList newList={newList} setResults={setResults} />
       <AllLists allLists={allLists} setNewList={setNewList} />
     </main>
   );

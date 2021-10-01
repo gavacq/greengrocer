@@ -17,6 +17,7 @@ export default function Product(props) {
 
         <div className="product-img">
           <img src={data.image} alt="product" className="product" />
+          <p>{data.co2}</p>
         </div>
 
         <button

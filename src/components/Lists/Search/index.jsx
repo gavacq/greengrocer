@@ -1,11 +1,11 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
+import { productType } from '../../../types';
 
 export default function Search(props) {
-  const { setNewList } = props;
-  const [results, setResults] = useState([]);
+  const { setNewList, results, setResults } = props;
   console.log('results in Search: ', results);
   return (
     <section>
@@ -18,4 +18,6 @@ export default function Search(props) {
 
 Search.propTypes = {
   setNewList: PropTypes.func.isRequired,
+  setResults: PropTypes.func.isRequired,
+  results: PropTypes.arrayOf(productType).isRequired,
 };

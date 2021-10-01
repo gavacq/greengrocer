@@ -8,7 +8,7 @@ module.exports = (db) => {
   router.put('/', (req, res) => {
     const { list } = req.body;
     if (!list.products.length) {
-      res.send('empty products list');
+      res.json({ products: [] });
       return;
     }
     console.log('PUT /api/lists', req.body);

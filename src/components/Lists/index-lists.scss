@@ -8,8 +8,26 @@
   padding: 0 15px 15px 15px;
   display: flex;
   flex-direction: column;
-
 }
+
+.save-btn {
+  @include button-styles;
+  width: 65px;
+  height: 40px;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.btn-replace {
+  @include blue-button-styles;
+  border: solid 2.5px $blue-btn-border;
+  border-radius: 5px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  height: 30px;
+}
+
 
 .search-container {
   border: solid 3px pink;
@@ -35,7 +53,12 @@
   }
 }
 
- 
+.item-in-list {
+  border: solid $blue-btn-background-active 3px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
 p.co2-saved-text {
   padding-left: 0;
   font-weight: 600;

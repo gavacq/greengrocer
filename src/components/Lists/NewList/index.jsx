@@ -106,10 +106,10 @@ NewList.propTypes = {
 //   };
 
 //   const mappedList = newList.map((p) => (
-//     <div>
+//     <div className="item-in-list">
 //       <div className="description">
 //         <p className="main-desc" key={p.api_id}>{p.title}</p>
-//         <p>
+//         <p className="co2-desc">
 //           CO2:
 //           {p.co2}
 //         </p>
@@ -122,7 +122,9 @@ NewList.propTypes = {
 //   return (
 //     <section>
 //       <h1>New List</h1>
-//       {mappedList}
+//       <div>
+//         {mappedList}
+//       </div>
 //       <button className="save-btn" type="button" onClick={() => submitList()}>Save</button>
 //     </section>
 //   );

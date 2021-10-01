@@ -36,6 +36,23 @@ export default function List() {
     setIdToReplace(newProduct.api_id);
   };
 
+  const deleteList = (id) => {
+    axios.delete(`/api/lists/${id}`)
+      .then(() => {
+        console.log(`successfully deleted list id ${id}`);
+        const newAllLists = allLists.reduce((acc, l) => {
+          if (l.id === id) {
+            return acc;
+          }
+          acc.push(l);
+          return acc;
+        }, []);
+        console.log('newAllLists', newAllLists);
+        setAllLists(newAllLists);
+      })
+      .catch((e) => console.log('Error deleting list', e));
+  };
+
   useEffect(() => {
     axios.get('/api/lists')
       .then((res) => {
@@ -46,17 +63,6 @@ export default function List() {
       });
   }, []);
 
-  // TODO: create list component
-  // const mappedList = allLists.map((product) => (
-  //   <p>
-  //     list id:
-  //     {product.list_id}
-  //     title:
-  //     {product.title}
-  //   </p>
-  // ));
-
-  // on page load get all lists from db
   return (
     <main>
       <Search
@@ -68,7 +74,7 @@ export default function List() {
         setIdToReplace={setIdToReplace}
       />
       <NewList newList={newList} setResults={setResults} setIdToReplace={setIdToReplace} />
-      <AllLists allLists={allLists} setNewList={setNewList} />
+      <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
     </main>
   );
 }

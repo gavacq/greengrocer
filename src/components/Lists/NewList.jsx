@@ -8,7 +8,7 @@ export default function NewList(props) {
   const { newList, setResults, setIdToReplace } = props;
   console.log('list', newList);
 
-  const submitList = () => {
+  const saveList = () => {
     // TODO: db insert should return all columns from new list creation
     // then we can update allLists state variable
     console.log('THIS IS NEW LIST :', newList);
@@ -50,7 +50,7 @@ export default function NewList(props) {
         g of CO2 so far!
       </h3>
       {mappedList()}
-      <button type="button" onClick={() => submitList()}>Save</button>
+      <button type="button" onClick={() => saveList()}>Save</button>
     </section>
   );
 }

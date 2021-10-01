@@ -39,7 +39,6 @@ export default function NewList(props) {
       </div>
     ));
   };
-  console.log('mapped', mappedList);
 
   return (
     <section>

@@ -6,12 +6,11 @@ import { productType } from '../../../types';
 
 export default function Search(props) {
   const {
-    setNewList, results, setResults, replaceProduct, idToReplace,
+    setNewList, results, setResults, replaceProduct, idToReplace, setIdToReplace,
   } = props;
-  console.log('results in Search: ', results);
   return (
     <section>
-      <SearchBar setResults={setResults} />
+      <SearchBar setResults={setResults} setIdToReplace={setIdToReplace} />
       {results.length > 0
         && (
         <SearchResults
@@ -32,6 +31,7 @@ Search.propTypes = {
   results: PropTypes.arrayOf(productType).isRequired,
   replaceProduct: PropTypes.func.isRequired,
   idToReplace: PropTypes.number,
+  setIdToReplace: PropTypes.func.isRequired,
 };
 
 // Specifies the default values for props:

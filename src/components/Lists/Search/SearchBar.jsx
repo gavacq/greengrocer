@@ -5,12 +5,14 @@ import '../../../index.scss';
 import searchProducts from '../../../helpers/search';
 
 export default function SearchBar(props) {
-  const { setResults } = props;
+  const { setResults, setIdToReplace } = props;
   const [productName, setProductName] = useState('');
 
   const clickHandler = () => {
-    console.log('inside clickHandler');
-    searchProducts(productName).then((results) => setResults(results));
+    searchProducts(productName).then((results) => {
+      setResults(results);
+      setIdToReplace(null);
+    });
   };
 
   return (
@@ -33,4 +35,5 @@ export default function SearchBar(props) {
 
 SearchBar.propTypes = {
   setResults: PropTypes.func.isRequired,
+  setIdToReplace: PropTypes.func.isRequired,
 };

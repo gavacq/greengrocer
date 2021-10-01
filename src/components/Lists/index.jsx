@@ -11,7 +11,7 @@ export default function List() {
   const [idToReplace, setIdToReplace] = useState(null);
 
   const replaceProduct = (newProduct) => {
-    const newListReplaced = newList.products.map((p) => {
+    const productsReplaced = newList.products.map((p) => {
       if (p.api_id === idToReplace) {
         return newProduct;
       }
@@ -19,16 +19,12 @@ export default function List() {
       return { ...p };
     });
 
-    const listDetails = {
-      list_id: undefined,
-      date_created: undefined,
-      co2_saved: 0,
-    };
-
-    setNewList({
-      ...listDetails,
-      newListReplaced,
-    });
+    setNewList((prev) => ({
+      list_id: prev.list_id,
+      date_created: prev.date_created,
+      co2_saved: prev.co2_saved,
+      products: productsReplaced,
+    }));
   };
 
   useEffect(() => {
@@ -60,6 +56,7 @@ export default function List() {
         setResults={setResults}
         replaceProduct={replaceProduct}
         idToReplace={idToReplace}
+        setIdToReplace={setIdToReplace}
       />
       <NewList newList={newList} setResults={setResults} setIdToReplace={setIdToReplace} />
       <AllLists allLists={allLists} setNewList={setNewList} />

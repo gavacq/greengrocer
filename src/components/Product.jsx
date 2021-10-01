@@ -12,6 +12,32 @@ export default function Product(props) {
     data, addProductToList, replaceProduct, idToReplace,
   } = props;
 
+  const actionButton = () => {
+    if (idToReplace) {
+      return (
+        <button
+          className="add-btn"
+          type="button"
+          onClick={() => replaceProduct(data)}
+        >
+          <span>{width <= 720 ? '+' : 'Replace' }</span>
+        </button>
+      );
+    }
+    return (
+      <button
+        className="add-btn"
+        type="button"
+        aria-label="setNewProduct"
+        onClick={() => {
+          addProductToList(data);
+        }}
+      >
+        <span>{width <= 720 ? '+' : 'Add to list' }</span>
+      </button>
+    );
+  };
+
   return (
     <div data-product-id={data.api_id} className="product-flexbox">
       <div className="img-btn-container">
@@ -20,20 +46,7 @@ export default function Product(props) {
           <img src={data.image} alt="product" className="product" />
           <p>{data.co2}</p>
         </div>
-
-        <button
-          className="add-btn"
-          type="button"
-          aria-label="setNewProduct"
-          onClick={() => {
-            addProductToList(data);
-          }}
-        >
-          <span>{width <= 720 ? '+' : 'Add to list' }</span>
-        </button>
-
-        {idToReplace
-        && (<button type="button" onClick={() => replaceProduct(data)}>Replace with this item</button>)}
+        {actionButton()}
       </div>
 
       <div><p>{data.title}</p></div>

@@ -1,7 +1,8 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
-import { listType } from '../../types';
-import searchProducts from '../../helpers/search';
+import { listType } from '../../../types';
+import searchProducts from '../../../helpers/search';
+import NewListProduct from './NewListProduct';
 
 export default function NewList(props) {
   const {
@@ -25,11 +26,7 @@ export default function NewList(props) {
       return <h3>No products added!</h3>;
     }
     return newList.products.map((p) => (
-      <div key={p.api_id}>
-        <p>{p.title}</p>
-        <p>{p.co2}</p>
-        <button type="button" onClick={() => showReplacements(p.query, p.title, p.api_id)}>Show Replacements</button>
-      </div>
+      <NewListProduct product={p} showReplacements={showReplacements} key={p.api_id} />
     ));
   };
 

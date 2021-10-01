@@ -40,9 +40,11 @@ function App() {
               <div className="contact-item">greengrocer@mail.com</div>
               <div className="credits">
                 {/* eslint-disable-next-line */}
-                Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik </a>
+                Icons by <a href="https://www.freepik.com" title="Freepik">Freepik </a>
                 {/* eslint-disable-next-line */}
-                from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+                from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com </a> 
+                {/* eslint-disable-next-line */}
+                & Logo by <a href="https://www.instagram.com/hima_wari.arts">@hima_wari.arts</a>
               </div>
             </div>
             <div className="social-icons">

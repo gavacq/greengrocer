@@ -28,6 +28,7 @@
     flex-basis: 40vw;
     padding: 10px;
     margin-right: 5px;
+    height: fit-content;
     // flex-grow: 2;
   }
 
@@ -82,5 +83,15 @@
     border-radius: 5px;
   }
   
+  span.co2-desc {
+    color: $btn-border;
+    font-weight: 400;
+    font-weight: 600;
+  }
+
+  .co2-saved-text {
+    text-align: left;
+    padding-left: 20px;
+  }
 
 }

@@ -105,27 +105,41 @@ NewList.propTypes = {
 //       });
 //   };
 
-// const mappedList = newList.map((p) => (
-//   <div className="item-in-list">
-//     <div className="description">
-//       <p className="main-desc" key={p.api_id}>{p.title}</p>
-//     </div>
-//     <div className="replace-btn-wrapper">
-//       <p className="co2-desc">
-//         {/* eslint-disable-next-line */}
-//         CO2: <span>{p.co2}</span> g
-//       </p>
-//       <button className="btn-replace" type="button" onClick={() => showReplacements(p.query, p.title, p.api_id)}><a href="#search-results-container">Show replacements</a></button>
-//     </div>
-//   </div>
-// ));
-// console.log('mapped', mappedList);
+//   const mappedList = () => {
+//     if (!newList.products) {
+//       console.log('no products yet');
+//       return <h3>No products added!</h3>;
+//     }
+//     return newList.products.map((p) => (
+//       <div className="item-in-list">
+//         <div className="description">
+//           <p className="main-desc" key={p.api_id}>{p.title}</p>
+//         </div>
+//         <div className="replace-btn-wrapper">
+//           <p className="co2-desc">
+//             {/* eslint-disable-next-line */}
+//             CO2: <span>{p.co2}</span> g
+//           </p>
+//           <button className="btn-replace" type="button" onClick={() => showReplacements(p.query, p.title, p.api_id)}>Show replacements</button>
+//         </div>
+//       </div>
+//     ));
+//   };
 
 //   return (
 //     <section>
 //       <h1>New List</h1>
+//       <p className="co2-saved-text">
+//         Your choices have saved
+//         <span className="co2-desc">
+//           {' '}
+//           {newList.co2_saved}
+//           {' '}
+//         </span>
+//         g of CO2 so far!
+//       </p>
 //       <div>
-//         {mappedList}
+//         {mappedList()}
 //       </div>
 //       <button className="save-btn" type="button" onClick={() => submitList()}>Save</button>
 //     </section>

@@ -1,2 +1,32 @@
-@import "../styles/variables";
-@import "../styles/mixins";
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+// ---------- style for lists page -------------- //
+
+
+.lists-page-container {
+
+  .search-and-new-list {
+    display: flex;
+    justify-content: space-between;
+    border: solid rgb(96, 138, 218,0.5) 3px;
+    padding: 5px;
+  }
+
+  .search-section {
+    border: solid rgb(255, 203, 212, 0.3) 3px;
+    margin-right: 10px;
+    padding: 10px;
+    flex-basis: 600px;
+    // flex-grow: 3;
+  }
+
+  .new-list-wrapper {
+    border: solid rgb(135, 185, 106, 0.3) 3px;
+    background-color: $green-hover;
+    flex-basis: 300px;
+    padding: 10px;
+    // flex-grow: 2;
+  }
+
+}

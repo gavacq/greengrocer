@@ -3,6 +3,7 @@ import axios from 'axios';
 import Search from './Search';
 import NewList from './NewList';
 import AllLists from './AllLists';
+import './index-lists.scss';
 
 export default function List() {
   const [newList, setNewList] = useState({
@@ -90,25 +91,27 @@ export default function List() {
   }, []);
 
   return (
-    <main>
-      <Search
-        setNewList={setNewList}
-        results={results}
-        setResults={setResults}
-        replaceProduct={replaceProduct}
-        idToReplace={idToReplace}
-        setIdToReplace={setIdToReplace}
-      />
-      <NewList
-        newList={newList}
-        setResults={setResults}
-        setIdToReplace={setIdToReplace}
-        saveList={saveList}
-        setNewList={setNewList}
-      />
-      <section className="new-list-wrapper">
-        <NewList newList={newList} setResults={setResults} setIdToReplace={setIdToReplace} />
-      </section>
+    <main className="lists-page-container">
+      <div className="search-and-new-list">
+        <div className="search-section">
+          <Search
+            setNewList={setNewList}
+            results={results}
+            setResults={setResults}
+            replaceProduct={replaceProduct}
+            idToReplace={idToReplace}
+          />
+        </div>
+        <section className="new-list-wrapper">
+          <NewList
+            newList={newList}
+            setResults={setResults}
+            setIdToReplace={setIdToReplace}
+            saveList={saveList}
+            setNewList={setNewList}
+          />
+        </section>
+      </div>
       <section className="all-lists-wrapper">
         <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
       </section>

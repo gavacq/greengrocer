@@ -33,7 +33,6 @@ module.exports = (db) => {
     const listsSql = `INSERT INTO lists(user_id, co2_saved) VALUES (${req.session.user}, ${req.body.list.co2_saved}) RETURNING id`;
     const listsPromise = db.query(listsSql)
       .then((data) => {
-        console.log('second success');
         return data.rows;
       })
       .catch((error) => {
@@ -43,20 +42,16 @@ module.exports = (db) => {
     // insert multiple products_lists, wait for productsPromise and listsPromise to resolve first
     Promise.all([productsPromise, listsPromise])
       .then((data) => {
-        console.log('THIS IS PROMISE DATA: ', data);
         if (!data[0].length) {
           return Promise.resolve();
         }
-        console.log('promise.all', req.body.list);
         // eslint-disable-next-line max-len
         const getQueryFromApiProductId = (apiProductId) => {
           const str = list.products.find((p) => p.api_id === apiProductId);
-          console.log('querystr', str.query);
           return str.query;
         };
 
         const productsListsValuesSql = data[0].map((p) => `(${p.id}, ${data[1][0].id}, '${getQueryFromApiProductId(p.api_product_id)}')`);
-        console.log('sql', productsListsValuesSql);
         return db.query(`INSERT INTO products_lists(product_id, list_id, query) VALUES ${productsListsValuesSql}`);
       })
       .then(() => {
@@ -78,7 +73,6 @@ module.exports = (db) => {
 
     const formatLists = (unformatted) => {
       const formatted = unformatted.reduce((acc, l) => {
-        console.log(l.list_id);
         const product = {
           api_id: l.api_product_id,
           title: l.title,
@@ -108,7 +102,6 @@ module.exports = (db) => {
 
     db.query(loadListsQuery, [req.session.user])
       .then((results) => {
-        console.log('initial results: ', results.rows);
         const formattedLists = formatLists(results.rows);
         return res.status(200).send({
           results: formattedLists,
@@ -120,7 +113,6 @@ module.exports = (db) => {
   });
 
   router.delete('/:listId', (req, res) => {
-    console.log('This is the response list data: ', req.params.listId);
     db.query(`
     DELETE
     FROM lists
@@ -131,8 +123,18 @@ module.exports = (db) => {
         res.json({ deleted: data.rows });
       })
       .catch((err) => {
-        console.log('delete error', err);
         res.json({ deleted: false });
+      });
+  });
+
+  router.get('/products', (req, res) => {
+    const allProductsQuery = `
+        SELECT lat, long
+        FROM products
+      `;
+    db.query(allProductsQuery)
+      .then((results) => {
+        res.send({results})
       });
   });
 

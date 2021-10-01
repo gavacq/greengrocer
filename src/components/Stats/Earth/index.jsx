@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import { React, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
@@ -8,12 +9,17 @@ import Location from './Location';
 
 import { listType } from '../../../types';
 
-export default function Earth({ lists }) {
+// eslint-disable-next-line no-unused-vars
+export default function Earth({ products }) {
   const origin = {
     z: Math.cos(49.2827 * (Math.PI / 180)) * Math.cos((360 - 123.1207) * (Math.PI / 180)) * 3,
     x: Math.cos(49.2827 * (Math.PI / 180)) * Math.sin((360 - 123.1207) * (Math.PI / 180)) * 3,
     y: Math.sin(49.2827 * (Math.PI / 180)) * 3,
   };
+
+  const mappedLocations = products.map((product) => (
+    <Location lat={product.lat} long={product.long} origin={origin} />
+  ));
 
   return (
     <div style={{ width: '100vw', height: '90vh' }}>
@@ -22,7 +28,7 @@ export default function Earth({ lists }) {
         <Suspense fallback={null}>
           <Planet />
           <Clouds />
-          <Location lat={0} long={0} origin={origin} />
+          {mappedLocations}
         </Suspense>
         <OrbitControls />
       </Canvas>
@@ -31,6 +37,6 @@ export default function Earth({ lists }) {
 }
 
 Earth.propTypes = {
-  // eslint-disable-next-line react/require-default-props
-  lists: listType,
+  products: listType,
+
 };

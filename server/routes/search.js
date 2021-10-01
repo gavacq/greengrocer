@@ -23,8 +23,6 @@ module.exports = () => {
         return Promise.all(mappedPromises);
       })
       .then((response) => {
-        console.log('response', response);
-
         const parsedData = response.filter((r) => r.data.upc && !r.data.title.includes("'")).map((r) => {
           const carbonData = carbonCalculator(r.data.upc);
           console.log('THIS IS THE CARBON DATA : ', carbonData);
@@ -38,7 +36,6 @@ module.exports = () => {
             co2: carbonData.co2,
           };
         });
-        console.log('res', parsedData);
 
         res.json(parsedData);
       })

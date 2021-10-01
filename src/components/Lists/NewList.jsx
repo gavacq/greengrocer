@@ -9,11 +9,10 @@ export default function NewList(props) {
   console.log('list', newList);
 
   const submitList = () => {
-    const co2Saved = 0;
     // TODO: db insert should return all columns from new list creation
     // then we can update allLists state variable
     console.log('THIS IS NEW LIST :', newList);
-    axios.put('/api/lists', { list: newList, co2Saved }).then(() => console.log('saved new list success'));
+    axios.put('/api/lists', { list: newList }).then(() => console.log('saved new list success'));
   };
 
   const showReplacements = (query, title, id) => {

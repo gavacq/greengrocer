@@ -5,7 +5,6 @@ import SavedList from './SavedList';
 
 export default function AllLists(props) {
   const { allLists, setNewList } = props;
-  console.log(allLists, setNewList);
 
   return (
     <section>

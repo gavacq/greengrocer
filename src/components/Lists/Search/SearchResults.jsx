@@ -12,10 +12,12 @@ export default function SearchResults(props) {
   console.log('results', results);
 
   const addProductToList = (product) => {
-    setNewList((prev) => ([
-      ...prev,
-      product,
-    ]));
+    setNewList((prev) => ({
+      list_id: prev.list_id,
+      date_created: prev.date_created,
+      co2_saved: prev.co2_saved,
+      products: prev.products ? [...prev.products, product] : [product],
+    }));
   };
 
   const jsxResults = results.map((result) => (
@@ -40,5 +42,9 @@ SearchResults.propTypes = {
   results: PropTypes.arrayOf(productType).isRequired,
   setNewList: PropTypes.func.isRequired,
   replaceProduct: PropTypes.func.isRequired,
-  idToReplace: PropTypes.number.isRequired,
+  idToReplace: PropTypes.number,
+};
+
+SearchResults.defaultProps = {
+  idToReplace: 0,
 };

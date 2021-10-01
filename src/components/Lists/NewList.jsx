@@ -1,8 +1,8 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { productType } from '../../types';
-import productSearch from '../../helpers/search';
+import { listType } from '../../types';
+import searchProducts from '../../helpers/search';
 
 export default function NewList(props) {
   const { newList, setResults, setIdToReplace } = props;
@@ -19,26 +19,32 @@ export default function NewList(props) {
   const showReplacements = (query, title, id) => {
     const newQuery = title.toLowerCase().split(' ').filter((w) => w.includes(query.toLowerCase()))[0];
     console.log('newQueyr', newQuery);
-    productSearch(newQuery)
+    searchProducts(newQuery)
       .then((results) => {
         setIdToReplace(id);
         setResults(results);
       });
   };
 
-  const mappedList = newList.map((p) => (
-    <div>
-      <p key={p.api_id}>{p.title}</p>
-      <p>{p.co2}</p>
-      <button type="button" onClick={() => showReplacements(p.query, p.title, p.api_id)}>Show Replacements</button>
-    </div>
-  ));
+  const mappedList = () => {
+    if (!newList.products) {
+      console.log('no products yet');
+      return <h3>No products added!</h3>;
+    }
+    return newList.products.map((p) => (
+      <div key={p.api_id}>
+        <p>{p.title}</p>
+        <p>{p.co2}</p>
+        <button type="button" onClick={() => showReplacements(p.query, p.title, p.api_id)}>Show Replacements</button>
+      </div>
+    ));
+  };
   console.log('mapped', mappedList);
 
   return (
     <section>
       <h1>New List</h1>
-      {mappedList}
+      {mappedList()}
       <button type="button" onClick={() => submitList()}>Save</button>
     </section>
   );
@@ -46,7 +52,7 @@ export default function NewList(props) {
 
 // declare the prop type for the ListProducts component
 NewList.propTypes = {
-  newList: PropTypes.arrayOf(productType).isRequired,
+  newList: listType.isRequired,
   setResults: PropTypes.func.isRequired,
   setIdToReplace: PropTypes.func.isRequired,
 };

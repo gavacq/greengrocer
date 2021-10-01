@@ -31,5 +31,10 @@ Search.propTypes = {
   setResults: PropTypes.func.isRequired,
   results: PropTypes.arrayOf(productType).isRequired,
   replaceProduct: PropTypes.func.isRequired,
-  idToReplace: PropTypes.number.isRequired,
+  idToReplace: PropTypes.number,
+};
+
+// Specifies the default values for props:
+Search.defaultProps = {
+  idToReplace: 0,
 };

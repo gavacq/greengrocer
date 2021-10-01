@@ -47,11 +47,12 @@ Product.propTypes = {
   data: productType.isRequired,
   addProductToList: PropTypes.func,
   replaceProduct: PropTypes.func,
-  idToReplace: PropTypes.number.isRequired,
+  idToReplace: PropTypes.number,
 };
 
 // Specifies the default values for props:
 Product.defaultProps = {
   addProductToList: () => {},
   replaceProduct: () => {},
+  idToReplace: 0,
 };

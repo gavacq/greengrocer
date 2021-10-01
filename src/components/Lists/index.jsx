@@ -5,13 +5,13 @@ import NewList from './NewList';
 import AllLists from './AllLists';
 
 export default function List() {
-  const [newList, setNewList] = useState([]);
+  const [newList, setNewList] = useState({});
   const [allLists, setAllLists] = useState([]);
   const [results, setResults] = useState([]);
   const [idToReplace, setIdToReplace] = useState(null);
 
   const replaceProduct = (newProduct) => {
-    const newListReplaced = newList.map((p) => {
+    const newListReplaced = newList.products.map((p) => {
       if (p.api_id === idToReplace) {
         return newProduct;
       }
@@ -19,7 +19,16 @@ export default function List() {
       return { ...p };
     });
 
-    setNewList(newListReplaced);
+    const listDetails = {
+      list_id: undefined,
+      date_created: undefined,
+      co2_saved: 0,
+    };
+
+    setNewList({
+      ...listDetails,
+      newListReplaced,
+    });
   };
 
   useEffect(() => {

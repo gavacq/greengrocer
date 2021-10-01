@@ -20,9 +20,29 @@
 }
 
 .new-list-wrapper {
-  // border: solid 3px rgb(255, 224, 87);
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 15px;
   background: $green-hover;
   border-radius: 10px;
+
+  p {
+    text-align: left;
+    width: 90%;
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+
+ 
+p.co2-saved-text {
+  padding-left: 0;
+  font-weight: 600;
+
+  span.co2-desc {
+    color: $btn-border;
+  }
 }
 
 // -------- old broken styles below ----------- //

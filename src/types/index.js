@@ -7,6 +7,7 @@ const productType = PropTypes.shape({
   co2: PropTypes.number,
   lat: PropTypes.number,
   long: PropTypes.number,
+  query: PropTypes.string,
 });
 
 const listType = PropTypes.shape({

@@ -6,7 +6,7 @@ const axios = require('axios');
 const { carbonCalculator } = require('../helpers/carbon-calculator');
 
 // helper: makes the request to spoonacular API
-const searchHelper = (productName) => axios.get(`https://api.spoonacular.com/food/products/search?query=${productName}&apiKey=${process.env.SPOONACULAR_API_KEY}&includeNutrition=true&number=3`)
+const searchHelper = (productName) => axios.get(`https://api.spoonacular.com/food/products/search?query=${productName}&apiKey=${process.env.SPOONACULAR_API_KEY}&includeNutrition=true&number=10`)
   .then((res) => res.data)
   .catch((error) => error.message);
 

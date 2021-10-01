@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import './SearchBar.scss';
 import '../../../index.scss';
+import productSearch from '../../../helpers/search';
 
 export default function SearchBar(props) {
   const { setResults } = props;
@@ -11,22 +11,7 @@ export default function SearchBar(props) {
   // helper: handles click on the search button
   const clickHandler = () => {
     console.log('inside clickHandler');
-    axios.get(`/api/search/?productName=${productName}`)
-      .then((res) => {
-        // just setResults with id, title, and image
-        console.log('MY RESPONSE : ', res.data);
-        const results = res.data.map((product) => ({
-          api_id: product.id,
-          title: product.title,
-          image: product.image,
-          lat: product.lat,
-          long: product.long,
-          co2: product.co2,
-        }));
-        setResults(results);
-      });
-
-    // .then((res) => console.log(res.data));
+    productSearch(productName).then((results) => setResults(results));
   };
 
   return (

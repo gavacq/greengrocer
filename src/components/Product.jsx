@@ -9,8 +9,9 @@ import { productType } from '../types';
 export default function Product(props) {
   const [height, width] = useWindowSize(); // eslint-disable-line
   const {
-    data, addProductToList,
+    data, addProductToList, replaceProduct, idToReplace,
   } = props;
+
   return (
     <div data-product-id={data.api_id} className="product-flexbox">
       <div className="img-btn-container">
@@ -31,6 +32,8 @@ export default function Product(props) {
           <span>{width <= 720 ? '+' : 'Add to list' }</span>
         </button>
 
+        {idToReplace
+        && (<button type="button" onClick={() => replaceProduct(data)}>Replace with this item</button>)}
       </div>
 
       <div><p>{data.title}</p></div>
@@ -43,9 +46,12 @@ export default function Product(props) {
 Product.propTypes = {
   data: productType.isRequired,
   addProductToList: PropTypes.func,
+  replaceProduct: PropTypes.func,
+  idToReplace: PropTypes.number.isRequired,
 };
 
 // Specifies the default values for props:
 Product.defaultProps = {
   addProductToList: () => {},
+  replaceProduct: () => {},
 };

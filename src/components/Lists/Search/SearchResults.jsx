@@ -6,7 +6,9 @@ import Product from '../../Product';
 import { productType } from '../../../types';
 
 export default function SearchResults(props) {
-  const { results, setNewList } = props;
+  const {
+    results, setNewList, replaceProduct, idToReplace,
+  } = props;
   console.log('results', results);
 
   const addProductToList = (product) => {
@@ -21,6 +23,8 @@ export default function SearchResults(props) {
       key={result.api_id}
       data={result}
       addProductToList={addProductToList}
+      replaceProduct={replaceProduct}
+      idToReplace={idToReplace}
     />
   ));
 
@@ -35,4 +39,6 @@ export default function SearchResults(props) {
 SearchResults.propTypes = {
   results: PropTypes.arrayOf(productType).isRequired,
   setNewList: PropTypes.func.isRequired,
+  replaceProduct: PropTypes.func.isRequired,
+  idToReplace: PropTypes.number.isRequired,
 };

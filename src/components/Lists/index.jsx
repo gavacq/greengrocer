@@ -8,6 +8,19 @@ export default function List() {
   const [newList, setNewList] = useState([]);
   const [allLists, setAllLists] = useState([]);
   const [results, setResults] = useState([]);
+  const [idToReplace, setIdToReplace] = useState(null);
+
+  const replaceProduct = (newProduct) => {
+    const newListReplaced = newList.map((p) => {
+      if (p.api_id === idToReplace) {
+        return newProduct;
+      }
+
+      return { ...p };
+    });
+
+    setNewList(newListReplaced);
+  };
 
   useEffect(() => {
     axios.get('/api/lists')
@@ -32,8 +45,14 @@ export default function List() {
   // on page load get all lists from db
   return (
     <main>
-      <Search setNewList={setNewList} results={results} setResults={setResults} />
-      <NewList newList={newList} setResults={setResults} />
+      <Search
+        setNewList={setNewList}
+        results={results}
+        setResults={setResults}
+        replaceProduct={replaceProduct}
+        idToReplace={idToReplace}
+      />
+      <NewList newList={newList} setResults={setResults} setIdToReplace={setIdToReplace} />
       <AllLists allLists={allLists} setNewList={setNewList} />
     </main>
   );

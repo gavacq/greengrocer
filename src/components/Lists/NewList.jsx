@@ -1,19 +1,13 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import { listType } from '../../types';
 import searchProducts from '../../helpers/search';
 
 export default function NewList(props) {
-  const { newList, setResults, setIdToReplace } = props;
+  const {
+    newList, setResults, setIdToReplace, saveList,
+  } = props;
   console.log('list', newList);
-
-  const saveList = () => {
-    // TODO: db insert should return all columns from new list creation
-    // then we can update allLists state variable
-    console.log('THIS IS NEW LIST :', newList);
-    axios.put('/api/lists', { list: newList }).then(() => console.log('saved new list success'));
-  };
 
   const showReplacements = (query, title, id) => {
     const newQuery = title.toLowerCase().split(' ').filter((w) => w.includes(query.toLowerCase()))[0];
@@ -50,7 +44,7 @@ export default function NewList(props) {
         g of CO2 so far!
       </h3>
       {mappedList()}
-      <button type="button" onClick={() => saveList()}>Save</button>
+      <button type="button" onClick={saveList}>Save</button>
     </section>
   );
 }
@@ -60,4 +54,5 @@ NewList.propTypes = {
   newList: listType.isRequired,
   setResults: PropTypes.func.isRequired,
   setIdToReplace: PropTypes.func.isRequired,
+  saveList: PropTypes.func.isRequired,
 };

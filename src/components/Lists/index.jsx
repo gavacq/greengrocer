@@ -6,7 +6,7 @@ import AllLists from './AllLists';
 
 export default function List() {
   const [newList, setNewList] = useState({
-    list_id: undefined,
+    id: undefined,
     date_created: undefined,
     co2_saved: 0,
     products: [],
@@ -28,7 +28,7 @@ export default function List() {
     console.log('co2Diff', co2Diff, newList.co2_saved);
 
     setNewList((prev) => ({
-      list_id: prev.list_id,
+      id: prev.id,
       date_created: prev.date_created,
       co2_saved: (prev.co2_saved || 0) + co2Diff,
       products: productsReplaced,
@@ -53,6 +53,19 @@ export default function List() {
       .catch((e) => console.log('Error deleting list', e));
   };
 
+  const saveList = () => {
+    console.log('THIS IS NEW LIST :', newList);
+    axios.put('/api/lists', { list: newList })
+      .then((res) => {
+        console.log('successfully saved list', res.data);
+        setAllLists((prev) => ([
+          ...prev,
+          newList,
+        ]));
+      })
+      .catch((e) => console.log('Error deleting list', e));
+  };
+
   useEffect(() => {
     axios.get('/api/lists')
       .then((res) => {
@@ -73,7 +86,12 @@ export default function List() {
         idToReplace={idToReplace}
         setIdToReplace={setIdToReplace}
       />
-      <NewList newList={newList} setResults={setResults} setIdToReplace={setIdToReplace} />
+      <NewList
+        newList={newList}
+        setResults={setResults}
+        setIdToReplace={setIdToReplace}
+        saveList={saveList}
+      />
       <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
     </main>
   );

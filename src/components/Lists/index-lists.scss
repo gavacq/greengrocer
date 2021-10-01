@@ -4,107 +4,116 @@
 // ---------- style for lists page -------------- //
 
 
-.lists-page-container {
+// .lists-page-container {
 
-  // .search-and-new-list {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   padding: 5px;
-  // }
+//   .search-and-new-list {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     padding: 5px;
+//   }
 
-  .search-section {
-    padding: 10px;
-    flex-basis: 60vw;
-  }
+//   .search-section {
+//     padding: 10px;
+//     overflow-y: hidden;
+//   }
 
-  .new-list-wrapper {
-    border: solid $green-hover 3px;
-    border-radius: 10px;
-    background-color: rgb(221, 248, 186, 0.5);
-    flex-basis: 40vw;
-    padding: 20px;
-    margin-right: 5px;
-    margin-top: 25px;
-    height: fit-content;
-    width: fit-content;
-  }
+//   .new-list-wrapper {
+//     border-radius: 10px;
+//     background-color: rgb(221, 248, 186, 0.5);
+//     padding: 20px;
+//     margin-top: 25px;
+//     height: fit-content;
+//     width: fit-content;
+//   }
 
-  .save-btn {
-    @include button-styles;
-    width: 65px;
-    height: 40px;
-    margin-top: 30px;
-    font-size: 18px;
-  }
+//   .save-btn {
+//     @include button-styles;
+//     width: 65px;
+//     height: 40px;
+//     margin-top: 30px;
+//     font-size: 18px;
+//   }
 
-  .description {
+//   .description {
 
-    p {
-      font-size: 18px;
-      text-align: left;
-      margin-bottom: 15px;
-      font-weight: 400;
-    }
-  }
+//     p {
+//       font-size: 18px;
+//       text-align: left;
+//       margin-bottom: 15px;
+//       font-weight: 400;
+//     }
+//   }
 
 
-  p.co2-desc {
-    color: $btn-border;
-    font-weight: 400;
-    span {
-      font-weight: 600;
-    }
-  }
+//   p.co2-desc {
+//     color: $btn-border;
+//     font-weight: 400;
+//     span {
+//       font-weight: 600;
+//     }
+//   }
 
-  .item-in-list {
-    padding: 5px;
-    padding-right: 15px;
-    margin-bottom: 25px;
-    background: rgba(221, 248, 186, 0.5);
-    border-radius: 10px;
-    height: fit-content;
-    width: fit-content;
-  }
+//   .item-in-list {
+//     padding: 5px;
+//     padding-right: 15px;
+//     margin-bottom: 25px;
+//     background: rgba(221, 248, 186, 0.5);
+//     border-radius: 10px;
+//     height: fit-content;
+//   }
 
-  .replace-btn-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
+//   .replace-btn-wrapper {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: baseline;
+//   }
 
-  .btn-replace {
-    @include blue-button-styles;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 500;
-    border: solid 2.5px rgb(58, 98, 192);
-    height: fit-content;
-    width: fit-content;
-    font-size: 16px;
-    border-radius: 5px;
-  }
+//   .btn-replace {
+//     @include blue-button-styles;
+//     font-family: 'Rubik', sans-serif;
+//     font-weight: 500;
+//     border: solid 2.5px rgb(58, 98, 192);
+//     height: fit-content;
+//     width: fit-content;
+//     font-size: 16px;
+//     border-radius: 5px;
+//   }
   
-  span.co2-desc {
-    color: $btn-border;
-    font-weight: 400;
-    font-weight: 600;
-  }
+//   span.co2-desc {
+//     color: $btn-border;
+//     font-weight: 400;
+//     font-weight: 600;
+//   }
 
-  .co2-saved-text {
-    text-align: left;
-    padding-left: 20px;
-  }
+//   .co2-saved-text {
+//     text-align: left;
+//     padding-left: 20px;
+//   }
 
-}
-
-
-// -------- media queries -------- //
-
-@media screen and (min-width: 700px) {
-
-  .search-and-new-list {
-    display: flex;
-    justify-content: space-between;
-  }
+// }
 
 
-}
+// // -------- media queries -------- //
+
+// @media screen and (min-width: 700px) {
+
+//   .search-and-new-list {
+//     flex-direction: row;
+//     justify-content: space-between;
+//   }
+
+//   .search-section {
+//     flex-basis: 60vw;
+//   }
+
+//   .new-list-wrapper {
+//     flex-basis: 40vw;
+//     padding: 20px;
+//     // margin-right: 5px;
+//     margin-top: 25px;
+//     height: fit-content;
+//     width: fit-content;
+//   }
+
+// }

@@ -41,7 +41,36 @@
 }  
 
 footer {
+  display: flex;
+  color: rgba(221, 248, 186, 0.9);
+  flex-direction: column;
   background-color: $primary-green;
-  border: solid pink 4px;
-  height: 100px;
+  padding: 10px;
+  border: solid rgba(221, 248, 186, 0.9) 4px;
+  height: 130px;
+
+  h4 {
+    margin-bottom: 12px;
+    font-size: 20px;
+  }
+
+  .contact-item {
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+
+  .credits {
+    font-size: 10px;
+    margin-top: 13px;
+
+    a {
+      color: $footer-link;
+      text-decoration: none;
+
+      &:active, &:visited {
+        color: $footer-link;
+      }
+    }
+  }
+
 }

@@ -22,6 +22,28 @@ export default function Nav() {
 
   window.addEventListener('scroll', changeNavColor);
 
+  // responsively change logo: change source attribute (file)
+  const changeNavLogo = () => {
+    if (width > 720 && window.scrollY <= 90) {
+      return './images/GG_large_logo_green.png';
+    }
+    if (width > 720 && window.scrollY > 90) {
+      return './images/GG_large_logo_white.png';
+    }
+    if (width < 720 && window.scrollY <= 90) {
+      return './images/GG_small_logo_green.png';
+    }
+    return './images/GG_small_logo_white.png';
+  };
+
+  // logo: style logo: add class
+  const changeLogoClass = () => {
+    if (width >= 720) {
+      return 'GG-logo-large';
+    }
+    return 'GG-logo-small';
+  };
+
   const loginButton = () => (
     <Link to="/login" className="desktop-menu-item">
       <li>Login</li>
@@ -56,7 +78,7 @@ export default function Nav() {
         <nav>
           <Link to="/" className="logo-link">
             <div className="logo">
-              <img className="GG-logo" src="./images/GG_small_logo_green.png" alt="logo" />
+              <img className={changeLogoClass()} src={changeNavLogo()} alt="logo" />
             </div>
           </Link>
           <ul className="desktop-menu">

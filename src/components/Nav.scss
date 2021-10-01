@@ -9,7 +9,7 @@
   height: 90px;
   width: 100vw;
   margin: 0 auto;
-  padding: 5px 20px 10px 20px;
+  padding: 5px 20px 5px 20px;
   overflow: hidden;
   z-index: 999;
 
@@ -45,12 +45,22 @@ nav {
   justify-content: space-between;
 }
 
-.GG-logo {
+.GG-logo-small {
   width: 100px;
+  height: auto;
+  position: relative;
+  top: 5px;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.GG-logo-large {
+  width: 220px;
   height: auto;
   position: relative;
   top: 4px;
   margin-left: 10px;
+  padding: 5px;
 }
 
 .logo-link {

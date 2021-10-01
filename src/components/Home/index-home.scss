@@ -9,6 +9,8 @@
 
 main.home {
   background-color: $primary-green;
+  max-height: 1200px;
+  overflow: hidden;
 }
 
 .welcome {
@@ -63,3 +65,15 @@ h1 {
     position: absolute;
 }  
 
+
+
+// ----------- media queries --------------- //
+@media screen and (max-width: 725px) {
+
+
+  main.home {
+    background-color: $primary-green;
+    max-height: 1400px;
+    overflow: hidden;
+  }
+}

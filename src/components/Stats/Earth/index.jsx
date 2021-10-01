@@ -6,12 +6,15 @@ import Planet from './Planet';
 import Clouds from './Clouds';
 import Location from './Location';
 
-export default function Earth() {
+import { listType } from '../../../types';
+
+export default function Earth({ lists }) {
   const origin = {
     z: Math.cos(49.2827 * (Math.PI / 180)) * Math.cos((360 - 123.1207) * (Math.PI / 180)) * 3,
     x: Math.cos(49.2827 * (Math.PI / 180)) * Math.sin((360 - 123.1207) * (Math.PI / 180)) * 3,
     y: Math.sin(49.2827 * (Math.PI / 180)) * 3,
   };
+
   return (
     <div style={{ width: '100vw', height: '90vh' }}>
       <Canvas>
@@ -26,3 +29,8 @@ export default function Earth() {
     </div>
   );
 }
+
+Earth.propTypes = {
+  // eslint-disable-next-line react/require-default-props
+  lists: listType,
+};

@@ -15,6 +15,8 @@ export default function List() {
   const [results, setResults] = useState([]);
   const [idToReplace, setIdToReplace] = useState(null);
 
+  console.log('newList', newList);
+
   const replaceProduct = (newProduct) => {
     const productsReplaced = newList.products.map((p) => {
       if (p.api_id === idToReplace) {

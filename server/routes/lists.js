@@ -57,17 +57,19 @@ module.exports = (db) => {
 
         const productsListsValuesSql = data[0].map((p) => `(${p.id}, ${data[1][0].id}, '${getQueryFromApiProductId(p.api_id)}')`);
         console.log('sql', productsListsValuesSql);
-        return Promise.all([data, db.query(`INSERT INTO products_lists(product_id, list_id, query) VALUES ${productsListsValuesSql}`)]);
+        return Promise.all([data, db.query(`INSERT INTO products_lists(product_id, list_id, query) VALUES ${productsListsValuesSql} RETURNING query`)]);
       })
       .then((data) => {
-        console.log('data', data);
+        console.log('productsLists insert return ', data[1].rows);
+        const queries = data[1].rows;
         const productData = data[0][0];
         const listData = data[0][1][0];
-        productData.forEach((p) => {
+        productData.forEach((p, i) => {
+          const newProduct = { ...p, query: queries[i].query };
           if (!listData.products) {
-            listData.products = [p];
+            listData.products = [newProduct];
           } else {
-            listData.products.push(p);
+            listData.products.push(newProduct);
           }
         });
         delete listData.user_id;

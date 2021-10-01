@@ -24,10 +24,16 @@ export default function Nav() {
 
   // responsively change logo: change source attribute (file)
   const changeNavLogo = () => {
-    if (width >= 720) {
+    if (width > 720 && window.scrollY <= 90) {
       return './images/GG_large_logo_green.png';
     }
-    return './images/GG_small_logo_green.png';
+    if (width > 720 && window.scrollY > 90) {
+      return './images/GG_large_logo_white.png';
+    }
+    if (width < 720 && window.scrollY <= 90) {
+      return './images/GG_small_logo_green.png';
+    }
+    return './images/GG_small_logo_white.png';
   };
 
   // logo: style logo: add class

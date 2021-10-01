@@ -35,14 +35,28 @@
     width: 65px;
     height: 40px;
     margin-top: 30px;
+    font-size: 18px;
   }
 
-  .description p {
-    font-size: 15px;
-    text-align: left;
+  .description {
 
-    .main-desc {
+    p {
+      font-size: 15px;
+      text-align: left;
+      margin-bottom: 15px;
+    }
+    
+    p.main-desc {
       font-weight: 400;
+    }
+    
+    p.co2-desc {
+      color: $btn-border;
+      font-weight: 400;
+      span {
+        font-weight: 600;
+      }
+
     }
   }
 
@@ -54,6 +68,9 @@
     border-radius: 10px;
   }
 
+  .btn-replace {
+    @include button-styles;
+  }
   
 
 }

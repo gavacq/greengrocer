@@ -105,19 +105,18 @@ NewList.propTypes = {
 //       });
 //   };
 
-//   const mappedList = newList.map((p) => (
-//     <div className="item-in-list">
-//       <div className="description">
-//         <p className="main-desc" key={p.api_id}>{p.title}</p>
-//         <p className="co2-desc">
-//           CO2:
-//           {p.co2}
-//         </p>
-//       </div>
-//       <button type="button" onClick={() => showReplacements(p.query, p.title, p.api_id)}>Show Replacements</button>
+// const mappedList = newList.map((p) => (
+//   <div className="item-in-list">
+//     <div className="description">
+//       <p className="main-desc" key={p.api_id}>{p.title}</p>
+//       <p className="co2-desc">
+//         {/* eslint-disable-next-line */}
+//         CO2: <span>{p.co2}</span> g
+//       </p>
 //     </div>
-//   ));
-//   console.log('mapped', mappedList);
+//     <button className="btn-replace" type="button" onClick={() => showReplacements(p.query, p.title, p.api_id)}>Show replacements</button>
+//   </div>
+// ));
 
 //   return (
 //     <section>

@@ -51,7 +51,8 @@ nav {
   position: relative;
   top: 5px;
   margin-left: 10px;
-  padding: 5px;
+  padding: 2px;
+  overflow: hidden;
 }
 
 .GG-logo-large {
@@ -61,6 +62,11 @@ nav {
   top: 4px;
   margin-left: 10px;
   padding: 5px;
+  overflow: hidden;
+}
+
+div.logo {
+  overflow: hidden;
 }
 
 .logo-link {

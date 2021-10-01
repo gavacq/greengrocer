@@ -34,7 +34,7 @@ function App() {
           </section>
 
           <footer>
-            <div>
+            <div className="contact-us">
               <h4>Contact us</h4>
               <div className="contact-item">+1 6969 42020</div>
               <div className="contact-item">greengrocer@mail.com</div>

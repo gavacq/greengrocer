@@ -16,7 +16,6 @@ module.exports = (db) => {
     const productsValuesSql = products.map((p) => `(${p.api_id}, '${p.title}', '${p.image}', ${p.lat}, ${p.long}, ${p.co2})`);
     // TODO: fix SQL injection vulnerabilities
     const productsSql = `INSERT INTO products(api_product_id, title, image, lat, long, co2_data) VALUES ${productsValuesSql} ON CONFLICT (api_product_id) DO UPDATE SET api_product_id=EXCLUDED.api_product_id RETURNING id`;
-    console.log(productsSql);
     // insert multiple products
     // check api_id column for conflicts, if so do nothing
     const productsPromise = db.query(productsSql)
@@ -44,18 +43,16 @@ module.exports = (db) => {
     // insert multiple products_lists, wait for productsPromise and listsPromise to resolve first
     Promise.all([productsPromise, listsPromise])
       .then((data) => {
-        console.log('This is promise data: ', data);
+        console.log('THIS IS PROMISE DATA: ', data);
         if (!data[0].length) {
-          console.log('no products to insert');
-
           return Promise.resolve();
         }
+        console.log('promise.all', req.body.list);
         const productsListsValuesSql = data[0].map((p) => `(${p.id}, ${data[1][0].id})`);
         console.log('sql', productsListsValuesSql);
-        return db.query(`INSERT INTO products_lists(product_id, list_id) VALUES ${productsListsValuesSql}`);
+        return db.query(`INSERT INTO products_lists(product_id, list_id, query) VALUES ${productsListsValuesSql}`);
       })
       .then(() => {
-        console.log('successfully insert products_lists');
         res.send('saved');
       })
       .catch((error) => console.log('products_lists insert failed', error));
@@ -63,10 +60,8 @@ module.exports = (db) => {
 
   // GET
   router.get('/', (req, res) => {
-    console.log('session', req.session.user);
-
     const loadListsQuery = `
-      SELECT lists.*, lists.id as list_id, products.*, products.id as product_id
+      SELECT lists.*, lists.id as list_id, products.*, products.id as product_id, products_lists.query
       FROM lists
       JOIN products_lists ON products_lists.list_id = lists.id
       JOIN users ON users.id = lists.user_id
@@ -100,14 +95,11 @@ module.exports = (db) => {
         return acc;
       }, {});
 
-      console.log('obj', formatted);
-
       return Object.keys(formatted).map((k) => formatted[k]);
     };
 
     db.query(loadListsQuery, [req.session.user])
       .then((results) => {
-        console.log('INITIAL LIST RESULTS : ', results.rows);
         const formattedLists = formatLists(results.rows);
         return res.status(200).send({
           results: formattedLists,

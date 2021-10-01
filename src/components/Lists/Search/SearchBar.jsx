@@ -22,6 +22,7 @@ export default function SearchBar(props) {
           lat: product.lat,
           long: product.long,
           co2: product.co2,
+          query: productName,
         }));
         setResults(results);
       });

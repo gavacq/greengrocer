@@ -12,7 +12,7 @@ export default function SavedList({ list, setNewList }) {
   };
 
   const copyHandler = () => {
-    setNewList(list.products);
+    setNewList(list);
   };
 
   const shareHandler = () => {

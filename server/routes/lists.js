@@ -6,14 +6,14 @@ const router = express.Router();
 module.exports = (db) => {
   // PUT
   router.put('/', (req, res) => {
-    const products = req.body.list;
-    if (!products.length) {
+    const { list } = req.body;
+    if (!list.products.length) {
       res.send('empty products list');
       return;
     }
     console.log('PUT /api/lists', req.body);
 
-    const productsValuesSql = products.map((p) => `(${p.api_id}, '${p.title}', '${p.image}', ${p.lat}, ${p.long}, ${p.co2})`);
+    const productsValuesSql = list.products.map((p) => `(${p.api_id}, '${p.title}', '${p.image}', ${p.lat}, ${p.long}, ${p.co2})`);
     // TODO: fix SQL injection vulnerabilities
     const productsSql = `INSERT INTO products(api_product_id, title, image, lat, long, co2_data) VALUES ${productsValuesSql} ON CONFLICT (api_product_id) DO UPDATE SET api_product_id=EXCLUDED.api_product_id RETURNING id, api_product_id`;
     // insert multiple products
@@ -30,7 +30,7 @@ module.exports = (db) => {
 
     // insert list
 
-    const listsSql = `INSERT INTO lists(user_id, co2_saved) VALUES (${req.session.user}, ${req.body.co2Saved}) RETURNING id`;
+    const listsSql = `INSERT INTO lists(user_id, co2_saved) VALUES (${req.session.user}, ${req.body.list.co2_saved}) RETURNING id`;
     const listsPromise = db.query(listsSql)
       .then((data) => {
         console.log('second success');
@@ -50,7 +50,7 @@ module.exports = (db) => {
         console.log('promise.all', req.body.list);
         // eslint-disable-next-line max-len
         const getQueryFromApiProductId = (apiProductId) => {
-          const str = req.body.list.find((p) => p.api_id === apiProductId);
+          const str = list.products.find((p) => p.api_id === apiProductId);
           console.log('querystr', str.query);
           return str.query;
         };
@@ -93,7 +93,7 @@ module.exports = (db) => {
           acc[l.list_id] = {
             id: l.list_id,
             dateCreated: l.date_created,
-            co2Saved: l.co2_saved,
+            co2_saved: l.co2_saved,
             products: [product],
           };
         } else {

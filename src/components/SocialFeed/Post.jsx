@@ -29,9 +29,7 @@ export default function Post(props) {
     const req = { likedByUser: !post.likedByUser, likes: post.likes, postId: post.id };
     axios.patch(`/api/posts/${post.id}`, req)
       .then((res) => {
-        console.log('likePost res', res);
         const newPosts = updatePosts(res.data.likes, res.data.likedByUser);
-        console.log('newPosts', newPosts);
         setPosts(newPosts);
       });
   };

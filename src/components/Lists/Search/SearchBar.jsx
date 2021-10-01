@@ -2,16 +2,17 @@ import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import './SearchBar.scss';
 import '../../../index.scss';
-import productSearch from '../../../helpers/search';
+import searchProducts from '../../../helpers/search';
 
 export default function SearchBar(props) {
-  const { setResults } = props;
+  const { setResults, setIdToReplace } = props;
   const [productName, setProductName] = useState('');
 
-  // helper: handles click on the search button
   const clickHandler = () => {
-    console.log('inside clickHandler');
-    productSearch(productName).then((results) => setResults(results));
+    searchProducts(productName).then((results) => {
+      setResults(results);
+      setIdToReplace(null);
+    });
   };
 
   return (
@@ -34,4 +35,5 @@ export default function SearchBar(props) {
 
 SearchBar.propTypes = {
   setResults: PropTypes.func.isRequired,
+  setIdToReplace: PropTypes.func.isRequired,
 };

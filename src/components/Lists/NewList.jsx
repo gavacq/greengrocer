@@ -42,6 +42,13 @@ export default function NewList(props) {
   return (
     <section>
       <h1>New List</h1>
+      <h3>
+        Your choices have saved
+        {' '}
+        {newList.co2_saved}
+        {' '}
+        g of CO2 so far!
+      </h3>
       {mappedList()}
       <button type="button" onClick={() => submitList()}>Save</button>
     </section>

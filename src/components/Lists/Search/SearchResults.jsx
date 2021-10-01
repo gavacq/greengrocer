@@ -15,7 +15,7 @@ export default function SearchResults(props) {
     setNewList((prev) => ({
       list_id: prev.list_id,
       date_created: prev.date_created,
-      co2_saved: prev.co2_saved,
+      co2_saved: prev.co2_saved || 0,
       products: prev.products ? [...prev.products, product] : [product],
     }));
   };

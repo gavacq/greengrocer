@@ -5,7 +5,12 @@ import NewList from './NewList';
 import AllLists from './AllLists';
 
 export default function List() {
-  const [newList, setNewList] = useState({});
+  const [newList, setNewList] = useState({
+    list_id: undefined,
+    date_created: undefined,
+    co2_saved: 0,
+    products: [],
+  });
   const [allLists, setAllLists] = useState([]);
   const [results, setResults] = useState([]);
   const [idToReplace, setIdToReplace] = useState(null);
@@ -19,10 +24,13 @@ export default function List() {
       return { ...p };
     });
 
+    const co2Diff = newList.products.find((p) => p.api_id === idToReplace).co2 - newProduct.co2;
+    console.log('co2Diff', co2Diff, newList.co2_saved);
+
     setNewList((prev) => ({
       list_id: prev.list_id,
       date_created: prev.date_created,
-      co2_saved: prev.co2_saved,
+      co2_saved: (prev.co2_saved || 0) + co2Diff,
       products: productsReplaced,
     }));
   };

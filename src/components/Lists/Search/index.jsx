@@ -14,6 +14,7 @@ export default function Search(props) {
       {results.length > 0
         && (
         <SearchResults
+          id="search-results-container"
           results={results}
           setNewList={setNewList}
           replaceProduct={replaceProduct}

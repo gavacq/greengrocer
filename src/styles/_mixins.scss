@@ -45,3 +45,24 @@
   }
 }
 
+
+
+// mixin for green buttons 
+@mixin blue-button-styles {
+  border: solid 4px $blue-btn-border;
+  border-radius: 15px;
+  background-color: $blue-btn-background;
+  color: $blue-btn-text;
+  font-family: "Fredoka One";
+  letter-spacing: 0.7px;
+  overflow-y: hidden;
+
+  &:hover {
+    background-color: $blue-btn-background-active;
+  }
+
+  &:active {
+    transform: translateY(4px);
+  }
+}
+

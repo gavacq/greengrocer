@@ -109,14 +109,17 @@ NewList.propTypes = {
 //   <div className="item-in-list">
 //     <div className="description">
 //       <p className="main-desc" key={p.api_id}>{p.title}</p>
+//     </div>
+//     <div className="replace-btn-wrapper">
 //       <p className="co2-desc">
 //         {/* eslint-disable-next-line */}
 //         CO2: <span>{p.co2}</span> g
 //       </p>
+//       <button className="btn-replace" type="button" onClick={() => showReplacements(p.query, p.title, p.api_id)}><a href="#search-results-container">Show replacements</a></button>
 //     </div>
-//     <button className="btn-replace" type="button" onClick={() => showReplacements(p.query, p.title, p.api_id)}>Show replacements</button>
 //   </div>
 // ));
+// console.log('mapped', mappedList);
 
 //   return (
 //     <section>

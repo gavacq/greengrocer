@@ -102,6 +102,7 @@ export default function List() {
         setResults={setResults}
         setIdToReplace={setIdToReplace}
         saveList={saveList}
+        setNewList={setNewList}
       />
       <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
     </main>

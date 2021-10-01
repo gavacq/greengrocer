@@ -45,11 +45,19 @@ nav {
   justify-content: space-between;
 }
 
-.GG-logo {
+.GG-logo-small {
   width: 100px;
   height: auto;
   position: relative;
   top: 4px;
+  margin-left: 10px;
+}
+
+.GG-logo-large {
+  width: 220px;
+  height: auto;
+  position: relative;
+  top: 3px;
   margin-left: 10px;
 }
 

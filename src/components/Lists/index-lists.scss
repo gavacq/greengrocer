@@ -3,6 +3,30 @@
 
 // ---------- style for lists page -------------- //
 
+.search-and-new-list {
+  border: solid 3px cornflowerblue;
+  padding: 0 15px 15px 15px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.search-container {
+  border: solid 3px pink;
+}
+
+.search-section {
+  // border: solid 3px rgb(108, 158, 108);
+}
+
+.new-list-wrapper {
+  // border: solid 3px rgb(255, 224, 87);
+  background: $green-hover;
+  border-radius: 10px;
+}
+
+// -------- old broken styles below ----------- //
+
 
 // .lists-page-container {
 
@@ -45,75 +69,3 @@
 //     }
 //   }
 
-
-//   p.co2-desc {
-//     color: $btn-border;
-//     font-weight: 400;
-//     span {
-//       font-weight: 600;
-//     }
-//   }
-
-//   .item-in-list {
-//     padding: 5px;
-//     padding-right: 15px;
-//     margin-bottom: 25px;
-//     background: rgba(221, 248, 186, 0.5);
-//     border-radius: 10px;
-//     height: fit-content;
-//   }
-
-//   .replace-btn-wrapper {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: baseline;
-//   }
-
-//   .btn-replace {
-//     @include blue-button-styles;
-//     font-family: 'Rubik', sans-serif;
-//     font-weight: 500;
-//     border: solid 2.5px rgb(58, 98, 192);
-//     height: fit-content;
-//     width: fit-content;
-//     font-size: 16px;
-//     border-radius: 5px;
-//   }
-  
-//   span.co2-desc {
-//     color: $btn-border;
-//     font-weight: 400;
-//     font-weight: 600;
-//   }
-
-//   .co2-saved-text {
-//     text-align: left;
-//     padding-left: 20px;
-//   }
-
-// }
-
-
-// // -------- media queries -------- //
-
-// @media screen and (min-width: 700px) {
-
-//   .search-and-new-list {
-//     flex-direction: row;
-//     justify-content: space-between;
-//   }
-
-//   .search-section {
-//     flex-basis: 60vw;
-//   }
-
-//   .new-list-wrapper {
-//     flex-basis: 40vw;
-//     padding: 20px;
-//     // margin-right: 5px;
-//     margin-top: 25px;
-//     height: fit-content;
-//     width: fit-content;
-//   }
-
-// }

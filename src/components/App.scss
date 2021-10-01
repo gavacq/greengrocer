@@ -43,15 +43,19 @@
 footer {
   display: flex;
   color: rgba(221, 248, 186, 0.9);
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: $primary-green;
   padding: 10px;
-  border: solid rgba(221, 248, 186, 0.9) 4px;
+  border-top: solid rgba(221, 248, 186, 0.5) 4px;
   height: 130px;
 
   h4 {
     margin-bottom: 12px;
     font-size: 20px;
+    color: $primary-white;
+    opacity: 0.8;
+    letter-spacing: 1px;
   }
 
   .contact-item {
@@ -60,7 +64,7 @@ footer {
   }
 
   .credits {
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 13px;
 
     a {
@@ -71,6 +75,17 @@ footer {
         color: $footer-link;
       }
     }
+  }
+
+  .social-icons {
+    display: flex;
+    flex-direction: column;
+  }
+  .social-icons i {
+    color: rgba(221, 248, 186, 0.8);
+    font-size: 30px;
+    padding-right: 15px;
+    margin-bottom: 5px;
   }
 
 }

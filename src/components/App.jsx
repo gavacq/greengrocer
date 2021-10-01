@@ -45,6 +45,11 @@ function App() {
                 from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
               </div>
             </div>
+            <div className="social-icons">
+              <i className="fab fa-instagram" />
+              <i className="fab fa-twitter" />
+              <i className="fab fa-facebook" />
+            </div>
           </footer>
         </div>
       </Router>

@@ -71,19 +71,19 @@ form.search-form {
 /* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
 
 
-@media screen and (min-width: $desktop-breakpoint) {
+@media screen and (min-width: 700px) {
 
-  // form.search-form {
-  //   // flex-direction: row;
-  //   // align-items: center;
-  //   // justify-content: center;
-  //   // width: 70vw; 
+  form.search-form {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // width: 70vw; 
 
-  //   ::placeholder {
-  //     font-size: 25px;
-  //     padding-left: 10px;
-  //   }
-  // }
+    ::placeholder {
+      font-size: 25px;
+      padding-left: 10px;
+    }
+  }
   
   .search-form input {
     margin: 30px 50px 20px 20px;
@@ -94,11 +94,9 @@ form.search-form {
   }
 
   .search-button {
-    position: relative;
-    top: 4px;
-    height: 55px;
+    height: 60px;
     width: 130px;
-    font-size: 30px;
+    font-size: 25px;
   } 
 
 }

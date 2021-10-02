@@ -21,13 +21,16 @@ export default function SearchResults(props) {
   };
 
   const jsxResults = results.map((result) => (
-    <Product
-      key={result.api_id}
-      data={result}
-      addProductToList={addProductToList}
-      replaceProduct={replaceProduct}
-      idToReplace={idToReplace}
-    />
+    <div>
+      <p>showing results for QUERY</p>
+      <Product
+        key={result.api_id}
+        data={result}
+        addProductToList={addProductToList}
+        replaceProduct={replaceProduct}
+        idToReplace={idToReplace}
+      />
+    </div>
   ));
 
   return (

@@ -20,8 +20,8 @@ export default function SocialFeed() {
 
     socket.on('SERVER_HELLO', helloListener);
 
-    const updatePostsListener = (data) => {
-      console.log('new posts data', data);
+    const updatePostsListener = (newPosts) => {
+      setPosts(newPosts);
     };
 
     socket.on('updatePosts', updatePostsListener);
@@ -32,7 +32,7 @@ export default function SocialFeed() {
       });
 
     return (() => {
-      socket.off('SERVER_HELLO', helloListener);
+      socket.removeAllListeners();
     });
   }, []);
 

@@ -13,7 +13,7 @@ module.exports = (db, io) => {
     });
 
     socket.on('heartClick', (data) => {
-      io.emit('updatePosts', { ...data, updated: true });
+      io.emit('updatePosts', data);
     });
   });
 

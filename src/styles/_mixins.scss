@@ -47,7 +47,7 @@
 
 
 
-// mixin for green buttons 
+// mixin for blue buttons 
 @mixin blue-button-styles {
   border: solid 4px $blue-btn-border;
   border-radius: 15px;
@@ -59,6 +59,8 @@
 
   &:hover {
     background-color: $blue-btn-background-active;
+    color: $blue-btn-hover-text;
+    border: solid 4px $blue-btn-hover-border;
   }
 
   &:active {
@@ -86,5 +88,8 @@
     transform: translateY(4px);
   }
 }
+
+
+
 
 

@@ -105,6 +105,22 @@ p.co2-saved-text {
   height: auto;
 }
 
+.copy-btn {
+  @include blue-button-styles;
+  font-size: 18px;
+  padding: 5px;
+  width: fit-content;
+  height: auto;
+}
+
+.share-btn {
+  @include green-button-styles;
+  font-size: 18px;
+  padding: 5px;
+  width: fit-content;
+  height: auto;
+}
+
 // ---------- media queries ---------- //
 
 @media screen and (min-width: 400px){

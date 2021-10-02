@@ -42,7 +42,7 @@ export default function Location({ lat, long, origin }) {
 
   useFrame(() => {
     const elapsedTime = Math.floor(clock1.getElapsedTime() * (lineLength ** 2));
-    if (elapsedTime > 499) {
+    if (elapsedTime > 480) {
       clock1 = new THREE.Clock();
     }
 

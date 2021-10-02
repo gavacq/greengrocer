@@ -24,8 +24,8 @@ export default function Stats() {
   return (
     <section>
       <div className="stats-container">
-        <Earth products={products} />
         <Chart allLists={allLists} />
+        <Earth products={products} />
       </div>
     </section>
   );

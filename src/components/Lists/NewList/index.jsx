@@ -78,7 +78,6 @@ NewList.propTypes = {
 
 // import { React } from 'react';
 // import PropTypes from 'prop-types';
-// import axios from 'axios';
 // import { productType } from '../../types';
 // import productSearch from '../../helpers/search';
 // import './index-lists.scss';

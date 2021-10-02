@@ -5,11 +5,12 @@
 // ----------------- styles for search bar ------------ //
 
 .search-container {
+  border: solid pink 3px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  // margin: 0 20px 30px 30px;
   border-bottom: solid 3px rgb(141, 212, 162, 0.7);
 }
 

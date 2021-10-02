@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { listType } from '../../../types';
 import { useAppContext } from '../../../lib/context';
+import socket from '../../../helpers/socket';
 
 export default function SavedList(props) {
   const { list, setNewList, deleteList } = props;
@@ -23,12 +24,14 @@ export default function SavedList(props) {
     };
     axios.put('/api/posts', { post })
       .then((res) => {
-        post.id = res.data.id;
-        post.user_id = res.data.user_id;
+        const newPost = { ...res.data, likedByUser: false };
+        console.log('newPost', newPost);
         setPosts((prev) => ([
           ...prev,
-          post,
+          newPost,
         ]));
+
+        socket.emit('shareList', newPost);
       });
   };
 

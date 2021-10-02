@@ -3,15 +3,26 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (db, io) => {
+  // socket.io handlers
   io.on('connection', (socket) => {
     socket.on('heartClick', (data) => {
       socket.broadcast.emit('updateLikes', data);
     });
+
+    socket.on('shareList', (data) => {
+      socket.broadcast.emit('addPost', data);
+    });
   });
 
+  // query helpers
   const queryPosts = () => {
     const postsQuery = 'SELECT (posts.*), (users.username) FROM posts JOIN users ON users.id = user_id';
     return db.query(postsQuery);
+  };
+
+  const queryPost = (id) => {
+    const postQuery = `SELECT (posts.*), (users.username) FROM posts JOIN users ON users.id = user_id WHERE posts.id = ${id}`;
+    return db.query(postQuery);
   };
 
   const queryLikedPosts = (user) => {
@@ -105,7 +116,12 @@ module.exports = (db, io) => {
     db.query(sql)
       .then((data) => {
         console.log('posts insert res', data.rows[0]);
-        res.json({ id: data.rows[0].id, user_id: req.session.user });
+        return queryPost(data.rows[0].id);
+      })
+      .then((data) => {
+        console.log('post query res', data.rows[0]);
+
+        res.json(data.rows[0]);
       })
       .catch((e) => console.log('error:', e));
   });

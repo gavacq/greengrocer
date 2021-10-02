@@ -24,6 +24,14 @@ export default function SocialFeed() {
     ]));
   };
 
+  const addPostListener = (data) => {
+    console.log('new post', data);
+    setPosts((prev) => ([
+      ...prev,
+      data,
+    ]));
+  };
+
   useEffect(() => {
     axios.get('/api/posts')
       .then((res) => {
@@ -31,6 +39,7 @@ export default function SocialFeed() {
       });
 
     socket.on('updateLikes', updateLikesListener);
+    socket.on('addPost', addPostListener);
 
     return (() => {
       socket.removeAllListeners();

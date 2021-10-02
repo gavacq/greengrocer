@@ -35,6 +35,15 @@ img.product {
   padding: 0 10% 0 10%;
   margin-bottom: 45px;
   align-items: center;
+  justify-content: center;
+
+  p {
+    width: 80%;
+    text-align: left;
+    font-weight: 400;
+    margin-left: 13%;
+    margin-right: auto;
+  }
 
   &:hover {
     img, p {
@@ -83,6 +92,7 @@ img.product {
     padding-top: 20px;
     margin-left: 10px;
     width: 60%;
+    max-width: 200px;
 
     span {
       font-size: 30px;
@@ -95,7 +105,7 @@ img.product {
   .img-btn-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     text-align: left;
     width: 90%;

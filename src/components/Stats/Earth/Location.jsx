@@ -38,10 +38,14 @@ export default function Location({ lat, long, origin }) {
   const lineGeometry = new THREE.BufferGeometry().setFromPoints(bezierPoints);
 
   const mesh = useRef();
-  const clock = new THREE.Clock();
+  let clock1 = new THREE.Clock();
 
   useFrame(() => {
-    const elapsedTime = Math.floor(clock.getElapsedTime() * 100);
+    const elapsedTime = Math.floor(clock1.getElapsedTime() * (lineLength ** 2));
+    if (elapsedTime > 499) {
+      clock1 = new THREE.Clock();
+    }
+
     mesh.current.position.x = bezierPoints[elapsedTime].x;
     mesh.current.position.y = bezierPoints[elapsedTime].y;
     mesh.current.position.z = bezierPoints[elapsedTime].z;
@@ -50,7 +54,7 @@ export default function Location({ lat, long, origin }) {
     <>
       <mesh ref={mesh}>
         <sphereBufferGeometry attach="geometry" args={[0.1, 32, 32]} />
-        <meshBasicMaterial attach="material" color="deeppink" />
+        <meshPhongMaterial attach="material" color="#3bc05e" shininess={100} />
       </mesh>
       <line geometry={lineGeometry}>
         <lineBasicMaterial attach="material" color="#9c88ff" linewidth={100} />

@@ -2,10 +2,27 @@ const express = require('express');
 
 const router = express.Router();
 
-module.exports = (db) => {
+module.exports = (db, io) => {
+  // socket.io handlers
+  io.on('connection', (socket) => {
+    socket.on('heartClick', (data) => {
+      socket.broadcast.emit('updateLikes', data);
+    });
+
+    socket.on('shareList', (data) => {
+      socket.broadcast.emit('addPost', data);
+    });
+  });
+
+  // query helpers
   const queryPosts = () => {
     const postsQuery = 'SELECT (posts.*), (users.username) FROM posts JOIN users ON users.id = user_id';
     return db.query(postsQuery);
+  };
+
+  const queryPost = (id) => {
+    const postQuery = `SELECT (posts.*), (users.username) FROM posts JOIN users ON users.id = user_id WHERE posts.id = ${id}`;
+    return db.query(postQuery);
   };
 
   const queryLikedPosts = (user) => {
@@ -83,5 +100,31 @@ module.exports = (db) => {
         });
     }
   });
+
+  // create a new post
+  router.put('/', (req, res) => {
+    const { post } = req.body;
+    console.log('server received post', post);
+
+    if (!req.session || !req.session.user) {
+      console.log('Non-logged in user is unable to create a post');
+      res.json({});
+      return;
+    }
+
+    const sql = `INSERT INTO posts(user_id, likes, message) VALUES(${req.session.user}, 0, '${post.message}') RETURNING id`;
+    db.query(sql)
+      .then((data) => {
+        console.log('posts insert res', data.rows[0]);
+        return queryPost(data.rows[0].id);
+      })
+      .then((data) => {
+        console.log('post query res', data.rows[0]);
+
+        res.json(data.rows[0]);
+      })
+      .catch((e) => console.log('error:', e));
+  });
+
   return router;
 };

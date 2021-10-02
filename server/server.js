@@ -39,18 +39,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// Bring in External Routes
-const {
-  searchRoute, listsRoute, loginRoute, logoutRoute, postsRoute, productsRoute,
-} = require('./routes/index');
-
-// External Routes
-app.use('/login', loginRoute(db));
-app.use('/logout', logoutRoute());
-app.use('/api/search', searchRoute());
-app.use('/api/lists', listsRoute(db));
-app.use('/api/products', productsRoute(db));
-
 // initialize socket.io
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
@@ -58,6 +46,18 @@ const io = new Server(httpServer, {
     ...corsOptions,
   },
 });
+
+// Bring in External Routes
+const {
+  searchRoute, listsRoute, loginRoute, logoutRoute, postsRoute, productsRoute,
+} = require('./routes/index');
+
+// Routes
+app.use('/login', loginRoute(db));
+app.use('/logout', logoutRoute());
+app.use('/api/search', searchRoute());
+app.use('/api/lists', listsRoute(db));
+app.use('/api/products', productsRoute(db));
 app.use('/api/posts', postsRoute(db, io));
 
 // listen on the specified port

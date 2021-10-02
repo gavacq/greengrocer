@@ -5,8 +5,11 @@ const router = express.Router();
 module.exports = (db, io) => {
   io.on('connection', (socket) => {
     console.log('User Connected', socket.id);
-    socket.join('social');
-    console.log(socket.rooms);
+    socket.on('CLIENT_HELLO', () => {
+      console.log('CLIENT_HELLO');
+
+      socket.emit('SERVER_HELLO');
+    });
   });
 
   const queryPosts = () => {

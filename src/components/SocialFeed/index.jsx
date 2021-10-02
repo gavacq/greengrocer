@@ -8,12 +8,27 @@ export default function SocialFeed() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    socket.on('connect', () => {
-      console.log('socket is connected', socket.id);
+    // socket.on('connect', () => {
+    //   console.log('socket is connected', socket.id);
 
-      socket.on('disconnect', () => {
-        console.log('disconnected');
-      });
+    //   socket.emit('CLIENT_HELLO');
+
+    //   socket.on('SERVER_HELLO', () => {
+    //     console.log('SERVER_HELLO');
+    //   });
+
+    //   socket.on('disconnect', () => {
+    //     console.log('disconnected');
+    //   });
+    // });
+    socket.emit('CLIENT_HELLO');
+
+    socket.on('SERVER_HELLO', () => {
+      console.log('SERVER_HELLO');
+    });
+
+    socket.on('disconnect', () => {
+      console.log('disconnected');
     });
 
     axios.get('/api/posts')

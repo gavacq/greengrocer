@@ -18,9 +18,31 @@ export default function SavedList(props) {
     }));
   };
 
+  const generateMesssage = (co2) => {
+    switch (Math.floor((Math.random() * 100) % 5)) {
+      case 0:
+        // lightbulb
+        return '';
+      case 1:
+        // airplane
+        return '';
+      case 2:
+        // car
+        return '';
+      case 3:
+        // KB of network traffic
+        return '';
+      case 4:
+        // trees equivalent
+        return '';
+      default:
+        return '';
+    }
+  };
+
   const shareHandler = () => {
     const post = {
-      message: 'You saved 10 seals worth of co2!',
+      message: generateMesssage(list.co2_saved),
     };
     axios.put('/api/posts', { post })
       .then((res) => {

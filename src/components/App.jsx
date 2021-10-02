@@ -1,4 +1,5 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
+import axios from 'axios';
 import '../index.scss';
 import './App.scss';
 import {
@@ -16,6 +17,13 @@ import { AppContext } from '../lib/context';
 function App() {
   const [user, setUser] = useState({});
   const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/posts')
+      .then((res) => {
+        setPosts(res.data);
+      });
+  }, []);
 
   return (
     <AppContext.Provider value={{

@@ -20,7 +20,7 @@ export default function Chart({ allLists }) {
   return (
     <div>
       <Line data={{
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        labels: ['List 1', 'List 2', 'List 3', 'List 4', 'List 5', 'List 6'],
         datasets: [
           {
             label: 'First dataset',

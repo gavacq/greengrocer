@@ -136,14 +136,18 @@ p.co2-saved-text {
   margin-bottom: 10px;
   min-width: fit-content;
   align-self: center;
-
 }
 // ---------- media queries ---------- //
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 400px) {
   .img-btn-container {
     flex-direction: column;
     justify-content: center;
+  }
+
+  .copy-btn {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 
@@ -162,6 +166,7 @@ p.co2-saved-text {
       padding: 0;
     }
   }
+
 }
 
 @media screen and (min-width: 720px) {

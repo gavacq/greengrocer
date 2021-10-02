@@ -19,8 +19,7 @@ p {
 
 .img-btn-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   text-align: left;
   width: 90%;
@@ -50,7 +49,8 @@ img.product {
   position: relative;
   top: -15px;
   height: 60px;
-  margin-left: 30px;
+  // margin-left: 30px;
+  align-self: center;
 
   span {
     font-size: 55px;
@@ -81,7 +81,8 @@ img.product {
 
   .add-btn {
     padding-top: 20px;
-    margin-left: 15px;
+    margin-left: 10px;
+    width: 60%;
 
     span {
       font-size: 30px;
@@ -89,4 +90,17 @@ img.product {
       text-align: left;
     }
   }
+
+
+  .img-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    width: 90%;
+  }
+
 }
+
+

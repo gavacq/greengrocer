@@ -121,6 +121,10 @@ p.co2-saved-text {
   height: auto;
 }
 
+.buttons-flexbox {
+  display: flex;
+  justify-content: space-around;
+}
 // ---------- media queries ---------- //
 
 @media screen and (min-width: 400px){
@@ -130,6 +134,9 @@ p.co2-saved-text {
     margin-right: 6%;
   }
 
+  .saved-list {
+    max-width: 70vw;
+  }
 }
 
 @media screen and (min-width: 700px) {
@@ -161,6 +168,10 @@ p.co2-saved-text {
 
   .item-in-list {
     position: center;
+  }
+
+  .saved-list {
+    box-sizing: border-box;
   }
 
 }

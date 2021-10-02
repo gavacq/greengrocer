@@ -3,6 +3,7 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import Earth from './Earth';
+import Chart from './Chart';
 
 export default function Stats() {
   // on page load get all lists from db
@@ -25,6 +26,7 @@ export default function Stats() {
     <section>
       <div className="stats-container">
         <Earth products={products} />
+        <Chart />
       </div>
     </section>
   );

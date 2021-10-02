@@ -4,6 +4,7 @@ import { React } from 'react';
 import PropTypes from 'prop-types';
 import Product from '../../Product';
 import { productType } from '../../../types';
+import '../index-lists.scss';
 
 export default function SearchResults(props) {
   const {
@@ -22,8 +23,6 @@ export default function SearchResults(props) {
 
   const jsxResults = results.map((result) => (
     <div>
-      {/* eslint-disable-next-line */}
-      <p>showing results for: {queryDisplay}</p>
       <Product
         key={result.api_id}
         data={result}
@@ -36,6 +35,8 @@ export default function SearchResults(props) {
 
   return (
     <div>
+      {/* eslint-disable-next-line */}
+      <p className="query-result-msg"><em>showing results for: {queryDisplay}</em></p>
       {jsxResults}
     </div>
   );

@@ -7,7 +7,7 @@ import { productType } from '../../../types';
 
 export default function SearchResults(props) {
   const {
-    results, setNewList, replaceProduct, idToReplace,
+    results, setNewList, replaceProduct, idToReplace, queryDisplay,
   } = props;
   console.log('results', results);
 
@@ -22,7 +22,8 @@ export default function SearchResults(props) {
 
   const jsxResults = results.map((result) => (
     <div>
-      <p>showing results for QUERY</p>
+      {/* eslint-disable-next-line */}
+      <p>showing results for: {queryDisplay}</p>
       <Product
         key={result.api_id}
         data={result}
@@ -46,6 +47,7 @@ SearchResults.propTypes = {
   setNewList: PropTypes.func.isRequired,
   replaceProduct: PropTypes.func.isRequired,
   idToReplace: PropTypes.number,
+  queryDisplay: PropTypes.string.isRequired,
 };
 
 SearchResults.defaultProps = {

@@ -18,7 +18,8 @@ export default function Earth({ products }) {
   return (
     <div style={{ width: '50vw', height: '90vh' }}>
       <Canvas camera={{ position: [0, 0, 10] }}>
-        <ambientLight intensity={0.8} />
+        <ambientLight intensity={0.2} />
+        <pointLight position={[10, 10, 0]} intensity={1} />
         <Suspense fallback={null}>
           <Main origin={origin} products={products} />
         </Suspense>

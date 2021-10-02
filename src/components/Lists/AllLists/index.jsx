@@ -2,6 +2,7 @@ import { React } from 'react';
 import PropTypes from 'prop-types';
 import { listType } from '../../../types';
 import SavedList from './SavedList';
+import '../index-lists.scss';
 
 export default function AllLists(props) {
   const { allLists, setNewList, deleteList } = props;
@@ -14,12 +15,14 @@ export default function AllLists(props) {
 
     return (
       allLists.map((l) => (
-        <SavedList
-          list={l}
-          key={l.id}
-          setNewList={setNewList}
-          deleteList={deleteList}
-        />
+        <div className="all-lists-wrapper">
+          <SavedList
+            list={l}
+            key={l.id}
+            setNewList={setNewList}
+            deleteList={deleteList}
+          />
+        </div>
       ))
     );
   };

@@ -76,10 +76,16 @@ p.co2-saved-text {
 
   .search-section {
     flex-basis: 50vw;
+    margin-right: 30px;
+    flex-basis: 50vw;
+  }
+
+  .new-list-wrapper {
+    flex-basis: 50vw;
   }
 
   .search-container {
-    border: solid 3px pink;
+    // border: solid 3px pink;
     max-width: 50vw;
     // possible bug below 
     width: fit-content; 
@@ -87,15 +93,31 @@ p.co2-saved-text {
     padding: 0;
   }
 
-  .search-section {
-    border: solid blue 3px;
-  }
-
   .item-in-list {
     position: center;
   }
 
 }
+
+.all-lists-wrapper {
+  // border: solid red 3px;
+  border-radius: 10px;
+  background-color: $btn-text-hover;
+  margin: 20px 0 35px 0;;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 15px;
+  border-radius: 10px;
+
+  p {
+    text-align: left;
+    width: 90%;
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+
 // -------- old broken styles below ----------- //
 
 

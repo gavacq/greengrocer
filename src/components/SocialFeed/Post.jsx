@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import './Post.scss';
+import { postType } from '../../types';
 
 export default function Post(props) {
   const {
-    post, setPosts, posts,
+    post, setPosts, posts, emitHeartClickEvent,
   } = props;
 
   const heartButtonStyle = {
@@ -31,6 +32,7 @@ export default function Post(props) {
       .then((res) => {
         const newPosts = updatePosts(res.data.likes, res.data.likedByUser);
         setPosts(newPosts);
+        emitHeartClickEvent({ postId: post.id, postLikes: res.data.likes });
       });
   };
 
@@ -64,21 +66,8 @@ export default function Post(props) {
 }
 
 Post.propTypes = {
-  post: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    user_id: PropTypes.number.isRequired,
-    username: PropTypes.string.isRequired,
-    likes: PropTypes.number.isRequired,
-    message: PropTypes.string.isRequired,
-    likedByUser: PropTypes.bool.isRequired,
-  }).isRequired,
+  post: postType.isRequired,
   setPosts: PropTypes.func.isRequired,
-  posts: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    user_id: PropTypes.number.isRequired,
-    username: PropTypes.string.isRequired,
-    likes: PropTypes.number.isRequired,
-    message: PropTypes.string.isRequired,
-    likedByUser: PropTypes.bool.isRequired,
-  })).isRequired,
+  posts: PropTypes.arrayOf(postType).isRequired,
+  emitHeartClickEvent: PropTypes.func.isRequired,
 };

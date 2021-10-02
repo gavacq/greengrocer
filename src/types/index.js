@@ -17,7 +17,17 @@ const listType = PropTypes.shape({
   products: PropTypes.arrayOf(productType),
 });
 
+const postType = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  user_id: PropTypes.number.isRequired,
+  username: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired,
+  message: PropTypes.string.isRequired,
+  likedByUser: PropTypes.bool.isRequired,
+});
+
 export {
   productType,
   listType,
+  postType,
 };

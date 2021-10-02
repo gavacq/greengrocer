@@ -1,8 +1,7 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
+import axios from 'axios';
 import '../index.scss';
 import './App.scss';
-// import axios from 'axios';
-
 import {
   BrowserRouter as Router, Route, Switch,
 } from 'react-router-dom';
@@ -17,9 +16,21 @@ import { AppContext } from '../lib/context';
 // App component
 function App() {
   const [user, setUser] = useState({});
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/posts')
+      .then((res) => {
+        setPosts(res.data);
+      });
+  }, []);
 
   return (
-    <AppContext.Provider value={{ user, setUser }}>
+    <AppContext.Provider value={{
+      userContext: [user, setUser],
+      postsContext: [posts, setPosts],
+    }}
+    >
       <Router>
         <ScrollToTop />
         <div className="App">

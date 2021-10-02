@@ -1,16 +1,49 @@
 import axios from 'axios';
-import { React, useEffect, useState } from 'react';
+import { React, useEffect } from 'react';
 import Post from './Post';
 import './index-social.scss';
+import socket from '../../helpers/socket';
+import { useAppContext } from '../../lib/context';
 
 export default function SocialFeed() {
-  const [posts, setPosts] = useState([]);
+  const { postsContext } = useAppContext();
+  const [posts, setPosts] = postsContext;
+
+  const emitHeartClickEvent = (data) => {
+    socket.emit('heartClick', data);
+  };
+
+  const updateLikesListener = (data) => {
+    setPosts((prev) => ([
+      ...prev.map((p) => {
+        if (p.id === data.postId) {
+          return { ...p, likes: data.postLikes };
+        }
+        return p;
+      }),
+    ]));
+  };
+
+  const addPostListener = (data) => {
+    console.log('new post', data);
+    setPosts((prev) => ([
+      ...prev,
+      data,
+    ]));
+  };
 
   useEffect(() => {
     axios.get('/api/posts')
       .then((res) => {
         setPosts(res.data);
       });
+
+    socket.on('updateLikes', updateLikesListener);
+    socket.on('addPost', addPostListener);
+
+    return (() => {
+      socket.removeAllListeners();
+    });
   }, []);
 
   return (
@@ -29,6 +62,7 @@ export default function SocialFeed() {
             post={post}
             setPosts={setPosts}
             posts={posts}
+            emitHeartClickEvent={emitHeartClickEvent}
           />
         ))}
       </div>

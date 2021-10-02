@@ -45,7 +45,7 @@ const carbonCalculator = (upc) => {
   const distance = Math.sqrt((disX + disY + disZ));
 
   // TODO: specify weight of item for more accurate carbon value
-  const carbonEmissions = (distance * 115) / 68;
+  const carbonEmissions = (distance * 115) / 68 / 1000;
   console.log('TOTAL CARBON EMISSIONS : ', carbonEmissions);
 
   const returnObject = {

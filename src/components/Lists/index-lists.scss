@@ -29,11 +29,6 @@
 }
 
 
-// .search-container {
-//   border: solid 3px pink;
-//   displa
-// }
-
 .new-list-wrapper {
   // border: solid 3px red;
   display: flex;
@@ -97,6 +92,10 @@ p.main-desc {
 
   .search-section {
     border: solid blue 3px;
+  }
+
+  .item-in-list {
+    position: center;
   }
 
 }

@@ -9,8 +9,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  // margin: 0 20px 30px 30px;
+  padding: 0 20px 0 20px;
   border-bottom: solid 3px rgb(141, 212, 162, 0.7);
 }
 
@@ -26,12 +25,10 @@
 form.search-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin: 50px 20px 30px 10px;
-  padding: 10px;
+  justify-content: center;
+  margin: 50px 0 30px 0;
   height: 150px;
-  width: 70vw; 
+  width: 100%; 
 
   ::placeholder {
     color: $blue-btn-text;
@@ -62,6 +59,7 @@ form.search-form {
   height: 120px;
   width: 130px;
   font-size: 25px;
+  align-self: center;
 }
 
 
@@ -78,7 +76,6 @@ form.search-form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // width: 70vw; 
 
     ::placeholder {
       font-size: 25px;
@@ -87,11 +84,10 @@ form.search-form {
   }
   
   .search-form input {
-    margin: 30px 50px 20px 20px;
+    margin: 30px 0 10px 0;
     height: 70px;
     width: 300px;
     font-size: 30px;
-    padding-left: 20px;
   }
 
   .search-button {

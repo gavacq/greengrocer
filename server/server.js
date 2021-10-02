@@ -3,6 +3,9 @@ const path = require('path');
 const morgan = require('morgan');
 const cookieSession = require('cookie-session');
 require('dotenv').config();
+// socket.io
+const { createServer } = require('http');
+const { Server } = require('socket.io');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -43,6 +46,20 @@ app.use('/api/search', searchRoute());
 app.use('/api/lists', listsRoute(db));
 app.use('/api/products', productsRoute(db));
 app.use('/api/posts', postsRoute(db));
+
+// initialize socket.io
+const httpServer = createServer(app);
+const io = new Server(httpServer, { /* options */ });
+
+io.on('connection', (socket) => {
+  console.log('User Connected');
+
+  socket.on('Disconnect', () => {
+    console.log('User Disconnected');
+  });
+});
+
+httpServer.listen(8082);
 
 // listen on the specified port
 app.listen(PORT, () => {

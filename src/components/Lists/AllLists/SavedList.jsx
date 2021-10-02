@@ -64,13 +64,13 @@ export default function SavedList(props) {
     </li>
   ));
   return (
-    <ul>
+    <div className="saved-list">
       <h1>{list.id}</h1>
       {mappedListItems}
       <button type="button" onClick={() => deleteList(list.id)}>Delete</button>
       <button type="button" onClick={copyHandler}>Copy</button>
       <button type="button" onClick={shareHandler}>Share</button>
-    </ul>
+    </div>
   );
 }
 

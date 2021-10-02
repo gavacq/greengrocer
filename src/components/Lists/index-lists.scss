@@ -183,14 +183,11 @@ p.co2-saved-text {
   }
 
   .new-list-wrapper {
-    // below is a bug
-    // flex-basis: 50vw;
-    // margin-left: 2vw;
     margin-right: 5vw;
+    max-width: 400px;
   }
 
   .search-container {
-    // border: solid 3px pink;
     max-width: 50vw;
     // possible bug below 
     width: fit-content; 
@@ -202,8 +199,18 @@ p.co2-saved-text {
     position: center;
   }
 
-  // .saved-list {
-  //   box-sizing: border-box;
-  // }
+}
+
+
+
+@media screen and (min-width: 930px) {
+
+
+  .new-list-wrapper {
+    margin-right: 5vw;
+    margin-left: 5vw;
+    max-width: 80%;
+  }
+
 
 }

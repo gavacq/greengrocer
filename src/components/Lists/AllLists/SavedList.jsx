@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { listType } from '../../../types';
+import { useAppContext } from '../../../lib/context';
 
 export default function SavedList(props) {
   const { list, setNewList, deleteList } = props;
+  const { postsContext } = useAppContext();
+  // eslint-disable-next-line no-unused-vars
+  const [posts, setPosts] = postsContext;
 
   const copyHandler = () => {
     setNewList(({
@@ -13,7 +17,18 @@ export default function SavedList(props) {
   };
 
   const shareHandler = () => {
-
+    const newPost = {
+      id: 69,
+      user_id: 69,
+      username: 'Bobbo',
+      likes: 69,
+      message: 'You saved 10 seals worth of co2!',
+      likedByUser: false,
+    };
+    setPosts((prev) => ([
+      ...prev,
+      newPost,
+    ]));
   };
 
   const mappedListItems = list.products.map((p) => (

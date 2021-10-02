@@ -1,8 +1,6 @@
 import { React, useState } from 'react';
 import '../index.scss';
 import './App.scss';
-// import axios from 'axios';
-
 import {
   BrowserRouter as Router, Route, Switch,
 } from 'react-router-dom';
@@ -17,9 +15,14 @@ import { AppContext } from '../lib/context';
 // App component
 function App() {
   const [user, setUser] = useState({});
+  const [posts, setPosts] = useState([]);
 
   return (
-    <AppContext.Provider value={{ user, setUser }}>
+    <AppContext.Provider value={{
+      userContext: [user, setUser],
+      postsContext: [posts, setPosts],
+    }}
+    >
       <Router>
         <ScrollToTop />
         <div className="App">

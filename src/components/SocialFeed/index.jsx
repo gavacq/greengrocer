@@ -11,25 +11,24 @@ export default function SocialFeed() {
     socket.emit('heartClick', data);
   };
 
+  const updateLikesListener = (data) => {
+    setPosts((prev) => ([
+      ...prev.map((p) => {
+        if (p.id === data.postId) {
+          return { ...p, likes: data.postLikes };
+        }
+        return p;
+      }),
+    ]));
+  };
+
   useEffect(() => {
-    socket.emit('CLIENT_HELLO');
-
-    const helloListener = () => {
-      console.log('SERVER_HELLO');
-    };
-
-    socket.on('SERVER_HELLO', helloListener);
-
-    const updatePostsListener = (newPosts) => {
-      setPosts(newPosts);
-    };
-
-    socket.on('updatePosts', updatePostsListener);
-
     axios.get('/api/posts')
       .then((res) => {
         setPosts(res.data);
       });
+
+    socket.on('updateLikes', updateLikesListener);
 
     return (() => {
       socket.removeAllListeners();

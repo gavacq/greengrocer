@@ -31,7 +31,7 @@ export default function Post(props) {
       .then((res) => {
         const newPosts = updatePosts(res.data.likes, res.data.likedByUser);
         setPosts(newPosts);
-        emitHeartClickEvent(newPosts);
+        emitHeartClickEvent({ postId: post.id, postLikes: res.data.likes });
       });
   };
 

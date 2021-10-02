@@ -4,16 +4,8 @@ const router = express.Router();
 
 module.exports = (db, io) => {
   io.on('connection', (socket) => {
-    console.log('User Connected', socket.id);
-    // console.log('new list of connected client sockets: ', Object.keys(io.sockets.sockets));
-    socket.on('CLIENT_HELLO', () => {
-      console.log('CLIENT_HELLO');
-
-      socket.emit('SERVER_HELLO');
-    });
-
     socket.on('heartClick', (data) => {
-      io.emit('updatePosts', data);
+      socket.broadcast.emit('updateLikes', data);
     });
   });
 

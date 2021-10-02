@@ -36,7 +36,7 @@ export default function NewList(props) {
   };
 
   const mappedList = () => {
-    if (!newList.products) {
+    if (!newList.products.length) {
       console.log('no products yet');
       return <h3>No products added!</h3>;
     }
@@ -61,7 +61,7 @@ export default function NewList(props) {
         g of CO2 so far!
       </h3>
       {mappedList()}
-      <button type="button" onClick={saveList}>Save</button>
+      {newList.products.length ? <button type="button" onClick={saveList}>Save</button> : <></>}
     </section>
   );
 }

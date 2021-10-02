@@ -60,7 +60,7 @@ export default function List() {
     axios.put('/api/lists', { list: newList })
       .then((res) => {
         console.log('successfully saved list', res.data);
-        if (!res.data.products) {
+        if (res.data.products.length) {
           setAllLists((prev) => ([
             ...prev,
             {

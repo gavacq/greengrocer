@@ -63,10 +63,6 @@ p.co2-saved-text {
   }
 }
 
-p.main-desc {
-  
-}
-
 
 // ---------- media queries ---------- //
 
@@ -88,6 +84,7 @@ p.main-desc {
     // possible bug below 
     width: fit-content; 
     width: 95%;
+    padding: 0;
   }
 
   .search-section {

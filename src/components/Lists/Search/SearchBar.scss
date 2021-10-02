@@ -48,6 +48,7 @@ form.search-form {
   color: $blue-btn-text;
   font-size: 20px;
   padding-left: 10px;
+  align-self: center;
 
   &:active, &:hover {
     background: $blue-btn-background-active;
@@ -84,7 +85,7 @@ form.search-form {
   }
   
   .search-form input {
-    margin: 30px 0 10px 0;
+    margin: 30px 0 30px 0;
     height: 70px;
     width: 300px;
     font-size: 30px;
@@ -115,6 +116,7 @@ form.search-form {
       padding-left: 5px;
     }
   }
+
 }
   
 

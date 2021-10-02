@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import { listType } from '../../../types';
 import { useAppContext } from '../../../lib/context';
 
@@ -17,18 +18,18 @@ export default function SavedList(props) {
   };
 
   const shareHandler = () => {
-    const newPost = {
-      id: 69,
-      user_id: 69,
-      username: 'Bobbo',
-      likes: 69,
+    const post = {
       message: 'You saved 10 seals worth of co2!',
-      likedByUser: false,
     };
-    setPosts((prev) => ([
-      ...prev,
-      newPost,
-    ]));
+    axios.put('/api/posts', { post })
+      .then((res) => {
+        post.id = res.data.id;
+        post.user_id = res.data.user_id;
+        setPosts((prev) => ([
+          ...prev,
+          post,
+        ]));
+      });
   };
 
   const mappedListItems = list.products.map((p) => (

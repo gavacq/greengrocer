@@ -89,5 +89,26 @@ module.exports = (db, io) => {
         });
     }
   });
+
+  // create a new post
+  router.put('/', (req, res) => {
+    const { post } = req.body;
+    console.log('server received post', post);
+
+    if (!req.session || !req.session.user) {
+      console.log('Non-logged in user is unable to create a post');
+      res.json({});
+      return;
+    }
+
+    const sql = `INSERT INTO posts(user_id, likes, message) VALUES(${req.session.user}, 0, '${post.message}') RETURNING id`;
+    db.query(sql)
+      .then((data) => {
+        console.log('posts insert res', data.rows[0]);
+        res.json({ id: data.rows[0].id, user_id: req.session.user });
+      })
+      .catch((e) => console.log('error:', e));
+  });
+
   return router;
 };

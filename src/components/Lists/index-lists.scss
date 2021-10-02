@@ -3,6 +3,10 @@
 
 // ---------- style for lists page -------------- //
 
+* {
+  box-sizing: border-box;
+}
+
 .search-and-new-list {
   // border: solid 3px cornflowerblue;
   padding: 0 0 15px 0;
@@ -130,12 +134,23 @@ p.co2-saved-text {
 @media screen and (min-width: 400px){
 
   .all-lists-wrapper, .new-list-wrapper {
-    margin-left: 6%;
-    margin-right: 6%;
+    margin-left: 2%;
+    margin-right: 2%;
   }
 
+  .all-lists-wrapper {
+    margin-top: 40px;
+  }
+
+
   .saved-list {
-    max-width: 70vw;
+    width: 70vw;
+
+    li p {
+      text-align: left;
+      font-weight: 400;
+      padding: 0;
+    }
   }
 }
 
@@ -170,8 +185,8 @@ p.co2-saved-text {
     position: center;
   }
 
-  .saved-list {
-    box-sizing: border-box;
-  }
+  // .saved-list {
+  //   box-sizing: border-box;
+  // }
 
 }

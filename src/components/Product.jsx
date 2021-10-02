@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../index.scss';
 import './Products.scss';
 import './App.scss';
+import './Lists/index-lists.scss';
 import useWindowSize from '../hooks/useWindowSize';
 import { productType } from '../types';
 
@@ -16,7 +17,7 @@ export default function Product(props) {
     if (idToReplace) {
       return (
         <button
-          className="add-btn"
+          className="green-btn"
           type="button"
           onClick={() => replaceProduct(data)}
         >

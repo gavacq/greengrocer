@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+const cors = require('cors');
 const cookieSession = require('cookie-session');
 require('dotenv').config();
 // socket.io
@@ -33,6 +34,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
+const corsOptions = {
+  origin: 'http://localhost:3000',
+};
+app.use(cors(corsOptions));
 
 // Bring in External Routes
 const {
@@ -49,20 +54,18 @@ app.use('/api/posts', postsRoute(db));
 
 // initialize socket.io
 const httpServer = createServer(app);
-const io = new Server(httpServer, { /* options */ });
-
-io.on('connection', (socket) => {
-  console.log('User Connected');
-
-  socket.on('Disconnect', () => {
-    console.log('User Disconnected');
-  });
+const io = new Server(httpServer, {
+  cors: {
+    ...corsOptions,
+  },
 });
 
-httpServer.listen(8082);
+io.on('connection', () => {
+  console.log('User Connected');
+});
 
 // listen on the specified port
-app.listen(PORT, () => {
+httpServer.listen(PORT, () => {
   console.log(
     `Express seems to be listening on port ${PORT} so that's pretty good 👍`,
   );

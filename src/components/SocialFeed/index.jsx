@@ -7,37 +7,32 @@ import socket from '../../helpers/socket';
 export default function SocialFeed() {
   const [posts, setPosts] = useState([]);
 
+  const emitHeartClickEvent = (data) => {
+    socket.emit('heartClick', data);
+  };
+
   useEffect(() => {
-    // socket.on('connect', () => {
-    //   console.log('socket is connected', socket.id);
-
-    //   socket.emit('CLIENT_HELLO');
-
-    //   socket.on('SERVER_HELLO', () => {
-    //     console.log('SERVER_HELLO');
-    //   });
-
-    //   socket.on('disconnect', () => {
-    //     console.log('disconnected');
-    //   });
-    // });
     socket.emit('CLIENT_HELLO');
 
-    socket.on('SERVER_HELLO', () => {
+    const helloListener = () => {
       console.log('SERVER_HELLO');
-    });
+    };
 
-    socket.on('disconnect', () => {
-      console.log('disconnected');
-    });
+    socket.on('SERVER_HELLO', helloListener);
+
+    const updatePostsListener = (data) => {
+      console.log('new posts data', data);
+    };
+
+    socket.on('updatePosts', updatePostsListener);
 
     axios.get('/api/posts')
       .then((res) => {
         setPosts(res.data);
       });
+
     return (() => {
-      console.log(`socket ${socket.id} disconnecting...`);
-      socket.disconnect();
+      socket.off('SERVER_HELLO', helloListener);
     });
   }, []);
 
@@ -57,6 +52,7 @@ export default function SocialFeed() {
             post={post}
             setPosts={setPosts}
             posts={posts}
+            emitHeartClickEvent={emitHeartClickEvent}
           />
         ))}
       </div>

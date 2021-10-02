@@ -5,7 +5,7 @@ import './Post.scss';
 
 export default function Post(props) {
   const {
-    post, setPosts, posts,
+    post, setPosts, posts, emitHeartClickEvent,
   } = props;
 
   const heartButtonStyle = {
@@ -27,6 +27,7 @@ export default function Post(props) {
 
   const handleHeartClick = () => {
     const req = { likedByUser: !post.likedByUser, likes: post.likes, postId: post.id };
+    emitHeartClickEvent(req);
     axios.patch(`/api/posts/${post.id}`, req)
       .then((res) => {
         const newPosts = updatePosts(res.data.likes, res.data.likedByUser);
@@ -81,4 +82,5 @@ Post.propTypes = {
     message: PropTypes.string.isRequired,
     likedByUser: PropTypes.bool.isRequired,
   })).isRequired,
+  emitHeartClickEvent: PropTypes.func.isRequired,
 };

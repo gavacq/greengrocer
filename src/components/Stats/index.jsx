@@ -16,9 +16,8 @@ export default function Stats() {
       axios.get('/api/lists'),
       axios.get('/api/lists/products'),
     ]).then((res) => {
-      setAllLists(res[0].data.results.rows);
+      setAllLists(res[0].data.results);
       setProducts(res[1].data.results.rows);
-      console.log(products);
     });
   }, []);
 
@@ -26,7 +25,7 @@ export default function Stats() {
     <section>
       <div className="stats-container">
         <Earth products={products} />
-        <Chart />
+        <Chart allLists={allLists} />
       </div>
     </section>
   );

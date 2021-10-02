@@ -63,8 +63,28 @@ p.co2-saved-text {
   }
 }
 
+.all-lists-wrapper {
+  border-radius: 10px;
+  background-color: $btn-text-hover;
+  margin: 30px 0px 35px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 15px;
+  border-radius: 10px;
+}
+
 
 // ---------- media queries ---------- //
+
+@media screen and (min-width: 400px){
+
+  .all-lists-wrapper, .new-list-wrapper {
+    margin-left: 6%;
+    margin-right: 6%;
+  }
+
+}
 
 @media screen and (min-width: 700px) {
 
@@ -98,67 +118,3 @@ p.co2-saved-text {
   }
 
 }
-
-.all-lists-wrapper {
-  // border: solid red 3px;
-  border-radius: 10px;
-  background-color: $btn-text-hover;
-  margin: 20px 0 35px 0;;
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  padding: 15px;
-  border-radius: 10px;
-
-  p {
-    text-align: left;
-    width: 90%;
-    font-size: 18px;
-    font-weight: 400;
-  }
-}
-
-// -------- old broken styles below ----------- //
-
-
-// .lists-page-container {
-
-//   .search-and-new-list {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     padding: 5px;
-//   }
-
-//   .search-section {
-//     padding: 10px;
-//     overflow-y: hidden;
-//   }
-
-//   .new-list-wrapper {
-//     border-radius: 10px;
-//     background-color: rgb(221, 248, 186, 0.5);
-//     padding: 20px;
-//     margin-top: 25px;
-//     height: fit-content;
-//     width: fit-content;
-//   }
-
-//   .save-btn {
-//     @include button-styles;
-//     width: 65px;
-//     height: 40px;
-//     margin-top: 30px;
-//     font-size: 18px;
-//   }
-
-//   .description {
-
-//     p {
-//       font-size: 18px;
-//       text-align: left;
-//       margin-bottom: 15px;
-//       font-weight: 400;
-//     }
-//   }
-

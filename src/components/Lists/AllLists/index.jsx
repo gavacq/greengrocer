@@ -10,12 +10,12 @@ export default function AllLists(props) {
 
   const showAllLists = () => {
     if (!allLists.length) {
-      return <h3>You have no saved lists!</h3>;
+      return <p className="co2-saved-text">You have no saved lists!</p>;
     }
 
     return (
       allLists.map((l) => (
-        <div className="all-lists-wrapper">
+        <div>
           <SavedList
             list={l}
             key={l.id}
@@ -28,8 +28,8 @@ export default function AllLists(props) {
   };
 
   return (
-    <section>
-      <h1>AllLists</h1>
+    <section className="all-lists-wrapper">
+      <h1>My lists</h1>
       {showAllLists()}
     </section>
   );

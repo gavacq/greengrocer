@@ -127,7 +127,7 @@ NewList.propTypes = {
 
 //   return (
 //    <section className="new-list-wrapper">
-//       <h1>New List</h1>
+//       <h1>New list</h1>
 //       <p className="co2-saved-text">
 //         Your choices have saved
 //         <span className="co2-desc">

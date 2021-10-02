@@ -112,9 +112,7 @@ export default function List() {
           />
         </section>
       </div>
-      <section className="all-lists-wrapper">
-        <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
-      </section>
+      <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
     </main>
   );
 }

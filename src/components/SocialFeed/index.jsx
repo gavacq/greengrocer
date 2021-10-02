@@ -2,22 +2,20 @@ import axios from 'axios';
 import { React, useEffect, useState } from 'react';
 import Post from './Post';
 import './index-social.scss';
-
-const io = require('socket.io-client');
+import socket from '../../helpers/socket';
 
 export default function SocialFeed() {
   const [posts, setPosts] = useState([]);
-  const socket = io('http://localhost:8081');
-
-  socket.on('connect', () => {
-    console.log('socket is connected', socket.connected, socket.id);
-
-    socket.on('disconnect', () => {
-      console.log('disconnected');
-    });
-  });
 
   useEffect(() => {
+    socket.on('connect', () => {
+      console.log('socket is connected', socket.id);
+
+      socket.on('disconnect', () => {
+        console.log('disconnected');
+      });
+    });
+
     axios.get('/api/posts')
       .then((res) => {
         setPosts(res.data);

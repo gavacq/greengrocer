@@ -50,7 +50,6 @@ app.use('/logout', logoutRoute());
 app.use('/api/search', searchRoute());
 app.use('/api/lists', listsRoute(db));
 app.use('/api/products', productsRoute(db));
-app.use('/api/posts', postsRoute(db));
 
 // initialize socket.io
 const httpServer = createServer(app);
@@ -59,10 +58,7 @@ const io = new Server(httpServer, {
     ...corsOptions,
   },
 });
-
-io.on('connection', () => {
-  console.log('User Connected');
-});
+app.use('/api/posts', postsRoute(db, io));
 
 // listen on the specified port
 httpServer.listen(PORT, () => {

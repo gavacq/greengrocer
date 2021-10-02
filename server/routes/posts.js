@@ -2,7 +2,13 @@ const express = require('express');
 
 const router = express.Router();
 
-module.exports = (db) => {
+module.exports = (db, io) => {
+  io.on('connection', (socket) => {
+    console.log('User Connected', socket.id);
+    socket.join('social');
+    console.log(socket.rooms);
+  });
+
   const queryPosts = () => {
     const postsQuery = 'SELECT (posts.*), (users.username) FROM posts JOIN users ON users.id = user_id';
     return db.query(postsQuery);

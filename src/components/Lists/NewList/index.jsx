@@ -1,13 +1,29 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
-import { listType } from '../../types';
-import searchProducts from '../../helpers/search';
+import { listType } from '../../../types';
+import searchProducts from '../../../helpers/search';
+import NewListProduct from './NewListProduct';
 
 export default function NewList(props) {
   const {
-    newList, setResults, setIdToReplace, saveList,
+    newList, setResults, setIdToReplace, saveList, setNewList,
   } = props;
   console.log('list', newList);
+
+  const removeProduct = (id) => {
+    const newProducts = newList.products.reduce((plist, p) => {
+      if (p.api_id === id) {
+        return plist;
+      }
+      plist.push(p);
+      return plist;
+    }, []);
+
+    setNewList((prev) => ({
+      ...prev,
+      products: newProducts,
+    }));
+  };
 
   const showReplacements = (query, title, id) => {
     const newQuery = title.toLowerCase().split(' ').filter((w) => w.includes(query.toLowerCase()))[0];
@@ -20,16 +36,17 @@ export default function NewList(props) {
   };
 
   const mappedList = () => {
-    if (!newList.products) {
+    if (!newList.products.length) {
       console.log('no products yet');
       return <h3>No products added!</h3>;
     }
     return newList.products.map((p) => (
-      <div key={p.api_id}>
-        <p>{p.title}</p>
-        <p>{p.co2}</p>
-        <button type="button" onClick={() => showReplacements(p.query, p.title, p.api_id)}>Show Replacements</button>
-      </div>
+      <NewListProduct
+        product={p}
+        showReplacements={showReplacements}
+        removeProduct={removeProduct}
+        key={p.api_id}
+      />
     ));
   };
 
@@ -44,7 +61,7 @@ export default function NewList(props) {
         g of CO2 so far!
       </h3>
       {mappedList()}
-      <button type="button" onClick={saveList}>Save</button>
+      {newList.products.length ? <button type="button" onClick={saveList}>Save</button> : <></>}
     </section>
   );
 }
@@ -55,4 +72,5 @@ NewList.propTypes = {
   setResults: PropTypes.func.isRequired,
   setIdToReplace: PropTypes.func.isRequired,
   saveList: PropTypes.func.isRequired,
+  setNewList: PropTypes.func.isRequired,
 };

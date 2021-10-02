@@ -60,13 +60,15 @@ export default function List() {
     axios.put('/api/lists', { list: newList })
       .then((res) => {
         console.log('successfully saved list', res.data);
-        setAllLists((prev) => ([
-          ...prev,
-          {
-            ...res.data,
-            products: [...res.data.products],
-          },
-        ]));
+        if (res.data.products.length) {
+          setAllLists((prev) => ([
+            ...prev,
+            {
+              ...res.data,
+              products: [...res.data.products],
+            },
+          ]));
+        }
         setNewList({
           id: undefined,
           date_created: undefined,
@@ -102,6 +104,7 @@ export default function List() {
         setResults={setResults}
         setIdToReplace={setIdToReplace}
         saveList={saveList}
+        setNewList={setNewList}
       />
       <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
     </main>

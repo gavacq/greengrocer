@@ -66,3 +66,25 @@
   }
 }
 
+// mixin for delete buttons 
+@mixin delete-button-styles {
+  border: solid 4px $delete-btn-border;
+  border-radius: 15px;
+  background-color: $delete-btn-background;
+  color: $delete-btn-text;
+  font-family: "Fredoka One";
+  letter-spacing: 0.7px;
+  overflow-y: hidden;
+
+  &:hover {
+    background-color: $delete-btn-hover-background;
+    color: $delete-btn-hover-text;
+    border: solid 4px $delete-btn-hover-border;
+  }
+
+  &:active {
+    transform: translateY(4px);
+  }
+}
+
+

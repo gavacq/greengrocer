@@ -65,9 +65,10 @@ export default function SavedList(props) {
   ));
   return (
     <div className="saved-list">
-      <h1>{list.id}</h1>
+      {/* eslint-disable-next-line */}
+      <h3>List #{list.id}</h3>
       {mappedListItems}
-      <button type="button" onClick={() => deleteList(list.id)}>Delete</button>
+      <button className="delete-btn" type="button" onClick={() => deleteList(list.id)}>delete</button>
       <button type="button" onClick={copyHandler}>Copy</button>
       <button type="button" onClick={shareHandler}>Share</button>
     </div>

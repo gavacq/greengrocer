@@ -72,22 +72,38 @@ p.co2-saved-text {
   justify-content: flex-start;
   padding: 15px;
   border-radius: 10px;
+
+  h3 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    color: $btn-border;
+    margin-bottom: 25px;
+  }
 }
 
 .saved-list {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 15px;
+  padding: 20px;
   background-color: rgb(245, 210, 212, 0.5);
   border-radius: 10px;
+  margin-bottom: 35px;
 
   li p {
     text-align: left;
     font-weight: 400;
+    padding: 0;
   }
 }
 
+.delete-btn {
+  @include delete-button-styles;
+  font-size: 18px;
+  padding: 5px;
+  width: fit-content;
+  height: auto;
+}
 
 // ---------- media queries ---------- //
 

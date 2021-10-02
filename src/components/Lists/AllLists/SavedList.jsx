@@ -19,24 +19,25 @@ export default function SavedList(props) {
   };
 
   const generateMesssage = (co2) => {
+    console.log('co2 in generateMessage', co2);
     switch (Math.floor((Math.random() * 100) % 5)) {
       case 0:
         // lightbulb
-        return '';
+        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
       case 1:
         // airplane
-        return '';
+        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
       case 2:
         // car
-        return '';
+        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
       case 3:
         // KB of network traffic
-        return '';
+        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
       case 4:
         // trees equivalent
-        return '';
+        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
       default:
-        return '';
+        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
     }
   };
 

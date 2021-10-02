@@ -156,14 +156,14 @@ p.co2-saved-text {
   }
 
   .search-section {
-    margin-right: 30px;
     margin-left: 3%;
-    flex-basis: 50vw;
+    flex-basis: 80vw;
   }
 
   .new-list-wrapper {
-    flex-basis: 50vw;
-    margin-left: 5vw;
+    // below is a bug
+    // flex-basis: 50vw;
+    // margin-left: 2vw;
     margin-right: 5vw;
   }
 
@@ -176,7 +176,7 @@ p.co2-saved-text {
     padding: 0;
   }
 
-  .item-in-list {
+  div.item-in-list {
     position: center;
   }
 

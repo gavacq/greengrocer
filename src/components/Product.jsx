@@ -20,7 +20,7 @@ export default function Product(props) {
           type="button"
           onClick={() => replaceProduct(data)}
         >
-          <span>{width <= 720 ? '+' : 'Replace' }</span>
+          <span>Replace</span>
         </button>
       );
     }

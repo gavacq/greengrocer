@@ -26,16 +26,16 @@ export default function SavedList(props) {
         return `I saved ${co2} kg of CO₂ . That is like washing and drying ${Math.ceil(co2 / 2.4)} loads of laundry!`;
       case 1:
         // airplane
-        return `I saved ${co2} kg of CO₂ . That is like flying in economy class for ${Math.ceil(co2 / 110)} hours!`;
+        return `I saved ${co2} kg of CO₂ . That is like flying in economy class for ${Math.ceil(co2 / (110 / 60))} minutes!`;
       case 2:
         // car
         return `I saved ${co2} kg of CO₂ . That is like driving ${Math.ceil(co2 / 0.28)} km in a typical passenger vehicle!`;
       case 3:
         // hours of watching netflix
-        return `I saved ${co2} kg of CO₂ . That is like ${Math.ceil(co2 / 10)} hours of watching Netflix in HD!`;
+        return `I saved ${co2} kg of CO₂ . That is like ${Math.ceil(co2 / (10 / 60))} minutes of watching Netflix in HD!`;
       case 4:
         // trees equivalent
-        return `I saved ${co2} kg of CO₂ . An average tree takes ${Math.ceil(co2 / 25)} years to remove that much CO₂ from the atmosphere!`;
+        return `I saved ${co2} kg of CO₂ . An average tree takes ${Math.ceil(co2 / (25 / 12))} months to remove that much CO2 from the atmosphere!`;
       default:
         return 'ERROR: oops';
     }

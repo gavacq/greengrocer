@@ -1,6 +1,7 @@
-/* eslint-disable react/prop-types */
 import { React, useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
+import { listType } from '../../../types';
 
 export default function Chart({ allLists }) {
   const [co2Saved, setco2Saved] = useState([]);
@@ -41,3 +42,7 @@ export default function Chart({ allLists }) {
     </div>
   );
 }
+
+Chart.propTypes = {
+  allLists: PropTypes.arrayOf(listType).isRequired,
+};

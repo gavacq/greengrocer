@@ -8,7 +8,6 @@ import Chart from './Chart';
 export default function Stats() {
   // on page load get all lists from db
   const [allLists, setAllLists] = useState([]);
-  // eslint-disable-next-line no-unused-vars
   const [products, setProducts] = useState([]);
 
   useEffect(() => {

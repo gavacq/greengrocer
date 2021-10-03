@@ -67,10 +67,9 @@ export default function Location({ lat, long, origin }) {
 Location.propTypes = {
   lat: PropTypes.number.isRequired,
   long: PropTypes.number.isRequired,
-  // eslint-disable-next-line react/require-default-props
   origin: PropTypes.shape({
     x: PropTypes.number,
     y: PropTypes.number,
     z: PropTypes.number,
-  }),
+  }).isRequired,
 };

@@ -12,21 +12,24 @@ export default function NewListProduct(props) {
       <div className="replace-btn-wrapper">
         <p className="co2-desc">
           {/* eslint-disable-next-line */}
-          CO2: <span>{product.co2}</span> g
+          CO2: <span>{product.co2}</span> kg
         </p>
-        <button
-          className="btn-replace"
-          type="button"
-          onClick={() => showReplacements(product.query, product.title, product.api_id)}
-        >
-          Show Replacements
-        </button>
-        <button
-          type="button"
-          onClick={() => removeProduct(product.api_id)}
-        >
-          Remove
-        </button>
+        <div className="btn-flexbox">
+          <button
+            className="btn-replace"
+            type="button"
+            onClick={() => showReplacements(product.query, product.title, product.api_id)}
+          >
+            Show replacements
+          </button>
+          <button
+            className="btn-remove"
+            type="button"
+            onClick={() => removeProduct(product.api_id)}
+          >
+            Remove
+          </button>
+        </div>
       </div>
     </div>
   );

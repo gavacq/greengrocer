@@ -5,12 +5,15 @@ import { listType } from '../../../types';
 import searchProducts from '../../../helpers/search';
 import NewListProduct from './NewListProduct';
 import '../index-lists.scss';
+import { useAppContext } from '../../../lib/context';
 
 export default function NewList(props) {
   const {
     newList, setResults, setIdToReplace, saveList, setNewList,
   } = props;
-  console.log('list', newList);
+  const { userContext } = useAppContext();
+  // eslint-disable-next-line no-unused-vars
+  const [user, setUser] = userContext;
 
   const removeProduct = (id) => {
     const newProducts = newList.products.reduce((plist, p) => {
@@ -82,7 +85,7 @@ export default function NewList(props) {
       <div>
         {newListContents()}
       </div>
-      {newList.products.length ? <button className="save-btn" type="button" onClick={saveList}>Save</button> : <></>}
+      {(newList.products.length && user.auth) ? <button className="save-btn" type="button" onClick={saveList}>Save</button> : <></>}
     </section>
   );
 }

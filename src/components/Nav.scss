@@ -73,25 +73,15 @@ div.logo {
   text-decoration: none;
 }
 
-<<<<<<< HEAD
-=======
-/* hamburger menu icon */
-// .nav-btn-container img {
-//   width: 50px;
-// }
-
->>>>>>> 92cfcf4883b5d4ed59f8b91130a0fb886e46cb84
 /* desktop menu */
 .desktop-menu {
   display: none;
 }
 
-<<<<<<< HEAD
 /* ---------------------- Media queries -------------------------- */
 
 // tablet/desktop
 @media screen and (min-width: $breakpoint-D) {
-=======
 .user-name {
   font-family: "Rubik", sans-serif;
   font-size: 16px;
@@ -102,9 +92,6 @@ div.logo {
   top: 3px;
   right: 20px;
 }
-/* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
->>>>>>> 92cfcf4883b5d4ed59f8b91130a0fb886e46cb84
-
 
   .desktop-menu {
     display: flex;

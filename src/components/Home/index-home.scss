@@ -18,6 +18,7 @@ main.home {
 }
 
 .home-btn {
+  @include all-buttons;
   @include button-styles;
   width: 270px;
   height: 55px;
@@ -40,7 +41,8 @@ h1 {
   width: 100vw;
 }
 
-  /* edit wave position here */
+// ------------ SVG wave styles ------------ //
+
   .wave {
     position: absolute;
     top: -205px;
@@ -66,14 +68,14 @@ h1 {
 }  
 
 
+// ----------- Media queries --------------- //
 
-// ----------- media queries --------------- //
 @media screen and (max-width: 725px) {
-
 
   main.home {
     background-color: $primary-green;
-    max-height: 1400px;
+    max-height: fit-content; // FOOTER!!
     overflow: hidden;
   }
+  
 }

@@ -20,16 +20,17 @@ div#root {
 }
 
 
-  /* edit wave position here */
-  .wave {
-    position: absolute;
-    top: -205px;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-    height: 300px;  
+// ------------ SVG wave styles ------------ //
+
+.wave {
+  position: absolute;
+  top: -205px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  height: 300px;  
 }
 
 .wave svg {
@@ -45,11 +46,7 @@ div#root {
     position: absolute;
 }  
 
-// div#root {
-//   display: flex;
-//   flex-direction: column;
-//   margin-bottom: 130px;
-// }
+// ------------ Footer styles ------------ //
 
 footer {
   display: flex;
@@ -63,7 +60,6 @@ footer {
   width: 100vw;
   // position: fixed;
   // bottom: 0;
-
 
   h4 {
     margin-bottom: 12px;
@@ -108,7 +104,3 @@ footer {
   }
 
 }
-
-// .posts-wrapper {
-//   height: fit-content;
-// }

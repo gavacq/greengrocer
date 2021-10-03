@@ -8,7 +8,6 @@
 }
 
 .search-and-new-list {
-  // border: solid 3px cornflowerblue;
   padding: 0 0 15px 0;
   display: flex;
   flex-direction: column;
@@ -32,7 +31,6 @@
   font-size: 18px;
   font-weight: 500;
   height: 30px;
-  // margin-right: 10px;
 
   &:hover, &:active {
     border: solid 2.5px $blue-btn-hover-border;
@@ -175,24 +173,10 @@ p.co2-saved-text {
   color: $btn-background;
 }
 
-// .no-products-yet {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   text-align: left;
-//   margin-top: 30px;
-//   opacity: 0.8;
 
-//   p {
-//     align-self: center;
-//   }
-// }
+// ------------- Media queries ------------- //
 
-
-// ---------- media queries ---------- //
-
-@media screen and (max-width: 400px) {
+@media screen and (max-width: $breakpoint-2) {
 
   .img-btn-container {
     flex-direction: column;
@@ -204,20 +188,10 @@ p.co2-saved-text {
     margin-right: 10px;
   }
 
-  // .btn-flexbox {
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: flex-start;
-
-  //   button {
-  //     width: fit-content;
-  //     margin-bottom: 15px;
-  //   }
-    
-  // }
 }
 
-@media screen and (min-width: 400px){
+
+@media screen and (min-width: $breakpoint-2){
 
   .all-lists-wrapper {
     margin-top: 40px;
@@ -241,7 +215,8 @@ p.co2-saved-text {
 
 }
 
-@media screen and (min-width: 720px) {
+
+@media screen and (min-width: $breakpoint-3) {
 
 
   .search-and-new-list {
@@ -271,18 +246,6 @@ p.co2-saved-text {
     position: center;
   }
 
-  // .btn-flexbox {
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: flex-start;
-
-  //   button {
-  //     width: fit-content;
-  //     margin-bottom: 15px;
-  //   }
-    
-  // }
-
   .buttons-flexbox {
     
     button {
@@ -293,15 +256,12 @@ p.co2-saved-text {
 }
 
 
-
-@media screen and (min-width: 930px) {
-
+@media screen and (min-width: $breakpoint-5) {
 
   .new-list-wrapper {
     margin-right: 5vw;
     margin-left: 5vw;
     max-width: 80%;
   }
-
 
 }

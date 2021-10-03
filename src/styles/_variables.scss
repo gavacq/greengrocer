@@ -42,5 +42,12 @@ $green-btn-text-hover: #edfff5;
 
 // ------------------------- Media query breakpoints ------------------------- //
 
+// NOTE: breakpoints are ordered from smallest to largest screen width
 
-$desktop-breakpoint: 720px;
+$breakpoint-1: 360px;
+$breakpoint-2: 400px;
+$breakpoint-6: 700px;
+$breakpoint-3: 720px;
+$breakpoint-4: 820px;
+$breakpoint-5: 930px;
+

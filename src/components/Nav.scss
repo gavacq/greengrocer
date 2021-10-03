@@ -73,24 +73,16 @@ div.logo {
   text-decoration: none;
 }
 
-
-/* hamburger menu icon */
-// .nav-btn-container img {
-//   width: 50px;
-// }
-
 /* desktop menu */
 .desktop-menu {
   display: none;
 }
 
-/* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
+/* ---------------------- Media queries -------------------------- */
 
-@media screen and (min-width: $desktop-breakpoint) {
-  /* hamburger menu icon */
-  // .nav-btn-container img {
-  //   display: none;
-  // }
+// tablet/desktop
+@media screen and (min-width: $breakpoint-3) {
+
 
   .desktop-menu {
     display: flex;
@@ -111,5 +103,6 @@ div.logo {
         }
       }
     }
+    
   }
 

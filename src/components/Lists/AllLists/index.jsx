@@ -15,10 +15,9 @@ export default function AllLists(props) {
 
     return (
       allLists.map((l) => (
-        <div>
+        <div key={l.id}>
           <SavedList
             list={l}
-            key={l.id}
             setNewList={setNewList}
             deleteList={deleteList}
           />

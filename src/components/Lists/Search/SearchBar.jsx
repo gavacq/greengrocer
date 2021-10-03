@@ -1,17 +1,19 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import PropTypes from 'prop-types';
 import './SearchBar.scss';
 import '../../../index.scss';
 import searchProducts from '../../../helpers/search';
 
 export default function SearchBar(props) {
-  const { setResults, setIdToReplace } = props;
-  const [productName, setProductName] = useState('');
+  const {
+    setResults, setIdToReplace, productName, setProductName, setQueryDisplay,
+  } = props;
 
   const clickHandler = () => {
     searchProducts(productName).then((results) => {
       setResults(results);
       setIdToReplace(null);
+      setQueryDisplay(productName);
     });
   };
 
@@ -36,4 +38,7 @@ export default function SearchBar(props) {
 SearchBar.propTypes = {
   setResults: PropTypes.func.isRequired,
   setIdToReplace: PropTypes.func.isRequired,
+  setProductName: PropTypes.func.isRequired,
+  productName: PropTypes.string.isRequired,
+  setQueryDisplay: PropTypes.func.isRequired,
 };

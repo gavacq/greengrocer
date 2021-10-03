@@ -3,14 +3,17 @@
 
 
 // ----------------- styles for search bar ------------ //
+* {
+  box-sizing: border-box;
+}
 
 .search-container {
+  margin-bottom: 45px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  border-bottom: solid 3px rgb(141, 212, 162, 0.7);
+  justify-content: center;
+  padding: 0 20px 0 20px;
+  // border-bottom: solid 2px rgb(141, 212, 162, 0.7);
 }
 
 
@@ -25,12 +28,10 @@
 form.search-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin: 50px 20px 30px 10px;
-  padding: 10px;
+  justify-content: center;
+  margin: 50px 0 30px 0;
   height: 150px;
-  width: 70vw; 
+  width: 100%; 
 
   ::placeholder {
     color: $blue-btn-text;
@@ -50,6 +51,7 @@ form.search-form {
   color: $blue-btn-text;
   font-size: 20px;
   padding-left: 10px;
+  align-self: center;
 
   &:active, &:hover {
     background: $blue-btn-background-active;
@@ -58,9 +60,11 @@ form.search-form {
 
 .search-button {
   @include button-styles;
+  @include all-buttons;
   height: 120px;
   width: 130px;
   font-size: 25px;
+  align-self: center;
 }
 
 
@@ -71,13 +75,12 @@ form.search-form {
 /* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
 
 
-@media screen and (min-width: $desktop-breakpoint) {
+@media screen and (min-width: 700px) {
 
   form.search-form {
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 70vw; 
 
     ::placeholder {
       font-size: 25px;
@@ -86,19 +89,16 @@ form.search-form {
   }
   
   .search-form input {
-    margin: 30px 50px 20px 20px;
+    margin: 30px 0 30px 0;
     height: 70px;
     width: 300px;
     font-size: 30px;
-    padding-left: 20px;
   }
 
   .search-button {
-    position: relative;
-    top: 4px;
-    height: 55px;
+    height: 60px;
     width: 130px;
-    font-size: 30px;
+    font-size: 25px;
   } 
 
 }
@@ -108,7 +108,7 @@ form.search-form {
 
   .search-form input {
     width: 60vw;
-    font-size: 15px;
+    font-size: 18px;
     padding-left: 5px;
 
   }
@@ -116,8 +116,15 @@ form.search-form {
   form.search-form {
   
     ::placeholder {
-      font-size: 15px;
+      font-size: 18px;
       padding-left: 5px;
     }
   }
+
 }
+  
+
+  @media screen and (max-width: 550px) {
+
+
+  }

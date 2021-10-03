@@ -23,19 +23,19 @@ export default function SavedList(props) {
     switch (Math.floor((Math.random() * 100) % 5)) {
       case 0:
         // lightbulb
-        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
+        return `I saved ${co2}kg of CO2. That's like having ${1} incandescent lightbulb on for ${1} hours!`;
       case 1:
         // airplane
-        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
+        return `I saved ${co2}kg of CO2. That's like flying for ${1} hours!`;
       case 2:
         // car
-        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
+        return `I saved ${co2}kg of CO2. That's like driving for ${1} hours`;
       case 3:
-        // KB of network traffic
-        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
+        // hours of watching netflix
+        return `I saved ${co2}kg of CO2. That's like ${1} hours of watching netflix!`;
       case 4:
         // trees equivalent
-        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
+        return `I saved ${co2}kg of CO2. An average tree takes ${1} hours to remove that much CO2 from the atmosphere!`;
       default:
         return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
     }

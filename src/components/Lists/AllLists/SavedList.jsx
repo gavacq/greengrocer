@@ -22,7 +22,7 @@ export default function SavedList(props) {
     console.log('co2 in generateMessage', co2);
     switch (Math.floor((Math.random() * 100) % 5)) {
       case 0:
-        // cups of coffee
+        // laundry
         return `I saved ${co2} kg of CO2. That is like washing and drying ${Math.ceil(co2 / 2.4)} loads of laundry!`;
       case 1:
         // airplane
@@ -68,6 +68,8 @@ export default function SavedList(props) {
       {/* eslint-disable-next-line */}
       <h3>List #{list.id}</h3>
       {mappedListItems}
+      {/* eslint-disable-next-line */}
+      <p className="saved-list-co2">CO2 saved: {list.co2_saved} kg</p>
       <div className="buttons-flexbox">
         <button className="delete-btn" type="button" onClick={() => deleteList(list.id)}>delete</button>
         <button className="copy-btn" type="button" onClick={copyHandler}>copy</button>

@@ -91,6 +91,14 @@ p.co2-saved-text {
   }
 }
 
+.saved-list-co2 {
+  color: $btn-border-hover;
+  opacity: 0.9;
+  text-align: right;
+  position: relative;
+  top: 12px;
+}
+
 .all-lists-wrapper {
   border-radius: 10px;
   background-color: $btn-text-hover;

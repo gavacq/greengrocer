@@ -19,6 +19,7 @@ export default function Login() {
         setUser((prev) => ({
           ...prev,
           auth: res.data.auth,
+          username: res.data.username,
         }));
 
         setEmail('');

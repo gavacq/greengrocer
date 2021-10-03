@@ -1,35 +1,30 @@
+// -------------------------- Colors ------------------------------- //
+
 $primary-green: #50ab74;
 $primary-white: white;
-$pink-hover: #e08e93;
+$pink-hover: #e08e93; // for white navbar items
 $green-hover: #ddf8ba;
 $likes-heart: #d75b63;
-$social-message: #3d865a;
+$social-message: #3d865a; // text for social feed messages
 $footer-link: #ffc1ee;
-$all-lists-background: #84a4ee;
 
-// button colors
+// pink button colors
 $btn-border: #B16E72;
 $btn-background: #E08E93;
 $btn-text: #FFE2E4;
-
-
-// hover button colors
 $btn-border-hover: #ca7e83;
 $btn-background-hover: #f1a7ac;
 $btn-text-hover: #ffeced;
 
-// delete button colors
+// red button colors
 $delete-btn-border: #8a3036;
 $delete-btn-background: rgb(192, 77, 85);
 $delete-btn-text: rgb(255, 186, 191);
-
-// delete button hover colors
 $delete-btn-hover-border: #9e383f;
 $delete-btn-hover-background: rgb(218, 89, 98);
 $delete-btn-hover-text: rgb(255, 207, 210);
 
-
-// search input colors
+// blue button colors
 $blue-btn-border: #1d44a1;
 $blue-btn-background: #688de1;
 $blue-btn-background-active: #84a4ee;
@@ -37,15 +32,15 @@ $blue-btn-text: rgb(192, 210, 247);
 $blue-btn-hover-text: rgb(229, 236, 253);
 $blue-btn-hover-border: #3962c0;
 
-// add to list button colors
+// green button colors
 $green-btn-border: #50ab74;
 $green-btn-background: #73d99c;
 $green-btn-text: #d3ffe5;
-
-// add to list hover button colors
 $green-btn-border-hover: #59be81;
 $green-btn-background-hover: #7ce9a7;
 $green-btn-text-hover: #edfff5;
 
-// media query breakpoint
+// ----------------------Media query breakpoints ------------------------------- //
+
+
 $desktop-breakpoint: 720px;

@@ -2,6 +2,10 @@
 
 // -------------------------- mixins ------------------------------- //
 
+@mixin all-buttons {
+margin-bottom: 5px;
+}
+
 // mixin for pink buttons 
 @mixin button-styles {
   border: solid 4px $btn-border;

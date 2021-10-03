@@ -60,6 +60,7 @@ form.search-form {
 
 .search-button {
   @include button-styles;
+  @include all-buttons;
   height: 120px;
   width: 130px;
   font-size: 25px;

@@ -16,6 +16,7 @@
 
 .save-btn {
   @include button-styles;
+  @include all-buttons;
   width: 65px;
   height: 40px;
   margin-top: 30px;
@@ -24,6 +25,7 @@
 
 .btn-replace {
   @include blue-button-styles;
+  @include all-buttons;
   border: solid 2.5px $blue-btn-border;
   border-radius: 5px;
   font-family: 'Rubik', sans-serif;
@@ -39,6 +41,7 @@
 
 .btn-remove {
   @include delete-button-styles;
+  @include all-buttons;
   border: solid 2.5px $delete-btn-border;
   border-radius: 5px;
   font-family: 'Rubik', sans-serif;
@@ -125,6 +128,7 @@ p.co2-saved-text {
 
 .delete-btn {
   @include delete-button-styles;
+  @include all-buttons;
   font-size: 18px;
   padding: 5px;
   width: fit-content;
@@ -133,6 +137,7 @@ p.co2-saved-text {
 
 .copy-btn {
   @include blue-button-styles;
+  @include all-buttons;
   font-size: 18px;
   padding: 5px;
   width: fit-content;
@@ -141,6 +146,7 @@ p.co2-saved-text {
 
 .share-btn {
   @include green-button-styles;
+  @include all-buttons;
   font-size: 18px;
   padding: 5px;
   width: fit-content;
@@ -154,6 +160,7 @@ p.co2-saved-text {
 
 .green-btn {
   @include green-button-styles;
+  @include all-buttons;
   font-size: 30px;
   height: 60px;
   margin-bottom: 10px;

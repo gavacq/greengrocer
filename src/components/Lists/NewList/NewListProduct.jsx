@@ -16,18 +16,18 @@ export default function NewListProduct(props) {
         </p>
         <div className="btn-flexbox">
           <button
-            className="btn-replace"
-            type="button"
-            onClick={() => showReplacements(product.query, product.title, product.api_id)}
-          >
-            Show replacements
-          </button>
-          <button
             className="btn-remove"
             type="button"
             onClick={() => removeProduct(product.api_id)}
           >
             Remove
+          </button>
+          <button
+            className="btn-replace"
+            type="button"
+            onClick={() => showReplacements(product.query, product.title, product.api_id)}
+          >
+            Show replacements
           </button>
         </div>
       </div>

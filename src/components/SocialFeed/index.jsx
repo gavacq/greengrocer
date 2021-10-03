@@ -59,6 +59,7 @@ export default function SocialFeed() {
         <div className="posts-wrapper">
           {posts.map((post) => (
             <Post
+              className="co2"
               key={post.id}
               post={post}
               setPosts={setPosts}

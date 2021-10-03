@@ -12,7 +12,7 @@ export default function NewListProduct(props) {
       <div className="replace-btn-wrapper">
         <p className="co2-desc">
           {/* eslint-disable-next-line */}
-          CO2: <span>{product.co2}</span> kg
+          CO₂ : <span>{product.co2}</span> kg
         </p>
         <div className="btn-flexbox">
           <button

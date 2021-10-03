@@ -61,14 +61,14 @@ export default function NewList(props) {
 
     return (
       <>
-        <p className="co2-saved-text">
+        <p className="co2-saved-text co2">
           Your choices have saved
           <span className="co2-desc">
             {' '}
             {newList.co2_saved}
             {' '}
           </span>
-          kg of CO2 so far!
+          kg of CO₂ so far!
         </p>
         {mappedList}
       </>

@@ -70,6 +70,7 @@
     width: 90%;
     font-size: 18px;
     font-weight: 400;
+    @include CO2-style;
   }
 }
 
@@ -85,6 +86,7 @@ p.co2-saved-text {
   margin-left: 10px;
   padding-left: 0;
   font-weight: 600;
+  @include CO2-style;
 
   span.co2-desc {
     color: $btn-border;
@@ -97,6 +99,7 @@ p.co2-saved-text {
   text-align: right;
   position: relative;
   top: 12px;
+  @include CO2-style;
 }
 
 .all-lists-wrapper {
@@ -181,6 +184,9 @@ p.co2-saved-text {
   color: $btn-background;
 }
 
+.co2 {
+  @include CO2-style;
+}
 
 // ------------- Media queries ------------- //
 

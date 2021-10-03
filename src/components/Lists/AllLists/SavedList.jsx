@@ -23,19 +23,19 @@ export default function SavedList(props) {
     switch (Math.floor((Math.random() * 100) % 5)) {
       case 0:
         // laundry
-        return `I saved ${co2} kg of CO2. That is like washing and drying ${Math.ceil(co2 / 2.4)} loads of laundry!`;
+        return `I saved ${co2} kg of CO₂ . That is like washing and drying ${Math.ceil(co2 / 2.4)} loads of laundry!`;
       case 1:
         // airplane
-        return `I saved ${co2} kg of CO2. That is like flying in economy class for ${Math.ceil(co2 / 110)} hours!`;
+        return `I saved ${co2} kg of CO₂ . That is like flying in economy class for ${Math.ceil(co2 / 110)} hours!`;
       case 2:
         // car
-        return `I saved ${co2} kg of CO2. That is like driving ${Math.ceil(co2 / 0.28)} km in a typical passenger vehicle!`;
+        return `I saved ${co2} kg of CO₂ . That is like driving ${Math.ceil(co2 / 0.28)} km in a typical passenger vehicle!`;
       case 3:
         // hours of watching netflix
-        return `I saved ${co2} kg of CO2. That is like ${Math.ceil(co2 / 10)} hours of watching Netflix in HD!`;
+        return `I saved ${co2} kg of CO₂ . That is like ${Math.ceil(co2 / 10)} hours of watching Netflix in HD!`;
       case 4:
         // trees equivalent
-        return `I saved ${co2} kg of CO2. An average tree takes ${Math.ceil(co2 / 25)} years to remove that much CO2 from the atmosphere!`;
+        return `I saved ${co2} kg of CO₂ . An average tree takes ${Math.ceil(co2 / 25)} years to remove that much CO₂ from the atmosphere!`;
       default:
         return 'ERROR: oops';
     }
@@ -69,7 +69,7 @@ export default function SavedList(props) {
       <h3>List #{list.id}</h3>
       {mappedListItems}
       {/* eslint-disable-next-line */}
-      <p className="saved-list-co2">CO2 saved: {list.co2_saved} kg</p>
+      <p className="saved-list-co2 co2">CO₂ saved: {list.co2_saved} kg</p>
       <div className="buttons-flexbox">
         <button className="delete-btn" type="button" onClick={() => deleteList(list.id)}>delete</button>
         <button className="copy-btn" type="button" onClick={copyHandler}>copy</button>

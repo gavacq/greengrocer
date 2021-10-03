@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { listType } from '../../../types';
 import searchProducts from '../../../helpers/search';
 import NewListProduct from './NewListProduct';
+import '../index-lists.scss';
 
 export default function NewList(props) {
   const {
@@ -52,17 +53,21 @@ export default function NewList(props) {
   };
 
   return (
-    <section>
-      <h1>New List</h1>
-      <h3>
+    <section className="new-list-wrapper">
+      <h1>New list</h1>
+      <p className="co2-saved-text">
         Your choices have saved
-        {' '}
-        {newList.co2_saved}
-        {' '}
+        <span className="co2-desc">
+          {' '}
+          {newList.co2_saved}
+          {' '}
+        </span>
         g of CO2 so far!
-      </h3>
-      {mappedList()}
-      {newList.products.length ? <button type="button" onClick={saveList}>Save</button> : <></>}
+      </p>
+      <div>
+        {mappedList()}
+      </div>
+      {newList.products.length ? <button className="save-btn" type="button" onClick={saveList}>Save</button> : <></>}
     </section>
   );
 }
@@ -75,79 +80,3 @@ NewList.propTypes = {
   saveList: PropTypes.func.isRequired,
   setNewList: PropTypes.func.isRequired,
 };
-
-// import { React } from 'react';
-// import PropTypes from 'prop-types';
-// import { productType } from '../../types';
-// import productSearch from '../../helpers/search';
-// import './index-lists.scss';
-
-// export default function NewList(props) {
-//   const { newList, setResults, setIdToReplace } = props;
-//   console.log('list', newList);
-
-//   const submitList = () => {
-//     const co2Saved = 0;
-//     // TODO: db insert should return all columns from new list creation
-//     // then we can update allLists state variable
-//     console.log('THIS IS NEW LIST :', newList);
-//     axios.put('/api/lists', { list: newList, co2Saved }).then(() => console.log('saved new list success'));
-//   };
-
-//   const showReplacements = (query, title, id) => {
-//     const newQuery = title.toLowerCase().split(' ').filter((w) => w.includes(query.toLowerCase()))[0];
-//     console.log('newQueyr', newQuery);
-//     productSearch(newQuery)
-//       .then((results) => {
-//         setIdToReplace(id);
-//         setResults(results);
-//       });
-//   };
-
-//   const mappedList = () => {
-//     if (!newList.products) {
-//       console.log('no products yet');
-//       return <h3>No products added!</h3>;
-//     }
-//     return newList.products.map((p) => (
-//       <div className="item-in-list">
-//         <div className="description">
-//           <p className="main-desc" key={p.api_id}>{p.title}</p>
-//         </div>
-//         <div className="replace-btn-wrapper">
-//           <p className="co2-desc">
-//             {/* eslint-disable-next-line */}
-//             CO2: <span>{p.co2}</span> g
-//           </p>
-//           <button className="btn-replace" type="button" onClick={() => showReplacements(p.query, p.title, p.api_id)}>Show replacements</button>
-//         </div>
-//       </div>
-//     ));
-//   };
-
-//   return (
-//    <section className="new-list-wrapper">
-//       <h1>New list</h1>
-//       <p className="co2-saved-text">
-//         Your choices have saved
-//         <span className="co2-desc">
-//           {' '}
-//           {newList.co2_saved}
-//           {' '}
-//         </span>
-//         g of CO2 so far!
-//       </p>
-//       <div>
-//         {mappedList()}
-//       </div>
-//       <button className="save-btn" type="button" onClick={() => submitList()}>Save</button>
-//     </section>
-//   );
-// }
-
-// // declare the prop type for the ListProducts component
-// NewList.propTypes = {
-//   newList: PropTypes.arrayOf(productType).isRequired,
-//   setResults: PropTypes.func.isRequired,
-//   setIdToReplace: PropTypes.func.isRequired,
-// };

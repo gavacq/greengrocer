@@ -2,94 +2,69 @@
 
 // -------------------------- Mixins ------------------------------- //
 
+// all buttons should have these styles
 @mixin all-buttons {
-margin-bottom: 5px;
-}
-
-// mixin for pink buttons 
-@mixin button-styles {
-  border: solid 4px $btn-border;
+  margin-bottom: 5px;
   border-radius: 15px;
-  background-color: $btn-background;
-  color: $btn-text;
   font-family: "Fredoka One";
   letter-spacing: 0.7px;
   overflow-y: hidden;
-  // z-index: 100;
+
+  &:active {
+    transform: translateY(4px);
+  }
+}
+
+// pink buttons 
+@mixin button-styles {
+  color: $btn-text;
+  background-color: $btn-background;
+  border: solid 4px $btn-border;
 
   &:hover {
     background-color: $btn-background-hover;
     border: solid 4px $btn-border-hover;
     color: $btn-text-hover;
   }
-
-  &:active {
-    transform: translateY(4px);
-  }
 }
 
-// mixin for green buttons 
+// green buttons 
 @mixin green-button-styles {
-  border: solid 4px $green-btn-border;
-  border-radius: 15px;
-  background-color: $green-btn-background;
   color: $green-btn-text;
-  font-family: "Fredoka One";
-  letter-spacing: 0.7px;
-  overflow-y: hidden;
+  background-color: $green-btn-background;
+  border: solid 4px $green-btn-border;
 
   &:hover {
     background-color: $green-btn-background-hover;
     border: solid 4px $green-btn-border-hover;
     color: $green-btn-text-hover;
   }
-
-  &:active {
-    transform: translateY(4px);
-  }
 }
 
 
-
-// mixin for blue buttons 
+// blue buttons 
 @mixin blue-button-styles {
-  border: solid 4px $blue-btn-border;
-  border-radius: 15px;
-  background-color: $blue-btn-background;
   color: $blue-btn-text;
-  font-family: "Fredoka One";
-  letter-spacing: 0.7px;
-  overflow-y: hidden;
+  background-color: $blue-btn-background;
+  border: solid 4px $blue-btn-border;
 
   &:hover {
     background-color: $blue-btn-background-active;
     color: $blue-btn-hover-text;
     border: solid 4px $blue-btn-hover-border;
   }
-
-  &:active {
-    transform: translateY(4px);
-  }
 }
 
-// mixin for delete buttons 
+// delete/red buttons 
 @mixin delete-button-styles {
-  border: solid 4px $delete-btn-border;
-  border-radius: 15px;
-  background-color: $delete-btn-background;
   color: $delete-btn-text;
-  font-family: "Fredoka One";
-  letter-spacing: 0.7px;
-  overflow-y: hidden;
+  background-color: $delete-btn-background;
+  border: solid 4px $delete-btn-border;
 
   &:hover {
     background-color: $delete-btn-hover-background;
     color: $delete-btn-hover-text;
     border: solid 4px $delete-btn-hover-border;
-  }
-
-  &:active {
-    transform: translateY(4px);
   }
 }
 

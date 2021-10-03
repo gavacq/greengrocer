@@ -1,7 +1,6 @@
 @import "../styles/variables";
 @import "../styles/mixins";
 
-
 // ----------------- styles for products ------------ //
 
 p {
@@ -55,6 +54,7 @@ img.product {
 
 .add-btn {
   @include green-button-styles;
+  @include all-buttons;
   position: relative;
   top: -15px;
   height: 60px;

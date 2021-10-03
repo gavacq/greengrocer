@@ -37,7 +37,7 @@ export default function NewList(props) {
       });
   };
 
-  const mappedList = () => {
+  const newListContents = () => {
     if (!newList.products.length) {
       console.log('no products yet');
       return (
@@ -50,8 +50,20 @@ export default function NewList(props) {
         </div>
       );
     }
-    return newList.products.map((p) => (
+
+    const mappedList = newList.products.map((p) => (
       <div>
+        <NewListProduct
+          product={p}
+          showReplacements={showReplacements}
+          removeProduct={removeProduct}
+          key={p.api_id}
+        />
+      </div>
+    ));
+
+    return (
+      <>
         <p className="co2-saved-text">
           Your choices have saved
           <span className="co2-desc">
@@ -61,21 +73,16 @@ export default function NewList(props) {
           </span>
           kg of CO2 so far!
         </p>
-        <NewListProduct
-          product={p}
-          showReplacements={showReplacements}
-          removeProduct={removeProduct}
-          key={p.api_id}
-        />
-      </div>
-    ));
+        {mappedList}
+      </>
+    );
   };
 
   return (
     <section className="new-list-wrapper">
       <h1>New list</h1>
       <div>
-        {mappedList()}
+        {newListContents()}
       </div>
       {newList.products.length ? <button className="save-btn" type="button" onClick={saveList}>Save</button> : <></>}
     </section>

@@ -22,7 +22,8 @@
   background-color: $primary-green;
   transition: background-color 0.4s;
 
-  .logo, li {
+  .logo,
+  li {
     color: $primary-white;
     transition: color 0.4s;
   }
@@ -30,7 +31,6 @@
   li:hover {
     color: $green-hover;
   }
-
 }
 
 .sticky {
@@ -73,7 +73,6 @@ div.logo {
   text-decoration: none;
 }
 
-
 /* hamburger menu icon */
 // .nav-btn-container img {
 //   width: 50px;
@@ -84,9 +83,8 @@ div.logo {
   display: none;
 }
 
-
 .user-name {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: $btn-border-hover;
@@ -117,10 +115,9 @@ div.logo {
       transition: color 0.4s;
       font-size: 1.5em;
 
-        &:hover {
-          color: $pink-hover;
-        }
+      &:hover {
+        color: $pink-hover;
       }
     }
   }
-
+}

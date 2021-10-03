@@ -933,6 +933,11 @@ const randomizerCoordinates = {
     lat: 1.30,
     long: 173,
   },
+  21: {
+    country: 'United States of America',
+    lat: coordinates['000'].lat,
+    long: coordinates['000'].long,
+  },
 };
 
 module.exports = { coordinates, randomizerCoordinates };

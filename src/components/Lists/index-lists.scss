@@ -84,6 +84,7 @@
 }
 
 p.co2-saved-text {
+  margin-left: 10px;
   padding-left: 0;
   font-weight: 600;
 
@@ -174,6 +175,20 @@ p.co2-saved-text {
   color: $btn-background;
 }
 
+// .no-products-yet {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   text-align: left;
+//   margin-top: 30px;
+//   opacity: 0.8;
+
+//   p {
+//     align-self: center;
+//   }
+// }
+
 
 // ---------- media queries ---------- //
 
@@ -215,6 +230,12 @@ p.co2-saved-text {
       font-weight: 400;
       padding: 0;
     }
+  }
+
+
+  .btn-flexbox {
+    padding-left: 20px;
+    padding-right: 20px;  
   }
 
 }
@@ -259,6 +280,13 @@ p.co2-saved-text {
       margin-bottom: 15px;
     }
     
+  }
+
+  .buttons-flexbox {
+    
+    button {
+      flex-basis: 15vw;
+    }
   }
 
 }

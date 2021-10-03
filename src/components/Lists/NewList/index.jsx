@@ -40,30 +40,38 @@ export default function NewList(props) {
   const mappedList = () => {
     if (!newList.products.length) {
       console.log('no products yet');
-      return <h3>No products added!</h3>;
+      return (
+        <p className="no-products-yet">
+          <em>
+            You have no products yet.
+          </em>
+        </p>
+      );
     }
     return newList.products.map((p) => (
-      <NewListProduct
-        product={p}
-        showReplacements={showReplacements}
-        removeProduct={removeProduct}
-        key={p.api_id}
-      />
+      <div>
+        <p className="co2-saved-text">
+          Your choices have saved
+          <span className="co2-desc">
+            {' '}
+            {newList.co2_saved}
+            {' '}
+          </span>
+          kg of CO2 so far!
+        </p>
+        <NewListProduct
+          product={p}
+          showReplacements={showReplacements}
+          removeProduct={removeProduct}
+          key={p.api_id}
+        />
+      </div>
     ));
   };
 
   return (
     <section className="new-list-wrapper">
       <h1>New list</h1>
-      <p className="co2-saved-text">
-        Your choices have saved
-        <span className="co2-desc">
-          {' '}
-          {newList.co2_saved}
-          {' '}
-        </span>
-        kg of CO2 so far!
-      </p>
       <div>
         {mappedList()}
       </div>

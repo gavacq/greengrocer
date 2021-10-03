@@ -41,11 +41,13 @@ export default function NewList(props) {
     if (!newList.products.length) {
       console.log('no products yet');
       return (
-        <p className="no-products-yet">
-          <em>
-            You have no products yet.
-          </em>
-        </p>
+        <div className="no-products-yet">
+          <p>
+            <em>
+              You have no products yet.
+            </em>
+          </p>
+        </div>
       );
     }
     return newList.products.map((p) => (

@@ -70,7 +70,8 @@ export default function Nav() {
 
     return (
       <>
-        <li className="desktop-menu-item">{user.username}</li>
+        {/* eslint-disable-next-line */}
+        <li className="user-name">logged in as: {user.username}</li>
         <li className="desktop-menu-item" style={logoutStyle} onClick={handleLogout}>Logout</li>
       </>
     );

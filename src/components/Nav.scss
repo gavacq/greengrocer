@@ -84,6 +84,17 @@ div.logo {
   display: none;
 }
 
+
+.user-name {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: $btn-border-hover;
+  opacity: 0.7;
+  position: relative;
+  top: 3px;
+  right: 20px;
+}
 /* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
 
 @media screen and (min-width: $desktop-breakpoint) {

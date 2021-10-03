@@ -7,7 +7,7 @@ module.exports = (db) => {
   // PUT
   router.put('/', (req, res) => {
     const { list } = req.body;
-    if (!list.products.length) {
+    if (!req.session || !req.session.user || !list.products.length) {
       res.json({ products: [] });
       return;
     }

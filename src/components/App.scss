@@ -2,6 +2,11 @@
 
 // -------------------------- main App component styles ------------------------------- //
 
+div#root {
+  height: 100%;
+  height: fit-content;
+}
+
 .green {
   background: $primary-green;
   color: $primary-white;
@@ -15,16 +20,17 @@
 }
 
 
-  /* edit wave position here */
-  .wave {
-    position: absolute;
-    top: -205px;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-    height: 300px;  
+// ------------ SVG wave styles ------------ //
+
+.wave {
+  position: absolute;
+  top: -205px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  height: 300px;  
 }
 
 .wave svg {
@@ -40,6 +46,8 @@
     position: absolute;
 }  
 
+// ------------ Footer styles ------------ //
+
 footer {
   display: flex;
   color: rgba(221, 248, 186, 0.9);
@@ -49,6 +57,9 @@ footer {
   padding: 10px;
   border-top: solid rgba(221, 248, 186, 0.5) 4px;
   height: 130px;
+  width: 100vw;
+  // position: static;
+  // bottom: 0;
 
   h4 {
     margin-bottom: 12px;

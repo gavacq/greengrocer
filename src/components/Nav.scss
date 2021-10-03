@@ -73,16 +73,15 @@ div.logo {
   text-decoration: none;
 }
 
-/* hamburger menu icon */
-// .nav-btn-container img {
-//   width: 50px;
-// }
-
 /* desktop menu */
 .desktop-menu {
   display: none;
 }
 
+/* ---------------------- Media queries -------------------------- */
+
+// tablet/desktop
+@media screen and (min-width: $breakpoint-D) {
 .user-name {
   font-family: "Rubik", sans-serif;
   font-size: 16px;
@@ -93,13 +92,6 @@ div.logo {
   top: 3px;
   right: 20px;
 }
-/* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
-
-@media screen and (min-width: $desktop-breakpoint) {
-  /* hamburger menu icon */
-  // .nav-btn-container img {
-  //   display: none;
-  // }
 
   .desktop-menu {
     display: flex;
@@ -119,5 +111,6 @@ div.logo {
         color: $pink-hover;
       }
     }
+    
   }
 }

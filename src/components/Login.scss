@@ -36,7 +36,6 @@ input.login-inputs {
   &:active, &:focus {
     background-color: $btn-text;
   }
-
 }
 
 input#email {
@@ -52,6 +51,7 @@ input#password {
 
 .login-btn {
   @include button-styles;
+  @include all-buttons;
   width: 100px;
   height: 60px;
   font-size: 25px;

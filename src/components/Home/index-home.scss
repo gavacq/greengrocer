@@ -9,8 +9,8 @@
 
 main.home {
   background-color: $primary-green;
-  max-height: 1200px;
-  overflow: hidden;
+  max-height: fit-content;
+  // overflow: hidden;
 }
 
 .welcome {
@@ -70,12 +70,12 @@ h1 {
 
 // ----------- Media queries --------------- //
 
-@media screen and (max-width: 725px) {
+// @media screen and (max-width: 725px) {
 
-  main.home {
-    background-color: $primary-green;
-    max-height: fit-content; // FOOTER!!
-    overflow: hidden;
-  }
-  
-}
+//   main.home {
+//     background-color: $primary-green;
+//     height: fit-content; // FOOTER!!
+//     overflow: hidden;
+//   }
+
+// }

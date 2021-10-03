@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="home">
       <section className="welcome">
-        <h1 className="welcome-sentence">
+        <h1>
           Reduce your groceries&apos; carbon footprint.
         </h1>
         <div className="icon planet">

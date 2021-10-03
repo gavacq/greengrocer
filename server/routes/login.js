@@ -31,5 +31,13 @@ module.exports = (db) => {
         console.log(err);
       });
   });
+
+  router.get('/', (req, res) => {
+    if (!req.session || !req.session.user) {
+      res.json({ auth: false });
+    } else {
+      res.json({ auth: true });
+    }
+  });
   return router;
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Nav.scss';
 import '../index.scss';
 import { Link } from 'react-router-dom';
@@ -72,6 +72,16 @@ export default function Nav() {
   };
 
   window.addEventListener('scroll', changeNavColor);
+
+  useEffect(() => {
+    axios.get('/login')
+      .then((res) => {
+        setUser((prev) => ({
+          ...prev,
+          auth: res.data.auth,
+        }));
+      });
+  }, []);
 
   return (
     <div className={navColor ? 'nav-container sticky active' : 'nav-container sticky'}>

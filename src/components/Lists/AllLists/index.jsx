@@ -15,13 +15,12 @@ export default function AllLists(props) {
 
     return (
       allLists.map((l) => (
-        <div key={l.id}>
-          <SavedList
-            list={l}
-            setNewList={setNewList}
-            deleteList={deleteList}
-          />
-        </div>
+        <SavedList
+          key={l.id}
+          list={l}
+          setNewList={setNewList}
+          deleteList={deleteList}
+        />
       ))
     );
   };

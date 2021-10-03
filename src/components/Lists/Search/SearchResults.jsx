@@ -1,5 +1,3 @@
-// https://spoonacular.com/productImages/12003-312x231.jpeg
-
 import { React } from 'react';
 import PropTypes from 'prop-types';
 import Product from '../../Product';
@@ -22,15 +20,13 @@ export default function SearchResults(props) {
   };
 
   const jsxResults = results.map((result) => (
-    <div>
-      <Product
-        key={result.api_id}
-        data={result}
-        addProductToList={addProductToList}
-        replaceProduct={replaceProduct}
-        idToReplace={idToReplace}
-      />
-    </div>
+    <Product
+      key={result.api_id}
+      data={result}
+      addProductToList={addProductToList}
+      replaceProduct={replaceProduct}
+      idToReplace={idToReplace}
+    />
   ));
 
   return (

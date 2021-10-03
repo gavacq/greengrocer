@@ -6,7 +6,7 @@ const router = express.Router();
 module.exports = (db) => {
   router.post('/', (req, res) => {
     const { email, password } = req.body;
-    const text = 'SELECT password, id FROM users WHERE email = $1';
+    const text = 'SELECT password, id, username FROM users WHERE email = $1';
     const values = [email];
 
     db.query(text, values)
@@ -14,7 +14,7 @@ module.exports = (db) => {
         if (data.rows.length > 0) {
           if (bcrypt.compareSync(password, data.rows[0].password)) {
             req.session.user = data.rows[0].id;
-            res.json({ auth: true });
+            res.json({ auth: true, username: data.rows[0].username });
           } else {
             // console.log(`invalid password ${password}`);
             throw new Error('invalid password');
@@ -36,7 +36,11 @@ module.exports = (db) => {
     if (!req.session || !req.session.user) {
       res.json({ auth: false });
     } else {
-      res.json({ auth: true });
+      const text = `SELECT username FROM users WHERE id = ${req.session.user}`;
+      db.query(text)
+        .then((data) => {
+          res.json({ auth: true, username: data.rows[0].username });
+        });
     }
   });
   return router;

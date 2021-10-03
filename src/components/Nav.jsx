@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
 import './Nav.scss';
 import '../index.scss';
@@ -67,7 +69,10 @@ export default function Nav() {
     };
 
     return (
-      <li className="desktop-menu-item" style={logoutStyle} onClick={handleLogout}>Logout</li> // eslint-disable-line
+      <>
+        <li className="desktop-menu-item">{user.username}</li>
+        <li className="desktop-menu-item" style={logoutStyle} onClick={handleLogout}>Logout</li>
+      </>
     );
   };
 
@@ -79,6 +84,7 @@ export default function Nav() {
         setUser((prev) => ({
           ...prev,
           auth: res.data.auth,
+          username: res.data.username,
         }));
       });
   }, []);
@@ -93,13 +99,13 @@ export default function Nav() {
             </div>
           </Link>
           <ul className="desktop-menu">
+            {user.auth ? logoutButton() : loginButton()}
             <Link to="/lists" className="desktop-menu-item">
               <li>Lists</li>
             </Link>
             <Link to="/stats" className="desktop-menu-item">
               <li>Stats</li>
             </Link>
-            {user.auth ? logoutButton() : loginButton()}
           </ul>
         </nav>
       </div>

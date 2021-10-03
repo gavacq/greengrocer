@@ -24,21 +24,22 @@
 
 .btn-replace {
   @include blue-button-styles;
-  border: solid 3px $blue-btn-border;
+  border: solid 2.5px $blue-btn-border;
   border-radius: 5px;
   font-family: 'Rubik', sans-serif;
   font-size: 18px;
   font-weight: 500;
   height: 30px;
+  // margin-right: 10px;
 
   &:hover, &:active {
-    border: solid 3px $blue-btn-hover-border;
+    border: solid 2.5px $blue-btn-hover-border;
   }
 }
 
 .btn-remove {
   @include delete-button-styles;
-  border: solid 3px $delete-btn-border;
+  border: solid 2.5px $delete-btn-border;
   border-radius: 5px;
   font-family: 'Rubik', sans-serif;
   font-size: 18px;
@@ -46,7 +47,7 @@
   height: 30px;
 
   &:hover, &:active {
-    border: solid 3px $delete-btn-hover-border; 
+    border: solid 2.5px $delete-btn-hover-border; 
   }
 }
 
@@ -179,6 +180,18 @@ p.co2-saved-text {
     margin-left: 10px;
     margin-right: 10px;
   }
+
+  .btn-flexbox {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    button {
+      width: fit-content;
+      margin-bottom: 15px;
+    }
+    
+  }
 }
 
 @media screen and (min-width: 400px){
@@ -227,6 +240,18 @@ p.co2-saved-text {
 
   div.item-in-list {
     position: center;
+  }
+
+  .btn-flexbox {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    button {
+      width: fit-content;
+      margin-bottom: 15px;
+    }
+    
   }
 
 }

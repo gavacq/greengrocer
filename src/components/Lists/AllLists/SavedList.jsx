@@ -23,19 +23,19 @@ export default function SavedList(props) {
     switch (Math.floor((Math.random() * 100) % 5)) {
       case 0:
         // cups of coffee
-        return `I saved ${co2} kg of CO2. That is like washing and drying ${Math.trunc(co2 / 2.4)} loads of laundry!`;
+        return `I saved ${co2} kg of CO2. That is like washing and drying ${Math.ceil(co2 / 2.4)} loads of laundry!`;
       case 1:
         // airplane
-        return `I saved ${co2} kg of CO2. That is like flying in economy class for ${Math.trunc(co2 / 110)} hours!`;
+        return `I saved ${co2} kg of CO2. That is like flying in economy class for ${Math.ceil(co2 / 110)} hours!`;
       case 2:
         // car
-        return `I saved ${co2} kg of CO2. That is like driving ${Math.trunc(co2 / 0.28)} km in a typical passenger vehicle!`;
+        return `I saved ${co2} kg of CO2. That is like driving ${Math.ceil(co2 / 0.28)} km in a typical passenger vehicle!`;
       case 3:
         // hours of watching netflix
-        return `I saved ${co2} kg of CO2. That is like ${Math.trunc(co2 / 10)} hours of watching Netflix in HD!`;
+        return `I saved ${co2} kg of CO2. That is like ${Math.ceil(co2 / 10)} hours of watching Netflix in HD!`;
       case 4:
         // trees equivalent
-        return `I saved ${co2} kg of CO2. An average tree takes ${Math.trunc(co2 / 25)} years to remove that much CO2 from the atmosphere!`;
+        return `I saved ${co2} kg of CO2. An average tree takes ${Math.ceil(co2 / 25)} years to remove that much CO2 from the atmosphere!`;
       default:
         return 'ERROR: oops';
     }

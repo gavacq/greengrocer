@@ -1,11 +1,9 @@
-/* eslint-disable react/require-default-props */
 import { React, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
+import PropTypes from 'prop-types';
 
 import Main from './Main';
-
-import { listType } from '../../../types';
 
 // eslint-disable-next-line no-unused-vars
 export default function Earth({ products }) {
@@ -18,8 +16,8 @@ export default function Earth({ products }) {
   return (
     <div style={{ width: '50vw', height: '90vh' }}>
       <Canvas camera={{ position: [0, 0, 10] }}>
-        <ambientLight intensity={0.2} />
-        <pointLight position={[10, 10, 0]} intensity={1} />
+        <ambientLight intensity={0.6} />
+        <pointLight position={[10, 10, 2]} intensity={1} />
         <Suspense fallback={null}>
           <Main origin={origin} products={products} />
         </Suspense>
@@ -30,5 +28,8 @@ export default function Earth({ products }) {
 }
 
 Earth.propTypes = {
-  products: listType,
+  products: PropTypes.shape({
+    lat: PropTypes.number.isRequired,
+    long: PropTypes.number.isRequired,
+  }).isRequired,
 };

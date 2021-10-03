@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import { React, useRef } from 'react';
-
 import { useFrame } from '@react-three/fiber';
+import PropTypes from 'prop-types';
+
 import Planet from './Planet';
 import Clouds from './Clouds';
 import Location from './Location';
@@ -23,3 +23,15 @@ export default function Main({ products, origin }) {
     </group>
   );
 }
+
+Main.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.shape({
+    lat: PropTypes.number.isRequired,
+    long: PropTypes.number.isRequired,
+  })).isRequired,
+  origin: PropTypes.shape({
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired,
+    z: PropTypes.number.isRequired,
+  }).isRequired,
+};

@@ -827,4 +827,112 @@ const coordinates = {
   },
 };
 
-module.exports = { coordinates };
+const randomizerCoordinates = {
+  0: {
+    country: 'Papau New Guinea',
+    lat: -9.24,
+    long: 147.08,
+  },
+  1: {
+    country: 'Macau',
+    lat: 22.12,
+    long: 113.33,
+  },
+  2: {
+    country: 'Andorra',
+    lat: 42.31,
+    long: 1.31,
+  },
+  3: {
+    country: 'Togo',
+    lat: 6.09,
+    long: 1.20,
+  },
+  4: {
+    country: 'Maldives',
+    lat: 4.00,
+    long: 73.28,
+  },
+  5: {
+    country: 'Ethiopia',
+    lat: 9.02,
+    long: 38.42,
+  },
+  6: {
+    country: 'Belarus',
+    lat: 53.52,
+    long: 27.30,
+  },
+  7: {
+    country: 'Libya',
+    lat: 32.49,
+    long: 13.07,
+  },
+  8: {
+    country: 'Lesotho',
+    lat: -29.18,
+    long: 27.30,
+  },
+  9: {
+    country: 'Norway',
+    lat: 59.55,
+    long: 10.45,
+  },
+  10: {
+    country: 'East Timor',
+    lat: -8.29,
+    long: 125.34,
+  },
+  11: {
+    country: 'New Caledonia',
+    lat: -22.17,
+    long: 166.30,
+  },
+  12: {
+    country: 'Cape Verde',
+    lat: 15.02,
+    long: (360 - 23.34),
+  },
+  13: {
+    country: 'Argentina',
+    lat: -36.30,
+    long: (360 - 60),
+  },
+  14: {
+    country: 'Nicaragua',
+    lat: 12.06,
+    long: (360 - 86.20),
+  },
+  15: {
+    country: 'Uganda',
+    lat: 0.20,
+    long: 32.30,
+  },
+  16: {
+    country: 'United Kingdom',
+    lat: 51.36,
+    long: (360 - 0.05),
+  },
+  17: {
+    country: 'Slovakia',
+    lat: 48.10,
+    long: 17.07,
+  },
+  18: {
+    country: 'New Zealand',
+    lat: -41.19,
+    long: 174.46,
+  },
+  19: {
+    country: 'Uzbekistan',
+    lat: 41.20,
+    long: 69.10,
+  },
+  20: {
+    country: 'Kiribati',
+    lat: 1.30,
+    long: 173,
+  },
+};
+
+module.exports = { coordinates, randomizerCoordinates };

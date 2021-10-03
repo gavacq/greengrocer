@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <main className="home">
       <section className="welcome">
-        <h1>
-          Welcome to GreenGrocer.
+        <h1 className="welcome-sentence">
+          Reduce your groceries&apos; carbon footprint.
         </h1>
         <div className="icon planet">
           <img src="images/planet-earth.png" alt="planet icon" />

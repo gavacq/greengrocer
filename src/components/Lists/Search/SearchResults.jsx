@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import Product from '../../Product';
 import { productType } from '../../../types';
 import '../index-lists.scss';
+import { removeProductFromList } from '../../../helpers/search';
 
 export default function SearchResults(props) {
   const {
-    results, setNewList, replaceProduct, idToReplace, queryDisplay,
+    results, setResults, setNewList, replaceProduct, idToReplace, queryDisplay,
   } = props;
   console.log('results', results);
 
@@ -17,6 +18,9 @@ export default function SearchResults(props) {
       co2_saved: prev.co2_saved || 0,
       products: prev.products ? [...prev.products, product] : [product],
     }));
+
+    const filteredResults = removeProductFromList(results, product.api_id);
+    setResults(filteredResults);
   };
 
   const jsxResults = results.map((result) => (
@@ -41,6 +45,7 @@ export default function SearchResults(props) {
 // declare the prop type for the SearchResults component
 SearchResults.propTypes = {
   results: PropTypes.arrayOf(productType).isRequired,
+  setResults: PropTypes.func.isRequired,
   setNewList: PropTypes.func.isRequired,
   replaceProduct: PropTypes.func.isRequired,
   idToReplace: PropTypes.number,

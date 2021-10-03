@@ -100,6 +100,7 @@ export default function List() {
             setResults={setResults}
             replaceProduct={replaceProduct}
             idToReplace={idToReplace}
+            setIdToReplace={setIdToReplace}
           />
         </div>
         <section className="new-list-wrapper">

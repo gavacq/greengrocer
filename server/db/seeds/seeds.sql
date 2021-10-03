@@ -9,16 +9,45 @@ INSERT INTO users (username, email, password)
 VALUES ('Gary', 'gary@mail.com', '$2b$12$kxBaHkppBKYYAp6Aqrs14eZPyw.JA2zYk6R4s9ygk4sbDKuHUUaMq');
 
 INSERT INTO users (username, email, password)
-VALUES ('Nally', 'nally@mail.com', 'qeufhew');
+VALUES ('Nally', 'nally@mail.com', 'nopassword');
 
+INSERT INTO users (username, email, password)
+VALUES ('James', 'james@mail.com', 'nopassword');
+
+INSERT INTO users (username, email, password)
+VALUES ('Cat', 'cat@mail.com', 'nopassword');
 
 -- Seeds for lists table
 
 INSERT INTO lists (user_id, co2_saved)
-VALUES (1, 30);
+VALUES (2, 5);
 
 INSERT INTO lists (user_id, co2_saved)
-VALUES (2, 100);
+VALUES (2, 2);
+
+INSERT INTO lists (user_id, co2_saved)
+VALUES (2, 1);
+
+INSERT INTO lists (user_id, co2_saved)
+VALUES (2, 0);
+
+INSERT INTO lists (user_id, co2_saved)
+VALUES (2, 8);
+
+INSERT INTO lists (user_id, co2_saved)
+VALUES (2, 1);
+
+INSERT INTO lists (user_id, co2_saved)
+VALUES (2, 6);
+
+INSERT INTO lists (user_id, co2_saved)
+VALUES (2, 11);
+
+INSERT INTO lists (user_id, co2_saved)
+VALUES (2, 12);
+
+INSERT INTO lists (user_id, co2_saved)
+VALUES (2, 4);
 
 INSERT INTO lists (user_id, co2_saved)
 VALUES (3, 68);

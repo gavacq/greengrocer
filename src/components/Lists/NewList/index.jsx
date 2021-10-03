@@ -1,8 +1,10 @@
+/* eslint-disable max-len */
 import { React } from 'react';
 import PropTypes from 'prop-types';
 import { listType } from '../../../types';
 import searchProducts from '../../../helpers/search';
 import NewListProduct from './NewListProduct';
+import '../index-lists.scss';
 
 export default function NewList(props) {
   const {
@@ -35,12 +37,21 @@ export default function NewList(props) {
       });
   };
 
-  const mappedList = () => {
+  const newListContents = () => {
     if (!newList.products.length) {
       console.log('no products yet');
-      return <h3>No products added!</h3>;
+      return (
+        <div className="no-products-yet">
+          <p>
+            <em>
+              You have no products yet.
+            </em>
+          </p>
+        </div>
+      );
     }
-    return newList.products.map((p) => (
+
+    const mappedList = newList.products.map((p) => (
       <NewListProduct
         product={p}
         showReplacements={showReplacements}
@@ -48,20 +59,30 @@ export default function NewList(props) {
         key={p.api_id}
       />
     ));
+
+    return (
+      <>
+        <p className="co2-saved-text">
+          Your choices have saved
+          <span className="co2-desc">
+            {' '}
+            {newList.co2_saved}
+            {' '}
+          </span>
+          kg of CO2 so far!
+        </p>
+        {mappedList}
+      </>
+    );
   };
 
   return (
-    <section>
-      <h1>New List</h1>
-      <h3>
-        Your choices have saved
-        {' '}
-        {newList.co2_saved}
-        {' '}
-        g of CO2 so far!
-      </h3>
-      {mappedList()}
-      {newList.products.length ? <button type="button" onClick={saveList}>Save</button> : <></>}
+    <section className="new-list-wrapper">
+      <h1>New list</h1>
+      <div>
+        {newListContents()}
+      </div>
+      {newList.products.length ? <button className="save-btn" type="button" onClick={saveList}>Save</button> : <></>}
     </section>
   );
 }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../index.scss';
 import './Products.scss';
 import './App.scss';
+import './Lists/index-lists.scss';
 import useWindowSize from '../hooks/useWindowSize';
 import { productType } from '../types';
 
@@ -16,11 +17,11 @@ export default function Product(props) {
     if (idToReplace) {
       return (
         <button
-          className="add-btn"
+          className="green-btn"
           type="button"
           onClick={() => replaceProduct(data)}
         >
-          <span>{width <= 720 ? '+' : 'Replace' }</span>
+          <span>Replace</span>
         </button>
       );
     }
@@ -33,7 +34,7 @@ export default function Product(props) {
           addProductToList(data);
         }}
       >
-        <span>{width <= 720 ? '+' : 'Add to list' }</span>
+        <span>{width <= 820 ? '+' : 'Add to list' }</span>
       </button>
     );
   };

@@ -14,15 +14,15 @@ p {
 
 .product-img {
   text-align: center;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
 }
 
 .img-btn-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   text-align: left;
+  width: 90%;
 }
 
 img.product {
@@ -35,6 +35,15 @@ img.product {
   padding: 0 10% 0 10%;
   margin-bottom: 45px;
   align-items: center;
+  justify-content: center;
+
+  p {
+    width: 80%;
+    text-align: left;
+    font-weight: 400;
+    margin-left: 13%;
+    margin-right: auto;
+  }
 
   &:hover {
     img, p {
@@ -49,7 +58,7 @@ img.product {
   position: relative;
   top: -15px;
   height: 60px;
-  margin-left: 30px;
+  align-self: center;
 
   span {
     font-size: 55px;
@@ -78,9 +87,26 @@ img.product {
     width: 70vw;
   }
 
+
+  .img-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+    width: 90%;
+  }
+
+}
+
+@media screen and (min-width: 820px) {
+ 
+  
   .add-btn {
     padding-top: 20px;
-    margin-left: 15px;
+    margin-left: 10px;
+    width: 60%;
+    max-width: 200px;
 
     span {
       font-size: 30px;
@@ -88,4 +114,5 @@ img.product {
       text-align: left;
     }
   }
+
 }

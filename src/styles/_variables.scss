@@ -5,22 +5,37 @@ $green-hover: #ddf8ba;
 $likes-heart: #d75b63;
 $social-message: #3d865a;
 $footer-link: #ffc1ee;
+$all-lists-background: #84a4ee;
 
 // button colors
 $btn-border: #B16E72;
 $btn-background: #E08E93;
 $btn-text: #FFE2E4;
 
+
 // hover button colors
 $btn-border-hover: #ca7e83;
 $btn-background-hover: #f1a7ac;
 $btn-text-hover: #ffeced;
 
+// delete button colors
+$delete-btn-border: #8a3036;
+$delete-btn-background: rgb(192, 77, 85);
+$delete-btn-text: rgb(255, 186, 191);
+
+// delete button hover colors
+$delete-btn-hover-border: #9e383f;
+$delete-btn-hover-background: rgb(218, 89, 98);
+$delete-btn-hover-text: rgb(255, 207, 210);
+
+
 // search input colors
 $blue-btn-border: #1d44a1;
 $blue-btn-background: #688de1;
 $blue-btn-background-active: #84a4ee;
-$blue-btn-text: rgb(219, 230, 255);
+$blue-btn-text: rgb(192, 210, 247);
+$blue-btn-hover-text: rgb(229, 236, 253);
+$blue-btn-hover-border: #3962c0;
 
 // add to list button colors
 $green-btn-border: #50ab74;

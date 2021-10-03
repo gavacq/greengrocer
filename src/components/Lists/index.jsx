@@ -3,6 +3,7 @@ import axios from 'axios';
 import Search from './Search';
 import NewList from './NewList';
 import AllLists from './AllLists';
+import './index-lists.scss';
 
 export default function List() {
   const [newList, setNewList] = useState({
@@ -90,22 +91,26 @@ export default function List() {
   }, []);
 
   return (
-    <main>
-      <Search
-        setNewList={setNewList}
-        results={results}
-        setResults={setResults}
-        replaceProduct={replaceProduct}
-        idToReplace={idToReplace}
-        setIdToReplace={setIdToReplace}
-      />
-      <NewList
-        newList={newList}
-        setResults={setResults}
-        setIdToReplace={setIdToReplace}
-        saveList={saveList}
-        setNewList={setNewList}
-      />
+    <main className="lists-page-container">
+      <div className="search-and-new-list">
+        <div className="search-section">
+          <Search
+            setNewList={setNewList}
+            results={results}
+            setResults={setResults}
+            replaceProduct={replaceProduct}
+            idToReplace={idToReplace}
+            setIdToReplace={setIdToReplace}
+          />
+        </div>
+        <NewList
+          newList={newList}
+          setResults={setResults}
+          setIdToReplace={setIdToReplace}
+          saveList={saveList}
+          setNewList={setNewList}
+        />
+      </div>
       <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
     </main>
   );

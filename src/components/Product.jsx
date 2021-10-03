@@ -45,7 +45,8 @@ export default function Product(props) {
 
         <div className="product-img">
           <img src={data.image} alt="product" className="product" />
-          <p>{data.co2}</p>
+          {/* eslint-disable-next-line */}
+          <p>CO2: {data.co2} kg</p>
         </div>
         {actionButton()}
       </div>

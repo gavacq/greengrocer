@@ -42,7 +42,7 @@ export default function Location({ lat, long, origin }) {
 
   useFrame(() => {
     const elapsedTime = Math.floor(clock1.getElapsedTime() * (lineLength ** 2));
-    if (elapsedTime > 499) {
+    if (elapsedTime > 480) {
       clock1 = new THREE.Clock();
     }
 
@@ -67,10 +67,9 @@ export default function Location({ lat, long, origin }) {
 Location.propTypes = {
   lat: PropTypes.number.isRequired,
   long: PropTypes.number.isRequired,
-  // eslint-disable-next-line react/require-default-props
   origin: PropTypes.shape({
     x: PropTypes.number,
     y: PropTypes.number,
     z: PropTypes.number,
-  }),
+  }).isRequired,
 };

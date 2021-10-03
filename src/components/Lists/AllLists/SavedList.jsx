@@ -22,22 +22,22 @@ export default function SavedList(props) {
     console.log('co2 in generateMessage', co2);
     switch (Math.floor((Math.random() * 100) % 5)) {
       case 0:
-        // lightbulb
-        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
+        // cups of coffee
+        return `I saved ${co2} kg of CO2. That is like washing and drying ${Math.ceil(co2 / 2.4)} loads of laundry!`;
       case 1:
         // airplane
-        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
+        return `I saved ${co2} kg of CO2. That is like flying in economy class for ${Math.ceil(co2 / 110)} hours!`;
       case 2:
         // car
-        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
+        return `I saved ${co2} kg of CO2. That is like driving ${Math.ceil(co2 / 0.28)} km in a typical passenger vehicle!`;
       case 3:
-        // KB of network traffic
-        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
+        // hours of watching netflix
+        return `I saved ${co2} kg of CO2. That is like ${Math.ceil(co2 / 10)} hours of watching Netflix in HD!`;
       case 4:
         // trees equivalent
-        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
+        return `I saved ${co2} kg of CO2. An average tree takes ${Math.ceil(co2 / 25)} years to remove that much CO2 from the atmosphere!`;
       default:
-        return 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia nam commodi aliquid ipsum, unde nemo explicabo animi molestiae voluptas, omnis tempore aliquam corporis quas optio fugit asperiores laboriosam maiores. Ab?';
+        return 'ERROR: oops';
     }
   };
 

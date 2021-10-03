@@ -146,8 +146,12 @@ module.exports = (db) => {
     const allProductsQuery = `
         SELECT lat, long
         FROM products
+        JOIN products_lists ON products_lists.product_id = products.id
+        JOIN lists ON products_lists.list_id = lists.id
+        JOIN users ON users.id = lists.user_id
+        WHERE users.id = $1;
       `;
-    db.query(allProductsQuery)
+    db.query(allProductsQuery, [req.session.user])
       .then((results) => {
         res.send({ results });
       });

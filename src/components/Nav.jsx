@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useEffect, useState } from 'react';
 import './Nav.scss';
 import '../index.scss';
 import { Link } from 'react-router-dom';
@@ -67,11 +69,25 @@ export default function Nav() {
     };
 
     return (
-      <li className="desktop-menu-item" style={logoutStyle} onClick={handleLogout}>Logout</li> // eslint-disable-line
+      <>
+        {/* eslint-disable-next-line */}
+        <li className="desktop-menu-item" style={logoutStyle} onClick={handleLogout}>{user.username}</li>
+      </>
     );
   };
 
   window.addEventListener('scroll', changeNavColor);
+
+  useEffect(() => {
+    axios.get('/login')
+      .then((res) => {
+        setUser((prev) => ({
+          ...prev,
+          auth: res.data.auth,
+          username: res.data.username,
+        }));
+      });
+  }, []);
 
   return (
     <div className={navColor ? 'nav-container sticky active' : 'nav-container sticky'}>

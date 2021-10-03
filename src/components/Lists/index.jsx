@@ -103,15 +103,13 @@ export default function List() {
             setIdToReplace={setIdToReplace}
           />
         </div>
-        <section className="new-list-wrapper">
-          <NewList
-            newList={newList}
-            setResults={setResults}
-            setIdToReplace={setIdToReplace}
-            saveList={saveList}
-            setNewList={setNewList}
-          />
-        </section>
+        <NewList
+          newList={newList}
+          setResults={setResults}
+          setIdToReplace={setIdToReplace}
+          saveList={saveList}
+          setNewList={setNewList}
+        />
       </div>
       <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />
     </main>

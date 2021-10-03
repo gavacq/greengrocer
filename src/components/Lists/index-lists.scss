@@ -176,7 +176,7 @@ p.co2-saved-text {
 
 // ------------- Media queries ------------- //
 
-@media screen and (max-width: $breakpoint-2) {
+@media screen and (max-width: $breakpoint-B) {
 
   .img-btn-container {
     flex-direction: column;
@@ -191,7 +191,7 @@ p.co2-saved-text {
 }
 
 
-@media screen and (min-width: $breakpoint-2){
+@media screen and (min-width: $breakpoint-B){
 
   .all-lists-wrapper {
     margin-top: 40px;
@@ -216,7 +216,7 @@ p.co2-saved-text {
 }
 
 
-@media screen and (min-width: $breakpoint-3) {
+@media screen and (min-width: $breakpoint-D) {
 
 
   .search-and-new-list {
@@ -256,7 +256,7 @@ p.co2-saved-text {
 }
 
 
-@media screen and (min-width: $breakpoint-5) {
+@media screen and (min-width: $breakpoint-F) {
 
   .new-list-wrapper {
     margin-right: 5vw;

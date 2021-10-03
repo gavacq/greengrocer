@@ -72,7 +72,7 @@ img.product {
 /* ---------------------- Media queries -------------------------- */
 
 // tablet and desktop
-@media screen and (min-width: $breakpoint-3) {
+@media screen and (min-width: $breakpoint-D) {
 
   p {
     font-size: 20px;
@@ -101,7 +101,7 @@ img.product {
 }
 
 // desktop
-@media screen and (min-width: $breakpoint-4) {
+@media screen and (min-width: $breakpoint-E) {
  
   
   .add-btn {

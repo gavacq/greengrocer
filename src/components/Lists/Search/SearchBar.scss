@@ -71,7 +71,7 @@ form.search-form {
 
 
 // tablet/desktop
-@media screen and (min-width: $breakpoint-6) {
+@media screen and (min-width: $breakpoint-C) {
 
   form.search-form {
     flex-direction: column;
@@ -101,7 +101,7 @@ form.search-form {
 
 
 // very small screens
-@media screen and (max-width: 360px) {
+@media screen and (max-width: $breakpoint-A) {
 
   .search-form input {
     width: 60vw;

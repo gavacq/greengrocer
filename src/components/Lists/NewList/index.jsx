@@ -2,7 +2,7 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
 import { listType } from '../../../types';
-import { searchProducts, filterDuplicateProducts } from '../../../helpers/search';
+import { searchProducts, filterDuplicateProductsFromResults, removeProductFromList } from '../../../helpers/search';
 import NewListProduct from './NewListProduct';
 import '../index-lists.scss';
 
@@ -13,13 +13,8 @@ export default function NewList(props) {
   console.log('list', newList);
 
   const removeProduct = (id) => {
-    const newProducts = newList.products.reduce((plist, p) => {
-      if (p.api_id === id) {
-        return plist;
-      }
-      plist.push(p);
-      return plist;
-    }, []);
+    const newProducts = removeProductFromList(newList.products, id);
+    console.log('removeProduct', newProducts);
 
     setNewList((prev) => ({
       ...prev,
@@ -33,7 +28,7 @@ export default function NewList(props) {
     searchProducts(newQuery)
       .then((results) => {
         setIdToReplace(id);
-        const dedupedResults = filterDuplicateProducts(results, newList);
+        const dedupedResults = filterDuplicateProductsFromResults(results, newList);
         setResults(dedupedResults);
       });
   };

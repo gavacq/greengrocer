@@ -2,7 +2,7 @@ import { React } from 'react';
 import PropTypes from 'prop-types';
 import './SearchBar.scss';
 import '../../../index.scss';
-import { searchProducts, filterDuplicateProducts } from '../../../helpers/search';
+import { searchProducts, filterDuplicateProductsFromResults } from '../../../helpers/search';
 import { listType } from '../../../types';
 
 export default function SearchBar(props) {
@@ -12,7 +12,7 @@ export default function SearchBar(props) {
 
   const clickHandler = () => {
     searchProducts(productName).then((results) => {
-      const dedupedResults = filterDuplicateProducts(results, newList);
+      const dedupedResults = filterDuplicateProductsFromResults(results, newList);
       setResults(dedupedResults);
       setIdToReplace(null);
       setQueryDisplay(productName);

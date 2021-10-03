@@ -16,7 +16,7 @@ const searchProducts = (productName) => axios.get(`/api/search/?productName=${pr
 
 // searchResults is array of productType
 // newList is listType
-const filterDuplicateProducts = (searchResults, newList) => searchResults.filter((r) => {
+const filterDuplicateProductsFromResults = (searchResults, newList) => searchResults.filter((r) => {
   if (newList.products.find((p) => p.api_id === r.api_id)) {
     console.log(`filtering product ${r.title}`);
 
@@ -26,7 +26,18 @@ const filterDuplicateProducts = (searchResults, newList) => searchResults.filter
   return true;
 });
 
+// results is array of productType
+// id is productType api_id
+const removeProductFromList = (results, id) => results.reduce((plist, p) => {
+  if (p.api_id === id) {
+    return plist;
+  }
+  plist.push(p);
+  return plist;
+}, []);
+
 export {
   searchProducts,
-  filterDuplicateProducts,
+  filterDuplicateProductsFromResults,
+  removeProductFromList,
 };

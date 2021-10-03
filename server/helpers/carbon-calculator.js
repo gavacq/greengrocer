@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const { coordinates, randomizerCoordinates } = require('./coordinates');
 
 const randomizeCoords = () => {
-  const key = Math.floor((Math.random() * 100) % 21);
+  const key = Math.floor((Math.random() * 100) % 22);
   return { lat: randomizerCoordinates[key].lat, long: randomizerCoordinates[key].long };
 };
 

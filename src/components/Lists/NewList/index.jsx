@@ -52,14 +52,12 @@ export default function NewList(props) {
     }
 
     const mappedList = newList.products.map((p) => (
-      <div>
-        <NewListProduct
-          product={p}
-          showReplacements={showReplacements}
-          removeProduct={removeProduct}
-          key={p.api_id}
-        />
-      </div>
+      <NewListProduct
+        product={p}
+        showReplacements={showReplacements}
+        removeProduct={removeProduct}
+        key={p.api_id}
+      />
     ));
 
     return (

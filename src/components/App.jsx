@@ -43,7 +43,6 @@ function App() {
               <Route path="/login" component={Login} />
             </Switch>
           </section>
-
           <footer>
             <div className="contact-us">
               <h4>Contact us</h4>

@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useEffect, useState } from 'react';
 import './Nav.scss';
 import '../index.scss';
 import { Link } from 'react-router-dom';
@@ -67,11 +69,25 @@ export default function Nav() {
     };
 
     return (
-      <li className="desktop-menu-item" style={logoutStyle} onClick={handleLogout}>Logout</li> // eslint-disable-line
+      <>
+        <li className="desktop-menu-item">{user.username}</li>
+        <li className="desktop-menu-item" style={logoutStyle} onClick={handleLogout}>Logout</li>
+      </>
     );
   };
 
   window.addEventListener('scroll', changeNavColor);
+
+  useEffect(() => {
+    axios.get('/login')
+      .then((res) => {
+        setUser((prev) => ({
+          ...prev,
+          auth: res.data.auth,
+          username: res.data.username,
+        }));
+      });
+  }, []);
 
   return (
     <div className={navColor ? 'nav-container sticky active' : 'nav-container sticky'}>
@@ -83,13 +99,13 @@ export default function Nav() {
             </div>
           </Link>
           <ul className="desktop-menu">
+            {user.auth ? logoutButton() : loginButton()}
             <Link to="/lists" className="desktop-menu-item">
               <li>Lists</li>
             </Link>
             <Link to="/stats" className="desktop-menu-item">
               <li>Stats</li>
             </Link>
-            {user.auth ? logoutButton() : loginButton()}
           </ul>
         </nav>
       </div>

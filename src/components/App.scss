@@ -2,6 +2,11 @@
 
 // -------------------------- main App component styles ------------------------------- //
 
+div#root {
+  height: 100%;
+  height: fit-content;
+}
+
 .green {
   background: $primary-green;
   color: $primary-white;
@@ -40,6 +45,12 @@
     position: absolute;
 }  
 
+// div#root {
+//   display: flex;
+//   flex-direction: column;
+//   margin-bottom: 130px;
+// }
+
 footer {
   display: flex;
   color: rgba(221, 248, 186, 0.9);
@@ -49,6 +60,10 @@ footer {
   padding: 10px;
   border-top: solid rgba(221, 248, 186, 0.5) 4px;
   height: 130px;
+  width: 100vw;
+  // position: fixed;
+  // bottom: 0;
+
 
   h4 {
     margin-bottom: 12px;
@@ -95,6 +110,5 @@ footer {
 }
 
 // .posts-wrapper {
-//   border: solid red 3px;
-//   overflow-y: scroll;
+//   height: fit-content;
 // }

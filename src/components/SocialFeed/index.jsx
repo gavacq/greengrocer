@@ -55,16 +55,18 @@ export default function SocialFeed() {
         </svg>
       </div>
       <h1 className="social-title">Social feed</h1>
-      <div className="posts-wrapper">
-        {posts.map((post) => (
-          <Post
-            key={post.id}
-            post={post}
-            setPosts={setPosts}
-            posts={posts}
-            emitHeartClickEvent={emitHeartClickEvent}
-          />
-        ))}
+      <div className="temp">
+        <div className="posts-wrapper">
+          {posts.map((post) => (
+            <Post
+              key={post.id}
+              post={post}
+              setPosts={setPosts}
+              posts={posts}
+              emitHeartClickEvent={emitHeartClickEvent}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

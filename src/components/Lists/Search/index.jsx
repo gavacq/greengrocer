@@ -2,11 +2,11 @@ import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
-import { productType } from '../../../types';
+import { listType, productType } from '../../../types';
 
 export default function Search(props) {
   const {
-    setNewList, results, setResults, replaceProduct, idToReplace, setIdToReplace,
+    newList, setNewList, results, setResults, replaceProduct, idToReplace, setIdToReplace,
   } = props;
 
   const [productName, setProductName] = useState('');
@@ -15,6 +15,7 @@ export default function Search(props) {
   return (
     <section className="search-wrapper">
       <SearchBar
+        newList={newList}
         setResults={setResults}
         setIdToReplace={setIdToReplace}
         productName={productName}
@@ -39,6 +40,7 @@ export default function Search(props) {
 }
 
 Search.propTypes = {
+  newList: listType.isRequired,
   setNewList: PropTypes.func.isRequired,
   setResults: PropTypes.func.isRequired,
   results: PropTypes.arrayOf(productType).isRequired,

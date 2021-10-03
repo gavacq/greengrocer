@@ -14,4 +14,19 @@ const searchProducts = (productName) => axios.get(`/api/search/?productName=${pr
     }));
   });
 
-export default searchProducts;
+// searchResults is array of productType
+// newList is listType
+const filterDuplicateProducts = (searchResults, newList) => searchResults.filter((r) => {
+  if (newList.products.find((p) => p.api_id === r.api_id)) {
+    console.log(`filtering product ${r.title}`);
+
+    return false;
+  }
+
+  return true;
+});
+
+export {
+  searchProducts,
+  filterDuplicateProducts,
+};

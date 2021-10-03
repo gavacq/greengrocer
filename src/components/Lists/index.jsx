@@ -95,6 +95,7 @@ export default function List() {
       <div className="search-and-new-list">
         <div className="search-section">
           <Search
+            newList={newList}
             setNewList={setNewList}
             results={results}
             setResults={setResults}

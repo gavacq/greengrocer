@@ -15,6 +15,11 @@ module.exports = () => {
   router.get('/', (req, res) => {
     const { productName } = req.query;
 
+    if (!productName) {
+      res.json([]);
+      return;
+    }
+
     // Make api calls to search for products
     searchHelper(productName)
       .then((data) => {

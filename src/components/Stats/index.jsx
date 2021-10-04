@@ -32,7 +32,7 @@ export default function Stats() {
   return (
     <div className="stats-container" style={{ width: '100vw' }}>
       <button className="stats-btn" onClick={toggleHelper} type="button">{toggle ? 'Show globe' : 'Show graph'}</button>
-      <div className="stats-container">
+      <div className="graph-container">
         {toggle ? <Chart allLists={allLists} /> : <Earth products={products} />}
       </div>
     </div>

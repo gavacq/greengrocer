@@ -8,14 +8,19 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
-    border: solid rgb(255, 224, 229) 3px;
+}
+
+.graph-container {
+    width: 80vw;
+    align-self: center;
+    margin-bottom: 90px;
 }
 
 .stats-btn {
     @include green-button-styles;
     @include all-buttons;
-    width: 30%;
+    width: 200px;
     font-size: 30px;
     align-self: center;
-    margin: 10px;
+    margin: 10px 10px 50px 10px;
 }

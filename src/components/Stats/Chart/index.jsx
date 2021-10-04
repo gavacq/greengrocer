@@ -13,7 +13,7 @@ export default function Chart({ allLists }) {
     return sum;
   });
 
-  const listLabels = allLists.map((list, i) => `list-${i}`);
+  const listLabels = allLists.map((list, i) => `list-${i + 1}`);
 
   const productTotals = [];
 

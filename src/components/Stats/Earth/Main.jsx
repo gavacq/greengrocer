@@ -7,8 +7,9 @@ import Clouds from './Clouds';
 import Location from './Location';
 
 export default function Main({ products, origin }) {
-  const mappedLocations = products.map((product) => (
-    <Location lat={product.lat} long={product.long} origin={origin} />
+  const mappedLocations = products.map((product, i) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <Location lat={product.lat} long={product.long} origin={origin} key={i} />
   ));
 
   const group = useRef();

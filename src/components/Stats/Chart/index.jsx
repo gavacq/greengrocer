@@ -19,25 +19,29 @@ export default function Chart({ allLists }) {
   }, [allLists]);
 
   return (
-    <div>
-      <Line data={{
-        labels: ['List 1', 'List 2', 'List 3', 'List 4', 'List 5', 'List 6'],
-        datasets: [
-          {
-            label: 'First dataset',
-            data: co2Saved,
-            fill: true,
-            backgroundColor: 'rgba(75,192,192,0.2)',
-            borderColor: 'rgba(75,192,192,1)',
-          },
-          {
-            label: 'Second dataset',
-            data: co2Total,
-            fill: false,
-            borderColor: '#742774',
-          },
-        ],
-      }}
+    <div style={{ height: '75vh' }}>
+      <Line
+        data={{
+          labels: ['List 1', 'List 2', 'List 3', 'List 4', 'List 5', 'List 6'],
+          datasets: [
+            {
+              label: 'CO2 Saved per List',
+              data: co2Saved,
+              fill: true,
+              backgroundColor: 'rgba(75,192,192,0.2)',
+              borderColor: 'rgba(75,192,192,1)',
+            },
+            {
+              label: 'CO2 Saved Total',
+              data: co2Total,
+              fill: false,
+              borderColor: '#742774',
+            },
+          ],
+        }}
+        width="100vw"
+        height="100%"
+        options={{ maintainAspectRatio: false }}
       />
     </div>
   );

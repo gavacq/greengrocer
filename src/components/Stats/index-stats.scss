@@ -17,10 +17,17 @@
 }
 
 .stats-btn {
-    @include green-button-styles;
+    @include blue-button-styles;
     @include all-buttons;
     width: 200px;
     font-size: 30px;
     align-self: center;
     margin: 10px 10px 50px 10px;
 }
+
+// .earth-canvas-container {
+//     width: 90vw
+//     // border: solid pink 3px;
+// }
+
+// @media screen 

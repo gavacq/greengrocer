@@ -69,5 +69,5 @@ Product.propTypes = {
 Product.defaultProps = {
   addProductToList: () => {},
   replaceProduct: () => {},
-  idToReplace: 0,
+  idToReplace: null,
 };

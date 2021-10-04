@@ -98,6 +98,10 @@ NewList.propTypes = {
   setIdToReplace: PropTypes.func.isRequired,
   saveList: PropTypes.func.isRequired,
   setNewList: PropTypes.func.isRequired,
-  idToReplace: PropTypes.number.isRequired,
+  idToReplace: PropTypes.number,
   setQueryDisplay: PropTypes.func.isRequired,
+};
+
+NewList.defaultProps = {
+  idToReplace: null,
 };

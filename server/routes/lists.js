@@ -7,59 +7,69 @@ module.exports = (db) => {
   // PUT
   router.put('/', (req, res) => {
     const { list } = req.body;
-    if (!req.session || !req.session.user || !list.products.length) {
+    try {
+      if (!req.session || !req.session.user || !list.products.length) {
+        res.json({ products: [] });
+        return;
+      }
+    } catch (error) {
+      console.log('PUT /api/lists error', error);
       res.json({ products: [] });
       return;
     }
     console.log('PUT /api/lists', req.body);
-    console.log('products', list.products[0]);
 
-    const productsValuesSql = list.products.map((p) => `(${p.api_id}, '${p.title}', '${p.image}', ${p.lat}, ${p.long}, ${p.co2})`);
+    const productsValues = list.products.map((p) => (
+      [p.api_id, p.title, p.image, p.lat, p.long, p.co2]));
+    console.log('productsValues', productsValues);
+
     // TODO: fix SQL injection vulnerabilities
-    const productsSql = `INSERT INTO products(api_id, title, image, lat, long, co2) VALUES ${productsValuesSql} ON CONFLICT (api_id) DO UPDATE SET api_id=EXCLUDED.api_id RETURNING *`;
+    const productsSql = 'INSERT INTO products(api_id, title, image, lat, long, co2) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT (api_id) DO UPDATE SET api_id=EXCLUDED.api_id RETURNING *';
     // insert multiple products
     // check api_id column for conflicts, if so do nothing
-    const productsPromise = db.query(productsSql)
-      .then((data) => {
-        console.log('products insert success!', data.rows);
-        // OK, all records have been inserted
-        return data.rows;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const productsPromises = productsValues.map((v) => db.query(productsSql, v));
 
-    // insert list
-
-    const listsSql = `INSERT INTO lists(user_id, co2_saved) VALUES (${req.session.user}, ${req.body.list.co2_saved}) RETURNING *`;
-    const listsPromise = db.query(listsSql)
+    const listsSql = 'INSERT INTO lists(user_id, co2_saved) VALUES ($1, $2) RETURNING *';
+    const listsValues = [req.session.user, req.body.list.co2_saved];
+    const listsPromise = db.query(listsSql, listsValues)
       .then((data) => data.rows)
       .catch((error) => {
         console.log(error);
       });
 
     // insert multiple products_lists, wait for productsPromise and listsPromise to resolve first
-    Promise.all([productsPromise, listsPromise])
+    Promise.all([...productsPromises, listsPromise])
       .then((data) => {
-        if (!data[0].length) {
+        const productsInsertData = data.slice(0, -1).map((d) => d.rows[0]);
+        console.log('products', productsInsertData);
+
+        const listInsertData = data[data.length - 1][0];
+        console.log('list', listInsertData);
+
+        if (!productsInsertData.length) {
+          console.log('Error: products INSERT failed!');
           return Promise.resolve();
         }
+
         const getQueryFromApiProductId = (apiProductId) => {
           const str = list.products.find((p) => p.api_id === apiProductId);
           return str.query;
         };
 
-        const productsListsValuesSql = data[0].map((p) => `(${p.id}, ${data[1][0].id}, '${getQueryFromApiProductId(p.api_id)}')`);
-        console.log('sql', productsListsValuesSql);
-        return Promise.all([data, db.query(`INSERT INTO products_lists(product_id, list_id, query) VALUES ${productsListsValuesSql} RETURNING query`)]);
+        const productsListsSql = 'INSERT INTO products_lists(product_id, list_id, query) VALUES ($1, $2, $3) RETURNING query';
+        const productsListsValues = productsInsertData.map((p) => (
+          [p.id, listInsertData.id, getQueryFromApiProductId(p.api_id)]));
+        console.log('productsListsValues', productsListsValues);
+        const productsListsPromises = productsListsValues.map((v) => db.query(productsListsSql, v));
+        return Promise.all([productsInsertData, listInsertData, ...productsListsPromises]);
       })
       .then((data) => {
-        console.log('productsLists insert return ', data[1].rows);
-        const queries = data[1].rows;
-        const productData = data[0][0];
-        const listData = data[0][1][0];
+        const productData = data[0];
+        const listData = data[1];
+        const productsListsData = data.slice(2, data.length).map((d) => d.rows[0]);
+
         productData.forEach((p, i) => {
-          const newProduct = { ...p, query: queries[i].query };
+          const newProduct = { ...p, query: productsListsData[i].query };
           if (!listData.products) {
             listData.products = [newProduct];
           } else {
@@ -67,12 +77,15 @@ module.exports = (db) => {
           }
         });
         delete listData.user_id;
-        console.log('formatted', listData);
+        console.log('formatted list data', listData);
 
         // return formatted list
         res.json(listData);
       })
-      .catch((error) => console.log('products_lists insert failed', error));
+      .catch((error) => {
+        console.log('list insert failed', error);
+        res.json({});
+      });
   });
 
   // GET
@@ -124,10 +137,16 @@ module.exports = (db) => {
       })
       .catch((error) => {
         console.log(error);
+        res.json([]);
       });
   });
 
   router.delete('/:listId', (req, res) => {
+    if (!req.session || !req.session.user) {
+      res.json({ deleted: false });
+      return;
+    }
+
     db.query(`
     DELETE
     FROM lists
@@ -137,7 +156,8 @@ module.exports = (db) => {
       .then((data) => {
         res.json({ deleted: data.rows });
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log('Error: /:listId DELETE', e);
         res.json({ deleted: false });
       });
   });
@@ -154,6 +174,10 @@ module.exports = (db) => {
     db.query(allProductsQuery, [req.session.user])
       .then((results) => {
         res.send({ results });
+      })
+      .catch((e) => {
+        console.log('GET /products', e);
+        res.json({});
       });
   });
 

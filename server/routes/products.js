@@ -12,6 +12,10 @@ module.exports = (db) => {
       .then((results) => {
         console.log(results);
         res.json(results);
+      })
+      .catch((e) => {
+        console.log('Error: GET /products', e);
+        res.json({});
       });
   });
   return router;

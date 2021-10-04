@@ -36,8 +36,9 @@ module.exports = (db) => {
     if (!req.session || !req.session.user) {
       res.json({ auth: false });
     } else {
-      const text = `SELECT username FROM users WHERE id = ${req.session.user}`;
-      db.query(text)
+      const text = 'SELECT username FROM users WHERE id = $1';
+      const values = [req.session.user];
+      db.query(text, values)
         .then((data) => {
           res.json({ auth: true, username: data.rows[0].username });
         });

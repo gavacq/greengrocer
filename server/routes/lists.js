@@ -29,17 +29,6 @@ module.exports = (db) => {
     // check api_id column for conflicts, if so do nothing
     const productsPromises = productsValues.map((v) => db.query(productsSql, v));
 
-    // .then((data) => {
-    //   console.log('products insert success!', data.rows);
-    //   // OK, all records have been inserted
-    //   return data.rows;
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    // });
-
-    // insert list
-
     const listsSql = 'INSERT INTO lists(user_id, co2_saved) VALUES ($1, $2) RETURNING *';
     const listsValues = [req.session.user, req.body.list.co2_saved];
     const listsPromise = db.query(listsSql, listsValues)

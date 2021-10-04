@@ -11,9 +11,11 @@ export default function NewList(props) {
   const {
     newList, setResults, setIdToReplace, saveList, setNewList, setQueryDisplay, idToReplace,
   } = props;
-  const { userContext } = useAppContext();
+  const { userContext, resultsReturnedContext } = useAppContext();
   // eslint-disable-next-line no-unused-vars
   const [user, setUser] = userContext;
+  // eslint-disable-next-line no-unused-vars
+  const [resultsReturned, setResultsReturned] = resultsReturnedContext;
 
   const removeProduct = (id) => {
     const newProducts = removeProductFromList(newList.products, id);
@@ -32,12 +34,16 @@ export default function NewList(props) {
   const showReplacements = (query, title, id) => {
     const newQuery = title.toLowerCase().split(' ').filter((w) => w.includes(query.toLowerCase()))[0];
     console.log('newQuery', newQuery);
+    setResultsReturned(false);
     searchProducts(newQuery)
       .then((results) => {
         setIdToReplace(id);
         const dedupedResults = filterDuplicateProductsFromResults(results, newList);
         setResults(dedupedResults);
         setQueryDisplay(newQuery);
+      })
+      .finally(() => {
+        setResultsReturned(true);
       });
   };
 

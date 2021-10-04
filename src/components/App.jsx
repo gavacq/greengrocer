@@ -18,6 +18,7 @@ import { AppContext } from '../lib/context';
 function App() {
   const [user, setUser] = useState({});
   const [posts, setPosts] = useState([]);
+  const [resultsReturned, setResultsReturned] = useState(true);
 
   useEffect(() => {
     axios.get('/api/posts')
@@ -30,6 +31,7 @@ function App() {
     <AppContext.Provider value={{
       userContext: [user, setUser],
       postsContext: [posts, setPosts],
+      resultsReturnedContext: [resultsReturned, setResultsReturned],
     }}
     >
       <Router>

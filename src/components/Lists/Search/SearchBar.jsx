@@ -4,19 +4,26 @@ import './SearchBar.scss';
 import '../../../index.scss';
 import { searchProducts, filterDuplicateProductsFromResults } from '../../../helpers/search';
 import { listType } from '../../../types';
+import { useAppContext } from '../../../lib/context';
 
 export default function SearchBar(props) {
   const {
     newList, setResults, setIdToReplace, productName, setProductName, setQueryDisplay,
   } = props;
+  const { resultsReturnedContext } = useAppContext();
+  // eslint-disable-next-line no-unused-vars
+  const [resultsReturned, setResultsReturned] = resultsReturnedContext;
 
   const clickHandler = () => {
-    searchProducts(productName).then((results) => {
-      const dedupedResults = filterDuplicateProductsFromResults(results, newList);
-      setResults(dedupedResults);
-      setIdToReplace(null);
-      setQueryDisplay(productName);
-    });
+    setResultsReturned(false);
+    searchProducts(productName)
+      .then((results) => {
+        const dedupedResults = filterDuplicateProductsFromResults(results, newList);
+        setResults(dedupedResults);
+        setIdToReplace(null);
+        setQueryDisplay(productName);
+      })
+      .finally(() => setResultsReturned(true));
   };
 
   return (

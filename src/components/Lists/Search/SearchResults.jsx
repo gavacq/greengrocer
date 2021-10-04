@@ -9,8 +9,6 @@ export default function SearchResults(props) {
   const {
     results, setResults, setNewList, replaceProduct, idToReplace, queryDisplay,
   } = props;
-  console.log('results', results);
-
   const addProductToList = (product) => {
     setNewList((prev) => ({
       id: prev.id,
@@ -36,7 +34,13 @@ export default function SearchResults(props) {
   return (
     <div>
       {/* eslint-disable-next-line */}
-      <p className="query-result-msg"><em>showing results for: {queryDisplay}</em></p>
+      <p className="query-result-msg">
+        <em>
+          showing results for:
+          {' '}
+          {queryDisplay}
+        </em>
+      </p>
       {jsxResults}
     </div>
   );

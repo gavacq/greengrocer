@@ -1,0 +1,185 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.search-container {
+  margin-bottom: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 20px 0 20px;
+}
+
+.search-container h2 {
+  margin-top: 30px;
+  font-size: 30px;
+  max-width: 70vw;
+  text-align: center;
+  opacity: 0.9;
+}
+
+form.search-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 50px 0 30px 0;
+  height: 150px;
+  width: 100%;
+}
+
+form.search-form ::-webkit-input-placeholder {
+  color: #c0d2f7;
+  opacity: 0.8;
+  font-size: 20px;
+  padding-left: 17px;
+}
+
+form.search-form :-ms-input-placeholder {
+  color: #c0d2f7;
+  opacity: 0.8;
+  font-size: 20px;
+  padding-left: 17px;
+}
+
+form.search-form ::-ms-input-placeholder {
+  color: #c0d2f7;
+  opacity: 0.8;
+  font-size: 20px;
+  padding-left: 17px;
+}
+
+form.search-form ::placeholder {
+  color: #c0d2f7;
+  opacity: 0.8;
+  font-size: 20px;
+  padding-left: 17px;
+}
+
+.search-form input {
+  border: solid #1d44a1 4px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background: #688de1;
+  font-family: "Rubik", sans-serif;
+  height: 150px;
+  color: #c0d2f7;
+  font-size: 20px;
+  padding-left: 10px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.search-form input:active, .search-form input:hover {
+  background: #84a4ee;
+}
+
+.search-button {
+  color: #FFE2E4;
+  background-color: #E08E93;
+  border: solid 4px #B16E72;
+  margin-bottom: 5px;
+  border-radius: 15px;
+  font-family: "Fredoka One";
+  letter-spacing: 0.7px;
+  overflow-y: hidden;
+  height: 120px;
+  width: 130px;
+  font-size: 25px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.search-button:hover {
+  background-color: #f1a7ac;
+  border: solid 4px #ca7e83;
+  color: #ffeced;
+}
+
+.search-button:active {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+@media screen and (min-width: 700px) {
+  form.search-form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  form.search-form ::-webkit-input-placeholder {
+    font-size: 25px;
+    padding-left: 10px;
+  }
+  form.search-form :-ms-input-placeholder {
+    font-size: 25px;
+    padding-left: 10px;
+  }
+  form.search-form ::-ms-input-placeholder {
+    font-size: 25px;
+    padding-left: 10px;
+  }
+  form.search-form ::placeholder {
+    font-size: 25px;
+    padding-left: 10px;
+  }
+  .search-form input {
+    margin: 30px 0 30px 0;
+    height: 70px;
+    width: 300px;
+    font-size: 30px;
+  }
+  .search-button {
+    height: 60px;
+    width: 130px;
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .search-form input {
+    width: 60vw;
+    font-size: 18px;
+    padding-left: 5px;
+  }
+  form.search-form ::-webkit-input-placeholder {
+    font-size: 18px;
+    padding-left: 5px;
+  }
+  form.search-form :-ms-input-placeholder {
+    font-size: 18px;
+    padding-left: 5px;
+  }
+  form.search-form ::-ms-input-placeholder {
+    font-size: 18px;
+    padding-left: 5px;
+  }
+  form.search-form ::placeholder {
+    font-size: 18px;
+    padding-left: 5px;
+  }
+}
+/*# sourceMappingURL=SearchBar.css.map */

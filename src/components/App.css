@@ -1,0 +1,111 @@
+div#root {
+  height: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.green {
+  background: #50ab74;
+  color: white;
+  height: 100vh;
+}
+
+.white {
+  background: white;
+  color: #50ab74;
+  padding-top: 30px;
+}
+
+.wave {
+  position: absolute;
+  top: -205px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  height: 300px;
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(157% + 1.3px);
+  height: 160px;
+  z-index: 10;
+}
+
+.wave .shape-fill {
+  fill: #FFFFFF;
+  position: absolute;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: rgba(221, 248, 186, 0.9);
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #50ab74;
+  padding: 10px;
+  border-top: solid rgba(221, 248, 186, 0.5) 4px;
+  height: 130px;
+  width: 100vw;
+}
+
+footer h4 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: white;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+footer .contact-item {
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+footer .contact-us {
+  overflow: hidden;
+}
+
+footer .credits {
+  font-size: 13px;
+  margin-top: 13px;
+}
+
+footer .credits a {
+  color: #ffc1ee;
+  text-decoration: none;
+}
+
+footer .credits a:active, footer .credits a:visited {
+  color: #ffc1ee;
+}
+
+footer .social-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+footer .social-icons i {
+  color: rgba(221, 248, 186, 0.8);
+  font-size: 30px;
+  padding-right: 15px;
+  margin-bottom: 5px;
+}
+/*# sourceMappingURL=App.css.map */

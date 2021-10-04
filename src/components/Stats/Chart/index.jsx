@@ -24,7 +24,6 @@ export default function Chart({ allLists }) {
     for (const product of list.products) {
       summation += product.co2;
     }
-    console.log(list.products);
     productTotals.push(summation);
   }
 

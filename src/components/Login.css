@@ -1,0 +1,90 @@
+h1.login {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.login-form {
+  height: 250px;
+  padding: 25px 15px 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: solid 6px #ddf8ba;
+  background-color: rgba(221, 248, 186, 0.7);
+  border-radius: 10px;
+}
+
+label {
+  font-size: 20px;
+}
+
+input.login-inputs {
+  border: solid 3px #50ab74;
+  border-radius: 10px;
+  height: 40px;
+  color: #B16E72;
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+}
+
+input.login-inputs:active, input.login-inputs:focus {
+  background-color: #FFE2E4;
+}
+
+input#email {
+  margin-left: 60px;
+  margin-bottom: 15px;
+}
+
+input#password {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.login-btn {
+  color: #FFE2E4;
+  background-color: #E08E93;
+  border: solid 4px #B16E72;
+  margin-bottom: 5px;
+  border-radius: 15px;
+  font-family: "Fredoka One";
+  letter-spacing: 0.7px;
+  overflow-y: hidden;
+  width: 100px;
+  height: 60px;
+  font-size: 25px;
+  margin-bottom: 0;
+}
+
+.login-btn:hover {
+  background-color: #f1a7ac;
+  border: solid 4px #ca7e83;
+  color: #ffeced;
+}
+
+.login-btn:active {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+.inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+}
+/*# sourceMappingURL=Login.css.map */

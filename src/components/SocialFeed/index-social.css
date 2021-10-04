@@ -1,0 +1,47 @@
+.social-section {
+  color: #50ab74;
+  background-color: #50ab74;
+  position: relative;
+  top: -500px;
+}
+
+.social-section .wave .shape-fill {
+  fill: #50ab74;
+  position: absolute;
+}
+
+.social-section h1.social-title {
+  color: white;
+  position: relative;
+  font-size: 37px;
+}
+
+.social-section .social-icon {
+  width: 70px;
+  height: auto;
+  z-index: 20;
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
+
+.posts-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  overflow: show;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+/*# sourceMappingURL=index-social.css.map */

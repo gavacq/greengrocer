@@ -1,0 +1,59 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  margin-top: 100px;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Fredoka One", cursive;
+}
+
+li {
+  list-style-type: none;
+}
+
+section {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 400px;
+}
+
+h1 {
+  font-size: 1.7em;
+  margin-bottom: 1.2em;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 1.5em;
+}
+
+.planet img {
+  opacity: 0.9;
+  z-index: 1;
+  max-width: 120px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=index.css.map */

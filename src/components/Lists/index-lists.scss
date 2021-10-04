@@ -237,6 +237,16 @@ li.saved-list-item {
 }
 
 
+@media screen and (min-width: $breakpoint-C){
+
+  p.saved-list-co2.co2 {
+    margin-right: 5%;
+  }
+
+}
+
+
+
 @media screen and (min-width: $breakpoint-D) {
 
 
@@ -271,7 +281,9 @@ li.saved-list-item {
   .buttons-flexbox {
     
     button {
-      flex-basis: 15vw;
+      flex-basis: 14vw;
+      height: auto;
+      font-size: 25px;
     }
   }
 

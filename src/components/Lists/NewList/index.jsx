@@ -9,7 +9,7 @@ import { useAppContext } from '../../../lib/context';
 
 export default function NewList(props) {
   const {
-    newList, setResults, setIdToReplace, saveList, setNewList,
+    newList, setResults, setIdToReplace, saveList, setNewList, idToReplace,
   } = props;
   const { userContext } = useAppContext();
   // eslint-disable-next-line no-unused-vars
@@ -23,6 +23,10 @@ export default function NewList(props) {
       ...prev,
       products: newProducts,
     }));
+
+    if (id === idToReplace) {
+      setResults([]);
+    }
   };
 
   const showReplacements = (query, title, id) => {
@@ -93,4 +97,5 @@ NewList.propTypes = {
   setIdToReplace: PropTypes.func.isRequired,
   saveList: PropTypes.func.isRequired,
   setNewList: PropTypes.func.isRequired,
+  idToReplace: PropTypes.number.isRequired,
 };

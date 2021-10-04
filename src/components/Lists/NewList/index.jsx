@@ -87,8 +87,8 @@ export default function NewList(props) {
 
   return (
     <section className="new-list-wrapper">
-      <h1>New list</h1>
-      <div>
+      <div className="new-list-content">
+        <h1>New list</h1>
         {newListContents()}
       </div>
       {(newList.products.length && user.auth) ? <button className="save-btn" type="button" onClick={saveList}>Save</button> : <></>}

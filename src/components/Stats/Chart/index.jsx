@@ -13,6 +13,21 @@ export default function Chart({ allLists }) {
     return sum;
   });
 
+  const listLabels = allLists.map((list, i) => `list-${i}`);
+
+  const productTotals = [];
+
+  // eslint-disable-next-line no-restricted-syntax
+  for (const list of allLists) {
+    let summation = 0;
+    // eslint-disable-next-line no-restricted-syntax
+    for (const product of list.products) {
+      summation += product.co2;
+    }
+    console.log(list.products);
+    productTotals.push(summation);
+  }
+
   useEffect(() => {
     setco2Saved(allLists.map((list) => list.co2_saved));
     setco2Total(total);
@@ -22,12 +37,12 @@ export default function Chart({ allLists }) {
     <div style={{ height: '75vh' }}>
       <Line
         data={{
-          labels: ['List 1', 'List 2', 'List 3', 'List 4', 'List 5', 'List 6'],
+          labels: listLabels,
           datasets: [
             {
               label: 'CO2 Saved per List',
               data: co2Saved,
-              fill: true,
+              fill: false,
               backgroundColor: 'rgba(75,192,192,0.2)',
               borderColor: 'rgba(75,192,192,1)',
             },
@@ -36,6 +51,12 @@ export default function Chart({ allLists }) {
               data: co2Total,
               fill: false,
               borderColor: '#742774',
+            },
+            {
+              label: 'Total Emissions per List',
+              data: productTotals,
+              fill: false,
+              borderColor: 'rgba(10,192,10,1)',
             },
           ],
         }}

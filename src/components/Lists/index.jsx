@@ -15,6 +15,7 @@ export default function List() {
   const [allLists, setAllLists] = useState([]);
   const [results, setResults] = useState([]);
   const [idToReplace, setIdToReplace] = useState(null);
+  const [queryDisplay, setQueryDisplay] = useState('');
 
   console.log('newList', newList);
 
@@ -102,6 +103,8 @@ export default function List() {
             replaceProduct={replaceProduct}
             idToReplace={idToReplace}
             setIdToReplace={setIdToReplace}
+            queryDisplay={queryDisplay}
+            setQueryDisplay={setQueryDisplay}
           />
         </div>
         <NewList
@@ -111,6 +114,7 @@ export default function List() {
           setIdToReplace={setIdToReplace}
           saveList={saveList}
           setNewList={setNewList}
+          setQueryDisplay={setQueryDisplay}
         />
       </div>
       <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />

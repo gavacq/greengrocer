@@ -6,11 +6,11 @@ import { listType, productType } from '../../../types';
 
 export default function Search(props) {
   const {
-    newList, setNewList, results, setResults, replaceProduct, idToReplace, setIdToReplace,
+    newList, setNewList, results, setResults, replaceProduct,
+    idToReplace, setIdToReplace, setQueryDisplay, queryDisplay,
   } = props;
 
   const [productName, setProductName] = useState('');
-  const [queryDisplay, setQueryDisplay] = useState('');
 
   return (
     <section className="search-wrapper">
@@ -48,6 +48,8 @@ Search.propTypes = {
   replaceProduct: PropTypes.func.isRequired,
   idToReplace: PropTypes.number,
   setIdToReplace: PropTypes.func.isRequired,
+  queryDisplay: PropTypes.string.isRequired,
+  setQueryDisplay: PropTypes.func.isRequired,
 };
 
 // Specifies the default values for props:

@@ -9,7 +9,7 @@ import { useAppContext } from '../../../lib/context';
 
 export default function NewList(props) {
   const {
-    newList, setResults, setIdToReplace, saveList, setNewList, idToReplace,
+    newList, setResults, setIdToReplace, saveList, setNewList, setQueryDisplay, idToReplace,
   } = props;
   const { userContext } = useAppContext();
   // eslint-disable-next-line no-unused-vars
@@ -31,12 +31,13 @@ export default function NewList(props) {
 
   const showReplacements = (query, title, id) => {
     const newQuery = title.toLowerCase().split(' ').filter((w) => w.includes(query.toLowerCase()))[0];
-    console.log('newQueyr', newQuery);
+    console.log('newQuery', newQuery);
     searchProducts(newQuery)
       .then((results) => {
         setIdToReplace(id);
         const dedupedResults = filterDuplicateProductsFromResults(results, newList);
         setResults(dedupedResults);
+        setQueryDisplay(newQuery);
       });
   };
 
@@ -98,4 +99,5 @@ NewList.propTypes = {
   saveList: PropTypes.func.isRequired,
   setNewList: PropTypes.func.isRequired,
   idToReplace: PropTypes.number.isRequired,
+  setQueryDisplay: PropTypes.func.isRequired,
 };

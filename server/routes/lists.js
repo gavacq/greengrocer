@@ -7,12 +7,17 @@ module.exports = (db) => {
   // PUT
   router.put('/', (req, res) => {
     const { list } = req.body;
-    if (!req.session || !req.session.user || !list.products.length) {
+    try {
+      if (!req.session || !req.session.user || !list.products.length) {
+        res.json({ products: [] });
+        return;
+      }
+    } catch (error) {
+      console.log('PUT /api/lists error', error);
       res.json({ products: [] });
       return;
     }
     console.log('PUT /api/lists', req.body);
-    console.log('products', list.products[0]);
 
     const productsValuesSql = list.products.map((p) => `(${p.api_id}, '${p.title}', '${p.image}', ${p.lat}, ${p.long}, ${p.co2})`);
     // TODO: fix SQL injection vulnerabilities

@@ -19,20 +19,24 @@ module.exports = (db) => {
     }
     console.log('PUT /api/lists', req.body);
 
-    const productsValuesSql = list.products.map((p) => `(${p.api_id}, '${p.title}', '${p.image}', ${p.lat}, ${p.long}, ${p.co2})`);
+    const productsValues = list.products.map((p) => (
+      [p.api_id, p.title, p.image, p.lat, p.long, p.co2]));
+    console.log('productsValues', productsValues);
+
     // TODO: fix SQL injection vulnerabilities
-    const productsSql = `INSERT INTO products(api_id, title, image, lat, long, co2) VALUES ${productsValuesSql} ON CONFLICT (api_id) DO UPDATE SET api_id=EXCLUDED.api_id RETURNING *`;
+    const productsSql = 'INSERT INTO products(api_id, title, image, lat, long, co2) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT (api_id) DO UPDATE SET api_id=EXCLUDED.api_id RETURNING *';
     // insert multiple products
     // check api_id column for conflicts, if so do nothing
-    const productsPromise = db.query(productsSql)
-      .then((data) => {
-        console.log('products insert success!', data.rows);
-        // OK, all records have been inserted
-        return data.rows;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const productsPromises = productsValues.map((v) => db.query(productsSql, v));
+
+    // .then((data) => {
+    //   console.log('products insert success!', data.rows);
+    //   // OK, all records have been inserted
+    //   return data.rows;
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
 
     // insert list
 
@@ -44,8 +48,10 @@ module.exports = (db) => {
       });
 
     // insert multiple products_lists, wait for productsPromise and listsPromise to resolve first
-    Promise.all([productsPromise, listsPromise])
+    Promise.all([...productsPromises, listsPromise])
       .then((data) => {
+        console.log('data 0', data[0].rows);
+
         if (!data[0].length) {
           console.log('Error: products INSERT failed!');
           return Promise.resolve();

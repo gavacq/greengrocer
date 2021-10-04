@@ -34,16 +34,22 @@ export default function NewList(props) {
   const showReplacements = (query, title, id) => {
     const newQuery = title.toLowerCase().split(' ').filter((w) => w.includes(query.toLowerCase()))[0];
     console.log('newQuery', newQuery);
-    setResultsReturned(false);
+    setResultsReturned((prev) => ({
+      ...prev,
+      returned: false,
+      initial: false,
+    }));
     searchProducts(newQuery)
       .then((results) => {
         setIdToReplace(id);
         const dedupedResults = filterDuplicateProductsFromResults(results, newList);
         setResults(dedupedResults);
         setQueryDisplay(newQuery);
-      })
-      .finally(() => {
-        setResultsReturned(true);
+        setResultsReturned((prev) => ({
+          ...prev,
+          empty: results.length === 0,
+          returned: true,
+        }));
       });
   };
 

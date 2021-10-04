@@ -15,15 +15,23 @@ export default function SearchBar(props) {
   const [resultsReturned, setResultsReturned] = resultsReturnedContext;
 
   const clickHandler = () => {
-    setResultsReturned(false);
+    setResultsReturned((prev) => ({
+      ...prev,
+      returned: false,
+      initial: false,
+    }));
     searchProducts(productName)
       .then((results) => {
         const dedupedResults = filterDuplicateProductsFromResults(results, newList);
         setResults(dedupedResults);
         setIdToReplace(null);
         setQueryDisplay(productName);
-      })
-      .finally(() => setResultsReturned(true));
+        setResultsReturned((prev) => ({
+          ...prev,
+          empty: results.length === 0,
+          returned: true,
+        }));
+      });
   };
 
   return (

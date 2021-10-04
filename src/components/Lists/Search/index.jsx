@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
 import SearchBar from './SearchBar';
@@ -12,8 +12,13 @@ export default function Search(props) {
     idToReplace, setIdToReplace, setQueryDisplay, queryDisplay,
   } = props;
   const { resultsReturnedContext } = useAppContext();
-  const [resultsReturned] = resultsReturnedContext;
+  const [resultsReturned, setResultsReturned] = resultsReturnedContext;
   const [productName, setProductName] = useState('');
+  console.log('resultsReturned', resultsReturned);
+
+  useEffect(() => {
+    setResultsReturned((prev) => ({ ...prev, initial: true }));
+  }, []);
 
   return (
     <section className="search-wrapper">
@@ -26,7 +31,7 @@ export default function Search(props) {
         setQueryDisplay={setQueryDisplay}
       />
       {
-        !resultsReturned
+        !resultsReturned.returned
         && (
         <Loader
           type="ThreeDots"
@@ -37,20 +42,22 @@ export default function Search(props) {
         )
       }
 
-      {results.length > 0 && resultsReturned
-        && (
-        <SearchResults
-          id="search-results-container"
-          results={results}
-          setResults={setResults}
-          setNewList={setNewList}
-          replaceProduct={replaceProduct}
-          idToReplace={idToReplace}
-          productName={productName}
-          setProductName={setProductName}
-          queryDisplay={queryDisplay}
-        />
-        )}
+      {
+        !resultsReturned.initial && resultsReturned.returned
+          && (
+          <SearchResults
+            id="search-results-container"
+            results={results}
+            setResults={setResults}
+            setNewList={setNewList}
+            replaceProduct={replaceProduct}
+            idToReplace={idToReplace}
+            productName={productName}
+            setProductName={setProductName}
+            queryDisplay={queryDisplay}
+          />
+          )
+      }
     </section>
   );
 }

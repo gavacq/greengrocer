@@ -18,7 +18,11 @@ import { AppContext } from '../lib/context';
 function App() {
   const [user, setUser] = useState({});
   const [posts, setPosts] = useState([]);
-  const [resultsReturned, setResultsReturned] = useState(true);
+  const [resultsReturned, setResultsReturned] = useState({
+    returned: true,
+    empty: true,
+    initial: true,
+  });
 
   useEffect(() => {
     axios.get('/api/posts')

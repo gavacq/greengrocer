@@ -41,7 +41,7 @@ export default function SearchResults(props) {
           {queryDisplay}
         </em>
       </p>
-      {jsxResults}
+      {results.length === 0 ? <p>No results found.</p> : jsxResults}
     </div>
   );
 }

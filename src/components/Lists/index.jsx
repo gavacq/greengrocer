@@ -4,6 +4,7 @@ import Search from './Search';
 import NewList from './NewList';
 import AllLists from './AllLists';
 import './index-lists.scss';
+import { useAppContext } from '../../lib/context';
 
 export default function List() {
   const [newList, setNewList] = useState({
@@ -16,6 +17,9 @@ export default function List() {
   const [results, setResults] = useState([]);
   const [idToReplace, setIdToReplace] = useState(null);
   const [queryDisplay, setQueryDisplay] = useState('');
+  const { resultsReturnedContext } = useAppContext();
+  // eslint-disable-next-line no-unused-vars
+  const [resultsReturned, setResultsReturned] = resultsReturnedContext;
 
   console.log('newList', newList);
 
@@ -77,6 +81,11 @@ export default function List() {
           co2_saved: 0,
           products: [],
         });
+        setResults([]);
+        setResultsReturned((prev) => ({
+          ...prev,
+          initial: true,
+        }));
       })
       .catch((e) => console.log('Error deleting list', e));
   };

@@ -87,6 +87,14 @@ export default function Nav() {
     }
   };
 
+  // change hamburger color on scroll
+  const changeHamburgerColor = () => {
+    if (window.scrollY >= 90) {
+      return 'hamburger-container hamburger-white';
+    }
+    return 'hamburger-container hamburger-green';
+  };
+
   useEffect(() => {
     axios.get('/login')
       .then((res) => {
@@ -117,7 +125,7 @@ export default function Nav() {
           </Link>
 
           <div className="nav-content-right">
-            <div className="hamburger-container" role="button" tabIndex={0} onClick={hamburgerHelper}>
+            <div className={changeHamburgerColor()} role="button" tabIndex={0} onClick={hamburgerHelper}>
               <div className={hamburger ? 'hamburger-brick' : 'hamburger-brick hamburger-on-1'} />
               <div className={hamburger ? 'hamburger-brick' : 'hamburger-brick hamburger-on-2'} />
               <div className={hamburger ? 'hamburger-brick' : 'hamburger-brick hamburger-on-3'} />

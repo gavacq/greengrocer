@@ -90,16 +90,29 @@ div.logo {
   transition: 2s;
 }
 
+.hamburger-green {
+  .hamburger-brick {
+    color: $primary-green;
+    background: $primary-green;
+  }
+}
+
+.hamburger-white {
+  .hamburger-brick {
+    color: $primary-white;
+    background: $primary-white;
+  }
+}
+
 .hamburger-brick {
   height: 7px;
   margin: 3px;
   width: 50px;
   border-radius: 20px;
-  border: solid $primary-green 0.5px;
-  background: white;
   cursor: pointer;
   transition: 0.3;
 }
+
 .hamburger-on-1 {
   transition: 0.3s;
   transform: translateY(13px) rotateZ(45deg);

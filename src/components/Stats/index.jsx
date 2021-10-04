@@ -30,11 +30,11 @@ export default function Stats() {
   }, []);
 
   return (
-    <section className="stats-container">
+    <div className="stats-container" style={{ width: '100vw' }}>
       <button onClick={toggleHelper} type="button">{toggle ? 'Visit Globe' : 'Visit Graph'}</button>
       <div className="stats-container">
         {toggle ? <Chart allLists={allLists} /> : <Earth products={products} />}
       </div>
-    </section>
+    </div>
   );
 }

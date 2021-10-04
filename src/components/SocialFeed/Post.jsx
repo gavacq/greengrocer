@@ -50,7 +50,9 @@ export default function Post(props) {
         @
         {post.username}
       </h2>
-      <p className="post-message">{post.message}</p>
+      <div className="post-message-container">
+        <p className="post-message">{post.message}</p>
+      </div>
       <div className="likes-flexbox">
         <button className="heart-btn" type="button" style={heartButtonStyle} onClick={handleHeartClick}>
           <i className={changeHeartIcon()} />

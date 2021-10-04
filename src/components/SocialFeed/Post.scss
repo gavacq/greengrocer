@@ -39,6 +39,7 @@
      position: relative;
      top: 20px;
      color: $social-message;
+     margin-left: 5px;
    }
 
 
@@ -72,3 +73,16 @@
 
 }
 
+// 720px- make p width wider
+
+
+// ------------- Media queries ------------- //
+
+@media screen and (min-width: $breakpoint-D) {
+
+ p.post-message {
+   width: 350px;
+   margin-right: 0;
+ }
+
+}

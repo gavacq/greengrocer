@@ -40,8 +40,9 @@ module.exports = (db) => {
 
     // insert list
 
-    const listsSql = `INSERT INTO lists(user_id, co2_saved) VALUES (${req.session.user}, ${req.body.list.co2_saved}) RETURNING *`;
-    const listsPromise = db.query(listsSql)
+    const listsSql = 'INSERT INTO lists(user_id, co2_saved) VALUES ($1, $2) RETURNING *';
+    const listsValues = [req.session.user, req.body.list.co2_saved];
+    const listsPromise = db.query(listsSql, listsValues)
       .then((data) => data.rows)
       .catch((error) => {
         console.log(error);
@@ -50,23 +51,33 @@ module.exports = (db) => {
     // insert multiple products_lists, wait for productsPromise and listsPromise to resolve first
     Promise.all([...productsPromises, listsPromise])
       .then((data) => {
-        console.log('data 0', data[0].rows);
+        const productsInsertData = data.slice(0, -1).map((d) => d.rows[0]);
+        console.log('prod', productsInsertData);
 
-        if (!data[0].length) {
+        const listInsertData = data[data.length - 1];
+        console.log('list', listInsertData);
+
+        if (!productsInsertData.length) {
           console.log('Error: products INSERT failed!');
           return Promise.resolve();
         }
+
         const getQueryFromApiProductId = (apiProductId) => {
           const str = list.products.find((p) => p.api_id === apiProductId);
           return str.query;
         };
 
-        const productsListsValuesSql = data[0].map((p) => `(${p.id}, ${data[1][0].id}, '${getQueryFromApiProductId(p.api_id)}')`);
-        console.log('sql', productsListsValuesSql);
-        return Promise.all([data, db.query(`INSERT INTO products_lists(product_id, list_id, query) VALUES ${productsListsValuesSql} RETURNING query`)]);
+        const productsListsSql = 'INSERT INTO products_lists(product_id, list_id, query) VALUES ($1, $2, $3) RETURNING query';
+        const productsListsValues = productsInsertData.map((p) => (
+          [p.id, listInsertData[0].id, getQueryFromApiProductId(p.api_id)]));
+        console.log('productsListsValues', productsListsValues);
+        const productsListsPromises = productsListsValues.map((v) => db.query(productsListsSql, v));
+        return Promise.all([data, ...productsListsPromises]);
       })
       .then((data) => {
-        console.log('productsLists insert return ', data[1].rows);
+        console.log('productsLists insert return', data);
+        console.log('productsLists insert return 1.rows ', data[1].rows);
+
         const queries = data[1].rows;
         const productData = data[0][0];
         const listData = data[0][1][0];

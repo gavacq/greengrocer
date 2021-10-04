@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: solid 4px $green-hover;
   border-radius: 10px;
   padding: 10px 20px 10px 20px;
   margin-bottom: 20px;
@@ -18,7 +17,13 @@
   width: 400px;
   max-width: 330px;
   background-color: $green-hover;
+  transition: background-color 0.5s;
   z-index: 20;
+
+  &:hover {
+    background-color: $btn-text;
+    transition: background-color 0.5s;
+  }
 
   h2 {
     font-family: "Rubik", sans-serif;
@@ -66,3 +71,4 @@
    }
 
 }
+

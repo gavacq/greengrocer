@@ -48,12 +48,12 @@ export default function SavedList(props) {
     axios.put('/api/posts', { post })
       .then((res) => {
         const newPost = { ...res.data, likedByUser: false };
+
         console.log('newPost', newPost);
         setPosts((prev) => ([
           ...prev,
           newPost,
         ]));
-
         socket.emit('shareList', newPost);
       });
   };

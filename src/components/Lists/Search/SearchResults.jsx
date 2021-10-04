@@ -1,15 +1,18 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
 import Product from '../../Product';
 import { productType } from '../../../types';
 import '../index-lists.scss';
 import { removeProductFromList } from '../../../helpers/search';
+import { useAppContext } from '../../../lib/context';
 
 export default function SearchResults(props) {
   const {
     results, setResults, setNewList, replaceProduct, idToReplace, queryDisplay,
   } = props;
-  console.log('results', results);
+  const { resultsReturnedContext } = useAppContext();
+  const [resultsReturned] = resultsReturnedContext;
 
   const addProductToList = (product) => {
     setNewList((prev) => ({
@@ -36,7 +39,24 @@ export default function SearchResults(props) {
   return (
     <div>
       {/* eslint-disable-next-line */}
-      <p className="query-result-msg"><em>showing results for: {queryDisplay}</em></p>
+      {
+        !resultsReturned
+        && (
+        <Loader
+          type="Puff"
+          color="#00BFFF"
+          height={100}
+          width={100}
+        />
+        )
+      }
+      <p className="query-result-msg">
+        <em>
+          showing results for:
+          {' '}
+          {queryDisplay}
+        </em>
+      </p>
       {jsxResults}
     </div>
   );

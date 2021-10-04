@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EACb,KAAK,EAAE,KAAK;CACf",
-    "sources": [
-        "index-stats.scss"
-    ],
-    "names": [],
-    "file": "index-stats.css"
-}

@@ -64,16 +64,26 @@ export default function NewList(props) {
       />
     ));
 
+    // calculate the running total CO2 of the new list
+    const getTotalCo2 = newList.products.reduce((sum, product) => {
+      // eslint-disable-next-line no-param-reassign
+      sum += product.co2;
+      return sum;
+    }, 0);
+
     return (
       <>
         <p className="co2-saved-text co2">
-          Your choices have saved
+          {/* eslint-disable-next-line */}
+          This list generates <span className="co2-desc">{getTotalCo2} kg </span> of CO₂
+        </p>
+        <p className="co2-saved-text co2">
+          Your replacements have saved
           <span className="co2-desc">
-            {' '}
-            {newList.co2_saved}
-            {' '}
+            {/* eslint-disable-next-line */}
+            { ' ' + newList.co2_saved} kg {' '} 
           </span>
-          kg of CO₂ so far!
+          of CO₂ so far
         </p>
         {mappedList}
       </>
@@ -82,8 +92,8 @@ export default function NewList(props) {
 
   return (
     <section className="new-list-wrapper">
-      <h1>New list</h1>
-      <div>
+      <div className="new-list-content">
+        <h1>New list</h1>
         {newListContents()}
       </div>
       {(newList.products.length && user.auth) ? <button className="save-btn" type="button" onClick={saveList}>Save</button> : <></>}

@@ -59,9 +59,8 @@ export default function SavedList(props) {
   };
 
   const mappedListItems = list.products.map((p) => (
-    <li key={p.api_id}>
-      <p>{p.title}</p>
-    </li>
+    // eslint-disable-next-line
+    <li key={p.api_id} className="saved-list-item"> ➤ {p.title}</li>
   ));
   return (
     <div className="saved-list">

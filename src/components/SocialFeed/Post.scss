@@ -17,12 +17,12 @@
   width: 400px;
   max-width: 330px;
   background-color: $green-hover;
-  transition: background-color 0.5s;
+  transition: background-color 0.4s;
   z-index: 20;
 
   &:hover {
-    background-color: $btn-text;
-    transition: background-color 0.5s;
+    background-color: $btn-text-hover;
+    transition: background-color 0.4s;
   }
 
   h2 {

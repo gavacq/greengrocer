@@ -75,7 +75,8 @@ img.product {
 @media screen and (min-width: $breakpoint-D) {
 
   p {
-    font-size: 20px;
+    font-size: 18px;
+    max-width: 75%;
   }
   
   img.product{
@@ -96,6 +97,7 @@ img.product {
     align-items: center;
     text-align: left;
     width: 90%;
+    margin-right: 20px;
   }
 
 }

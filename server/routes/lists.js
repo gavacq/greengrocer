@@ -148,10 +148,16 @@ module.exports = (db) => {
       })
       .catch((error) => {
         console.log(error);
+        res.json([]);
       });
   });
 
   router.delete('/:listId', (req, res) => {
+    if (!req.session || !req.session.user) {
+      res.json({ deleted: false });
+      return;
+    }
+
     db.query(`
     DELETE
     FROM lists
@@ -161,7 +167,8 @@ module.exports = (db) => {
       .then((data) => {
         res.json({ deleted: data.rows });
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log('Error: /:listId DELETE', e);
         res.json({ deleted: false });
       });
   });
@@ -178,6 +185,10 @@ module.exports = (db) => {
     db.query(allProductsQuery, [req.session.user])
       .then((results) => {
         res.send({ results });
+      })
+      .catch((e) => {
+        console.log('GET /products', e);
+        res.json({});
       });
   });
 

@@ -204,6 +204,17 @@ p.co2-desc {
   color: $btn-background;
   opacity: 0.9;
 }
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p.query-result-msg {
+    width: 400px;
+  }
+}
+
 // ------------- Media queries ------------- //
 
 @media screen and (max-width: $breakpoint-B) {
@@ -304,6 +315,6 @@ p.co2-desc {
     align-items: center;
   }
 
-  
+
 }
 

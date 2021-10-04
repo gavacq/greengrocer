@@ -32,7 +32,7 @@ export default function SearchResults(props) {
   ));
 
   return (
-    <div>
+    <div className="search-results">
       {/* eslint-disable-next-line */}
       <p className="query-result-msg">
         <em>

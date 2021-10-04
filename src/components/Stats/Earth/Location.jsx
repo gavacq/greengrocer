@@ -38,14 +38,14 @@ export default function Location({ lat, long, origin }) {
   const lineGeometry = new THREE.BufferGeometry().setFromPoints(bezierPoints);
 
   const mesh = useRef();
-  let clock1 = new THREE.Clock();
+  const clock1 = new THREE.Clock();
 
   useFrame(() => {
-    const elapsedTime = Math.floor(clock1.getElapsedTime() * (lineLength ** 2));
-    if (elapsedTime > 480) {
-      clock1 = new THREE.Clock();
+    let elapsedTime = Math.floor(clock1.getElapsedTime() * (lineLength ** 2));
+    if (elapsedTime > 480 || bezierPoints[elapsedTime] === undefined) {
+      clock1.start();
     }
-
+    elapsedTime = Math.floor(clock1.getElapsedTime() * (lineLength ** 2));
     mesh.current.position.x = bezierPoints[elapsedTime].x;
     mesh.current.position.y = bezierPoints[elapsedTime].y;
     mesh.current.position.z = bezierPoints[elapsedTime].z;

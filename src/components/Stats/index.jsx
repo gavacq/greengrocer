@@ -31,7 +31,7 @@ export default function Stats() {
 
   return (
     <div className="stats-container" style={{ width: '100vw' }}>
-      <button onClick={toggleHelper} type="button">{toggle ? 'Visit Globe' : 'Visit Graph'}</button>
+      <button onClick={toggleHelper} className="copy-btn" type="button">{toggle ? 'Visit Globe' : 'Visit Graph'}</button>
       <div className="stats-container">
         {toggle ? <Chart allLists={allLists} /> : <Earth products={products} />}
       </div>

@@ -47,6 +47,7 @@ module.exports = (db) => {
     Promise.all([productsPromise, listsPromise])
       .then((data) => {
         if (!data[0].length) {
+          console.log('Error: products INSERT failed!');
           return Promise.resolve();
         }
         const getQueryFromApiProductId = (apiProductId) => {
@@ -77,7 +78,10 @@ module.exports = (db) => {
         // return formatted list
         res.json(listData);
       })
-      .catch((error) => console.log('products_lists insert failed', error));
+      .catch((error) => {
+        console.log('products_lists insert failed', error);
+        res.json({});
+      });
   });
 
   // GET

@@ -72,12 +72,6 @@ div.logo {
   text-decoration: none;
 }
 
-
-/* hamburger menu icon */
-.hamburger-container {
-  padding: 3px;
-}
-
 /* desktop menu */
 .desktop-menu {
   display: none;
@@ -86,6 +80,16 @@ div.logo {
   z-index: 1000;
   transition: 2s;
 }
+
+.hamburger-container {
+  padding: 3px;
+  display: none;
+  align-items: flex-end;
+  flex-direction: column;
+  z-index: 1000;
+  transition: 2s;
+}
+
 .hamburger-brick {
   height: 7px;
   margin: 3px;
@@ -117,6 +121,7 @@ div.logo {
   justify-content: space-between;
   margin-right: 30px;
   text-align: right;
+  flex-direction: row;
 
   #{&}-item {
     margin-left: 30px;
@@ -129,7 +134,7 @@ div.logo {
     &:hover {
       color: $pink-hover;
     }
-  
+  }
 }
 
 /* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
@@ -143,4 +148,5 @@ div.logo {
     flex-direction: column-reverse;
   }
 }
-}
+
+

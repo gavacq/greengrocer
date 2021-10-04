@@ -55,6 +55,7 @@
 .btn-flexbox {
   display: flex;
   justify-content: space-between;
+  padding: 0 5% 0 5%;
 }
 
 .new-list-wrapper {
@@ -80,6 +81,10 @@
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 25px;
+
+  p {
+    margin-left: 3.5%;
+  }
 
 }
 
@@ -195,6 +200,10 @@ li.saved-list-item {
   font-size: 18px;
 }
 
+p.co2-desc {
+  color: $btn-background;
+  opacity: 0.9;
+}
 // ------------- Media queries ------------- //
 
 @media screen and (max-width: $breakpoint-B) {
@@ -226,12 +235,6 @@ li.saved-list-item {
       font-weight: 400;
       padding: 0;
     }
-  }
-
-
-  .btn-flexbox {
-    padding-left: 20px;
-    padding-right: 20px;  
   }
 
 }
@@ -278,8 +281,7 @@ li.saved-list-item {
     position: center;
   }
 
-  .buttons-flexbox {
-    
+  .buttons-flexbox { 
     button {
       flex-basis: 14vw;
       height: auto;
@@ -302,5 +304,6 @@ li.saved-list-item {
     align-items: center;
   }
 
+  
 }
 

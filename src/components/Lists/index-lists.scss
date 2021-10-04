@@ -188,6 +188,13 @@ p.co2-saved-text {
   @include CO2-style;
 }
 
+li.saved-list-item {
+  margin-left: 15px;
+  // list-style-type: disc;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
 // ------------- Media queries ------------- //
 
 @media screen and (max-width: $breakpoint-B) {

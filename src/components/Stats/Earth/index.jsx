@@ -1,6 +1,6 @@
 import { React, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, useProgress } from '@react-three/drei';
 import PropTypes from 'prop-types';
 
 import Main from './Main';
@@ -13,12 +13,25 @@ export default function Earth({ products }) {
     y: Math.sin(49.2827 * (Math.PI / 180)) * 3,
   };
 
+  function Loader() {
+    const {
+      progress,
+    } = useProgress();
+    return (
+      <Html center>
+        {progress}
+        {' '}
+        % loaded
+      </Html>
+    );
+  }
+
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       <Canvas camera={{ position: [0, 0, 10] }}>
-        <ambientLight intensity={0.6} />
-        <pointLight position={[10, 10, 2]} intensity={1} />
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
+          <ambientLight intensity={0.6} />
+          <pointLight position={[10, 10, 2]} intensity={1} />
           <Main origin={origin} products={products} />
         </Suspense>
         <OrbitControls enableZoom={false} />

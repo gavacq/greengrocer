@@ -17,7 +17,6 @@ export default function Nav() {
 
   // change navbar color on scroll
   const changeNavColor = () => {
-    console.log('hello');
     if (window.scrollY >= 90) {
       setNavColor(true);
     } else {

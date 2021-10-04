@@ -9,6 +9,15 @@ export default function Stats() {
   // on page load get all lists from db
   const [allLists, setAllLists] = useState([]);
   const [products, setProducts] = useState([]);
+  const [toggle, setToggle] = useState(true);
+
+  const toggleHelper = () => {
+    if (toggle) {
+      setToggle(false);
+    } else {
+      setToggle(true);
+    }
+  };
 
   useEffect(() => {
     Promise.all([
@@ -22,9 +31,9 @@ export default function Stats() {
 
   return (
     <section>
+      <button onClick={toggleHelper} type="button">{toggle ? 'Visit Globe' : 'Visit Graph'}</button>
       <div className="stats-container">
-        <Chart allLists={allLists} />
-        <Earth products={products} />
+        {toggle ? <Chart allLists={allLists} /> : <Earth products={products} />}
       </div>
     </section>
   );

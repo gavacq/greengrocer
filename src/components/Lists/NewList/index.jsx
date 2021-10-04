@@ -62,13 +62,12 @@ export default function NewList(props) {
     return (
       <>
         <p className="co2-saved-text co2">
-          Your choices have saved
+          Your replacements have saved
           <span className="co2-desc">
-            {' '}
-            {newList.co2_saved}
-            {' '}
+            {/* eslint-disable-next-line */}
+            { ' ' + newList.co2_saved} kg {' '} 
           </span>
-          kg of CO₂ so far!
+          of CO₂ so far!
         </p>
         {mappedList}
       </>

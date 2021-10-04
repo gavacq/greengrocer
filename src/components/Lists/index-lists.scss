@@ -215,6 +215,11 @@ p.co2-desc {
   }
 }
 
+.hide-results {
+  display: none;
+}
+
+
 // ------------- Media queries ------------- //
 
 @media screen and (max-width: $breakpoint-B) {

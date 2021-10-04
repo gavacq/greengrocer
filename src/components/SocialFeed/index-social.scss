@@ -6,14 +6,8 @@
 
 .social-section {
   color: $primary-green;
-  background-color: $primary-green;
   position: relative;
-  top: -500px;
-
-  .wave .shape-fill {
-    fill: $primary-green;
-    position: absolute;
-  } 
+  margin-bottom: 100px;
 
   h1.social-title {
     color: $primary-white;
@@ -26,7 +20,8 @@
     height: auto;
     z-index: 20;
     opacity: 0.85;
-    margin-bottom: 30px;  
+    margin-bottom: 30px; 
+    margin-top: 100px; 
   }
 }
 

@@ -38,7 +38,7 @@ h1 {
 .green {
   background: $primary-green;
   color: $primary-white;
-  height: 100vh;
+  height: 90vh; //was 100
   width: 100vw;
 }
 
@@ -63,10 +63,10 @@ h1 {
     z-index: 10;
 }
 
-.wave .shape-fill {
-    fill: #FFFFFF;
-    position: absolute;
-}  
+// .wave .shape-fill {
+//     fill: #FFFFFF;
+//     position: absolute;
+// }  
 
 
 // ----------- Media queries --------------- //

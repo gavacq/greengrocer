@@ -18,10 +18,17 @@
 }
 
 .stats-btn {
-    @include blue-button-styles;
     @include all-buttons;
     width: 200px;
     font-size: 30px;
     align-self: center;
     margin: 10px 10px 50px 10px;
+}
+
+.stats-btn-pink {
+    @include button-styles;
+}
+
+.stats-btn-blue {
+    @include blue-button-styles;
 }

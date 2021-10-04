@@ -1,3 +1,21 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+// -------------------------- Stats page styles ------------------------------- //
+
+
 .stats-container {
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    border: solid rgb(255, 224, 229) 3px;
+}
+
+.stats-btn {
+    @include green-button-styles;
+    @include all-buttons;
+    width: 30%;
+    font-size: 30px;
+    align-self: center;
+    margin: 10px;
 }

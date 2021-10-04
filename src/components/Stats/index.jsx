@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
-
+import './index-stats.scss';
 import Earth from './Earth';
 import Chart from './Chart';
 
@@ -31,7 +31,7 @@ export default function Stats() {
 
   return (
     <div className="stats-container" style={{ width: '100vw' }}>
-      <button onClick={toggleHelper} type="button">{toggle ? 'Visit Globe' : 'Visit Graph'}</button>
+      <button className="stats-btn" onClick={toggleHelper} type="button">{toggle ? 'Show globe' : 'Show graph'}</button>
       <div className="stats-container">
         {toggle ? <Chart allLists={allLists} /> : <Earth products={products} />}
       </div>

@@ -14,7 +14,7 @@ export default function Earth({ products }) {
   };
 
   return (
-    <div style={{ width: '100vw', height: '90vh' }}>
+    <div style={{ width: '100vw', height: '100vh' }}>
       <Canvas camera={{ position: [0, 0, 10] }}>
         <ambientLight intensity={0.6} />
         <pointLight position={[10, 10, 2]} intensity={1} />

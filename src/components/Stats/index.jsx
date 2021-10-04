@@ -30,7 +30,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <section>
+    <section className="stats-container">
       <button onClick={toggleHelper} type="button">{toggle ? 'Visit Globe' : 'Visit Graph'}</button>
       <div className="stats-container">
         {toggle ? <Chart allLists={allLists} /> : <Earth products={products} />}

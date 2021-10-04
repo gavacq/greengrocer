@@ -71,8 +71,8 @@ export default function Nav() {
 
     return (
       <>
-        <li className="desktop-menu-item">{user.username}</li>
-        <li className="desktop-menu-item" style={logoutStyle} onClick={handleLogout}>Logout</li>
+        {/* eslint-disable-next-line */}
+        <li className="desktop-menu-item" style={logoutStyle} onClick={handleLogout}>{user.username}</li>
       </>
     );
   };
@@ -124,13 +124,13 @@ export default function Nav() {
             </div>
 
             <ul className="desktop-menu" style={hamburger ? { display: 'none' } : { display: 'flex' }}>
-              {user.auth ? logoutButton() : loginButton()}
               <Link to="/lists" className="desktop-menu-item">
                 <li>Lists</li>
               </Link>
               <Link to="/stats" className="desktop-menu-item">
                 <li>Stats</li>
               </Link>
+              {user.auth ? logoutButton() : loginButton()}
             </ul>
           </div>
         </nav>

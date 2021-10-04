@@ -2,38 +2,48 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
 import { listType } from '../../../types';
-import searchProducts from '../../../helpers/search';
+import { searchProducts, filterDuplicateProductsFromResults, removeProductFromList } from '../../../helpers/search';
 import NewListProduct from './NewListProduct';
 import '../index-lists.scss';
+import { useAppContext } from '../../../lib/context';
 
 export default function NewList(props) {
   const {
-    newList, setResults, setIdToReplace, saveList, setNewList,
+    newList, setResults, setIdToReplace, saveList, setNewList, setQueryDisplay, idToReplace,
   } = props;
-  console.log('list', newList);
+  const { userContext, resultsReturnedContext } = useAppContext();
+  // eslint-disable-next-line no-unused-vars
+  const [user, setUser] = userContext;
+  // eslint-disable-next-line no-unused-vars
+  const [resultsReturned, setResultsReturned] = resultsReturnedContext;
 
   const removeProduct = (id) => {
-    const newProducts = newList.products.reduce((plist, p) => {
-      if (p.api_id === id) {
-        return plist;
-      }
-      plist.push(p);
-      return plist;
-    }, []);
+    const newProducts = removeProductFromList(newList.products, id);
+    console.log('removeProduct', newProducts);
 
     setNewList((prev) => ({
       ...prev,
       products: newProducts,
     }));
+
+    if (id === idToReplace) {
+      setResults([]);
+    }
   };
 
   const showReplacements = (query, title, id) => {
     const newQuery = title.toLowerCase().split(' ').filter((w) => w.includes(query.toLowerCase()))[0];
-    console.log('newQueyr', newQuery);
+    console.log('newQuery', newQuery);
+    setResultsReturned(false);
     searchProducts(newQuery)
       .then((results) => {
         setIdToReplace(id);
-        setResults(results);
+        const dedupedResults = filterDuplicateProductsFromResults(results, newList);
+        setResults(dedupedResults);
+        setQueryDisplay(newQuery);
+      })
+      .finally(() => {
+        setResultsReturned(true);
       });
   };
 
@@ -60,16 +70,26 @@ export default function NewList(props) {
       />
     ));
 
+    // calculate the running total CO2 of the new list
+    const getTotalCo2 = newList.products.reduce((sum, product) => {
+      // eslint-disable-next-line no-param-reassign
+      sum += product.co2;
+      return sum;
+    }, 0);
+
     return (
       <>
-        <p className="co2-saved-text">
-          Your choices have saved
+        <p className="co2-saved-text co2">
+          {/* eslint-disable-next-line */}
+          This list generates <span className="co2-desc">{getTotalCo2} kg </span> of CO₂
+        </p>
+        <p className="co2-saved-text co2">
+          Your replacements have saved
           <span className="co2-desc">
-            {' '}
-            {newList.co2_saved}
-            {' '}
+            {/* eslint-disable-next-line */}
+            { ' ' + newList.co2_saved} kg {' '} 
           </span>
-          kg of CO2 so far!
+          of CO₂ so far
         </p>
         {mappedList}
       </>
@@ -78,11 +98,11 @@ export default function NewList(props) {
 
   return (
     <section className="new-list-wrapper">
-      <h1>New list</h1>
-      <div>
+      <div className="new-list-content">
+        <h1>New list</h1>
         {newListContents()}
       </div>
-      {newList.products.length ? <button className="save-btn" type="button" onClick={saveList}>Save</button> : <></>}
+      {(newList.products.length && user.auth) ? <button className="save-btn" type="button" onClick={saveList}>Save</button> : <></>}
     </section>
   );
 }
@@ -94,4 +114,10 @@ NewList.propTypes = {
   setIdToReplace: PropTypes.func.isRequired,
   saveList: PropTypes.func.isRequired,
   setNewList: PropTypes.func.isRequired,
+  idToReplace: PropTypes.number,
+  setQueryDisplay: PropTypes.func.isRequired,
+};
+
+NewList.defaultProps = {
+  idToReplace: null,
 };

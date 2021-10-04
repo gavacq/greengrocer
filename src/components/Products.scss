@@ -1,7 +1,6 @@
 @import "../styles/variables";
 @import "../styles/mixins";
 
-
 // ----------------- styles for products ------------ //
 
 p {
@@ -14,7 +13,11 @@ p {
 
 .product-img {
   text-align: center;
-  // margin-bottom: 10px;
+}
+
+img.product {
+  width: 150px;
+  max-height: 200px;
 }
 
 .img-btn-container {
@@ -23,10 +26,6 @@ p {
   align-items: center;
   text-align: left;
   width: 90%;
-}
-
-img.product {
-  width: 150px;
 }
 
 .product-flexbox {
@@ -55,6 +54,7 @@ img.product {
 
 .add-btn {
   @include green-button-styles;
+  @include all-buttons;
   position: relative;
   top: -15px;
   height: 60px;
@@ -69,9 +69,10 @@ img.product {
 }
 
 
-/* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
+/* ---------------------- Media queries -------------------------- */
 
-@media screen and (min-width: $desktop-breakpoint) {
+// tablet and desktop
+@media screen and (min-width: $breakpoint-D) {
 
   p {
     font-size: 20px;
@@ -99,7 +100,8 @@ img.product {
 
 }
 
-@media screen and (min-width: 820px) {
+// desktop
+@media screen and (min-width: $breakpoint-E) {
  
   
   .add-btn {

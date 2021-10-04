@@ -7,7 +7,7 @@ export default function Home() {
     <main className="home">
       <section className="welcome">
         <h1>
-          Welcome to GreenGrocer.
+          Reduce your groceries&apos; carbon footprint.
         </h1>
         <div className="icon planet">
           <img src="images/planet-earth.png" alt="planet icon" />

@@ -15,6 +15,7 @@ export default function List() {
   const [allLists, setAllLists] = useState([]);
   const [results, setResults] = useState([]);
   const [idToReplace, setIdToReplace] = useState(null);
+  const [queryDisplay, setQueryDisplay] = useState('');
 
   console.log('newList', newList);
 
@@ -95,20 +96,25 @@ export default function List() {
       <div className="search-and-new-list">
         <div className="search-section">
           <Search
+            newList={newList}
             setNewList={setNewList}
             results={results}
             setResults={setResults}
             replaceProduct={replaceProduct}
             idToReplace={idToReplace}
             setIdToReplace={setIdToReplace}
+            queryDisplay={queryDisplay}
+            setQueryDisplay={setQueryDisplay}
           />
         </div>
         <NewList
+          idToReplace={idToReplace}
           newList={newList}
           setResults={setResults}
           setIdToReplace={setIdToReplace}
           saveList={saveList}
           setNewList={setNewList}
+          setQueryDisplay={setQueryDisplay}
         />
       </div>
       <AllLists allLists={allLists} setNewList={setNewList} deleteList={deleteList} />

@@ -2,19 +2,28 @@ import { React } from 'react';
 import PropTypes from 'prop-types';
 import './SearchBar.scss';
 import '../../../index.scss';
-import searchProducts from '../../../helpers/search';
+import { searchProducts, filterDuplicateProductsFromResults } from '../../../helpers/search';
+import { listType } from '../../../types';
+import { useAppContext } from '../../../lib/context';
 
 export default function SearchBar(props) {
   const {
-    setResults, setIdToReplace, productName, setProductName, setQueryDisplay,
+    newList, setResults, setIdToReplace, productName, setProductName, setQueryDisplay,
   } = props;
+  const { resultsReturnedContext } = useAppContext();
+  // eslint-disable-next-line no-unused-vars
+  const [resultsReturned, setResultsReturned] = resultsReturnedContext;
 
   const clickHandler = () => {
-    searchProducts(productName).then((results) => {
-      setResults(results);
-      setIdToReplace(null);
-      setQueryDisplay(productName);
-    });
+    setResultsReturned(false);
+    searchProducts(productName)
+      .then((results) => {
+        const dedupedResults = filterDuplicateProductsFromResults(results, newList);
+        setResults(dedupedResults);
+        setIdToReplace(null);
+        setQueryDisplay(productName);
+      })
+      .finally(() => setResultsReturned(true));
   };
 
   return (
@@ -36,6 +45,7 @@ export default function SearchBar(props) {
 }
 
 SearchBar.propTypes = {
+  newList: listType.isRequired,
   setResults: PropTypes.func.isRequired,
   setIdToReplace: PropTypes.func.isRequired,
   setProductName: PropTypes.func.isRequired,

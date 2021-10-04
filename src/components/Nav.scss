@@ -21,7 +21,8 @@
   background-color: $primary-green;
   transition: background-color 0.4s;
 
-  .logo, li {
+  .logo,
+  li {
     color: $primary-white;
     transition: color 0.4s;
   }
@@ -29,7 +30,6 @@
   li:hover {
     color: $green-hover;
   }
-
 }
 
 .sticky {
@@ -76,6 +76,10 @@ div.logo {
 /* hamburger menu icon */
 .hamburger-container {
   padding: 3px;
+}
+
+/* desktop menu */
+.desktop-menu {
   display: none;
   align-items: flex-end;
   flex-direction: column;
@@ -113,25 +117,24 @@ div.logo {
   justify-content: space-between;
   margin-right: 30px;
   text-align: right;
-    #{&}-item {
-      margin-left: 30px;
-      font-family: "Fredoka One";
-      text-decoration: none;
-      color: $primary-green;
-      transition: color 0.4s;
-      font-size: 1.5em;
 
-        &:hover {
-          color: $pink-hover;
-        }
-      }
-  
+  #{&}-item {
+    margin-left: 30px;
+    font-family: "Fredoka One";
+    text-decoration: none;
+    color: $primary-green;
+    transition: color 0.4s;
+    font-size: 1.5em;
+
+    &:hover {
+      color: $pink-hover;
+    }
   
 }
 
 /* ---------------------- BREAKPOINTS & MEDIA QUERIES -------------------------- */
 
-@media screen and (max-width: $desktop-breakpoint) {
+@media screen and (max-width: $breakpoint-D) {
   /* hamburger menu icon */
   .hamburger-container {
     display: flex;
@@ -139,5 +142,5 @@ div.logo {
   .desktop-menu {
     flex-direction: column-reverse;
   }
-  }
-
+}
+}

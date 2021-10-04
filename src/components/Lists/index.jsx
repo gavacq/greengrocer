@@ -105,6 +105,7 @@ export default function List() {
           />
         </div>
         <NewList
+          idToReplace={idToReplace}
           newList={newList}
           setResults={setResults}
           setIdToReplace={setIdToReplace}

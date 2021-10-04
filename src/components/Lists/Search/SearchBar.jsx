@@ -46,7 +46,7 @@ export default function SearchBar(props) {
           value={productName}
           onChange={(event) => setProductName(event.target.value)}
         />
-        <button className="search-button" type="button" onClick={clickHandler}>search</button>
+        <button className="search-button" type="submit" onClick={clickHandler}>search</button>
       </form>
     </div>
   );

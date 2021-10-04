@@ -13,9 +13,11 @@ export default function Nav() {
   const [height, width] = useWindowSize(); // eslint-disable-line
   const { userContext } = useAppContext();
   const [user, setUser] = userContext;
+  const [hamburger, setHamburger] = useState(false);
 
   // change navbar color on scroll
   const changeNavColor = () => {
+    console.log('hello');
     if (window.scrollY >= 90) {
       setNavColor(true);
     } else {
@@ -78,6 +80,14 @@ export default function Nav() {
 
   window.addEventListener('scroll', changeNavColor);
 
+  const hamburgerHelper = () => {
+    if (hamburger) {
+      setHamburger(false);
+    } else {
+      setHamburger(true);
+    }
+  };
+
   useEffect(() => {
     axios.get('/login')
       .then((res) => {
@@ -89,6 +99,14 @@ export default function Nav() {
       });
   }, []);
 
+  useEffect(() => {
+    if (width > 720) {
+      setHamburger(false);
+    } else {
+      setHamburger(true);
+    }
+  }, [width]);
+
   return (
     <div className={navColor ? 'nav-container sticky active' : 'nav-container sticky'}>
       <div className="wrapper">
@@ -98,15 +116,24 @@ export default function Nav() {
               <img className={changeLogoClass()} src={changeNavLogo()} alt="logo" />
             </div>
           </Link>
-          <ul className="desktop-menu">
-            {user.auth ? logoutButton() : loginButton()}
-            <Link to="/lists" className="desktop-menu-item">
-              <li>Lists</li>
-            </Link>
-            <Link to="/stats" className="desktop-menu-item">
-              <li>Stats</li>
-            </Link>
-          </ul>
+
+          <div className="nav-content-right">
+            <div className="hamburger-container" role="button" tabIndex={0} onClick={hamburgerHelper}>
+              <div className={hamburger ? 'hamburger-brick' : 'hamburger-brick hamburger-on-1'} />
+              <div className={hamburger ? 'hamburger-brick' : 'hamburger-brick hamburger-on-2'} />
+              <div className={hamburger ? 'hamburger-brick' : 'hamburger-brick hamburger-on-3'} />
+            </div>
+
+            <ul className="desktop-menu" style={hamburger ? { display: 'none' } : { display: 'flex' }}>
+              {user.auth ? logoutButton() : loginButton()}
+              <Link to="/lists" className="desktop-menu-item">
+                <li>Lists</li>
+              </Link>
+              <Link to="/stats" className="desktop-menu-item">
+                <li>Stats</li>
+              </Link>
+            </ul>
+          </div>
         </nav>
       </div>
     </div>

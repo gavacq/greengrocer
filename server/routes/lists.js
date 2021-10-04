@@ -52,9 +52,9 @@ module.exports = (db) => {
     Promise.all([...productsPromises, listsPromise])
       .then((data) => {
         const productsInsertData = data.slice(0, -1).map((d) => d.rows[0]);
-        console.log('prod', productsInsertData);
+        console.log('products', productsInsertData);
 
-        const listInsertData = data[data.length - 1];
+        const listInsertData = data[data.length - 1][0];
         console.log('list', listInsertData);
 
         if (!productsInsertData.length) {
@@ -69,20 +69,18 @@ module.exports = (db) => {
 
         const productsListsSql = 'INSERT INTO products_lists(product_id, list_id, query) VALUES ($1, $2, $3) RETURNING query';
         const productsListsValues = productsInsertData.map((p) => (
-          [p.id, listInsertData[0].id, getQueryFromApiProductId(p.api_id)]));
+          [p.id, listInsertData.id, getQueryFromApiProductId(p.api_id)]));
         console.log('productsListsValues', productsListsValues);
         const productsListsPromises = productsListsValues.map((v) => db.query(productsListsSql, v));
-        return Promise.all([data, ...productsListsPromises]);
+        return Promise.all([productsInsertData, listInsertData, ...productsListsPromises]);
       })
       .then((data) => {
-        console.log('productsLists insert return', data);
-        console.log('productsLists insert return 1.rows ', data[1].rows);
+        const productData = data[0];
+        const listData = data[1];
+        const productsListsData = data.slice(2, data.length).map((d) => d.rows[0]);
 
-        const queries = data[1].rows;
-        const productData = data[0][0];
-        const listData = data[0][1][0];
         productData.forEach((p, i) => {
-          const newProduct = { ...p, query: queries[i].query };
+          const newProduct = { ...p, query: productsListsData[i].query };
           if (!listData.products) {
             listData.products = [newProduct];
           } else {
@@ -90,13 +88,13 @@ module.exports = (db) => {
           }
         });
         delete listData.user_id;
-        console.log('formatted', listData);
+        console.log('formatted list data', listData);
 
         // return formatted list
         res.json(listData);
       })
       .catch((error) => {
-        console.log('products_lists insert failed', error);
+        console.log('list insert failed', error);
         res.json({});
       });
   });

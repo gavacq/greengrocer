@@ -59,8 +59,19 @@ export default function NewList(props) {
       />
     ));
 
+    // calculate the running total CO2 of the new list
+    const getTotalCo2 = newList.products.reduce((sum, product) => {
+      // eslint-disable-next-line no-param-reassign
+      sum += product.co2;
+      return sum;
+    }, 0);
+
     return (
       <>
+        <p>
+          {/* eslint-disable-next-line */}
+          Your current list generates <span className="co2-desc">{getTotalCo2}</span> kg of CO₂
+        </p>
         <p className="co2-saved-text co2">
           Your replacements have saved
           <span className="co2-desc">

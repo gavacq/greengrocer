@@ -52,7 +52,6 @@ module.exports = (db, io) => {
           res.send('error');
         });
     } else {
-      console.log('USER LOGGED IN', req.session.user);
       // a user is logged in, query liked_posts to see which posts a user has liked
       Promise.all([queryPosts(), queryLikedPosts(req.session.user)])
         .then((data) => {
@@ -91,7 +90,6 @@ module.exports = (db, io) => {
     } else {
       updateLikes(likedByUser, postId)
         .then((data) => {
-          console.log('data', data);
           res.json({ likes: data.likes, likedByUser: data.likedByUser });
         })
         .catch((error) => {

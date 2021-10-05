@@ -1,9 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 
-export default function Location({ lat, long, origin }) {
+export default function Location({
+  lat, long, title, origin, setCurrentTitle, setCurrentLat, setCurrentLong,
+}) {
+  const [hover, setHover] = useState(false);
+
   // POINT LOCATION MATHS
   const newLat = lat * (Math.PI / 180);
   const newLong = long * (Math.PI / 180);
@@ -37,12 +41,16 @@ export default function Location({ lat, long, origin }) {
   const bezierPoints = bezier.getPoints(500);
   const lineGeometry = new THREE.BufferGeometry().setFromPoints(bezierPoints);
 
+  useEffect(() => {
+    document.body.style.cursor = hover ? 'pointer' : 'auto';
+  }, [hover]);
+
   const mesh = useRef();
   const clock1 = new THREE.Clock();
 
   useFrame(() => {
     let elapsedTime = Math.floor(clock1.getElapsedTime() * (lineLength ** 2));
-    if (elapsedTime > 480 || bezierPoints[elapsedTime] === undefined) {
+    if (elapsedTime > 495 || bezierPoints[elapsedTime] === undefined) {
       clock1.start();
     }
     elapsedTime = Math.floor(clock1.getElapsedTime() * (lineLength ** 2));
@@ -52,6 +60,19 @@ export default function Location({ lat, long, origin }) {
   });
   return (
     <>
+      <mesh
+        position={[x, y, z]}
+        onClick={() => {
+          setCurrentTitle(title);
+          setCurrentLat(lat);
+          setCurrentLong(long);
+        }}
+        onPointerOver={() => setHover(true)}
+        onPointerOut={() => setHover(false)}
+      >
+        <sphereBufferGeometry attach="geometry" args={[0.3, 32, 32]} />
+        <meshStandardMaterial attach="material" color="#f73a73" transparent opacity={0.2} />
+      </mesh>
       <mesh ref={mesh}>
         <sphereBufferGeometry attach="geometry" args={[0.1, 32, 32]} />
         <meshPhongMaterial attach="material" color="#3bc05e" shininess={100} />
@@ -67,9 +88,13 @@ export default function Location({ lat, long, origin }) {
 Location.propTypes = {
   lat: PropTypes.number.isRequired,
   long: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
   origin: PropTypes.shape({
     x: PropTypes.number,
     y: PropTypes.number,
     z: PropTypes.number,
   }).isRequired,
+  setCurrentTitle: PropTypes.func.isRequired,
+  setCurrentLat: PropTypes.func.isRequired,
+  setCurrentLong: PropTypes.func.isRequired,
 };

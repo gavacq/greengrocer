@@ -71,14 +71,14 @@ export default function Location({
         onPointerOut={() => setHover(false)}
       >
         <sphereBufferGeometry attach="geometry" args={[0.3, 32, 32]} />
-        <meshStandardMaterial attach="material" color="#f73a73" transparent opacity={0.2} />
+        <meshStandardMaterial attach="material" color="red" transparent opacity={0.1} />
       </mesh>
       <mesh ref={mesh}>
         <sphereBufferGeometry attach="geometry" args={[0.1, 32, 32]} />
         <meshPhongMaterial attach="material" color="#3bc05e" shininess={100} />
       </mesh>
-      <line geometry={lineGeometry}>
-        <lineBasicMaterial attach="material" color="#9c88ff" linewidth={100} />
+      <line geometry={lineGeometry} onUpdate={(linear) => linear.computeLineDistances()}>
+        <lineBasicMaterial attach="material" color="red" linewidth={1} transparent opacity={0.2} />
       </line>
     </>
   );

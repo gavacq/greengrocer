@@ -1,4 +1,6 @@
-import { React, Suspense, useState } from 'react';
+import {
+  React, Suspense, useRef, useState,
+} from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Loader } from '@react-three/drei';
 import PropTypes from 'prop-types';
@@ -10,15 +12,30 @@ export default function Earth({ products }) {
   const [currentTitle, setCurrentTitle] = useState('');
   const [currentLat, setCurrentLat] = useState(0);
   const [currentLong, setCurrentLong] = useState(0);
+
   const origin = {
     z: Math.cos(49.2827 * (Math.PI / 180)) * Math.cos((360 - 123.1207) * (Math.PI / 180)) * 3,
     x: Math.cos(49.2827 * (Math.PI / 180)) * Math.sin((360 - 123.1207) * (Math.PI / 180)) * 3,
     y: Math.sin(49.2827 * (Math.PI / 180)) * 3,
   };
 
+  const canvasRef = useRef();
+
+  const fullscreen = () => {
+    if (!canvasRef.current.fullscreenElement) {
+      canvasRef.current.requestFullscreen();
+    } else {
+      console.log('leave full screen');
+    }
+  };
+
   return (
     <div className="earth-canvas-container" style={{ width: '80vw', height: '80vh' }}>
-      <Canvas className="earth-canvas" camera={{ position: [0, 0, 10] }}>
+      <Canvas
+        className="earth-canvas"
+        camera={{ position: [0, 0, 8] }}
+        ref={canvasRef}
+      >
         <Suspense fallback={null}>
           <ambientLight intensity={0.6} />
           <pointLight position={[10, 10, 2]} intensity={1} />
@@ -30,7 +47,7 @@ export default function Earth({ products }) {
             setCurrentLong={setCurrentLong}
           />
         </Suspense>
-        <OrbitControls />
+        <OrbitControls enableZoom={false} />
       </Canvas>
       <Loader
         containerStyles={{ background: 'white' }}
@@ -52,6 +69,7 @@ export default function Earth({ products }) {
           Longitude:
           {` ${currentLong}`}
         </h5>
+        <button onClick={fullscreen} type="button">Fullscreen</button>
       </div>
     </div>
   );

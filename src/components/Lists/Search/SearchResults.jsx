@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import Product from '../../Product';
 import { productType } from '../../../types';
@@ -9,6 +9,9 @@ export default function SearchResults(props) {
   const {
     results, setResults, setNewList, replaceProduct, idToReplace, queryDisplay,
   } = props;
+
+  const [isVisible, setIsVisible] = useState(true);
+
   const addProductToList = (product) => {
     setNewList((prev) => ({
       id: prev.id,
@@ -31,18 +34,23 @@ export default function SearchResults(props) {
     />
   ));
 
-
   return (
-    <div className="search-results">
+    <div className="main-results-container">
       {/* eslint-disable-next-line */}
-      <p className="query-result-msg">
-        <em>
-          showing results for:
-          {' '}
-          {queryDisplay}
-        </em>
-      </p>
-      {results.length === 0 ? <p>No results found.</p> : jsxResults}
+      <button type="button" onClick={() => setIsVisible(v => !v)}>Mount</button>
+      {isVisible ? (
+        <div className="search-results">
+          {/* eslint-disable-next-line */}
+         <p className="query-result-msg">
+           <em>
+             showing results for:
+             {' '}
+             {queryDisplay}
+           </em>
+         </p>
+          {results.length === 0 ? <p>No results found.</p> : jsxResults}
+        </div>
+      ) : '' }
     </div>
   );
 }

@@ -164,7 +164,7 @@ module.exports = (db) => {
 
   router.get('/products', (req, res) => {
     const allProductsQuery = `
-        SELECT lat, long
+        SELECT lat, long, title
         FROM products
         JOIN products_lists ON products_lists.product_id = products.id
         JOIN lists ON products_lists.list_id = lists.id

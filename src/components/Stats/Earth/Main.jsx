@@ -6,10 +6,21 @@ import Planet from './Planet';
 import Clouds from './Clouds';
 import Location from './Location';
 
-export default function Main({ products, origin }) {
+export default function Main({
+  products, origin, setCurrentTitle, setCurrentLat, setCurrentLong,
+}) {
   const mappedLocations = products.map((product, i) => (
-    // eslint-disable-next-line react/no-array-index-key
-    <Location lat={product.lat} long={product.long} origin={origin} key={i} />
+    <Location
+      lat={product.lat}
+      long={product.long}
+      origin={origin}
+      title={product.title}
+      // eslint-disable-next-line react/no-array-index-key
+      key={i}
+      setCurrentTitle={setCurrentTitle}
+      setCurrentLat={setCurrentLat}
+      setCurrentLong={setCurrentLong}
+    />
   ));
 
   // const group = useRef();
@@ -29,10 +40,14 @@ Main.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({
     lat: PropTypes.number.isRequired,
     long: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
   })).isRequired,
   origin: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
     z: PropTypes.number.isRequired,
   }).isRequired,
+  setCurrentTitle: PropTypes.func.isRequired,
+  setCurrentLat: PropTypes.func.isRequired,
+  setCurrentLong: PropTypes.func.isRequired,
 };

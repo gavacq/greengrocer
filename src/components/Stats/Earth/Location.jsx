@@ -1,10 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
-import { Html } from '@react-three/drei';
 
-export default function Location({ lat, long, origin }) {
+export default function Location({
+  lat, long, title, origin, setCurrentTitle, setCurrentLat, setCurrentLong,
+}) {
   const [hover, setHover] = useState(false);
 
   // POINT LOCATION MATHS
@@ -40,6 +41,10 @@ export default function Location({ lat, long, origin }) {
   const bezierPoints = bezier.getPoints(500);
   const lineGeometry = new THREE.BufferGeometry().setFromPoints(bezierPoints);
 
+  useEffect(() => {
+    document.body.style.cursor = hover ? 'pointer' : 'auto';
+  }, [hover]);
+
   const mesh = useRef();
   const clock1 = new THREE.Clock();
 
@@ -57,25 +62,20 @@ export default function Location({ lat, long, origin }) {
     <>
       <mesh
         position={[x, y, z]}
-        onClick={() => console.log(lat, long)}
+        onClick={() => {
+          setCurrentTitle(title);
+          setCurrentLat(lat);
+          setCurrentLong(long);
+        }}
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}
       >
         <sphereBufferGeometry attach="geometry" args={[0.3, 32, 32]} />
-        <meshStandardMaterial attach="material" color="#f73a73" transparent opacity={0.8} />
+        <meshStandardMaterial attach="material" color="#f73a73" transparent opacity={0.2} />
       </mesh>
       <mesh ref={mesh}>
         <sphereBufferGeometry attach="geometry" args={[0.1, 32, 32]} />
         <meshPhongMaterial attach="material" color="#3bc05e" shininess={100} />
-        <Html scaleFactor={10}>
-          <div className="content">
-            Suspense
-            {' '}
-            <br />
-            {hover && 'helllllloooooooooooooooooooooo'}
-            ms
-          </div>
-        </Html>
       </mesh>
       <line geometry={lineGeometry}>
         <lineBasicMaterial attach="material" color="#9c88ff" linewidth={100} />
@@ -88,9 +88,13 @@ export default function Location({ lat, long, origin }) {
 Location.propTypes = {
   lat: PropTypes.number.isRequired,
   long: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
   origin: PropTypes.shape({
     x: PropTypes.number,
     y: PropTypes.number,
     z: PropTypes.number,
   }).isRequired,
+  setCurrentTitle: PropTypes.func.isRequired,
+  setCurrentLat: PropTypes.func.isRequired,
+  setCurrentLong: PropTypes.func.isRequired,
 };

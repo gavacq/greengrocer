@@ -14,7 +14,6 @@ export default function Search(props) {
   const { resultsReturnedContext } = useAppContext();
   const [resultsReturned, setResultsReturned] = resultsReturnedContext;
   const [productName, setProductName] = useState('');
-  // const [showResults, setShowResults] = useState(true);
 
   console.log('resultsReturned', resultsReturned);
 
@@ -48,7 +47,6 @@ export default function Search(props) {
         !resultsReturned.initial && resultsReturned.returned
           && (
           <SearchResults
-            // className={showResults ? '' : 'hide-results'}
             id="search-results-container"
             results={results}
             setResults={setResults}

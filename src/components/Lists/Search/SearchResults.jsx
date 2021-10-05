@@ -10,8 +10,6 @@ export default function SearchResults(props) {
     results, setResults, setNewList, replaceProduct, idToReplace, queryDisplay,
   } = props;
 
-  const [isVisible, setIsVisible] = useState(true);
-
   const addProductToList = (product) => {
     setNewList((prev) => ({
       id: prev.id,
@@ -37,7 +35,6 @@ export default function SearchResults(props) {
   return (
     <div className="main-results-container">
       {/* eslint-disable-next-line */}
-      <button type="button" onClick={() => setIsVisible(v => !v)}>Mount</button>
       {isVisible ? (
         <div className="search-results">
           {/* eslint-disable-next-line */}

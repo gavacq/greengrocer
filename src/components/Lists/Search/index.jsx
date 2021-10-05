@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from 'react';
+import { useTransition, animated } from 'react-spring';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
 import SearchBar from './SearchBar';
@@ -14,6 +15,10 @@ export default function Search(props) {
   const { resultsReturnedContext } = useAppContext();
   const [resultsReturned, setResultsReturned] = resultsReturnedContext;
   const [productName, setProductName] = useState('');
+
+  const [isVisible, setIsVisible] = useState(true);
+  const transition = useTransition(isVisible, {});
+
 
   console.log('resultsReturned', resultsReturned);
 
@@ -46,17 +51,24 @@ export default function Search(props) {
       {
         !resultsReturned.initial && resultsReturned.returned
           && (
-          <SearchResults
-            id="search-results-container"
-            results={results}
-            setResults={setResults}
-            setNewList={setNewList}
-            replaceProduct={replaceProduct}
-            idToReplace={idToReplace}
-            productName={productName}
-            setProductName={setProductName}
-            queryDisplay={queryDisplay}
-          />
+            <div>
+              <button type="button" onClick={() => setIsVisible(v => !v)}>Mount</button>
+              {transition((style, item) => {
+                item ? 
+                <SearchResults
+                  id="search-results-container"
+                  results={results}
+                  setResults={setResults}
+                  setNewList={setNewList}
+                  replaceProduct={replaceProduct}
+                  idToReplace={idToReplace}
+                  productName={productName}
+                  setProductName={setProductName}
+                  queryDisplay={queryDisplay}
+                /> : ''
+              });
+}
+            </div>
           )
       }
     </section>

@@ -136,8 +136,9 @@ p.co2-saved-text {
   justify-content: flex-start;
   padding: 20px;
   border: solid 4px rgb(245, 210, 212, 0.9);
+  background: rgb(255, 245, 245);
   border-radius: 10px;
-  margin-bottom: 35px;
+  margin-bottom: 50px;
 
   li p {
     text-align: left;
@@ -280,6 +281,11 @@ p.saved-list-co2.co2 {
     margin-right: 5%;
   }
 
+  h1 {
+    margin-top: 10px;
+    font-size: 32px;
+  }
+
   .saved-list {
     padding: 30px 20px 0 10px;
 
@@ -367,6 +373,17 @@ p.saved-list-co2.co2 {
     font-size: 28px;
   }
 
+  }
+
+}
+
+@media screen and (min-width: $breakpoint-H) {
+  
+  .saved-list {
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-left: 50px;
+    padding-right: 30px;
   }
 
 }

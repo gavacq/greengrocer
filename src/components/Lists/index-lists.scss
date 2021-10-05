@@ -276,6 +276,19 @@ p.saved-list-co2.co2 {
     margin-right: 5%;
   }
 
+  .saved-list {
+    padding: 30px 20px 0 10px;
+
+    h3 {
+      margin-left: 20px;
+    }
+
+    .buttons-flexbox {
+      margin-bottom: 25px;
+    }
+  }
+
+ 
 }
 
 
@@ -343,23 +356,12 @@ p.saved-list-co2.co2 {
     width: 90vw;
    
    li, p, h3 {
-    font-size: 23px;
+    font-size: 20px;
    } 
 
    .buttons-flexbox button {
-     font-size: 30px;
-   }
-
+    font-size: 28px;
   }
-
-}
-
-@media screen and (min-width: $breakpoint-G) {
-  .saved-list {
-   
-   li, p, h3 {
-    font-size: 26px;
-   } 
 
   }
 

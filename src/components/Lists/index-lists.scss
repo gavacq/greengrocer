@@ -113,7 +113,7 @@ p.co2-saved-text {
   background-color: $btn-text-hover;
   margin: 30px 0px 35px 0px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: flex-start;
   padding: 15px;
   border-radius: 10px;
@@ -123,6 +123,10 @@ p.co2-saved-text {
     font-weight: 600;
     color: $btn-border;
     margin-bottom: 25px;
+  }
+
+  h1 {
+    order: 1;
   }
 }
 

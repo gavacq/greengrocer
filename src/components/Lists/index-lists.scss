@@ -11,6 +11,10 @@ li.saved-list-item {
   color: rgba(0,0,0,0.7);
 }
 
+.new-list-content {
+  width: 90%;
+}
+
 .search-and-new-list {
   padding: 0 0 15px 0;
   display: flex;
@@ -144,6 +148,7 @@ p.co2-saved-text {
   background: rgb(255, 245, 245);
   border-radius: 10px;
   margin-bottom: 50px;
+  width: 90%;
 
   li p {
     text-align: left;
@@ -255,7 +260,7 @@ p.saved-list-co2.co2 {
   }
 
   .saved-list {
-    width: 90vw;
+    width: 80vw;
   }
 
 }
@@ -335,9 +340,9 @@ p.saved-list-co2.co2 {
     padding: 0;
   }
 
-  div.item-in-list {
-    position: center;
-  }
+  // div.item-in-list {
+  //   position: center;
+  // }
 
   .buttons-flexbox { 
     button {

@@ -113,7 +113,7 @@ p.co2-saved-text {
   background-color: $btn-text-hover;
   margin: 30px 0px 35px 0px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: flex-start;
   padding: 15px;
   border-radius: 10px;
@@ -123,6 +123,10 @@ p.co2-saved-text {
     font-weight: 600;
     color: $btn-border;
     margin-bottom: 25px;
+  }
+
+  h1 {
+    order: 1;
   }
 }
 
@@ -215,11 +219,21 @@ p.co2-desc {
   }
 }
 
-.hide-results {
-  display: none;
+.list-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+p.saved-list-co2.co2 {
+  margin-right: 2%;
+  position: relative;
+  top: -4px;
 }
 
 
+.mappedlist-container {
+  margin-bottom: 2.5%;
+}
 // ------------- Media queries ------------- //
 
 @media screen and (max-width: $breakpoint-B) {
@@ -232,6 +246,10 @@ p.co2-desc {
   .copy-btn {
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  .saved-list {
+    width: 90vw;
   }
 
 }
@@ -262,6 +280,19 @@ p.co2-desc {
     margin-right: 5%;
   }
 
+  .saved-list {
+    padding: 30px 20px 0 10px;
+
+    h3 {
+      margin-left: 20px;
+    }
+
+    .buttons-flexbox {
+      margin-bottom: 25px;
+    }
+  }
+
+ 
 }
 
 
@@ -323,3 +354,19 @@ p.co2-desc {
 
 }
 
+
+@media screen and (min-width: $breakpoint-G) {
+  .saved-list {
+    width: 90vw;
+   
+   li, p, h3 {
+    font-size: 20px;
+   } 
+
+   .buttons-flexbox button {
+    font-size: 28px;
+  }
+
+  }
+
+}

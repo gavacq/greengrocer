@@ -215,10 +215,16 @@ p.co2-desc {
   }
 }
 
-.hide-results {
-  display: none;
+.list-name {
+  display: flex;
+  justify-content: space-between;
 }
 
+p.saved-list-co2.co2 {
+  margin-right: 2%;
+  position: relative;
+  top: -4px;
+}
 
 // ------------- Media queries ------------- //
 

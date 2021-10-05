@@ -64,11 +64,13 @@ export default function SavedList(props) {
   ));
   return (
     <div className="saved-list">
-      {/* eslint-disable-next-line */}
-      <h3>List #{list.id}</h3>
-      {mappedListItems}
-      {/* eslint-disable-next-line */}
+      <div className="list-name">
+        {/* eslint-disable-next-line */}
+        <h3>List #{list.id}</h3>
+        {/* eslint-disable-next-line */}
       <p className="saved-list-co2 co2">CO₂ saved: {list.co2_saved} kg</p>
+      </div>
+      {mappedListItems}
       <div className="buttons-flexbox">
         <button className="delete-btn" type="button" onClick={() => deleteList(list.id)}>delete</button>
         <button className="copy-btn" type="button" onClick={copyHandler}>copy</button>

@@ -51,7 +51,7 @@ export default function Product(props) {
         {actionButton()}
       </div>
 
-      <div><p>{data.title}</p></div>
+      <div><p className="product-info">{data.title}</p></div>
 
     </div>
   );

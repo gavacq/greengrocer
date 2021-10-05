@@ -226,6 +226,10 @@ p.saved-list-co2.co2 {
   top: -4px;
 }
 
+
+.mappedlist-container {
+  margin-bottom: 2.5%;
+}
 // ------------- Media queries ------------- //
 
 @media screen and (max-width: $breakpoint-B) {
@@ -333,3 +337,30 @@ p.saved-list-co2.co2 {
 
 }
 
+
+@media screen and (min-width: $breakpoint-G) {
+  .saved-list {
+    width: 90vw;
+   
+   li, p, h3 {
+    font-size: 23px;
+   } 
+
+   .buttons-flexbox button {
+     font-size: 30px;
+   }
+
+  }
+
+}
+
+@media screen and (min-width: $breakpoint-G) {
+  .saved-list {
+   
+   li, p, h3 {
+    font-size: 26px;
+   } 
+
+  }
+
+}

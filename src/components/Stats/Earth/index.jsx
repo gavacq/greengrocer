@@ -21,9 +21,20 @@ export default function Earth({ products }) {
           <pointLight position={[10, 10, 2]} intensity={1} />
           <Main origin={origin} products={products} />
         </Suspense>
-        <OrbitControls enableZoom={false} />
+        <OrbitControls />
       </Canvas>
-      <Loader />
+      <Loader
+        containerStyles={{ background: 'white' }}
+        barStyles={{
+          height: '20px', width: '200px', color: 'green', background: 'green',
+        }}
+      />
+      <div className="globe-products-container">
+        <h3>Product Information</h3>
+        <h5>Label:</h5>
+        <h5>Latitude:</h5>
+        <h5>Longitude:</h5>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import { React, useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { React } from 'react';
+// import { useFrame } from '@react-three/fiber';
 import PropTypes from 'prop-types';
 
 import Planet from './Planet';
@@ -12,12 +12,12 @@ export default function Main({ products, origin }) {
     <Location lat={product.lat} long={product.long} origin={origin} key={i} />
   ));
 
-  const group = useRef();
-  useFrame(() => {
-    group.current.rotation.y += 0.003;
-  });
+  // const group = useRef();
+  // useFrame(() => {
+  //   group.current.rotation.y += 0.003;
+  // });
   return (
-    <group ref={group}>
+    <group position={[0, -1, 0]}>
       <Planet />
       <Clouds />
       {mappedLocations}

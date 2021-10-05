@@ -1,9 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
+import { Html } from '@react-three/drei';
 
 export default function Location({ lat, long, origin }) {
+  const [hover, setHover] = useState(false);
+
   // POINT LOCATION MATHS
   const newLat = lat * (Math.PI / 180);
   const newLong = long * (Math.PI / 180);
@@ -42,7 +45,7 @@ export default function Location({ lat, long, origin }) {
 
   useFrame(() => {
     let elapsedTime = Math.floor(clock1.getElapsedTime() * (lineLength ** 2));
-    if (elapsedTime > 480 || bezierPoints[elapsedTime] === undefined) {
+    if (elapsedTime > 495 || bezierPoints[elapsedTime] === undefined) {
       clock1.start();
     }
     elapsedTime = Math.floor(clock1.getElapsedTime() * (lineLength ** 2));
@@ -52,9 +55,27 @@ export default function Location({ lat, long, origin }) {
   });
   return (
     <>
+      <mesh
+        position={[x, y, z]}
+        onClick={() => console.log(lat, long)}
+        onPointerOver={() => setHover(true)}
+        onPointerOut={() => setHover(false)}
+      >
+        <sphereBufferGeometry attach="geometry" args={[0.3, 32, 32]} />
+        <meshStandardMaterial attach="material" color="#f73a73" transparent opacity={0.8} />
+      </mesh>
       <mesh ref={mesh}>
         <sphereBufferGeometry attach="geometry" args={[0.1, 32, 32]} />
         <meshPhongMaterial attach="material" color="#3bc05e" shininess={100} />
+        <Html scaleFactor={10}>
+          <div className="content">
+            Suspense
+            {' '}
+            <br />
+            {hover && 'helllllloooooooooooooooooooooo'}
+            ms
+          </div>
+        </Html>
       </mesh>
       <line geometry={lineGeometry}>
         <lineBasicMaterial attach="material" color="#9c88ff" linewidth={100} />

@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+li.saved-list-item {
+  color: rgba(0,0,0,0.7);
+}
+
 .search-and-new-list {
   padding: 0 0 15px 0;
   display: flex;
@@ -78,6 +82,7 @@
 
 .item-in-list {
   border: solid 4px rgb(166, 219, 156, 0.5);
+  background-color: rgb(244, 255, 229);
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 25px;

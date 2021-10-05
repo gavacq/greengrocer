@@ -74,9 +74,9 @@ export default function SavedList(props) {
         {mappedListItems}
       </div>
       <div className="buttons-flexbox">
-        <button className="delete-btn" type="button" onClick={() => deleteList(list.id)}>delete</button>
-        <button className="copy-btn" type="button" onClick={copyHandler}>copy</button>
         <button className="share-btn" type="button" onClick={shareHandler}>share</button>
+        <button className="copy-btn" type="button" onClick={copyHandler}>copy</button>
+        <button className="delete-btn" type="button" onClick={() => deleteList(list.id)}>delete</button>
       </div>
     </div>
   );

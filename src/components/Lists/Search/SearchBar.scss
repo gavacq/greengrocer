@@ -45,8 +45,8 @@ form.search-form {
   ::placeholder {
     color: $blue-btn-text;
     opacity: 0.8;
-    font-size: 20px;
-    padding-left: 17px;
+    font-size: 22px;
+    padding-left: 2.5%;
   }
 }
 
@@ -72,7 +72,7 @@ form.search-form {
   @include all-buttons;
   height: 120px;
   width: 130px;
-  font-size: 25px;
+  font-size: 28px;
   align-self: center;
 }
 
@@ -88,25 +88,24 @@ form.search-form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 22px;
 
     ::placeholder {
-      font-size: 25px;
+      font-size: 22px;
       padding-left: 10px;
     }
   }
+
+  .search-container h2 {
+    margin-bottom: 15px;
+  }
   
   .search-form input {
-    margin: 30px 0 30px 0;
-    height: 70px;
+    margin: 0px 0 30px 0;
+    padding-bottom: 2px; 
     width: 300px;
     font-size: 30px;
   }
-
-  .search-button {
-    height: 60px;
-    width: 130px;
-    font-size: 25px;
-  } 
 
 }
 
@@ -115,16 +114,15 @@ form.search-form {
 @media screen and (max-width: $breakpoint-A) {
 
   .search-form input {
-    width: 60vw;
-    font-size: 18px;
+    width: 70vw;
+    font-size: 20px;
     padding-left: 5px;
-
   }
 
   form.search-form {
   
     ::placeholder {
-      font-size: 18px;
+      font-size: 20px;
       padding-left: 5px;
     }
   }
@@ -150,10 +148,17 @@ form.search-form {
 
   form.search-form {
     flex-direction: row;
-    justify-content: center; 
+    justify-content: flex-start; 
+    align-items: baseline;
 
     .search-button {
-      margin-left: 5%;
+      height: 50px;
+      position: relative;
+      top: -13px;
+    }
+
+    input {
+      height: 70px;
     }
   }
 

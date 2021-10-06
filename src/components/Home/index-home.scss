@@ -20,7 +20,7 @@ main.home {
 
 .home-btn {
   @include all-buttons;
-  @include button-styles;
+  @include home-button-styles;
   width: 270px;
   height: 55px;
   font-size: 30px;

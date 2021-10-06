@@ -40,7 +40,7 @@ div.no-products-yet {
 }
 
 .save-btn {
-  @include button-styles;
+  @include green-button-styles;
   @include all-buttons;
   width: fit-content;
   height: 45px;
@@ -49,32 +49,44 @@ div.no-products-yet {
 }
 
 .btn-replace {
-  @include blue-button-styles;
   @include all-buttons;
-  border: solid 2.5px $blue-btn-border;
-  border-radius: 5px;
+  border: none;
+  background-color: $blue-btn-text;
+  color: $blue-btn-border;
+  border-radius: 10px;
   font-family: 'Rubik', sans-serif;
   font-size: 18px;
   font-weight: 500;
   height: 30px;
+  transition: background-color 0.5s;
+  // transition: color 0.3s;
 
   &:hover, &:active {
-    border: solid 2.5px $blue-btn-hover-border;
+    background-color: $blue-btn-background;
+    color: $blue-btn-text;
+    transition: background-color 0.5s;
+    transition: color 0.5s;
   }
-}
+} 
 
 .btn-remove {
-  @include delete-button-styles;
   @include all-buttons;
-  border: solid 2.5px $delete-btn-border;
-  border-radius: 5px;
+  border: none;
+  background-color: $delete-btn-hover-text;
+  color: $delete-btn-border;
+  border-radius: 10px;
   font-family: 'Rubik', sans-serif;
   font-size: 18px;
   font-weight: 500;
   height: 30px;
+  transition: background-color 0.5s;
+  transition: color 0.5s;
 
   &:hover, &:active {
-    border: solid 2.5px $delete-btn-hover-border; 
+    background-color: $delete-btn-background;
+    color: $delete-btn-text; 
+    transition: background-color 0.5s;
+    transition: color 0.5s;
   }
 }
 
@@ -303,7 +315,7 @@ p.saved-list-co2.co2 {
 }
 
 
-@media screen and (min-width: $breakpoint-C){
+@media screen and (min-width: $breakpoint-C) {
 
   p.saved-list-co2.co2 {
     margin-right: 5%;

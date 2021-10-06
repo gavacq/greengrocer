@@ -1,0 +1,104 @@
+@import "../styles/variables";
+
+// -------------------------- main App component styles ------------------------------- //
+
+div#root {
+  height: 100%;
+  height: fit-content;
+}
+
+.green {
+  background: $primary-green;
+  color: $primary-white;
+  height: 100vh;
+}
+
+.white {
+  background: $primary-white;
+  color: $primary-green;
+  padding-top: 30px;
+}
+
+
+// ------------ SVG wave styles ------------ //
+
+.wave {
+  position: absolute;
+  top: -205px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  height: 300px;  
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(157% + 1.3px);
+    height: 160px;
+    z-index: 10;
+}
+
+.wave .shape-fill {
+    fill: #FFFFFF;
+    position: absolute;
+}  
+
+// ------------ Footer styles ------------ //
+
+footer {
+  display: flex;
+  color: rgba(221, 248, 186, 0.9);
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $primary-green;
+  padding: 10px;
+  border-top: solid rgba(221, 248, 186, 0.5) 4px;
+  height: 130px;
+  width: 100vw;
+
+  h4 {
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: $primary-white;
+    opacity: 0.8;
+    letter-spacing: 1px;
+  }
+
+  .contact-item {
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+
+  .contact-us {
+    overflow: hidden;
+  }
+
+  .credits {
+    font-size: 13px;
+    margin-top: 13px;
+
+    a {
+      color: $footer-link;
+      text-decoration: none;
+
+      &:active, &:visited {
+        color: $footer-link;
+      }
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    flex-direction: column;
+  }
+  .social-icons i {
+    color: rgba(221, 248, 186, 0.8);
+    font-size: 30px;
+    padding-right: 15px;
+    margin-bottom: 5px;
+  }
+
+}

@@ -1,0 +1,127 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+
+// ----------------- styles for search bar ------------ //
+
+* {
+  box-sizing: border-box;
+}
+
+.search-title {
+  color: $blue-btn-border;
+}
+
+.search-container {
+  margin-bottom: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px 0 20px;
+}
+
+.search-container h2 {
+  margin-top: 30px;
+  font-size: 30px;
+  max-width: 70vw;
+  text-align: center;
+  opacity: 0.9;
+}
+
+form.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 50px 0 30px 0;
+  height: 150px;
+  width: 100%; 
+
+  ::placeholder {
+    color: $blue-btn-text;
+    opacity: 0.8;
+    font-size: 20px;
+    padding-left: 17px;
+  }
+}
+
+.search-form input {
+  border: solid $blue-btn-border 4px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background: $blue-btn-background;
+  font-family: "Rubik", sans-serif;
+  height: 150px;
+  color: $blue-btn-text;
+  font-size: 20px;
+  padding-left: 10px;
+  align-self: center;
+
+  &:active, &:hover {
+    background: $blue-btn-background-active;
+  }
+}
+
+.search-button {
+  @include button-styles;
+  @include all-buttons;
+  height: 120px;
+  width: 130px;
+  font-size: 25px;
+  align-self: center;
+}
+
+
+
+// --------------- Media queries ------------------ //
+
+
+// tablet/desktop
+@media screen and (min-width: $breakpoint-C) {
+
+  form.search-form {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    ::placeholder {
+      font-size: 25px;
+      padding-left: 10px;
+    }
+  }
+  
+  .search-form input {
+    margin: 30px 0 30px 0;
+    height: 70px;
+    width: 300px;
+    font-size: 30px;
+  }
+
+  .search-button {
+    height: 60px;
+    width: 130px;
+    font-size: 25px;
+  } 
+
+}
+
+
+// very small screens
+@media screen and (max-width: $breakpoint-A) {
+
+  .search-form input {
+    width: 60vw;
+    font-size: 18px;
+    padding-left: 5px;
+
+  }
+
+  form.search-form {
+  
+    ::placeholder {
+      font-size: 18px;
+      padding-left: 5px;
+    }
+  }
+
+}
+  

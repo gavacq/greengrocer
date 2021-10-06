@@ -1,0 +1,130 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+// ----------------- styles for products ------------ //
+
+p {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 35px;
+  font-weight: 450;
+  padding-left: 10px;
+}
+
+p.main-desc {
+  color: rgba(0,0,0,0.7);
+}
+
+p.product-info {
+  color: rgba(0,0,0,0.7);
+}
+
+.product-img {
+  text-align: center;
+}
+
+img.product {
+  width: 150px;
+  max-height: 200px;
+}
+
+.img-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  width: 90%;
+}
+
+.product-flexbox {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10% 0 10%;
+  margin-bottom: 45px;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    width: 80%;
+    text-align: left;
+    font-weight: 400;
+    margin-left: 13%;
+    margin-right: auto;
+  }
+
+  &:hover {
+    img, p {
+      opacity: 0.7;
+      transition: opacity 0.5s;
+    }
+  }
+}
+
+.add-btn {
+  @include green-button-styles;
+  @include all-buttons;
+  position: relative;
+  top: -15px;
+  height: 60px;
+  align-self: center;
+
+  span {
+    font-size: 55px;
+    padding: 10px;
+    position: relative;
+    top: -12px;
+  }
+}
+
+
+/* ---------------------- Media queries -------------------------- */
+
+// tablet and desktop
+@media screen and (min-width: $breakpoint-D) {
+
+  p {
+    font-size: 18px;
+    max-width: 75%;
+  }
+  
+  img.product{
+    width: 180px;
+    padding-right: 40px;
+
+  }
+
+  .product-flexbox {
+    width: 70vw;
+  }
+
+
+  .img-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+    width: 90%;
+    margin-right: 20px;
+  }
+
+}
+
+// desktop
+@media screen and (min-width: $breakpoint-E) {
+ 
+  
+  .add-btn {
+    padding-top: 20px;
+    margin-left: 10px;
+    width: 60%;
+    max-width: 200px;
+
+    span {
+      font-size: 30px;
+      position: relative;
+      text-align: left;
+    }
+  }
+
+}

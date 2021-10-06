@@ -1,0 +1,62 @@
+// -------------------------- Colors ------------------------------- //
+
+$primary-green: #50ab74;
+$primary-white: white;
+$pink-hover: #e08e93; // for white navbar items
+$green-hover: #ddf8ba;
+$likes-heart: #d75b63;
+$social-message: #3d865a; // text for social feed messages
+$footer-link: #ffc1ee;
+
+// pink button colors
+$btn-border: #B16E72;
+$btn-background: #E08E93;
+$btn-text: #FFE2E4;
+$btn-border-hover: #ca7e83;
+$btn-background-hover: #f1a7ac;
+$btn-text-hover: #ffeced;
+
+// red button colors
+$delete-btn-border: #8a3036;
+$delete-btn-background: rgb(192, 77, 85);
+$delete-btn-text: rgb(255, 186, 191);
+$delete-btn-hover-border: #9e383f;
+$delete-btn-hover-background: rgb(218, 89, 98);
+$delete-btn-hover-text: rgb(255, 207, 210);
+
+// blue button colors
+$blue-btn-border: #1d44a1;
+$blue-btn-background: #688de1;
+$blue-btn-background-active: #84a4ee;
+$blue-btn-text: rgb(192, 210, 247);
+$blue-btn-hover-text: rgb(229, 236, 253);
+$blue-btn-hover-border: #3962c0;
+
+// green button colors
+$green-btn-border: #50ab74;
+$green-btn-background: #73d99c;
+$green-btn-text: #d3ffe5;
+$green-btn-border-hover: #59be81;
+$green-btn-background-hover: #7ce9a7;
+$green-btn-text-hover: #edfff5;
+
+// home button colors
+$home-btn-border: #5ea0da;
+$home-btn-background: #86c4fa;
+$home-btn-text: rgb(202, 235, 255);
+$home-btn-border-hover: #65a8e2;
+$home-btn-background-hover: rgb(142, 212, 255);
+$home-btn-text-hover: rgb(218, 241, 255);
+// ------------------------- Media query breakpoints ------------------------- //
+
+// NOTE: breakpoints are ordered from smallest to largest screen width
+
+$breakpoint-A: 360px;
+$breakpoint-B: 400px; 
+$breakpoint-C: 700px;
+$breakpoint-D: 720px; 
+$breakpoint-E: 820px; 
+$breakpoint-F: 930px; 
+$breakpoint-G: 800px;
+$breakpoint-H: 820px;
+$breakpoint-I: 1000px;

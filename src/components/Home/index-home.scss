@@ -1,0 +1,65 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+// -------------------------- Home page styles ------------------------------- //
+
+.btn-wrapper {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+main.home {
+  background-color: $primary-green;
+  // max-height: fit-content;
+  // overflow: hidden;
+}
+
+.welcome {
+  background-color: $primary-white;
+}
+
+.home-btn {
+  @include all-buttons;
+  @include home-button-styles;
+  width: 270px;
+  height: 55px;
+  font-size: 30px;
+}
+
+form {
+  height: 60px;
+}
+
+h1 {
+  opacity: 0.95;
+  text-align: center;
+}
+
+
+.green {
+  background: $primary-green;
+  color: $primary-white;
+  height: 90vh; //was 100
+  width: 100vw;
+}
+
+// ------------ SVG wave styles ------------ //
+
+  .wave {
+    position: absolute;
+    top: -205px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    height: 300px;  
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(157% + 1.3px);
+    height: 160px;
+    z-index: 10;
+}

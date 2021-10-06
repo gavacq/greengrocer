@@ -1,0 +1,417 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+// ---------- style for lists page -------------- //
+
+* {
+  box-sizing: border-box;
+}
+
+h1.my-lists {
+  color: $btn-border;
+}
+
+li.saved-list-item {
+  color: rgba(0,0,0,0.7);
+}
+
+.new-list-content {
+  width: 90%;
+}
+
+.search-and-new-list {
+  padding: 0 0 15px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.save-btn {
+  @include button-styles;
+  @include all-buttons;
+  width: 65px;
+  height: 40px;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.btn-replace {
+  @include blue-button-styles;
+  @include all-buttons;
+  border: solid 2.5px $blue-btn-border;
+  border-radius: 5px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  height: 30px;
+
+  &:hover, &:active {
+    border: solid 2.5px $blue-btn-hover-border;
+  }
+}
+
+.btn-remove {
+  @include delete-button-styles;
+  @include all-buttons;
+  border: solid 2.5px $delete-btn-border;
+  border-radius: 5px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  height: 30px;
+
+  &:hover, &:active {
+    border: solid 2.5px $delete-btn-hover-border; 
+  }
+}
+
+.btn-flexbox {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5% 0 5%;
+}
+
+.new-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 15px;
+  background: rgb(221, 248, 186, 0.55);
+  border-radius: 10px;
+  height: fit-content;
+
+  p {
+    text-align: left;
+    width: 90%;
+    font-size: 18px;
+    font-weight: 400;
+    @include CO2-style;
+  }
+}
+
+.item-in-list {
+  border: solid 4px rgb(166, 219, 156, 0.5);
+  background-color: rgb(244, 255, 229);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+
+  p {
+    margin-left: 3.5%;
+  }
+
+}
+
+p.co2-saved-text {
+  margin-left: 10px;
+  padding-left: 0;
+  font-weight: 500;
+  @include CO2-style;
+
+  span.co2-desc {
+    color: $btn-border;
+  }
+}
+
+.saved-list-co2 {
+  color: $btn-border-hover;
+  opacity: 0.9;
+  text-align: right;
+  position: relative;
+  top: 12px;
+  @include CO2-style;
+}
+
+.all-lists-wrapper {
+  border-radius: 10px;
+  background-color: $btn-text-hover;
+  margin: 30px 0px 35px 0px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  padding: 15px;
+  border-radius: 10px;
+
+  h3 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    color: $btn-border;
+    margin-bottom: 25px;
+  }
+
+  h1 {
+    order: 1;
+  }
+}
+
+.saved-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  border: solid 4px rgb(245, 210, 212, 0.9);
+  background: rgb(255, 245, 245);
+  border-radius: 10px;
+  margin-bottom: 50px;
+  width: 90%;
+
+  li p {
+    text-align: left;
+    font-weight: 400;
+    padding: 0;
+  }
+}
+
+.delete-btn {
+  @include delete-button-styles;
+  @include all-buttons;
+  font-size: 18px;
+  padding: 5px;
+  width: fit-content;
+  height: auto;
+}
+
+.copy-btn {
+  @include blue-button-styles;
+  @include all-buttons;
+  font-size: 18px;
+  padding: 5px;
+  width: fit-content;
+  height: auto;
+}
+
+.share-btn {
+  @include green-button-styles;
+  @include all-buttons;
+  font-size: 18px;
+  padding: 5px;
+  width: fit-content;
+  height: auto;
+}
+
+.buttons-flexbox {
+  display: flex;
+  justify-content: space-around;
+}
+
+.green-btn {
+  @include green-button-styles;
+  @include all-buttons;
+  font-size: 30px;
+  height: 60px;
+  margin-bottom: 10px;
+  min-width: fit-content;
+  align-self: center;
+}
+
+.query-result-msg {
+  font-weight: 400;
+  opacity: 0.7;
+  color: $btn-background;
+}
+
+.co2 {
+  @include CO2-style;
+}
+
+li.saved-list-item {
+  margin-left: 15px;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+p.co2-desc {
+  color: $btn-background;
+  opacity: 0.9;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p.query-result-msg {
+    width: 400px;
+  }
+}
+
+.list-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+p.saved-list-co2.co2 {
+  margin-right: 2%;
+  position: relative;
+  top: -4px;
+}
+
+
+.mappedlist-container {
+  margin-bottom: 2.5%;
+}
+// ------------- Media queries ------------- //
+
+@media screen and (max-width: $breakpoint-B) {
+
+  .img-btn-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .copy-btn {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .saved-list {
+    width: 80vw;
+  }
+
+}
+
+
+@media screen and (min-width: $breakpoint-B){
+
+  .all-lists-wrapper {
+    margin-top: 40px;
+  }
+
+  .saved-list {
+    width: 70vw;
+
+    li p {
+      text-align: left;
+      font-weight: 400;
+      padding: 0;
+    }
+  }
+
+}
+
+
+@media screen and (min-width: $breakpoint-C){
+
+  p.saved-list-co2.co2 {
+    margin-right: 5%;
+  }
+
+  h1 {
+    margin-top: 10px;
+    font-size: 32px;
+  }
+
+  .saved-list {
+    padding: 30px 20px 0 10px;
+
+    h3 {
+      margin-left: 20px;
+    }
+
+    .buttons-flexbox {
+      margin-bottom: 25px;
+    }
+  }
+
+ 
+}
+
+
+
+@media screen and (min-width: $breakpoint-D) {
+
+
+  .search-and-new-list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .search-section {
+    margin-left: 3%;
+    flex-basis: 80vw;
+  }
+
+  .new-list-wrapper {
+    margin-right: 5vw;
+    max-width: 400px;
+    margin-left: 0;
+  }
+
+  .search-container {
+    max-width: 50vw;
+    // possible bug below 
+    width: fit-content; 
+    width: 95%;
+    padding: 0;
+  }
+
+  // div.item-in-list {
+  //   position: center;
+  // }
+
+  .buttons-flexbox { 
+    button {
+      flex-basis: 14vw;
+      height: auto;
+      font-size: 25px;
+    }
+  }
+
+  div.item-in-list {
+    max-width: 80%;
+    align-self: center;
+  }
+
+  .new-list-wrapper {
+   margin: 0;
+  }
+
+  .new-list-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+}
+
+
+@media screen and (min-width: $breakpoint-G) {
+  .saved-list {
+    width: 90vw;
+   
+   li, p, h3 {
+    font-size: 20px;
+   } 
+
+   .buttons-flexbox button {
+    font-size: 28px;
+  }
+
+  }
+
+}
+
+@media screen and (min-width: $breakpoint-H) {
+  
+  .saved-list {
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-left: 50px;
+    padding-right: 30px;
+  }
+
+}
+
+@media screen and (min-width: $breakpoint-I) {
+  
+  .new-list-wrapper {
+    width: 800px;
+    height: fit-content;
+    margin-right: 60px;
+  }
+
+  .buttons-flexbox button {
+    max-width: 150px;
+  }
+
+}

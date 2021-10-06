@@ -77,12 +77,12 @@
 @mixin home-button-styles {
   color: $home-btn-text;
   background-color: $home-btn-background;
-  border: solid 3px $home-btn-border;
+  border: solid 4px $home-btn-border;
 
   &:hover {
     background-color: $home-btn-background-hover;
     color: $home-btn-text-hover;
-    border: solid 3px $home-btn-border-hover;
+    border: solid 4px $home-btn-border-hover;
   }
 }
 

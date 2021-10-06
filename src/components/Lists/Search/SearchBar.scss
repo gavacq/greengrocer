@@ -8,10 +8,6 @@
   box-sizing: border-box;
 }
 
-.search-title {
-  color: $blue-btn-border;
-  margin-left: 5px;
-}
 
 .search-container {
   width: 100%;
@@ -26,12 +22,13 @@
 }
 
 .search-container h2 {
-  width: 100%;
+  width: 90%;
   margin-top: 30px;
   font-size: 30px;
-  max-width: 70vw;
+  max-width: 75vw;
   text-align: center;
   opacity: 0.9;
+  color: $blue-btn-border;
 }
 
 form.search-form {

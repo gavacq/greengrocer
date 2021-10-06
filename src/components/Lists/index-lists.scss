@@ -59,7 +59,7 @@ div.no-products-yet {
   font-weight: 500;
   height: 30px;
   transition: background-color 0.5s;
-  // transition: color 0.3s;
+  transition: color 0.3s;
 
   &:hover, &:active {
     background-color: $blue-btn-background;
@@ -390,7 +390,10 @@ p.saved-list-co2.co2 {
    margin: 0;
   }
 
-
+  .btn-flexbox {
+    min-width: 200px;
+    align-self: center;
+  }
 }
 
 

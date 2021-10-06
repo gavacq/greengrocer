@@ -17,7 +17,7 @@
     margin-bottom: 90px;
 }
 
-.stats-btn {
+.stats-btn, .fullscreen-btn {
     @include all-buttons;
     width: 200px;
     font-size: 30px;
@@ -31,4 +31,8 @@
 
 .stats-btn-blue {
     @include blue-button-styles;
+}
+
+.fullscreen-btn {
+    @include green-button-styles;
 }

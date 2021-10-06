@@ -69,7 +69,7 @@ export default function Earth({ products }) {
           Longitude:
           {` ${currentLong}`}
         </h5>
-        <button onClick={fullscreen} type="button">Fullscreen</button>
+        <button className="fullscreen-btn" onClick={fullscreen} type="button">Fullscreen</button>
       </div>
     </div>
   );

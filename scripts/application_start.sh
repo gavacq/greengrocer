@@ -22,4 +22,5 @@ export NVM_DIR="$HOME/.nvm"
 # npm run prod > app.out.log 2> app.err.log < /dev/null & 
 
 # start the app with pm2
+pm2 stop greengrocer && pm2 delete greengrocer
 pm2 start --name greengrocer npm -- run prod --

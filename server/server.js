@@ -46,7 +46,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: '*',
 };
 app.use(cors(corsOptions));
 

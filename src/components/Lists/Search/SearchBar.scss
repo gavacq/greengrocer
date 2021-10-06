@@ -13,16 +13,19 @@
 }
 
 .search-container {
+  width: 100%;
   margin-bottom: 45px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 0 20px 0 20px;
   background: rgb(218, 241, 255, 0.75);;
   border-radius: 10px;
 }
 
 .search-container h2 {
+  width: 100%;
   margin-top: 30px;
   font-size: 30px;
   max-width: 70vw;
@@ -72,9 +75,7 @@ form.search-form {
   align-self: center;
 }
 
-.search-container {
- width: 100%;
-}
+
 
 // --------------- Media queries ------------------ //
 

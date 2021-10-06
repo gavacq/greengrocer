@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+h1.my-lists {
+  color: $btn-border;
+}
+
 li.saved-list-item {
   color: rgba(0,0,0,0.7);
 }

@@ -37,7 +37,7 @@ export default function SearchBar(props) {
   return (
     <div className="search-container">
 
-      <h2>What are you looking for?</h2>
+      <h2 className="search-title">What are you looking for?</h2>
       <form className="search-form" onSubmit={(event) => event.preventDefault()}>
         <input
           placeholder="search for a product"

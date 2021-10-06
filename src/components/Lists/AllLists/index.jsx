@@ -27,7 +27,7 @@ export default function AllLists(props) {
 
   return (
     <section className="all-lists-wrapper">
-      <h1>My lists</h1>
+      <h1 className="my-lists">My lists</h1>
       {showAllLists()}
     </section>
   );

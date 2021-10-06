@@ -36,3 +36,20 @@
   height: fit-content;
   margin-top: 120px;
 }
+
+@media screen and (min-width: $breakpoint-I) {
+
+  .posts-wrapper {
+    margin-top: 170px;
+  }
+
+  .social-icon {
+    position: relative;
+    top: 50px;
+  }
+
+  h1.social-title {
+    margin-top: 80px;
+  }
+
+}

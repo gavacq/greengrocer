@@ -52,15 +52,18 @@ form.search-form {
   margin-bottom: 30px;
   border-radius: 10px;
   background: $blue-btn-background;
+  transition: background 0.4s;
   font-family: "Rubik", sans-serif;
   height: 150px;
-  color: $blue-btn-text;
+  color: $blue-btn-hover-text;
   font-size: 20px;
   padding-left: 10px;
   align-self: center;
+  
 
   &:active, &:hover {
-    background: $blue-btn-background-active;
+    background: #779bf0;
+    transition: background 0.4s;
   }
 }
 
@@ -148,16 +151,25 @@ form.search-form {
     width: 100%;
     justify-content: center; 
 
-    .search-button {
+    button.search-button {
       height: 50px;
       position: relative;
       top: -13px;
+      min-width: 120px;
+      margin-right: 10px;
     }
 
     input {
+      min-width: 250px;
       height: 70px;
-      margin-right: 50px;
+      margin-right: 30px;
+      margin-left: 10px;
     }
+  }
+
+  .search-container {
+    padding-left: 2%;
+    padding-right: 2%;
   }
 
 }

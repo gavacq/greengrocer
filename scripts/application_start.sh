@@ -19,4 +19,7 @@ export NVM_DIR="$HOME/.nvm"
 # cd ..
 
 #start our node app in the background. prod script installs modules automatically
-npm run prod > app.out.log 2> app.err.log < /dev/null & 
+# npm run prod > app.out.log 2> app.err.log < /dev/null & 
+
+# start the app with pm2
+pm2 start --name greengrocer npm -- run prod --

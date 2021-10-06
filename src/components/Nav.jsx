@@ -48,8 +48,28 @@ export default function Nav() {
     return 'GG-logo-small';
   };
 
+  const hamburgerHelper = () => {
+    if (hamburger) {
+      setHamburger(false);
+    } else {
+      setHamburger(true);
+    }
+  };
+
+  // change hamburger color on scroll
+  const changeHamburgerColor = () => {
+    if (window.scrollY >= 90) {
+      return 'hamburger-container hamburger-white';
+    }
+    return 'hamburger-container hamburger-green';
+  };
+
   const loginButton = () => (
-    <Link to="/login" className="desktop-menu-item">
+    <Link
+      to="/login"
+      className="desktop-menu-item"
+      onClick={() => { if (height > 90) { hamburgerHelper(); } }}
+    >
       <li>Login</li>
     </Link>
   );
@@ -78,22 +98,6 @@ export default function Nav() {
   };
 
   window.addEventListener('scroll', changeNavColor);
-
-  const hamburgerHelper = () => {
-    if (hamburger) {
-      setHamburger(false);
-    } else {
-      setHamburger(true);
-    }
-  };
-
-  // change hamburger color on scroll
-  const changeHamburgerColor = () => {
-    if (window.scrollY >= 90) {
-      return 'hamburger-container hamburger-white';
-    }
-    return 'hamburger-container hamburger-green';
-  };
 
   useEffect(() => {
     axios.get('/login')
@@ -132,10 +136,18 @@ export default function Nav() {
             </div>
 
             <ul className="desktop-menu" style={hamburger ? { display: 'none' } : { display: 'flex' }}>
-              <Link to="/lists" className="desktop-menu-item">
+              <Link
+                to="/lists"
+                className="desktop-menu-item"
+                onClick={() => { if (height > 90) { hamburgerHelper(); } }}
+              >
                 <li>Lists</li>
               </Link>
-              <Link to="/stats" className="desktop-menu-item">
+              <Link
+                to="/stats"
+                className="desktop-menu-item"
+                onClick={() => { if (height > 90) { hamburgerHelper(); } }}
+              >
                 <li>Stats</li>
               </Link>
               {user.auth ? logoutButton() : loginButton()}

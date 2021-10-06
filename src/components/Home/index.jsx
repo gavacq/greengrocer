@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './index-home.scss';
 import SocialFeed from '../SocialFeed';
 
@@ -10,8 +11,10 @@ export default function Home() {
           Reduce your groceries&apos; carbon footprint.
         </h1>
         <div className="btn-wrapper">
-          <form action="/lists">
-            <button type="submit" className="home-btn">create new list</button>
+          <form onSubmit={(e) => e.preventDefault()}>
+            <Link to="/lists">
+              <button type="button" className="home-btn">create new list</button>
+            </Link>
           </form>
         </div>
         <div className="icon planet">

@@ -17,18 +17,89 @@
     margin-bottom: 90px;
 }
 
-.stats-btn {
+.stats-btn, .fullscreen-btn {
     @include all-buttons;
     width: 200px;
     font-size: 30px;
-    align-self: center;
-    margin: 10px 10px 50px 10px;
+    align-self: flex-end;
+    margin: 10px 10% 50px 0;
 }
 
-.stats-btn-pink {
-    @include button-styles;
+.stats-btn-light-blue {
+    @include home-button-styles;
+    border: solid 3px $home-btn-border;
+
+    &:hover {
+    border: solid 3px $home-btn-border-hover;
+    }
 }
 
 .stats-btn-blue {
     @include blue-button-styles;
 }
+
+.fullscreen-btn {
+    @include green-button-styles;
+    align-self: flex-start;
+    margin-top: 20px;
+    font-size: 25px;
+    width: 160px;
+    margin-left: 0px;
+}
+
+.globe-products-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: flex-start;
+    max-width: 70%;
+    margin-top: 590px;
+    
+
+    h5 {
+        font-family: 'Rubik', open-sans;
+        font-weight: 300;
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: $blue-btn-border;
+
+        span {
+            font-weight: 500;
+        }
+    }
+
+    h3 {
+        font-family: 'Rubik', open-sans;
+        font-size: 25px;
+        margin-bottom: 30px;
+        font-weight: 300;
+        color: $green-btn-border-hover;     
+    }
+}
+
+@media screen and (min-width: $breakpoint-I) {
+
+    .globe-products-container {
+        margin-top: 0px;  
+        max-width: 400px; 
+
+    h5 {
+        font-family: 'Rubik', open-sans;
+        font-weight: 300;
+        font-size: 20px;
+        margin-bottom: 15px;
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    h3 {
+        font-family: 'Rubik', open-sans;
+        font-size: 25px;
+        margin-bottom: 40px;
+        font-weight: 300;
+    }
+  }
+
+}   

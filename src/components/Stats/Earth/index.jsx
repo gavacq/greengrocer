@@ -56,18 +56,18 @@ export default function Earth({ products }) {
         }}
       />
       <div className="globe-products-container">
-        <h3>Product Information</h3>
+        <h3>click on a red dot to show the product information</h3>
         <h5>
-          Product:
-          {` ${currentTitle}`}
+          <span>Product: </span>
+          {` ${currentTitle}°`}
         </h5>
         <h5>
-          Latitude:
-          {` ${currentLat}`}
+          <span>Latitude: </span>
+          {` ${currentLat}°`}
         </h5>
         <h5>
-          Longitude:
-          {` ${currentLong}`}
+          <span>Longitude: </span>
+          {` ${currentLong}°`}
         </h5>
         <button className="fullscreen-btn" onClick={fullscreen} type="button">Fullscreen</button>
       </div>

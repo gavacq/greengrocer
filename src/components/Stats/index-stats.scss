@@ -34,26 +34,66 @@
 }
 
 .fullscreen-btn {
-    @include home-button-styles;
+    @include green-button-styles;
     align-self: flex-start;
-    margin-top: 40px;
+    margin-top: 20px;
+    font-size: 25px;
+    width: 160px;
+    margin-left: 0px;
 }
 
 .globe-products-container {
-    border: solid red 3px;
     display: flex;
     flex-direction: column;
-    padding: 30px;
-   justify-content: flex-start;
-   max-width: 30%;
+    padding: 20px;
+    justify-content: flex-start;
+    max-width: 70%;
+    margin-top: 550px;
+    
 
     h5 {
         font-family: 'Rubik', open-sans;
-        font-weight: 500;
+        font-weight: 300;
         font-size: 20px;
+        margin-bottom: 15px;
+        color: $blue-btn-border;
+
+        span {
+            font-weight: 500;
+        }
     }
 
     h3 {
+        font-family: 'Rubik', open-sans;
         font-size: 25px;
+        margin-bottom: 30px;
+        font-weight: 300;
+        color: $blue-btn-background;     
     }
 }
+
+@media screen and (min-width: $breakpoint-I) {
+
+    .globe-products-container {
+        margin-top: 0px;   
+
+    h5 {
+        font-family: 'Rubik', open-sans;
+        font-weight: 300;
+        font-size: 20px;
+        margin-bottom: 15px;
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    h3 {
+        font-family: 'Rubik', open-sans;
+        font-size: 25px;
+        margin-bottom: 40px;
+        font-weight: 300;
+    }
+  }
+
+}   

@@ -68,7 +68,7 @@ export default function Nav() {
     <Link
       to="/login"
       className="desktop-menu-item"
-      onClick={() => { if (height > 90) { hamburgerHelper(); } }}
+      onClick={() => { if (width < 720) { hamburgerHelper(); } }}
     >
       <li>Login</li>
     </Link>
@@ -125,7 +125,6 @@ export default function Nav() {
           <Link
             to="/"
             className="logo-link"
-            onClick={() => { if (width < 720) { hamburgerHelper(); } }}
           >
             <div className="logo">
               <img className={changeLogoClass()} src={changeNavLogo()} alt="logo" />

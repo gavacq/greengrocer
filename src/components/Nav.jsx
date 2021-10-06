@@ -122,7 +122,11 @@ export default function Nav() {
     <div className={navColor ? 'nav-container sticky active' : 'nav-container sticky'}>
       <div className="wrapper">
         <nav>
-          <Link to="/" className="logo-link">
+          <Link
+            to="/"
+            className="logo-link"
+            onClick={() => { if (height > 90) { hamburgerHelper(); } }}
+          >
             <div className="logo">
               <img className={changeLogoClass()} src={changeNavLogo()} alt="logo" />
             </div>

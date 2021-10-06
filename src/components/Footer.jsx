@@ -6,7 +6,7 @@ export default function Footer() {
     <footer>
       <div className="contact-us">
         <h4>Contact us</h4>
-        <div className="contact-item">+1 6969 42020</div>
+        <div className="contact-item">+1 777 8888</div>
         <div className="contact-item">greengrocer@mail.com</div>
         <div className="credits">
           {/* eslint-disable-next-line */}

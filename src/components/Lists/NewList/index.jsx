@@ -108,7 +108,7 @@ export default function NewList(props) {
         <h1>New list</h1>
         {newListContents()}
       </div>
-      {(newList.products.length && user.auth) ? <button className="save-btn" type="button" onClick={saveList}>Save</button> : <></>}
+      {(newList.products.length && user.auth) ? <button className="save-btn" type="button" onClick={saveList}>Save list</button> : <></>}
     </section>
   );
 }

@@ -9,9 +9,14 @@
   font-family: "Fredoka One";
   letter-spacing: 0.7px;
   overflow-y: hidden;
+  transition: background-color 0.4s;
 
   &:active {
     transform: translateY(4px);
+  }
+
+  &:hover {
+    transition: background-color 0.4s;
   }
 }
 
@@ -19,11 +24,11 @@
 @mixin button-styles {
   color: $btn-text;
   background-color: $btn-background;
-  border: solid 4px $btn-border;
+  border: solid 3px $btn-border;
 
   &:hover {
     background-color: $btn-background-hover;
-    border: solid 4px $btn-border-hover;
+    border: solid 3px $btn-border-hover;
     color: $btn-text-hover;
   }
 }
@@ -32,11 +37,11 @@
 @mixin green-button-styles {
   color: $green-btn-text;
   background-color: $green-btn-background;
-  border: solid 4px $green-btn-border;
+  border: solid 3px $green-btn-border;
 
   &:hover {
     background-color: $green-btn-background-hover;
-    border: solid 4px $green-btn-border-hover;
+    border: solid 3px $green-btn-border-hover;
     color: $green-btn-text-hover;
   }
 }
@@ -46,12 +51,12 @@
 @mixin blue-button-styles {
   color: $blue-btn-text;
   background-color: $blue-btn-background;
-  border: solid 4px $blue-btn-border;
+  border: solid 3px $blue-btn-border;
 
   &:hover {
     background-color: $blue-btn-background-active;
     color: $blue-btn-hover-text;
-    border: solid 4px $blue-btn-hover-border;
+    border: solid 3px $blue-btn-hover-border;
   }
 }
 
@@ -59,12 +64,12 @@
 @mixin delete-button-styles {
   color: $delete-btn-text;
   background-color: $delete-btn-background;
-  border: solid 4px $delete-btn-border;
+  border: solid 3px $delete-btn-border;
 
   &:hover {
     background-color: $delete-btn-hover-background;
     color: $delete-btn-hover-text;
-    border: solid 4px $delete-btn-hover-border;
+    border: solid 3px $delete-btn-hover-border;
   }
 }
 

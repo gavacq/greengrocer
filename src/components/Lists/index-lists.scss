@@ -17,6 +17,20 @@ li.saved-list-item {
 
 .new-list-content {
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.no-products-yet {
+  align-self: flex-start;
+  position: center;
+  width: 400px;
+  margin-left: 5%;
+}
+.no-products-yet p {
+  margin: 0;
+  width: 300px;
 }
 
 .search-and-new-list {
@@ -321,8 +335,11 @@ p.saved-list-co2.co2 {
 
 
   .search-and-new-list {
+    margin-left: none;
+    padding-left: none;
     display: flex;
     flex-direction: row;
+    // justify-content: space-around;
   }
 
   .search-section {
@@ -344,10 +361,6 @@ p.saved-list-co2.co2 {
     padding: 0;
   }
 
-  // div.item-in-list {
-  //   position: center;
-  // }
-
   .buttons-flexbox { 
     button {
       flex-basis: 14vw;
@@ -363,12 +376,6 @@ p.saved-list-co2.co2 {
 
   .new-list-wrapper {
    margin: 0;
-  }
-
-  .new-list-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
 

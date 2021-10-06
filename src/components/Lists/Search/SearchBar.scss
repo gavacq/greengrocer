@@ -18,6 +18,8 @@
   flex-direction: column;
   justify-content: center;
   padding: 0 20px 0 20px;
+  background: rgb(218, 241, 255, 0.75);;
+  border-radius: 10px;
 }
 
 .search-container h2 {
@@ -70,7 +72,9 @@ form.search-form {
   align-self: center;
 }
 
-
+.search-container {
+ width: 100%;
+}
 
 // --------------- Media queries ------------------ //
 
@@ -124,4 +128,15 @@ form.search-form {
   }
 
 }
+  
+
+
+
+// @media screen and (min-width: $breakpoint-I) {
+
+//   h1.search-title {
+//     font-size: 90px;
+//   }
+
+// }
   

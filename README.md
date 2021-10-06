@@ -6,6 +6,7 @@ Reduce your groceries' carbon footprint.
 ## 🔧 project setup 
 1. run `npm install` in the root directory
 2. run `npm install` in the server directory
+3. run `npm run prod` in the root directory to deploy the app!
 
 ## 🪄 linting setup
 Following Airbnb's react style guide:

@@ -148,8 +148,8 @@ form.search-form {
 
   form.search-form {
     flex-direction: row;
-    justify-content: flex-start; 
-    align-items: baseline;
+    width: 100%;
+    justify-content: center; 
 
     .search-button {
       height: 50px;
@@ -159,6 +159,7 @@ form.search-form {
 
     input {
       height: 70px;
+      margin-right: 50px;
     }
   }
 

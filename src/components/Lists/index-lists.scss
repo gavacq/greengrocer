@@ -42,10 +42,10 @@ div.no-products-yet {
 .save-btn {
   @include button-styles;
   @include all-buttons;
-  width: 65px;
-  height: 40px;
-  margin-top: 30px;
-  font-size: 18px;
+  width: fit-content;
+  height: 45px;
+  margin-top: 23px;
+  font-size: 25px;
 }
 
 .btn-replace {

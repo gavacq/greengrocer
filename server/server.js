@@ -56,6 +56,7 @@ const io = new Server(httpServer, {
   cors: {
     ...corsOptions,
   },
+  path: '/ws/',
 });
 
 // Bring in External Routes

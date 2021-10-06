@@ -34,5 +34,26 @@
 }
 
 .fullscreen-btn {
-    @include green-button-styles;
+    @include home-button-styles;
+    align-self: flex-start;
+    margin-top: 40px;
+}
+
+.globe-products-container {
+    border: solid red 3px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+   justify-content: flex-start;
+   max-width: 30%;
+
+    h5 {
+        font-family: 'Rubik', open-sans;
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 25px;
+    }
 }

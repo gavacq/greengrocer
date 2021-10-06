@@ -58,7 +58,7 @@ export default function Earth({ products }) {
       <div className="globe-products-container">
         <h3>Product Information</h3>
         <h5>
-          Label:
+          Product:
           {` ${currentTitle}`}
         </h5>
         <h5>

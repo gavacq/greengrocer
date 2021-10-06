@@ -21,12 +21,17 @@
     @include all-buttons;
     width: 200px;
     font-size: 30px;
-    align-self: center;
-    margin: 10px 10px 50px 10px;
+    align-self: flex-end;
+    margin: 10px 10% 50px 0;
 }
 
-.stats-btn-pink {
-    @include button-styles;
+.stats-btn-light-blue {
+    @include home-button-styles;
+    border: solid 3px $home-btn-border;
+
+    &:hover {
+    border: solid 3px $home-btn-border-hover;
+    }
 }
 
 .stats-btn-blue {
@@ -48,7 +53,7 @@
     padding: 20px;
     justify-content: flex-start;
     max-width: 70%;
-    margin-top: 550px;
+    margin-top: 590px;
     
 
     h5 {
@@ -68,14 +73,15 @@
         font-size: 25px;
         margin-bottom: 30px;
         font-weight: 300;
-        color: $blue-btn-background;     
+        color: $green-btn-border-hover;     
     }
 }
 
 @media screen and (min-width: $breakpoint-I) {
 
     .globe-products-container {
-        margin-top: 0px;   
+        margin-top: 0px;  
+        max-width: 400px; 
 
     h5 {
         font-family: 'Rubik', open-sans;

@@ -59,7 +59,7 @@ export default function Earth({ products }) {
         <h3>click on a red dot to show the product information</h3>
         <h5>
           <span>Product: </span>
-          {` ${currentTitle}°`}
+          {` ${currentTitle}`}
         </h5>
         <h5>
           <span>Latitude: </span>

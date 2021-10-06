@@ -10,6 +10,7 @@
 
 .search-title {
   color: $blue-btn-border;
+  margin-left: 5px;
 }
 
 .search-container {
@@ -133,11 +134,32 @@ form.search-form {
 
 
 
-// @media screen and (min-width: $breakpoint-I) {
+@media screen and (min-width: $breakpoint-D) {
 
-//   h1.search-title {
-//     font-size: 90px;
-//   }
+  form.search-form {
+    margin-top: 10px;
+  }
+ 
+  .search-container {
+    height: 300px;
+  }
 
-// }
+}
+
+@media screen and (min-width: $breakpoint-I) {
+
+  form.search-form {
+    flex-direction: row;
+    justify-content: center; 
+
+    .search-button {
+      margin-left: 5%;
+    }
+  }
+
+}
+
+
+
+
   

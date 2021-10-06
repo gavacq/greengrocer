@@ -9,13 +9,13 @@ export default function Home() {
         <h1>
           Reduce your groceries&apos; carbon footprint.
         </h1>
-        <div className="icon planet">
-          <img src="images/planet-earth.png" alt="planet icon" />
-        </div>
         <div className="btn-wrapper">
           <form action="/lists">
             <button type="submit" className="home-btn">create new list</button>
           </form>
+        </div>
+        <div className="icon planet">
+          <img src="images/planet-earth.png" alt="planet icon" />
         </div>
       </section>
       <SocialFeed />

@@ -132,10 +132,26 @@ export default function Nav() {
             </div>
 
             <ul className="desktop-menu" style={hamburger ? { display: 'none' } : { display: 'flex' }}>
-              <Link to="/lists" className="desktop-menu-item">
+              <Link
+                to="/lists"
+                className="desktop-menu-item"
+                onClick={() => {
+                  if (width < 720) {
+                    hamburgerHelper();
+                  }
+                }}
+              >
                 <li>Lists</li>
               </Link>
-              <Link to="/stats" className="desktop-menu-item">
+              <Link
+                to="/stats"
+                className="desktop-menu-item"
+                onClick={() => {
+                  if (width < 720) {
+                    hamburgerHelper();
+                  }
+                }}
+              >
                 <li>Stats</li>
               </Link>
               {user.auth ? logoutButton() : loginButton()}

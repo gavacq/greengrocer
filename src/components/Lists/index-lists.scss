@@ -397,3 +397,13 @@ p.saved-list-co2.co2 {
   }
 
 }
+
+@media screen and (min-width: $breakpoint-I) {
+  
+  .new-list-wrapper {
+    width: 800px;
+    height: fit-content;
+    margin-right: 60px;
+  }
+
+}

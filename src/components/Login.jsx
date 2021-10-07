@@ -28,40 +28,37 @@ export default function Login() {
   };
 
   return (
-    <main>
+    <main className="login-section">
       <h1 className="login">
         GreenGrocer login
       </h1>
       <section>
         <form onSubmit={handleSubmit} className="login-form">
-          <div className="inputs">
-            <label
-              htmlFor="email"
-            >
-              email
-              <input
-                className="login-inputs"
-                type="email"
-                id="email"
-                value={email}
-                required
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </label>
 
-            <label
-              htmlFor="email"
-            >
-              password
-              <input
-                className="login-inputs"
-                type="password"
-                id="password"
-                value={password}
-                required
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </label>
+          <div className="email-input">
+            <i className="far fa-envelope" />
+            <input
+              className="login-inputs"
+              placeholder="email"
+              type="email"
+              id="email"
+              value={email}
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="password-input">
+            <i className="fas fa-key" />
+            <input
+              className="login-inputs"
+              placeholder="password"
+              type="password"
+              id="password"
+              value={password}
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
           <br />
           <button type="submit" className="login-btn">Login</button>

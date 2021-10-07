@@ -72,6 +72,26 @@ footer {
     font-size: 15px;
   }
 
+  .linkedin {
+    display: flex;
+    flex-direction: flex-start;
+    justify-content: space-between;
+   
+    a, a:visited {
+      margin-right: 20px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      color: $footer-link;
+      transition: color 0.5s;
+    }
+
+    a:hover {
+      color: #aef4f8;
+      transition: color 0.5s;
+    }
+  }
+
   .contact-us {
     overflow: hidden;
   }

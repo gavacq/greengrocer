@@ -6,8 +6,11 @@ export default function Footer() {
     <footer>
       <div className="contact-us">
         <h4>Contact us</h4>
-        <div className="contact-item">+1 777 8888</div>
-        <div className="contact-item">greengrocer@mail.com</div>
+        <div className="linkedin">
+          <div className="contact-item"><a href="https://www.linkedin.com/in/lliam-mcbean/">Lliam McBean</a></div>
+          <div className="contact-item"><a href="https://www.linkedin.com/in/solene-delumeau/">Solene Delumeau</a></div>
+          <div className="contact-item"><a href="https://www.linkedin.com/in/gacquroff/">Gavin Acquroff</a></div>
+        </div>
         <div className="credits">
           {/* eslint-disable-next-line */}
           Icons by <a href="https://www.freepik.com" title="Freepik">Freepik </a>

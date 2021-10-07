@@ -28,14 +28,14 @@ export default function Login() {
   };
 
   return (
-    <main>
+    <main className="login-section">
       <h1 className="login">
         GreenGrocer login
       </h1>
       <section>
         <form onSubmit={handleSubmit} className="login-form">
 
-          <div className="inputs">
+          <div className="email-input">
             <i className="far fa-envelope" />
             <input
               className="login-inputs"
@@ -46,7 +46,9 @@ export default function Login() {
               required
               onChange={(e) => setEmail(e.target.value)}
             />
+          </div>
 
+          <div className="password-input">
             <i className="fas fa-key" />
             <input
               className="login-inputs"
@@ -57,7 +59,6 @@ export default function Login() {
               required
               onChange={(e) => setPassword(e.target.value)}
             />
-
           </div>
           <br />
           <button type="submit" className="login-btn">Login</button>

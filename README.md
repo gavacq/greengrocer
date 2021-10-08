@@ -3,6 +3,14 @@
 # 🌏 GreenGrocer 🌍
 Reduce your groceries' carbon footprint.
 
+![Home page](/public/images/GG-1.png)
+![social feed](/public/images/GG-2.png)
+![search feature](/public/images/GG-3.png)
+![search feature](/public/images/GG-4.png)
+![globe feature](/public/images/GG-5.png)
+![graph feature](/public/images/GG-6.png)
+
+
 ## 🔧 project setup 
 1. run `npm install` in the root directory
 2. run `npm install` in the server directory

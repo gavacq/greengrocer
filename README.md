@@ -3,12 +3,12 @@
 # 🌏 GreenGrocer 🌍
 Reduce your groceries' carbon footprint.
 
-![Home page](/public/images/GG-1.png)
-![social feed](/public/images/GG-2.png)
-![search feature](/public/images/GG-3.png)
-![search feature](/public/images/GG-4.png)
-![globe feature](/public/images/GG-5.png)
-![graph feature](/public/images/GG-6.png)
+![Home page](./public/images/screenshots/GG-1.png)
+![social feed](./public/images/screenshots/GG-2.png)
+![search feature](./public/images/screenshots/GG-3.png)
+![search feature](./public/images/screenshots/GG-4.png)
+![globe feature](./public/images/screenshots/GG-5.png)
+![graph feature](./public/images/screenshots/GG-6.png)
 
 
 ## 🔧 project setup 

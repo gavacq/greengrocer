@@ -2,6 +2,7 @@
 
 # 🌏 GreenGrocer 🌍
 Reduce your groceries' carbon footprint.
+Visit now ---> greengrocer.me
 
 ![Home page](./public/images/screenshots/GG-1.png)
 ![social feed](./public/images/screenshots/GG-2.png)

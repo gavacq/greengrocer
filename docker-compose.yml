@@ -1,0 +1,37 @@
+version: "3"
+services:
+    client:
+        container_name: greengrocer_client
+        build:
+          context: ./client
+          dockerfile: Dockerfile
+        ports:
+          - "3000:3000"
+        volumes:
+          - ./client:/usr/src/greengrocer
+        command: sh -c "npm run start"
+    server:
+        container_name: greengrocer_server
+        build:
+          context: ./server
+          dockerfile: Dockerfile
+        ports:
+          - "8081:8081"
+        volumes:
+          - ./server:/usr/src/greengrocer
+        depends_on:
+          - db
+        command: sh -c "npm run dev"
+    db:
+        container_name: greengrocer_db
+        image: postgres
+        ports:
+          - "5432:5432"
+        volumes:
+          - db:/var/lib/postgresql/data
+        environment:
+          - POSTGRES_PASSWORD=1
+
+volumes:
+  db:
+  

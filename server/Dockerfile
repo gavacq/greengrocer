@@ -1,7 +1,7 @@
-FROM node
-RUN mkdir -p /app
-WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY package.json /app/package.json
-COPY package-lock.json /app/package-lock.json
+FROM node:lts
+WORKDIR /usr/local/
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
+ENV PATH /usr/local/node_modules/.bin:$PATH
+WORKDIR /usr/local/app

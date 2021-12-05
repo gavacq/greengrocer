@@ -5,7 +5,7 @@ const path = require('path');
 // load .env data into process.env
 
 // specify path to the .env file since it is not in the root directory
-const dotenvPath = path.join(__dirname, '..', '.env');
+const dotenvPath = path.join(__dirname, '../..', '.env');
 require('dotenv').config({ path: dotenvPath });
 
 // other dependencies

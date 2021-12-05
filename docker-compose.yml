@@ -1,25 +1,18 @@
-# May need to exclude host node_modules and delete if present: https://burnedikt.com/dockerized-node-development-and-mounting-node-volumes/
 version: "3"
 services:
-    client:
-        container_name: greengrocer_client
+    app:
+        container_name: greengrocer_app
         build:
-          context: ./client
+          context: .
           dockerfile: Dockerfile
         ports:
           - "3000:3000"
         volumes:
-          - ./client:/usr/local/app
-        command: sh -c "npm run start"
-    server:
-        container_name: greengrocer_server
-        build:
-          context: ./server
-          dockerfile: Dockerfile
-        ports:
-          - "8081:8081"
-        volumes:
-          - ./server:/usr/local/app
+          - .:/usr/local/app
+          # These volumes are to prevent overwriting node_modules in the container when we bind mount host directory, which is not expected to have node_modules
+          # May need to exclude host node_modules and delete if present: https://burnedikt.com/dockerized-node-development-and-mounting-node-volumes/
+          - client_nodemodules:/usr/local/app/node_modules
+          - server_nodemodules:/usr/local/app/server/node_modules
         depends_on:
           - db
         command: sh -c "npm run dev"
@@ -31,8 +24,11 @@ services:
         volumes:
           - db:/var/lib/postgresql/data
         environment:
-          - POSTGRES_PASSWORD=1
-
+          - POSTGRES_USER=${POSTGRES_USER}
+          - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+          - POSTGRES_DB=${POSTGRES_DB}
 volumes:
   db:
+  client_nodemodules:
+  server_nodemodules:
   

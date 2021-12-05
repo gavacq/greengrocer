@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   console.log('running in development!');
 
-  dotenvPath = '.';
+  dotenvPath = '../.env';
 }
 require('dotenv').config({ path: dotenvPath });
 // socket.io

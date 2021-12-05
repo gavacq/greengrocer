@@ -30,13 +30,13 @@ To lint the entire repository, run `npm run lint`
 2. open postgreSQL interactive terminal (psql) inside the project's root directory
 3. run `\i db/schema/schema.sql` to create the tables 
 4. run `\i db/seeds/01_users.sql` to seed the database
-5. create a .env file inside the server directory and fill in the required fields:
+5. create a .env file inside the root directory and fill in the required fields:
 ```
-DB_HOST=hostname
-DB_USER=username
-DB_PASS=password
-DB_NAME=databasename
-DB_PORT=portnumber
+POSTGRES_HOST=hostname
+POSTGRES_USER=username
+POSTGRES_PASSWORD=password
+POSTGRES_DB=databasename
+POSTGRES_PORT=portnumber
 ```
 6. for a full database reset, run `npm run reset-db` from the root directory
 

@@ -4,7 +4,7 @@ services:
         container_name: greengrocer_app
         build:
           context: .
-          dockerfile: Dockerfile
+          dockerfile: Dockerfile.dev
         ports:
           - "3000:3000"
           - "8081:8081"
@@ -16,7 +16,7 @@ services:
           - server_nodemodules:/usr/local/app/server/node_modules
         depends_on:
           - db
-        command: sh -c "npm run dev"
+        command: sh -c "npm run prod"
     db:
         container_name: greengrocer_db
         image: postgres

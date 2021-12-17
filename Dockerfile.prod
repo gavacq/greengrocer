@@ -7,4 +7,4 @@ RUN npm run build
 WORKDIR /usr/local/app/server
 RUN pwd
 RUN npm install
-EXPOSE $PORT
+CMD ["npm", "run", "prod"]

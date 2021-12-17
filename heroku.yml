@@ -1,0 +1,9 @@
+setup:
+  addons:
+  - plan: heroku-postgresql
+    as: db
+build:
+  docker:
+    app: Dockerfile
+run:
+  app: npm run prod

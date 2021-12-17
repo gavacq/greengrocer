@@ -7,6 +7,4 @@ RUN npm run build
 WORKDIR /usr/local/app/server
 RUN pwd
 RUN npm install
-# WORKDIR sets dir for docker-compose commands to run
-RUN npm run prod
 EXPOSE $PORT

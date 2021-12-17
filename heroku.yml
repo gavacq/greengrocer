@@ -4,6 +4,6 @@ setup:
     as: db
 build:
   docker:
-    app: Dockerfile.prod
+    web: Dockerfile.prod
 run:
-  app: npm run prod
+  web: npm run prod

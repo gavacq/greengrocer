@@ -7,14 +7,13 @@ const cookieSession = require('cookie-session');
 let dotenvPath = '';
 if (process.env.NODE_ENV === 'production') {
   console.log('running in production!');
-
-  dotenvPath = '../../greengrocerenv/.env';
+  dotenvPath = '../.env';
 } else {
   console.log('running in development!');
-
   dotenvPath = '../.env';
 }
 require('dotenv').config({ path: dotenvPath });
+
 // socket.io
 const { createServer } = require('http');
 const { Server } = require('socket.io');

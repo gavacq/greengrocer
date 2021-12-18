@@ -10,3 +10,4 @@
    2. https://github.com/marketplace/actions/deploy-to-heroku#set-stack-for-your-app
       1. don't need to set `usedocker` flag since `heroku.yml` will build our image for us
    3. https://github.com/AkhileshNS/heroku-deploy
+4. Add custom domain https://devcenter.heroku.com/articles/custom-domains

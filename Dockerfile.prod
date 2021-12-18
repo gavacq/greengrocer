@@ -1,0 +1,10 @@
+FROM node:lts
+WORKDIR /usr/local/app
+RUN pwd
+COPY . ./
+RUN npm install
+RUN npm run build
+WORKDIR /usr/local/app/server
+RUN pwd
+RUN npm install
+CMD ["npm", "run", "prod"]

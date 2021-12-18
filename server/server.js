@@ -7,14 +7,13 @@ const cookieSession = require('cookie-session');
 let dotenvPath = '';
 if (process.env.NODE_ENV === 'production') {
   console.log('running in production!');
-
-  dotenvPath = '../../greengrocerenv/.env';
+  dotenvPath = '../.env';
 } else {
   console.log('running in development!');
-
   dotenvPath = '../.env';
 }
 require('dotenv').config({ path: dotenvPath });
+
 // socket.io
 const { createServer } = require('http');
 const { Server } = require('socket.io');
@@ -29,7 +28,7 @@ db.connect();
 
 // Express Configuration
 const app = express();
-const PORT = 8081;
+const PORT = process.env.PORT || 8081;
 app.use(morgan('dev'));
 // Keys are 256 bits of random data from crypto.randomBytes
 const key1 = process.env.COOKIE_KEY1;

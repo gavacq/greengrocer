@@ -5,11 +5,14 @@ const cors = require('cors');
 const cookieSession = require('cookie-session');
 
 let dotenvPath = '';
+let ORIGIN_URL = '';
 if (process.env.NODE_ENV === 'production') {
   console.log('running in production!');
+  ORIGIN_URL = '*';
   dotenvPath = '../.env';
 } else {
   console.log('running in development!');
+  ORIGIN_URL = '*';
   dotenvPath = '../.env';
 }
 require('dotenv').config({ path: dotenvPath });
@@ -45,7 +48,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: ORIGIN_URL,
 };
 app.use(cors(corsOptions));
 
